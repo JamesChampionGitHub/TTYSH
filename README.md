@@ -1,4 +1,4 @@
-# TTYSH (ARCHIVED)
+# TTYSH 
 
 ## Running/Installation:
 
