@@ -1968,7 +1968,7 @@ printf "\n%s" ""
 		vim
 		;;
 		ca)
-		bc -l
+		screen -c /home/"$USER"/.screenrc.calculator
 		;;
 		sp)
 		sc-im
