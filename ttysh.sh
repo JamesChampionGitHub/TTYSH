@@ -1752,7 +1752,8 @@ printf "\n%s" ""
 		devour librewolf
 		;;
 		i)
-		ping jameschampion.xyz
+		#screen -c /home/"$USER"/.screenrc.ping
+		ping -c 3 jameschampion.xyz
 		;;
 		sch)
 		calenderschedule
