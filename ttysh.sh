@@ -570,6 +570,8 @@ printf "\n" ""
 
 bookmark=$(cat /home/"$USER"/.bookmarks_ttysh.html | /home/"$USER"/.fzf/bin/fzf -i --prompt "Pick a bookmark: ") 
 
+#[ "$splash" = /dev/pts/ ] && casefzfbookmark && return || lynx "$bookmark"
+
 [ "$splash" = /dev/pts/ ] && casefzfbookmark && return || browsh --startup-url "$bookmark"
 	
 #printf "\n" ""
@@ -645,6 +647,8 @@ done
 websearch () {
 
 printf "\n" ""
+
+#[ "$splash" = /dev/pts/ ] && casewebsearch && return || read -p "Search: " webpick && lynx searx.be/search?q="$webpick"
 
 [ "$splash" = /dev/pts/ ] && casewebsearch && return || read -p "Search: " webpick && browsh --startup-url searx.be/search?q="$webpick"
 	
