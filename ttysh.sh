@@ -97,7 +97,7 @@ Key: () denote shortcut keys, e.g. (b) means pressing the b key in the selector 
 
 			reattach (cmus) screen session/
 
-			cmus-control: (ne)xt/ (pr)evious/ (p)ause/ (f)orward/ (st)atus/ (pi)ck a song
+			cmus-control: (ne)xt/ (pr)evious/ (p)ause/ (f)orward/ (st)atus/ (pi)ck a song/
 
 			alsa (au)to setting/
 
