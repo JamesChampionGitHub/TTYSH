@@ -2,6 +2,8 @@
 
 ## Running/Installation:
 
+Personal Project - Only Recommended For Testing/Learning Use
+
 Works on Arch Linux based systems with the Pacman package manager. It is recommended to run on a fresh install and a base install. Backup any important files to avoid data loss.
 
 Download the zip and extract the files. Run the following in the extracted folder:
@@ -10,7 +12,7 @@ Download the zip and extract the files. Run the following in the extracted folde
 ./ttysh.sh
 ```
 
-You will be prompted to run the config. Run this to be able to use TTYSH correctly.
+You will be prompted to run the config (currently incomplete, requires updates). Run this to be able to use TTYSH correctly.
 
 Now that your system is configured, just run:
 
