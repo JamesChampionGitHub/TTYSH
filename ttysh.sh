@@ -1172,7 +1172,7 @@ while [ 1 ]; do
 	esac
 done
 
-printf "\n%s\n%s\n" "\nPlease enter the name of your disk. e.g. sdb. Do not enter any number, as these will be partitions, and we will be formatting the whole disk." "Be careful not to format the wrong drive!"
+printf "\n%s\n%s\n" "Please enter the name of your disk. e.g. sdb. Do not enter any number, as these will be partitions, and we will be formatting the whole disk." "Be careful not to format the wrong drive!"
 
 	read answer
 
@@ -1183,6 +1183,7 @@ printf "\n%s\n" "We need to now create your encrypted partition..."
 lsblk
 
 printf "\n%s\n" "What is the new partition name of your drive? e.g. sdb1 ?"
+
 	read setuuid
 
 cryptsetup luksFormat /dev/"$setuuid"
@@ -2259,4 +2260,3 @@ while [ 1 ]; do
 		;;
 	esac
 done
-
