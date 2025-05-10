@@ -1544,7 +1544,7 @@ planner () {
 
 #cmuscheck
 
-printf "\n%s\n\n" "Start/Choose some music?"
+printf "\n%s\n\n" "Start Cmus Under Screen Session?"
 
 while [ 1 ]; do
 	
@@ -1553,9 +1553,9 @@ while [ 1 ]; do
 	case "$cmuspick" in
 		y)
 		#screen -q -r cmus
-		screen -r
 		#cmus
 		#fzfcmus
+		screen cmus
 		break
 		;;
 		n)
