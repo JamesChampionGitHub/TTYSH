@@ -1,0 +1,19 @@
+
+split
+
+focus up
+
+chdir /home/"$USER"/Videos/
+
+screen -t newsboat /usr/bin/newsboat
+
+focus down
+
+chdir /home/"$USER"/Videos/
+
+screen -t bash /bin/bash
+
+screen -t ./yt.sh /home/"$USER"/TTYSH/resources.yt.sh
+
+focus up
+

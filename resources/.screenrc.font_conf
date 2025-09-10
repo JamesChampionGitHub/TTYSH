@@ -1,0 +1,14 @@
+
+split
+
+focus up
+
+chdir /usr/share/kbd/consolefonts
+
+screen -t vim /usr/bin/vim /usr/share/kbd/consolefonts
+
+focus down
+
+screen -t vim /usr/bin/vim /etc/vconsole.conf
+
+focus up

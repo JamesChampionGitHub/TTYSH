@@ -1,0 +1,15 @@
+
+split
+
+focus up
+
+screen -t vim /usr/bin/vim /home/"$USER"/TTYSH/resources/notes.txt
+
+focus down
+
+chdir /home/"$USER"/
+
+screen -t bash /bin/bash
+
+focus up
+

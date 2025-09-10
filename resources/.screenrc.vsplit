@@ -1,0 +1,13 @@
+
+split -v
+
+focus left
+
+screen -t bash /bin/bash
+
+focus right
+
+screen -t bash /bin/bash
+
+focus left
+

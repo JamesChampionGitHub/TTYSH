@@ -1,0 +1,1 @@
+screen -t /home/"$USER"/resources./.testclock.sh /home/"$USER"/resources/.testclock.sh

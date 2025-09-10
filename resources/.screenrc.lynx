@@ -1,0 +1,15 @@
+
+split
+
+focus up
+
+chdir /home/"$USER"/Downloads
+
+screen -t bash /bin/bash
+
+screen -t ./mpv_fzf_screen.sh /home/"$USER"/TTYSH/resources/.mpv_fzf_screen.sh
+
+focus down
+
+screen -t lynx /usr/bin/lynx /home/"$USER"/Downloads
+

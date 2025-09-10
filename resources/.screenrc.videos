@@ -1,0 +1,17 @@
+
+split
+
+focus up
+
+screen -t vim /usr/bin/vim /home/"$USER"/Videos
+
+focus down
+
+chdir /home/"$USER"/Videos
+
+screen -t bash /bin/bash
+
+screen -t exec bash ./mpv_fzf_screen_videos.sh /home/"$USER"/TTYSH/resources/.mpv_fzf_screen_videos.sh
+
+focus up
+

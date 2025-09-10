@@ -1,0 +1,15 @@
+
+split
+
+focus up
+
+screen -t vim /usr/bin/vim /home/"$USER"/.config/mutt/muttrc
+
+focus down
+
+chdir /home/"$USER"/.config/mutt/
+
+screen -t bash /bin/bash
+
+focus up
+

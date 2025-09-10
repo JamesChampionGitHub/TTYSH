@@ -1,0 +1,1 @@
+screen -t watch date /usr/bin/watch /usr/bin/date 

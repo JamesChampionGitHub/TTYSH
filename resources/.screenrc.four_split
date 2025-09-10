@@ -1,0 +1,32 @@
+
+split
+
+split -v
+
+focus down
+
+split -v
+
+focus up
+
+focus left
+
+screen -t bash /bin/bash
+
+focus right
+
+screen -t bash /bin/bash
+
+focus left
+
+focus down
+
+screen -t bash /bin/bash
+
+focus right
+
+screen -t bash /bin/bash
+
+focus up
+
+focus left

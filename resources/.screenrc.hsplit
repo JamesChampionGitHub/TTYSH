@@ -1,0 +1,13 @@
+
+split
+
+focus up
+
+screen -t bash /bin/bash
+
+focus down
+
+screen -t bash /bin/bash
+
+focus up
+

@@ -1,0 +1,60 @@
+TO DO:
+
+add network manager: not specificially network manager, as must already have internet installed on arch
+work on user enviroment for sudo/root user, e.g. cat out notes. suggest if statement
+use /dev/null for errors
+Mouse support for browsh with gpm
+
+
+ISSUES:
+
+Done: yay install asking to Y/n. --noconfirm not working. 
+	Fix: --noconfirm added to makepkg. Needs testing.
+
+Done: mutt configuration file missing when issuing mu.
+	Fix: hopefully, mkdir -p directory for mutt and touch muttrc. Needs testing.
+
+Done: notes and birthdays files are missing.
+	Fix: hopefully, correct paths now. Needs testing.
+
+Done: Not automating Y on installtion of go.
+	Fix: hopefully, installing go before yay to avoid the issue. Needs testing.
+
+Done: Random opening of fzf before Browsh, something weird with opening.
+	Fix: hopefully, needed to exit out special characters with the \ echo commands. Needs testing.
+
+Done: move TTYSH to /usr/lib/bin thing, and chmod/chown it to root. 
+	Fix: as above. Requires more testing.
+
+ToDo: Random ttysh.sh generation?
+	Possible fix: see above.
+
+Done: hasn't made muttrc?
+	Fix: hopefully, see regarding issue with fzf, exiting out of "". Needs testing.
+
+
+COMPLETED:
+
+Done: yt-dlp needs to save the videos and music in the Videos directory. Tested.
+
+Done: splash screen: added, but requires if statement located in the /usr/local/ for mpv and config
+NOTE: future usage of [[]] to be done.
+
+Done: splash screen: devour window in xorg
+
+No: if xorg for lock screen and fzf video etc...
+NOTE: not adding, as impractical. Should drop to TTY to lock.
+
+Done: add weather shortcut 
+NOTE: weather can be searched. Glitches terminal at the bottom of i3/xterm/
+
+Done: replace echo with printf
+
+Done: have fzf default from home ~
+	Fix: added find to command sub
+
+Done: fix killx not working with x key
+	Fix: used pkill
+
+Done: change text size
+	Fix: uses .screenrc file with split for listing fonts and vconsole.conf file edit

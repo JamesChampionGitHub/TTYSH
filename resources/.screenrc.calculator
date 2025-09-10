@@ -1,0 +1,1 @@
+screen -t bc -l /usr/bin/bc

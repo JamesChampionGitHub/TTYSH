@@ -1,0 +1,17 @@
+
+split
+
+focus up
+
+screen -t cmus /usr/bin/cmus
+
+focus down
+
+chdir /home/"$USER"/
+
+screen -t bash /bin/bash
+
+screen -t ./ttysh.sh /home/"$USER"/TTYSH/ttysh.sh
+
+focus up
+
