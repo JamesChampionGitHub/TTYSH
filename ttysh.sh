@@ -236,7 +236,7 @@ helpflags () {
 
 options=$(printf "\n%s\n" "eofhelp fzfcmus websearch bookmarkcheck fzfxorgvid fzfttyvid fzfvim fzfpdf yt ytmusic weather planner" |
        	tr ' ' '\n' |
-       	/home/"$USER"/.fzf/bin/fzf -i --prompt "Pick the option that you would like: ")
+       	fzf -i --prompt "Pick the option that you would like: ")
 
 "$options"
 }
@@ -493,7 +493,7 @@ sudo pacman -S --noconfirm htop
 
 # make ttysh help/selection
 
-printf "\n%b\n\n%b\n\n\t\t%b\n\n%b\n\n\t\t\t%b\n\n\t\t\t%b\n\n\t\t\t%b\n\n\t\t\t%b\n\n\t\t\t%b\n\n\t\t%b\n\n\t\t\t%b\n\n\t\t\t%b\n\n\t\t%b\n\n\t\t\t%b\n\n\t\t\t%b\n\n\t\t\t%b\n\n\t\t\t%b\n\n\t\t\t%b\n\n\t\t\t%b\n\n\t\t%b\n\n\t\t\t%b\n\n\t\t\t%b\n\n\t\t\t%b\n\n\t\t\t%b\n\n\t\t\t%b\n\n\t\t\t%b\n\n\t\t\t%b\n\n\t\t%b\n\n\t\t\t%b\n\n\t\t\t%b\n\n\t\t\t%b\n\n\t\t%b\n\n\t\t\t%b\n\n\t\t\t%b\n\n\t\t%b\n\n\t\t\t%b\n\n\t\t%b\n\n\t\t\t%b\n\n\t\t\t%b\n\n\t\t\t%b\n\n\t\t%b\n\n\t\t\t%b\n\n\t\t\t%b\n\n\t\t\t%b\n\n\t\t%b\n\n\t\t\t%b\n\n\t\t\t%b\n\n\t\t\t%b\n\n\t\t\t%b\n\n\t\t\t%b\n\n\t\t%b\n\n\t\t\t%b\n\n\t\t\t%b\n\n\t\t\t%b\n\n\t\t%b\n\n\t\t\t%b\n\n\t\t\t%b\n\n\t\t\t%b\n\n\t\t%b\n\n\t\t\t%b\n\n\t\t%b\n\n\t\t\t%b\n\n\t\t\t%b\n\n\t\t\t%b\n\n\t\t\t%b\n\n\t\t\t%b\n\n\t\t\t%b\n\t\t\t%b\n\n\t\t\t%b\n\n\t\t\t%b\n\n\t\t\t%b\n\n\t\t%b\n\n\t\t\t%b\n\n\t\t\t%b\n\n\t\t\t%b\n\n\t\t\t%b\n\n" 'HELP: j and k to go down and up. q to go to menu.' 'Key: () denote shortcut keys, e.g. (b) means pressing the b key to get to the selector will load the (b)irthdays selection.' 'Pinned/' 'Internet/' '(ly)nx with image viewer/' '(bro)wsh web browser/' '(brow)sh configuration xorg/' '(lib)rewolf xorg/' 'p(i)ng jameschampion.xyz/' 'Email/' '(e)mail/' '(mu)tt email configuation/' 'Search/' '(fi)le manager/' 'search & play video with (t)ty/or (se)earch & play with gui/' '(fz)f search files to open with Vim/' 'search images and (pdf)s/' '(a)rticles/' '(w)eather/' 'Music/' '(cm)us/' 'cmus-control: (ne)xt/ (pr)evious/ (p)ause/ (f)orward/ (st)atus/' '(al)samixer/' '(mus)ic search on yt-dlp/' 'Video/' 'play your (vid)eos/' '(l)ist videos/' 'search and (del)ete files' 'NOTE: the above command will only work effectively on properly named files. Try the command below:' 'remove (wh)ite spaces from file names/' 'video search on (yt)-dlp/' 'Record/' '(sc)reenshot(1,2,3,4,5,6) TTY/' '(re)cord your TTY/s/' 'Wordprocessing/' '(wr)iter/' 'Calc/Spreadsheet/' '(sp)readsheet/' '(ca)lculator/' 'Accessories/' '(b)irthdays/split/' '(n)otes/todos/split/' '(d)ate & calender/' 'Backup/' 'first run as sudo su!: (di)sk formatting and setting up removable media/' '*NOTE: RUN THE ABOVE ON REMOVABLE MEDIA BEFORE MAKING YOUR BACKUPS.' 'first run as sudo su!: (ba)ckup /home/"$SUDO_USER"/ to removable drive/' 'first run sudo su!: (ti)meshift backup to removable drive/' 'first run sudo su!: (de)lete timeshift backups from removable drive/' 'TTY/' '(scro)llback information for TTY/' 'change (v)t (1,2,3,4,5,6) TTY/' 'choose ch(vt) TTY/' '*NOTE: cannot use this selection with screen split. Use alt+number or alt+arrow key instead' 'Screen splits/' '(scr)een four panel split/' '(scre)en horizontal split/' '(scree)n vertical split/' 'Close Xorg/' 'close (x)org and go to TTY/' 'System/Utilities' '(fo)nt and text change' '(u)pdate the system/' '(ht)op/' '(fr)ee disk space' '(c)lock/' '(lo)ck console/' '*NOTE: when you are using xorg/i3, press Ctrl + Alt + and an F key to go to the TTY' 'before you lock the console.' '(res)tart/' '(sh)utdown/' 'Rerun/Help/Quit/' 'rerun (tty)sh/' '(h)elp/' 'edit (hel)p to add and remove your pinned selections' '(q)uit/' > /home/"$USER"/.ttysh.selection
+#printf "\n%b\n\n%b\n\n\t\t%b\n\n%b\n\n\t\t\t%b\n\n\t\t\t%b\n\n\t\t\t%b\n\n\t\t\t%b\n\n\t\t\t%b\n\n\t\t%b\n\n\t\t\t%b\n\n\t\t\t%b\n\n\t\t%b\n\n\t\t\t%b\n\n\t\t\t%b\n\n\t\t\t%b\n\n\t\t\t%b\n\n\t\t\t%b\n\n\t\t\t%b\n\n\t\t%b\n\n\t\t\t%b\n\n\t\t\t%b\n\n\t\t\t%b\n\n\t\t\t%b\n\n\t\t\t%b\n\n\t\t\t%b\n\n\t\t\t%b\n\n\t\t%b\n\n\t\t\t%b\n\n\t\t\t%b\n\n\t\t\t%b\n\n\t\t%b\n\n\t\t\t%b\n\n\t\t\t%b\n\n\t\t%b\n\n\t\t\t%b\n\n\t\t%b\n\n\t\t\t%b\n\n\t\t\t%b\n\n\t\t\t%b\n\n\t\t%b\n\n\t\t\t%b\n\n\t\t\t%b\n\n\t\t\t%b\n\n\t\t%b\n\n\t\t\t%b\n\n\t\t\t%b\n\n\t\t\t%b\n\n\t\t\t%b\n\n\t\t\t%b\n\n\t\t%b\n\n\t\t\t%b\n\n\t\t\t%b\n\n\t\t\t%b\n\n\t\t%b\n\n\t\t\t%b\n\n\t\t\t%b\n\n\t\t\t%b\n\n\t\t%b\n\n\t\t\t%b\n\n\t\t%b\n\n\t\t\t%b\n\n\t\t\t%b\n\n\t\t\t%b\n\n\t\t\t%b\n\n\t\t\t%b\n\n\t\t\t%b\n\t\t\t%b\n\n\t\t\t%b\n\n\t\t\t%b\n\n\t\t\t%b\n\n\t\t%b\n\n\t\t\t%b\n\n\t\t\t%b\n\n\t\t\t%b\n\n\t\t\t%b\n\n" 'HELP: j and k to go down and up. q to go to menu.' 'Key: () denote shortcut keys, e.g. (b) means pressing the b key to get to the selector will load the (b)irthdays selection.' 'Pinned/' 'Internet/' '(ly)nx with image viewer/' '(bro)wsh web browser/' '(brow)sh configuration xorg/' '(lib)rewolf xorg/' 'p(i)ng jameschampion.xyz/' 'Email/' '(e)mail/' '(mu)tt email configuation/' 'Search/' '(fi)le manager/' 'search & play video with (t)ty/or (se)earch & play with gui/' '(fz)f search files to open with Vim/' 'search images and (pdf)s/' '(a)rticles/' '(w)eather/' 'Music/' '(cm)us/' 'cmus-control: (ne)xt/ (pr)evious/ (p)ause/ (f)orward/ (st)atus/' '(al)samixer/' '(mus)ic search on yt-dlp/' 'Video/' 'play your (vid)eos/' '(l)ist videos/' 'search and (del)ete files' 'NOTE: the above command will only work effectively on properly named files. Try the command below:' 'remove (wh)ite spaces from file names/' 'video search on (yt)-dlp/' 'Record/' '(sc)reenshot(1,2,3,4,5,6) TTY/' '(re)cord your TTY/s/' 'Wordprocessing/' '(wr)iter/' 'Calc/Spreadsheet/' '(sp)readsheet/' '(ca)lculator/' 'Accessories/' '(b)irthdays/split/' '(n)otes/todos/split/' '(d)ate & calender/' 'Backup/' 'first run as sudo su!: (di)sk formatting and setting up removable media/' '*NOTE: RUN THE ABOVE ON REMOVABLE MEDIA BEFORE MAKING YOUR BACKUPS.' 'first run as sudo su!: (ba)ckup /home/"$SUDO_USER"/ to removable drive/' 'first run sudo su!: (ti)meshift backup to removable drive/' 'first run sudo su!: (de)lete timeshift backups from removable drive/' 'TTY/' '(scro)llback information for TTY/' 'change (v)t (1,2,3,4,5,6) TTY/' 'choose ch(vt) TTY/' '*NOTE: cannot use this selection with screen split. Use alt+number or alt+arrow key instead' 'Screen splits/' '(scr)een four panel split/' '(scre)en horizontal split/' '(scree)n vertical split/' 'Close Xorg/' 'close (x)org and go to TTY/' 'System/Utilities' '(fo)nt and text change' '(u)pdate the system/' '(ht)op/' '(fr)ee disk space' '(c)lock/' '(lo)ck console/' '*NOTE: when you are using xorg/i3, press Ctrl + Alt + and an F key to go to the TTY' 'before you lock the console.' '(res)tart/' '(sh)utdown/' 'Rerun/Help/Quit/' 'rerun (tty)sh/' '(h)elp/' 'edit (hel)p to add and remove your pinned selections' '(q)uit/' > /home/"$USER"/.ttysh.selection
 
 #sudo mv splash_ttysh.png /home/"$USER"/.splash_ttysh.png
 #sudo mv ttysh.sh /usr/local/bin/ttysh 
@@ -513,7 +513,7 @@ fzfcmus () {
 
 #cmuscheck
 
-cmuspicker=$(find /home/"$USER"/Music/starred/ -type f | /home/"$USER"/fzf -i --prompt "Pick the music track you want to play in cmus: ") 
+cmuspicker=$(find /home/"$USER"/Music/starred/ -type f | fzf -i --prompt "Pick the music track you want to play in cmus: ") 
 
 cmus-remote -f "$cmuspicker"
 
@@ -568,7 +568,7 @@ fzfbookmark () {
 
 printf "\n" ""
 
-bookmark=$(cat /home/"$USER"/.bookmarks_ttysh.html | /home/"$USER"/fzf -i --prompt "Pick a bookmark: ") 
+bookmark=$(cat /home/"$USER"/.bookmarks_ttysh.html | fzf -i --prompt "Pick a bookmark: ") 
 
 #[ "$splash" = /dev/pts/ ] && casefzfbookmark && return || lynx "$bookmark"
 
@@ -602,7 +602,7 @@ bookmarkcheck () {
 # format bookmarks for fzfbookmark
 bookmarkformat () {
 
-formathtml=$(find /home/"$USER"/ -name '*.html' | /home/"$USER"/fzf -i --prompt "Note: if you already have a /home/"$USER"/.bookmarks_ttysh.html file, it will be overwritten. Pick the html file you want to format: ")
+formathtml=$(find /home/"$USER"/ -name '*.html' | fzf -i --prompt "Note: if you already have a /home/"$USER"/.bookmarks_ttysh.html file, it will be overwritten. Pick the html file you want to format: ")
 
 #sed 's/\ /\n/g' "$formathtml" | sed -n '/https\|https/p' | sed 's/^HREF="//g;s/ICON_URI="//g;s/^LAST_MODIFIED="//g;s/[0-9]//g;s/">//g;s/^fake-icon-uri//g;s/"$//g'
 
@@ -750,7 +750,7 @@ while [ 1 ]; do
 
 	case "$answer" in
 		s)
-		[ "$splash" = /dev/pts/ ] && devour mpv "$(find /home/"$USER"/ -type f | fzf -i --prompt "Pick the video you want to watch in the terminal GUI: ")" || mpv -vo=drm "$(find /home/"$USER"/ -type f | /home/"$USER"/.fzf/bin/fzf -i --prompt "Pick the video you want to watch fullscreen in the TTY: ")"
+		[ "$splash" = /dev/pts/ ] && devour mpv "$(find /home/"$USER"/ -type f | fzf -i --prompt "Pick the video you want to watch in the terminal GUI: ")" || mpv -vo=drm "$(find /home/"$USER"/ -type f | fzf -i --prompt "Pick the video you want to watch fullscreen in the TTY: ")"
 		;;
 		q)
 		break
@@ -2151,7 +2151,7 @@ printf "\n%s" ""
 		printf "\n%b\n" "You should reboot your system to see any changes that you have made."
 		;;
 		fon)
-		setfont "$(ls /usr/share/kbd/consolefonts | /home/"$USER"/.fzf/bin/fzf -i --prompt "Pick a font, or select nothing to return to original terminal font: ")"
+		setfont "$(ls /usr/share/kbd/consolefonts | fzf -i --prompt "Pick a font, or select nothing to return to original terminal font: ")"
 		;;
 		res)
 		sudo reboot
