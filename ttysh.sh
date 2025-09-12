@@ -401,7 +401,7 @@ sudo pacman -S --noconfirm vim
 
 # make notes file and the sceenrc_notes_split
 
-printf "\n%s\n" "NOTES" > /home/"$USER"/TTYSH/resources/notes.txt
+printf "\n%s\n" "NOTES" > /home/"$USER"/.notes.txt
 
 #printf "%b\n\n%b\n\n%b\n\n%b\n\n%b\n\n%b\n\n%b" 'split' 'focus up' 'screen -t vim /usr/bin/vim /home/"$USER"/info/notes.txt' 'focus down' 'chdir /home/"$USER"/' 'screen -t bash /bin/bash' 'focus up' > /home/"$USER"/.screenrc.notes_split
 
@@ -1587,7 +1587,7 @@ calenderschedule
 # cat out notes/todo
 printf "\n%s\n" ""
 
-less /home/"$USER"/TTYSH/resources/notes.txt 
+less /home/"$USER"/.notes.txt 
 
 printf "\n%s\n" "Do you want to edit your notes? y/n"
 
@@ -1597,8 +1597,8 @@ while [ 1 ]; do
 
 	case "$npick" in
 		y)
-		vim /home/"$USER"/TTYSH/resources/notes.txt
-		less /home/"$USER"/TTYSH/resources/notes.txt 
+		vim /home/"$USER"/.notes.txt
+		less /home/"$USER"/.notes.txt 
 		printf "\n%s\n" "Do you want to edit your notes again? y/n"
 		;;
 		n)
@@ -1803,7 +1803,7 @@ printf "\n%s" ""
 				break
 				;;
 				n)
-				vim /home/"$USER"/TTYSH/resources/notes.txt
+				vim /home/"$USER"/.notes.txt
 				break
 				;;
 				*)
