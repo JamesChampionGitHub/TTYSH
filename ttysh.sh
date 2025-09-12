@@ -393,6 +393,12 @@ yay -S --noconfirm arkenfox-user.js
 
 sudo pacman -S --noconfirm vim
 
+# install less and man
+
+sudo pacman -S --noconfirm less
+
+sudo pacman -S --noconfirm man
+
 #mkdir /home/"$USER"/info
 
 #printf "\n%s\n" "BIRTHDAYS" > /home/"$USER"/info/birthdays.txt
