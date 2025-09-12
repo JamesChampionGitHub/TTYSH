@@ -1058,7 +1058,7 @@ calenderschedule () {
 
 printf "\n%s\n\n" "Your Calender Schedule For Today: "
 
-grep -C 15 ""^$(date +%d-%m-%Y)"" /home/"$USER"/TTYSH/resources/.*calenderdata | less
+grep -C 15 ""^$(date +%d-%m-%Y)"" /home/"$USER"/.*calenderdata | less
 
 printf "\n%s\n" "Do you want to edit your calender? y/n"
 
