@@ -1047,7 +1047,7 @@ until [ "$d" = $endd ]; do
 
 	n=$((n+1))
 	d=$(date +%Y-%m-%d --date "$startd + $n day")
-	echo "$d" | tr '-' ' ' | awk '{print $3, $2, $1}' | tr ' ' '-' >> /home/"$USER"/TTYSH/resources/."$(date +%Y)"calenderdata
+	echo "$d" | tr '-' ' ' | awk '{print $3, $2, $1}' | tr ' ' '-' >> /home/"$USER"/."$(date +%Y)"calenderdata
 done
 }
 
