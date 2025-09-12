@@ -401,7 +401,7 @@ sudo pacman -S --noconfirm vim
 
 # make notes file and the sceenrc_notes_split
 
-printf "\n%s\n" "NOTES" > /home/"$USER"/.notes.txt
+printf "%s\n" "NOTES" > /home/"$USER"/.notes.txt
 
 #printf "%b\n\n%b\n\n%b\n\n%b\n\n%b\n\n%b\n\n%b" 'split' 'focus up' 'screen -t vim /usr/bin/vim /home/"$USER"/info/notes.txt' 'focus down' 'chdir /home/"$USER"/' 'screen -t bash /bin/bash' 'focus up' > /home/"$USER"/.screenrc.notes_split
 
@@ -1069,7 +1069,7 @@ while [ 1 ]; do
 	case "$cpick" in
 		y)
 		vim /home/"$USER"/.*calenderdatafile
-		grep -C 15 ""^$(date +%d-%m-%Y)"" /home/"$USER"/.*calenderdata | less
+		grep -C 15 ""^$(date +%d-%m-%Y)"" /home/"$USER"/.*calenderdatafile | less
 		printf "\n%s\n" "Do you want to edit your calender again? y/n"
 		;;
 		n)
