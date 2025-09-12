@@ -1047,18 +1047,18 @@ until [ "$d" = $endd ]; do
 
 	n=$((n+1))
 	d=$(date +%Y-%m-%d --date "$startd + $n day")
-	echo "$d" | tr '-' ' ' | awk '{print $3, $2, $1}' | tr ' ' '-' >> /home/"$USER"/."$(date +%Y)"calenderdata
+	echo "$d" | tr '-' ' ' | awk '{print $3, $2, $1}' | tr ' ' '-' >> /home/"$USER"/."$(date +%Y)"calenderdatafile
 done
 }
 
 # function for calender schedule
 calenderschedule () {
 
-[ ! -f /home/"$USER"/.*calenderdata ] && printf "\n%s\n" "Set up your calender data: " && calenderdata && echo "Calender made. Fill in your calender at /home/"$USER"/TTYSH/resources/.*calenderdata and run this selection again" ||
+[ ! -f /home/"$USER"/.*calenderdatafile ] && printf "\n%s\n" "Set up your calender data: " && calenderdata && echo "Calender made. Fill in your calender at /home/"$USER"/TTYSH/resources/.*calenderdata and run this selection again" ||
 
 printf "\n%s\n\n" "Your Calender Schedule For Today: "
 
-grep -C 15 ""^$(date +%d-%m-%Y)"" /home/"$USER"/.*calenderdata | less
+grep -C 15 ""^$(date +%d-%m-%Y)"" /home/"$USER"/.*calenderdatafile | less
 
 printf "\n%s\n" "Do you want to edit your calender? y/n"
 
@@ -1068,8 +1068,8 @@ while [ 1 ]; do
 
 	case "$cpick" in
 		y)
-		vim /home/"$USER"/.*calenderdata
-		grep -C 15 ""^$(date +%d-%m-%Y)"" /home/"$USER"/TTYSH/resources/.*calenderdata | less
+		vim /home/"$USER"/.*calenderdatafile
+		grep -C 15 ""^$(date +%d-%m-%Y)"" /home/"$USER"/.*calenderdata | less
 		printf "\n%s\n" "Do you want to edit your calender again? y/n"
 		;;
 		n)
@@ -1766,7 +1766,7 @@ printf "\n%s" ""
 		;;
 		sch)
 		calenderschedule
-		vim /home/"$USER"/TTYSH/resources/.*calenderdata
+		vim /home/"$USER"/.*calenderdatafile
 		#
 		#while [ 1 ]; do
 
