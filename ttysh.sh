@@ -1766,7 +1766,7 @@ printf "\n%s" ""
 		;;
 		sch)
 		calenderschedule
-		vim /home/"$USER"/.*calenderdatafile
+		#vim /home/"$USER"/.*calenderdatafile
 		#
 		#while [ 1 ]; do
 
