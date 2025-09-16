@@ -39,14 +39,6 @@ HELP: j and k to go down and up. q to return to menu.
 Key: () denote shortcut keys, e.g. (b) means pressing the b key in the selector will load the (b)irthdays selection.
 
 
-		Pinned/
-
-			calender (sch)edule/ (n)otes/todos/split/ (d)ate & calender/
-
-			(r)rs/ (e)mail/ (ly)nx with image viewer for saved/ (s)tartx/ (l)ist videos/ (vid)eos/
-			
-			(v)im proj/ (vn)m proj notes/
-
 		Internet/
 
 			select a (bo)okmark for web browsing/
