@@ -469,6 +469,7 @@ sudo pacman -S --noconfirm timeshift
 # install fbcat for screenshots
 
 yay -S --noconfirm fbcat
+sudo pacman -S --noconfirm imagemagick
 
 # install sc-im for spreadsheets
 
