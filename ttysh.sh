@@ -435,6 +435,7 @@ sudo pacman -S --noconfirm xorg-server
 sudo pacman -S --noconfirm xorg-xinit
 sudo pacman -S --noconfirm i3-wm
 sudo pacman -S --noconfirm xterm
+sudo pacman -S --noconfirm xclip
 
 cat /home/"$USER"/TTYSH/resources/.Xdefaults >> /home/"$USER"/.Xdefaults
 
