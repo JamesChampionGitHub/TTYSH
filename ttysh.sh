@@ -1730,7 +1730,7 @@ printf "\n%s" ""
 
 			case "$answer" in
 				y)
-				screen -c /home/"$USER"/.screenrc.lynx
+				screen -c /home/"$USER"/TTYSH/resources/.screenrc.lynx
 				break
 				;;
 				n)
