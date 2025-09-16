@@ -1023,11 +1023,7 @@ while [ 1 ]; do
 		break
 		;;
 		n)
-		[ ! -f /home/"$USER"/.newsboat/urls ] && echo 'https://www.youtube.com/feeds/videos.xml?channel_id=UCeFnqXMczw4BDCoJHr5dBjg "~James Champion (Youtube)"' > /home/"$USER"/.newsboat/urls ||
-		cd /home/"$USER"/Videos/
-		newsboat
-		cd /home/"$USER"/
-		break
+		[ ! -f /home/"$USER"/.newsboat/urls ] && echo 'https://www.youtube.com/feeds/videos.xml?channel_id=UCeFnqXMczw4BDCoJHr5dBjg "~James Champion (Youtube)"' > /home/"$USER"/.newsboat/urls || cd /home/"$USER"/Videos/; newsboat; cd /home/"$USER"/; break
 		;;
 		*)
 		printf "\n\n%s\n\n" "Not a valid selection."
