@@ -1704,7 +1704,6 @@ printf "\n%s" ""
 		;;
 		yt)
 		[ ! -d /home/"$USER"/Video ] && mkdir /home/"$USER"/Videos; cd /home/"$USER"/Videos || cd /home/"$USER"/Videos/; yt 
-		yt
 		;;
 		mus)
 		[ ! -d /home/"$USER"/Music ] && mkdir /home/"$USER"/Music; cd /home/"$USER"/Music || cd /home/"$USER"/Music/; ytmusic 
