@@ -1706,8 +1706,7 @@ printf "\n%s" ""
 		yt
 		;;
 		mus)
-		cd /home/"$USER"/Music/
-		ytmusic
+		[ ! -d /home/"$USER"/Music ] && mkdir /home/"$USER"/Music || cd /home/"$USER"/Music/; ytmusic 
 		;;
 		pi)
 		fzfcmus
