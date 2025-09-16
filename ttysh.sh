@@ -455,7 +455,7 @@ cat /home/"$USER"/TTYSH/resources/.Xdefaults >> /home/"$USER"/.Xdefaults
 # install jfbview and mupdf
 
 sudo pacman -S --noconfirm mupdf
-yay -S --noconfirm jfbview
+yay -S --noconfirm fbpdf-git
 
 # install cryptsetup for diskformat function
 
@@ -822,7 +822,7 @@ while [ 1 ]; do
 
 	case "$answer" in
 		s)
-		[ "$splash" = /dev/pts/ ] && devour mupdf "$(find /home/"$USER"/ -type f | fzf -i --prompt "Pick the pdf you want to view. ESC to exit: ")" || sudo jfbview "$(find /home/"$USER"/ -type f | fzf -i --prompt "Pick the pdf you want to view. ESC to exit: ")"
+		[ "$splash" = /dev/pts/ ] && devour mupdf "$(find /home/"$USER"/ -type f | fzf -i --prompt "Pick the pdf you want to view. ESC to exit: ")" || sudo fbpdf "$(find /home/"$USER"/ -type f | fzf -i --prompt "Pick the pdf you want to view. ESC to exit: ")"
 		;;
 		q)
 		break		
