@@ -1703,7 +1703,7 @@ printf "\n%s" ""
 		alsamixer
 		;;
 		yt)
-		cd /home/"$USER"/Videos/
+		[ ! -d /home/"$USER"/Video ] && mkdir /home/"$USER"/Videos; cd /home/"$USER"/Videos || cd /home/"$USER"/Videos/; yt 
 		yt
 		;;
 		mus)
