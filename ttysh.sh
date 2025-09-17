@@ -1542,6 +1542,14 @@ else
 fi
 }
 
+# file check for recording
+
+screenshotcheck () {
+
+[ ! -d /home/"$USER"/Screenshots ] && mkdir /home/"$USER"/Screenshots; cd /home/"$USER"/Screenshots || cd /home/"$USER"/Screenshots/
+
+}
+
 # date
 planner () {
 
@@ -1948,21 +1956,27 @@ printf "\n%s" ""
 		vlock -a
 		;;
 		sc1)
+		screenshotcheck 
 		sudo fbgrab -c 1 screenshot1.png
 		;;
 		sc2)
+		screenshotcheck 
 		sudo fbgrab -c 2 screenshot2.png
 		;;
 		sc3)
+		screenshotcheck 
 		sudo fbgrab -c 3 screenshot3.png
 		;;
 		sc4)
+		screenshotcheck 
 		sudo fbgrab -c 4 screenshot4.png
 		;;
 		sc5)
+		screenshotcheck 
 		sudo fbgrab -c 5 screenshot5.png
 		;;
 		sc6)
+		screenshotcheck
 		sudo fbgrab -c 6 screenshot6.png
 		;;
 		re)
