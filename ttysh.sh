@@ -1969,7 +1969,7 @@ printf "\n%s" ""
 		[ ! -d /home/"$USER"/Recordings ] && mkdir /home/"$USER"/Recordings; cd /home/"$USER"/Recordings || cd /home/"$USER"/Recordings/; sudo ffmpeg -f fbdev -framerate 30 -i /dev/fb0 ttyrecord.mp4
 		;;
 		rec)
-		ffmpeg -video_size 1280x800 -framerate 30 -f x11grab -i :0 output.mp4
+		[ ! -d /home/"$USER"/Recordings ] && mkdir /home/"$USER"/Recordings; cd /home/"$USER"/Recordings || cd /home/"$USER"/Recordings/; ffmpeg -video_size 1280x800 -framerate 30 -f x11grab -i :0 x11record.mp4
 		;;
 		wr)
 		vim
