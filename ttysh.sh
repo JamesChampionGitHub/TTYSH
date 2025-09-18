@@ -2242,12 +2242,12 @@ fi
 
 while [ 1 ]; do
 
-	printf "\n\t%s\n\n" "(s)chedule, (s)election, (h)elp, edit (hel)p, (config) wizard, or (q)uit?"
+		printf "\n\t%s\n\n" "(sc)hedule, (s)election, (h)elp, edit (hel)p, (config) wizard, or (q)uit?"
 		
 	read -p "Enter your selection: " intro
 
 	case "$intro" in
-		s)
+		sc)
 		clear
 		planner
 		selection
