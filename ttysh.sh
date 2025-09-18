@@ -185,7 +185,7 @@ Key: () denote shortcut keys, e.g. (b) means pressing the b key in the selector 
 
 			network manager (dev)ices/
 
-			(fan) control/
+			(fan) control (ThinkPads)/
 
 			(u)pdate the system/
 
