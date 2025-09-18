@@ -1555,28 +1555,28 @@ planner () {
 
 #cmuscheck
 
-printf "\n%s\n\n" "Start Cmus Under Screen Session?"
-
-while [ 1 ]; do
-	
-	read -p "Choose y/n: " cmuspick
-
-	case "$cmuspick" in
-		y)
-		#screen -q -r cmus
-		#cmus
-		#fzfcmus
-		screen cmus
-		break
-		;;
-		n)
-		break
-		;;
-		*)
-		printf "\n%s\n\n" "Not a valid selection"
-		;;
-	esac
-done
+#printf "\n%s\n\n" "Start Cmus Under Screen Session?"
+#
+#while [ 1 ]; do
+#	
+#	read -p "Choose y/n: " cmuspick
+#
+#	case "$cmuspick" in
+#		y)
+#		#screen -q -r cmus
+#		#cmus
+#		#fzfcmus
+#		screen cmus
+#		break
+#		;;
+#		n)
+#		break
+#		;;
+#		*)
+#		printf "\n%s\n\n" "Not a valid selection"
+#		;;
+#	esac
+#done
 
 printf "\n%s\n\n" "The time and date is:"
 
