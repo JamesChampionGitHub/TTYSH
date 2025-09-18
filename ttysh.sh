@@ -1936,12 +1936,12 @@ printf "\n%s" ""
 		pdf)
 		fzfpdf
 		;;
-		v)
+		#v)
 		#vim 0 -c "set laststatus=0" -o /home/"$USER"/proj/working_on/*YEN/drafts/*1  
-		;;
-		vn)
+		#;;
+		#vn)
 		#vim /home/"$USER"/proj/working_on/*YEN/characters/* -o /home/"$USER"/proj/working_on/*YEN/notes/*screenplay_notes -o /home/"$USER"/proj/working_on/*YEN/notes/*prompt_notes -o /home/"$USER"/proj/working_on/*YEN/notes/*archive_notes
-		;;
+		#;;
 		di)
 		diskformat
 		;;
