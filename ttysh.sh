@@ -1065,7 +1065,7 @@ done
 # function for calender schedule
 calenderschedule () {
 
-[ ! -f /home/"$USER"/.*calenderdatafile ] && printf "\n%s\n" "Set up your calender data: " && calenderdata && echo "Calender made. Fill in your calender at /home/"$USER"/.*calenderdata and run this selection again" ||
+[ ! -f /home/"$USER"/.*calenderdatafile ] && printf "\n%s\n" "Set up your calender data: " && calenderdata && echo "Calender made. Fill in your calender at /home/"$USER"/.*calenderdata and run this selection again or continue with the option to edit your calender." ||
 
 printf "\n%s\n\n" "Your Calender Schedule For Today: "
 
