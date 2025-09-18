@@ -2254,7 +2254,7 @@ fi
 
 while [ 1 ]; do
 
-		printf "\n\t%s\n\n" "(sc)hedule, (s)election, (h)elp, edit (hel)p, (config) wizard, or (q)uit?"
+		printf "\n\t%s\n\n" "(sc)hedule, (s)election, (h)elp, (config) wizard, or (q)uit?"
 		
 	read -p "Enter your selection: " intro
 
@@ -2275,9 +2275,9 @@ while [ 1 ]; do
 		config)
 		wizardttysh
 		;;
-		hel)
-		vim /home/"$USER"/TTYSH/resources/.ttysh.selection
-		;;
+		#hel)
+		#vim /home/"$USER"/TTYSH/resources/.ttysh.selection
+		#;;
 		q)
 		printf "\n%s" ""
 		exit 0
