@@ -173,7 +173,7 @@ Key: () denote shortcut keys, e.g. (n) means pressing the n key in the selector 
 
 			close (x)org and return to TTY/
 
-			(cap)s lock as left mouse clock on X11 (ThinkPads)/
+			(cap)s lock as left mouse clock on X11 on ThinkPads/
 
 		System/Utilities/
 
@@ -185,7 +185,7 @@ Key: () denote shortcut keys, e.g. (n) means pressing the n key in the selector 
 
 			network manager (dev)ices/
 
-			(fan) control (ThinkPads)/
+			(fan) control on ThinkPads/
 
 			(u)pdate the system/
 
