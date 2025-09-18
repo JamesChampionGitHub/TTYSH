@@ -439,6 +439,8 @@ sudo pacman -S --noconfirm xclip
 
 cat /home/"$USER"/TTYSH/resources/.Xdefaults >> /home/"$USER"/.Xdefaults
 
+[ ! -d /home/"$USER"/.config/i3 ] && mkdir -p /home/"$USER"/.config/i3; cat /home/"$USER"/TTYSH/resources/config > /home/"$USER"/.config/i3/config
+
 # install sway
 
 sudo pacman -S --noconfirm sway
