@@ -173,7 +173,7 @@ Key: () denote shortcut keys, e.g. (b) means pressing the b key in the selector 
 
 			close (x)org and return to TTY/
 
-			(cap)s lock as left mouse clock on X11/
+			(cap)s lock as left mouse clock on X11 (ThinkPads)/
 
 		System/Utilities/
 
@@ -436,6 +436,8 @@ sudo pacman -S --noconfirm xorg-xinit
 sudo pacman -S --noconfirm i3-wm
 sudo pacman -S --noconfirm xterm
 sudo pacman -S --noconfirm xclip
+sudo pacman -S --noconfirm xorg-xmodmap
+yay -S --noconfirm xkbset
 
 cat /home/"$USER"/TTYSH/resources/.Xdefaults >> /home/"$USER"/.Xdefaults
 
