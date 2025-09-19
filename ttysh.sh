@@ -1634,26 +1634,26 @@ weather
 # rss
 rssread
 
-printf "\n%s\n" "Do you want to start i3 Window Manager with email and the web browser for additional email, additional notes, banking, news, etc...? y/n"
-
-while [ 1 ]; do
-
-	read -p "Enter your selection: " panswer
-	
-	case "$panswer" in
-		y)
-		# i3 configured to open bookmark selector for web browser and email in seperate windows
-		startx
-		break
-		;;
-		n)
-		break
-		;;
-		*)
-		printf "\n%s\n" "Not a valid selection."
-		;;
-	esac
-done
+#printf "\n%s\n" "Do you want to start i3 Window Manager with email and the web browser for additional email, additional notes, banking, news, etc...? y/n"
+#
+#while [ 1 ]; do
+#
+#	read -p "Enter your selection: " panswer
+#	
+#	case "$panswer" in
+#		y)
+#		# i3 configured to open bookmark selector for web browser and email in seperate windows
+#		startx
+#		break
+#		;;
+#		n)
+#		break
+#		;;
+#		*)
+#		printf "\n%s\n" "Not a valid selection."
+#		;;
+#	esac
+#done
 
 printf "\n%s\n" ""
 
