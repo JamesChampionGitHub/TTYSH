@@ -107,7 +107,7 @@ Key: () denote shortcut keys, e.g. (n) means pressing the n key in the selector 
 
 			(l)ist videos/
 
-			video search on (yt)-dlp/
+			video search on (yo)utube/
 
 		Record/
 
@@ -942,7 +942,7 @@ while [ 1 ]; do
 		url="$(xclip -o)"
 		yt-dlp -f 'bv+ba' "$url"
 		;;
-		yt)
+		yo)
 		yt
 		break
 		;;
@@ -1723,7 +1723,7 @@ printf "\n%s" ""
 		al)
 		alsamixer
 		;;
-		yt)
+		yo)
 		[ ! -d /home/"$USER"/Video ] && mkdir /home/"$USER"/Videos; cd /home/"$USER"/Videos || cd /home/"$USER"/Videos/; yt 
 		;;
 		mus)
