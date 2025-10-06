@@ -99,7 +99,7 @@ Key: () denote shortcut keys, e.g. (n) means pressing the n key in the selector 
 
 			(al)samixer/
 
-			(mus)ic search on yt-dlp/
+			(mus)ic search on youtube/
 
 		Video/
 
