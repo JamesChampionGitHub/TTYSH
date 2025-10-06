@@ -13,7 +13,5 @@ chdir /home/"$USER"/Videos/
 
 screen -t bash /bin/bash
 
-screen -t ./yt.sh /home/"$USER"/TTYSH/resources.yt.sh
-
 focus up
 
