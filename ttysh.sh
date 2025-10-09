@@ -2159,6 +2159,9 @@ printf "\n%s" ""
 				sudo pacman -Syu
 				printf "\n%s" ""
 				yay -Sua
+				printf "\n%s" ""
+				cd /home/"$USER"/TTYSH/
+				git pull
 				printf "\n%s\n" "You should now exit TTYSH and reboot your system to complete any new updates."
 				break
 				;;
