@@ -2162,6 +2162,7 @@ printf "\n%s" ""
 				printf "\n%s" ""
 				cd /home/"$USER"/TTYSH/
 				git pull
+				echo "git pull test complete..."
 				printf "\n%s\n" "You should now exit TTYSH and reboot your system to complete any new updates."
 				break
 				;;
