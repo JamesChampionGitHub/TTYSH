@@ -2158,11 +2158,9 @@ printf "\n%s" ""
 				y)
 				printf "\n%s\n" "Updating Arch Linux..."
 				sudo pacman -Syu
-				printf "\n%s" ""
-				printf "\n%s\n" "Updating the Arch Linux AUR..."
+				printf "\n\n%s\n" "Updating the Arch Linux AUR..."
 				yay -Sua
-				printf "\n%s" ""
-				printf "\n%s\n" "Updating TTYSH..."
+				printf "\n\n%s\n" "Updating TTYSH..."
 				cd /home/"$USER"/TTYSH/
 				git pull
 				printf "\n%s\n" "You should now exit TTYSH and reboot your system to complete any new updates."
