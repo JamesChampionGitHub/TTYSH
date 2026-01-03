@@ -1678,11 +1678,11 @@ printf "\n%s" ""
 		#cmuscheck
 		#cmus
 		#screen -q -r cmus
-		screen cmus 
+		screen -S cmusdaemon cmus
 		#screen -D -R cmus
 		;;
 		cmus)
-		screen -r
+		screen -r cmusdaemon
 		;;
 		ne)
 		#cmuscheck
