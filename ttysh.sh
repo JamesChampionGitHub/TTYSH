@@ -453,6 +453,7 @@ sudo pacman -S --noconfirm sway
 sudo pacman -S --noconfirm foot
 sudo pacman -S --noconfirm wf-recorder
 sudo pacman -S --noconfirm wl-clipboard
+yay -S --noconfirm clipman
 sudo pacman -S --noconfirm xorg-xwayland
 
 [ ! -d /home/"$USER"/.config/sway ] && mkdir -p /home/"$USER"/.config/sway; cat /home/"$USER"/TTYSH/resources/swayconfig/config > /home/"$USER"/.config/sway/config
