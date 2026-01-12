@@ -173,6 +173,8 @@ Key: () denote shortcut keys, e.g. (n) means pressing the n key in the selector 
 
 			close (x)org and return to TTY/
 
+			close swa(y) and return to TTY/
+
 			(cap)s lock as left mouse clock on X11 on ThinkPads/
 
 		System/Utilities/
@@ -1965,6 +1967,9 @@ printf "\n%s" ""
 		;;
 		x)
 		pkill "Xorg"
+		;;
+		y)
+		pkill "sway"
 		;;
 		cap)
 		xkbset m; xmodmap -e "keycode 108 = Pointer_Button1"
