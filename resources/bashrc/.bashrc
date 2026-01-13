@@ -18,7 +18,7 @@ set -o vi
 # Active Aliases
 
 # TTYSH
-alias t='ttysh'
+alias t='/home/"$USER"/TTYSH/./ttysh'
 
 # Quit pane
 alias q='exit'
@@ -33,23 +33,23 @@ alias d='cd $(find /home/"$USER"/ -type d | /home/"$USER"/.fzf/bin/fzf -i --prom
 alias au='amixer -c 0 -- sset Master unmute; amixer -c 0 -- sset Master playback -10dB'
 
 # kill x11
-alias killx='/home/jamesc/scr_sh/./xorgk.sh'
+alias killx='/home/"$USER"/scr_sh/./xorgk.sh'
 
 # record x11 desktop
 alias recx='ffmpeg -video_size 1280x800 -framerate 60 -f x11grab -i :0 output.mp4'
 
 # goto ffmpeg template directory
-alias dirf='cd /home/jamesc/instr_vids_manuals/james_champion/working_on/ffmpeg_template/'
+alias dirf='cd /home/"$USER"/instr_vids_manuals/james_champion/working_on/ffmpeg_template/'
 
 # goto video production directory
-alias dirv='cd /home/jamesc/test/video_production/'
+alias dirv='cd /home/"$USER"/test/video_production/'
 
 alias xc='xclip -selection clipboard' # tty: if in vim > visual > : > :w!xclip > this will make a text file in home directory
 alias xp='xclip -selection clipboard -o'
 #alias xpp='xclip -selection primary -o'
 
 # a clock in GNUScreen
-#alias clock='screen -c /home/jamesc/.screenrc.clockworking'
+#alias clock='screen -c /home/"$USER"/.screenrc.clockworking'
 
 # Default Programs
 export SUDO_EDITOR="vim"
