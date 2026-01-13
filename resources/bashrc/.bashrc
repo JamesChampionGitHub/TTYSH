@@ -18,7 +18,7 @@ set -o vi
 # Active Aliases
 
 # TTYSH
-alias t='/home/"$USER"/TTYSH/./ttysh'
+alias t='/home/"$USER"/TTYSH/./ttysh.sh'
 
 # Quit pane
 alias q='exit'
