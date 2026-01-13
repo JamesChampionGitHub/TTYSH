@@ -2245,8 +2245,8 @@ done
 
 # --no-terminal breaks in the TTY, --really-quiet is used as best alternative
 if [ -f /home/"$USER"/.ttyshwizardrun ]; then
-	#printf "%s" ""
-	splashscreen
+	printf "%s" ""
+	#splashscreen
 	#mpv --really-quiet /home/"$USER"/.splash_ttysh.png; clear
 else
 	printf "\n%s\n" "First time using TTYSH, or you do not yet have TTYSH setup and configured? Press y to begin setup, or press n to exit."
