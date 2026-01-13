@@ -463,6 +463,9 @@ sudo pacman -S --noconfirm xorg-xwayland
 
 [ ! -d /home/"$USER"/.config/foot ] && mkdir -p /home/"$USER"/.config/foot; cat /home/"$USER"/TTYSH/resources/footconfig/foot.ini > /home/"$USER"/.config/foot/foot.ini
 
+cat /home/"$USER"/TTYSH/resources/bashrc/.bashrc > /home/"$USER"/.bashrc
+
+
 #printf "%b\n%b\n%b\n%b\n\n\n%b\n%b\n\n%b\n%b\n%b\n%b\n%b\n%b\n%b\n%b\n%b\n%b\n%b\n%b\n%b\n%b\n%b" '#URxvt*background: black' '#URxvt*foreground: white' '#URxvt*font: xft:monospace:size=12' '#URxvt*scrollBar: false' 'XTerm.vt100.foreground: white' 'XTerm.vt100.background: black' 'xterm*faceName: Monospace' 'xterm*faceSize: 12' 'XTerm*font: -*-terminus-medium-*-*-*-18-*-*-*-*-*-iso10646-1' '# unreadable' 'XTerm*font1: -*-terminus-medium-*-*-*-12-*-*-*-*-*-iso10646-1' '# tiny' 'XTerm*font2: -*-terminus-medium-*-*-*-14-*-*-*-*-*-iso10646-1' '# small' 'XTerm*font3: -*-terminus-medium-*-*-*-16-*-*-*-*-*-iso10646-1' '# medium' 'XTerm*font4: -*-terminus-medium-*-*-*-22-*-*-*-*-*-iso10646-1' '# large' 'XTerm*font5: -*-terminus-medium-*-*-*-24-*-*-*-*-*-iso10646-1' '# huge' 'XTerm*font6: -*-terminus-medium-*-*-*-32-*-*-*-*-*-iso10646-1' > /home/"$USER"/.Xdefaults
 
 #printf "%b\n%b\n%b\n%b\n%b\n\n%b\n%b\n%b\n%b\n%b\n%b\n%b" 'XTerm.vt100.foreground: white' 'XTerm.vt100.background: black' 'XTerm.vt100.color0: rgb:28/28/28' '! ...' 'XTerm.vt100.color15: rgb:e4/e4/e4XTerm.vt100.reverseVideo: true# default' 'XTerm*font: -*-terminus-medium-*-*-*-18-*-*-*-*-*-iso10646-1' 'XTerm*font1: -*-terminus-medium-*-*-*-12-*-*-*-*-*-iso10646-1' 'XTerm*font2: -*-terminus-medium-*-*-*-14-*-*-*-*-*-iso10646-1' 'XTerm*font3: -*-terminus-medium-*-*-*-16-*-*-*-*-*-iso10646-1' 'XTerm*font4: -*-terminus-medium-*-*-*-22-*-*-*-*-*-iso10646-1' 'XTerm*font5: -*-terminus-medium-*-*-*-24-*-*-*-*-*-iso10646-1' 'XTerm*font6: -*-terminus-medium-*-*-*-32-*-*-*-*-*-iso10646-1' > /home/"$USER"/.Xresources
@@ -2176,10 +2179,11 @@ printf "\n%s" ""
 				printf "\n\n%s\n" "Updating TTYSH..."
 				cd /home/"$USER"/TTYSH/
 				git pull
-				printf "\n\n%s\n" "Setting i3, sway, and foot configs..."
+				printf "\n\n%s\n" "Setting i3, sway, foot, and bashrc configs..."
 				cat /home/"$USER"/TTYSH/resources/i3config/config > /home/"$USER"/.config/i3/config
 				cat /home/"$USER"/TTYSH/resources/swayconfig/config > /home/"$USER"/.config/sway/config
 				cat /home/"$USER"/TTYSH/resources/footconfig/foot.ini > /home/"$USER"/.config/foot/foot.ini
+				cat /home/"$USER"/TTYSH/resources/bashrc/.bashrc > /home/"$USER"/.bashrc
 				printf "\n%s\n" "You should now exit TTYSH and reboot your system to complete any new updates."
 				break
 				;;
