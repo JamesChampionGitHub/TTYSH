@@ -2244,7 +2244,7 @@ done
 #	esac
 
 # --no-terminal breaks in the TTY, --really-quiet is used as best alternative
-if [ -f /home/"$USER"/.ttyshwizardrun ]; then
+if [ -f /home/"$USER"/.ttyshwizardrun ] && [ "$USER" = root ]; then
 	printf "%s" ""
 	#splashscreen
 	#mpv --really-quiet /home/"$USER"/.splash_ttysh.png; clear
