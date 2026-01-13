@@ -320,6 +320,7 @@ sudo pacman -Syu --noconfirm
 
 sudo pacman -S --noconfirm go
 sudo pacman -S --needed --noconfirm git base-devel
+cd /home/"$USER"
 git clone https://aur.archlinux.org/yay.git
 cd yay
 makepkg -si --noconfirm
