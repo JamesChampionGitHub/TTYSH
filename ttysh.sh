@@ -254,7 +254,7 @@ while [ 1 ]; do
 
 	printf "\n%s\n%s\n%s\n" "Do you want to start the music daemon?" "Note: the music daemon runs with screen. Press Ctrl a + d to detach the running daemon, unless you are running special binds for cmus." "Starting up the daemon from a TTY is prefered behaviour, incase of errors with X11."
 
-	read -p "Press y to run the cmus music daemon, or n for no: " cmusanswer
+	read -e -p "Press y to run the cmus music daemon, or n for no: " cmusanswer
 
 	case "$cmusanswer" in
 		y)
@@ -564,7 +564,7 @@ while [ 1 ]; do
 
 	printf "\n%s\n\n" "Pick f for firefox, l for librewolf, or q to quit:"
 
-	read -p "Enter your selection: " xbrowser
+	read -e -p "Enter your selection: " xbrowser
 
 	case "$xbrowser" in 
 		f) 
@@ -584,7 +584,7 @@ while [ 1 ]; do
 	esac 
 done
 
-#[ "$splash" = /dev/pts/ ] && read -p "Pick f for firefox or l for librewolf: " xbrowser && case "$xbrowser" in 
+#[ "$splash" = /dev/pts/ ] && read -e -p "Pick f for firefox or l for librewolf: " xbrowser && case "$xbrowser" in 
 #
 #										        f) 
 #											[ "$splash" = /dev/pts/ ] && devour firefox "$bookmark" || browsh --startup-url "$bookmark" 
@@ -609,7 +609,7 @@ bookmark=$(cat /home/"$USER"/.bookmarks_ttysh.html | fzf -i --prompt "Pick a boo
 #
 #
 #
-#[ "$splash" = /dev/pts/ ] && read -p "Pick f for firefox or l for librewolf: " xbrowser && case "$xbrowser" in 
+#[ "$splash" = /dev/pts/ ] && read -e -p "Pick f for firefox or l for librewolf: " xbrowser && case "$xbrowser" in 
 #
 #										        f) 
 #											[ "$splash" = /dev/pts/ ] && devour librewolf "$bookmark" || browsh --startup-url "$bookmark" 
@@ -649,18 +649,18 @@ while [ 1 ]; do
 
 	printf "\n%s\n\n" "Pick f for firefox, l for librewolf, or q to quit:"
 
-	read -p "Enter your selection: " xbrowser
+	read -e -p "Enter your selection: " xbrowser
 
 	case "$xbrowser" in 
 		f) 
 		printf "\n" ""
-		read -p "Search: " webpick
+		read -e -p "Search: " webpick
 		devour firefox searx.be/search?q="$webpick"
 		break
 		;;
 		l)
 		printf "\n" ""
-		read -p "Search: " webpick
+		read -e -p "Search: " webpick
 		devour librewolf searx.be/search?q="$webpick"
 		break
 		;;
@@ -679,9 +679,9 @@ websearch () {
 
 printf "\n" ""
 
-#[ "$splash" = /dev/pts/ ] && casewebsearch && return || read -p "Search: " webpick && lynx searx.be/search?q="$webpick"
+#[ "$splash" = /dev/pts/ ] && casewebsearch && return || read -e -p "Search: " webpick && lynx searx.be/search?q="$webpick"
 
-[ "$splash" = /dev/pts/ ] && casewebsearch && return || read -p "Search: " webpick && browsh --startup-url searx.be/search?q="$webpick"
+[ "$splash" = /dev/pts/ ] && casewebsearch && return || read -e -p "Search: " webpick && browsh --startup-url searx.be/search?q="$webpick"
 	
 #[ $splash" = /dev/pts/ ] && devour librewolf searx.be/search?q="$webpick" || browsh --startup-url searx.be/search?q="$webpick"
 }
@@ -693,7 +693,7 @@ printf "\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n\n" "The following options:" "s for cu
 
 while [ 1 ]; do
 
-	read -p "Enter your selection: " fanselec	
+	read -e -p "Enter your selection: " fanselec	
 
 	case "$fanselec" in
 
@@ -754,7 +754,7 @@ while [ 1 ]; do
 
 	printf "\n%s\n" "Press s to start Press q to quit."
 
-	read -p "Enter you selection: " answer
+	read -e -p "Enter you selection: " answer
 
 	case "$answer" in
 		s)
@@ -777,7 +777,7 @@ while [ 1 ]; do
 
 	printf "\n%s\n" "Press s to start. Press q to quit."
 
-	read -p "Enter your selection: " answer
+	read -e -p "Enter your selection: " answer
 
 	case "$answer" in
 		s)
@@ -796,7 +796,7 @@ done
 #
 #	printf "\n%s\n" "Press s to start. Press q to quit."
 #
-#	read -p "Enter your selection: " answer
+#	read -e -p "Enter your selection: " answer
 #
 #	case "$answer" in
 #		s)
@@ -822,7 +822,7 @@ while [ 1 ]; do
 
 	printf "\n%s\n" "Press s to start. Press q to quit."
 
-	read -p "Enter your selection: " answer
+	read -e -p "Enter your selection: " answer
 
 	case "$answer" in
 		s)
@@ -845,7 +845,7 @@ while [ 1 ]; do
 
 	printf "\n%s\n" "Press s to start. Press q to quit."
 
-	read -p "Enter your selection: " answer
+	read -e -p "Enter your selection: " answer
 
 	case "$answer" in
 		s)
@@ -868,7 +868,7 @@ while [ 1 ]; do
 
 	printf "\n%s\n" "Press s to start. Press q to quit."
 
-	read -p "Enter your selection: " answer
+	read -e -p "Enter your selection: " answer
 
 	case "$answer" in
 		s)
@@ -891,14 +891,14 @@ while [ 1 ]; do
 
 	printf "\n%s\n" "Press s to start. Press q to quit."
 
-	read -p "Enter your selection: " answer
+	read -e -p "Enter your selection: " answer
 
 	case "$answer" in
 		s)
 		chosendir="$(find /home/"$USER"/ | fzf -i --prompt "Pick the directory with the files names that you want to remove white space from: ")"
 		for file in "$chosendir"/*
 		do
-			read -p "Did you pick something, or do you want to quit? Press c to continue, or e to exit: " pick
+			read -e -p "Did you pick something, or do you want to quit? Press c to continue, or e to exit: " pick
 			case "$pick" in
 				c)
 				mv "$file" "$(echo "$file" | sed -e 's/\ /_/g')"
@@ -930,20 +930,20 @@ while [ 1 ]; do
 
 	printf "\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n" "y to enter video creator and video discription." "a for video that fails choosing y." "x to download url from xclip." "b for video that fails choosing x." "yt to run again." "q to quit"
 
-	read -p "Enter your selection: " answer
+	read -e -p "Enter your selection: " answer
 
 	printf "\n%s\n" ""
 
 	case "$answer" in
 		y)
 		printf "\n%s\n" "Enter the creator and discription: "
-		read video
+		read -e video
 		printf "\n%s\n"	""
 		yt-dlp -f 'bv*[height=480]+ba' "ytsearch1:""$video"""
 		;;
 		a)
 		printf "\n%s\n" "Enter the creator and discription: "
-		read video
+		read -e video
 		printf "\n%s\n"	""
 		yt-dlp -f 'bv+ba' "ytsearch1:""$video"""
 		;;
@@ -976,14 +976,14 @@ while [ 1 ]; do
 
 	printf "\n%s\n"	"sm to enter creator and title. m to download music url from xclip. ytm to run again. q to quit."
 
-	read -p "Enter your selection: " answer
+	read -e -p "Enter your selection: " answer
 
 	printf "\n%s\n" ""
 
 	case "$answer" in
 		sm)
 		printf "\n%s\n" "Enter music creator and title: "
-		read music
+		read -e music
 		yt-dlp -f 'ba' -x --audio-format mp3 "ytsearch1:""$music"""
 		;;
 		m)
@@ -1011,7 +1011,7 @@ printf "\n%s\n" "Do you want to run your rss reader? y/n"
 
 while [ 1 ]; do
 
-	read -p "Enter your selection: " rpick
+	read -e -p "Enter your selection: " rpick
 
 	case "$rpick" in
 		y)
@@ -1034,7 +1034,7 @@ while [ 1 ]; do
 
 	printf "\n%s\n\n" "Would you like your rss feed in a split-screen with a shell? y/n"
 
-	read -p "Enter your selection: " ranswer
+	read -e -p "Enter your selection: " ranswer
 
 	case "$ranswer" in
 		y)
@@ -1056,11 +1056,11 @@ calenderdata () {
 
 printf "\n%s\n" "Set your start date, e.g. 2024-01-01"
 
-read -p "Enter your start date: " startd
+read -e -p "Enter your start date: " startd
 
 printf "\n%s\n" "Set your end date, e.g. 2024-12-31"
 
-read -p "Enter your end date: " endd
+read -e -p "Enter your end date: " endd
 
 printf "\n%s\n" "Running... Please wait..."
 
@@ -1088,7 +1088,7 @@ printf "\n%s\n" "Do you want to edit your calender? y/n"
 
 while [ 1 ]; do
 
-	read -p "Enter your selection: " cpick
+	read -e -p "Enter your selection: " cpick
 
 	case "$cpick" in
 		y)
@@ -1112,12 +1112,12 @@ while [ 1 ]; do
 
 	printf "\n%s\n" "Do you want to update the weather data file? y/n"
 
-	read -p "Enter your selection: " wanswer
+	read -e -p "Enter your selection: " wanswer
 
 	case "$wanswer" in
 		y)	
 		printf "\n%s\n" "Enter your city or town to see the weather forecast: "
-		read wwanswer
+		read -e wwanswer
 		curl wttr.in/"$wwanswer"?T --output /home/"$USER"/TTYSH/resources/.weatherdata
 		cat /home/"$USER"/TTYSH/resources/.weatherdata
 		#wget -qO- wttr.in/"$answer"
@@ -1156,7 +1156,7 @@ while [ 1 ]; do
 
 	printf "\n"$warncolour"%s"$warncolourend"\n" "Stop! Have you run sudo su? Are you running on A/C power? y/n"
 
-	read -p "Enter your selection: " answer
+	read -e -p "Enter your selection: " answer
 
 	case "$answer" in
 		y)
@@ -1185,7 +1185,7 @@ while [ 1 ]; do
 
 	printf "\n%s\n" "Please look for your inserted device above. Is it correct? y/n"
 
-	read -p "Enter your selection: " answer
+	read -e -p "Enter your selection: " answer
 
 	case "$answer" in
 		y)
@@ -1202,7 +1202,7 @@ done
 
 printf "\n%s\n%s\n" "Please enter the name of your disk. e.g. sdb. Do not enter any number, as these will be partitions, and we will be formatting the whole disk." "Be careful not to format the wrong drive!"
 
-	read answer
+	read -e answer
 
 fdisk /dev/"$answer"
 
@@ -1212,7 +1212,7 @@ lsblk
 
 printf "\n%s\n" "What is the new partition name of your drive? e.g. sdb1 ?"
 
-	read setuuid
+	read -e setuuid
 
 cryptsetup luksFormat /dev/"$setuuid"
 
@@ -1242,7 +1242,7 @@ while [ 1 ]; do
 
 	printf "\n%s\n%s\n" "You need to now add the UUID number of the disk you have setup for either file backups or system backups." "See above, is this correct? y/n"
 
-	read -p "Enter your selection: " answer
+	read -e -p "Enter your selection: " answer
 
 	case "$answer" in
 		y)
@@ -1262,7 +1262,7 @@ while [ 1 ]; do
 
 	printf "\n%s\n" "Choose what this disk will be used for. Press t for timeshift system backups or press f for file system backups"
 
-	read -p "Enter your selection: " answer
+	read -e -p "Enter your selection: " answer
 	
 	case "$answer" in
 		t)
@@ -1305,7 +1305,7 @@ lsblk
 	
 printf "\n"$warncolour"%s"$warncolourend"\n" "Stop! Have you run sudo su? Is /dev/"$tdevname" location correct? Are you running on A/C power? y/n"
 
-read -p "Enter your selection: " answer
+read -e -p "Enter your selection: " answer
 
 case "$answer" in
 	y)
@@ -1334,7 +1334,7 @@ while [ 1 ]; do
 
 	printf "\n%s\n" "Does the /dev/mapper/"$tencryptedname" need unmounting? check MOUNTPOINT. press y for umount or n to exit"
 
-	read -p "Enter your selection: " answer
+	read -e -p "Enter your selection: " answer
 
 	case "$answer" in
 		y)
@@ -1374,7 +1374,7 @@ while [ 1 ]; do
 
 	printf "\n"$warncolour"%s"$warncolourend"\n" "Stop! Have you run sudo su? Is /dev/"$tdevname" location correct? Are you running A/C power? y/n"
 
-	read -p "Enter your selection: " answer
+	read -e -p "Enter your selection: " answer
 
 	case "$answer" in
 		y)
@@ -1400,11 +1400,11 @@ while [ 1 ]; do
 
 	printf "\n%s\n" "Do you want to delete a backup? press d to continue or q to exit"
 
-	read -p "Enter your selection: " answer
+	read -e -p "Enter your selection: " answer
 
 	case "$answer" in 
 		d)
-		read -p "Enter the line number matching the backup you want to delete: " delete
+		read -e -p "Enter the line number matching the backup you want to delete: " delete
 		tdelete=$(timeshift --list | grep -i -m 1 "^"$delete"" | awk '{print $3}')
 		timeshift --delete --snapshot "$tdelete"
 		;;
@@ -1525,7 +1525,7 @@ while [ 1 ]; do
 
 	printf "\n"$warncolour"%s"$warncolourend"\n" "Stop! Have you run sudo su first? Have you saved your latest bookmarks? Is /dev/"$bdevname" correct? Are you running on A/C power? y/n" 
 
-	read -p "Enter your selection: " answer
+	read -e -p "Enter your selection: " answer
 
 	case "$answer" in
 		y)
@@ -1584,7 +1584,7 @@ planner () {
 #
 #while [ 1 ]; do
 #	
-#	read -p "Choose y/n: " cmuspick
+#	read -e -p "Choose y/n: " cmuspick
 #
 #	case "$cmuspick" in
 #		y)
@@ -1625,7 +1625,7 @@ printf "\n%s\n" "Do you want to edit your notes? y/n"
 
 while [ 1 ]; do
 
-	read -p "Enter your selection: " npick
+	read -e -p "Enter your selection: " npick
 
 	case "$npick" in
 		y)
@@ -1651,7 +1651,7 @@ rssread
 #
 #while [ 1 ]; do
 #
-#	read -p "Enter your selection: " panswer
+#	read -e -p "Enter your selection: " panswer
 #	
 #	case "$panswer" in
 #		y)
@@ -1681,7 +1681,7 @@ while [ 1 ]; do
 
 printf "\n%s" ""
 
-	read -p "Enter your selection. h and enter if you need help: " answer
+	read -e -p "Enter your selection. h and enter if you need help: " answer
 
 	case "$answer" in
 		cm)
@@ -1759,7 +1759,7 @@ printf "\n%s" ""
 
 			printf "\n%s\n%s\n%s\n" "Stop! It is recommended to run lynx browser offline for your saved webpages." "Use Browsh/Librewolf for web online browsing and saving webpages for later." "Are you offline? Do you want to continue? y/n"
 
-			read -p "Enter your selection: " answer
+			read -e -p "Enter your selection: " answer
 
 			case "$answer" in
 				y)
@@ -1802,7 +1802,7 @@ printf "\n%s" ""
 
 		#	printf "\n%s\n\n" "Would you like your birthday file in a split-screen with a shell? y/n"
 
-		#	read -p "Enter your selection: " answer
+		#	read -e -p "Enter your selection: " answer
 
 		#	case "$answer" in
 		#		y)
@@ -1825,7 +1825,7 @@ printf "\n%s" ""
 
 			printf "\n%s\n\n" "Would you like your notes in a split-screen with a shell? y/n"
 
-			read -p "Enter your selection: " answer
+			read -e -p "Enter your selection: " answer
 
 			case "$answer" in
 				y)
@@ -1889,7 +1889,7 @@ printf "\n%s" ""
 
 			printf "\n%s\n\n" "Would you like your article list in a split-screen with a shell? y/n"
 
-			read -p "Enter your selection: " answer
+			read -e -p "Enter your selection: " answer
 
 			case "$answer" in
 				y)
@@ -2024,7 +2024,7 @@ printf "\n%s" ""
 		#	
 		#while [ 1 ]; do
 		#
-		#	read i 
+		#	read -e i 
 		#	
 		#	printf "%s\n" ""$i"" >> /home/"$USER"/.calchist
 		#	
@@ -2079,7 +2079,7 @@ printf "\n%s" ""
 
 			printf "\n"
 
-			read -p "Enter your selection [ 1 - 6 ]: " answer
+			read -e -p "Enter your selection [ 1 - 6 ]: " answer
 			
 			case "$answer" in
 				"1" | "2" | "3" | "4" | "5" | "6" )	
@@ -2108,7 +2108,7 @@ printf "\n%s" ""
 
 		while [ 1 ]; do
 
-			read -p "Enter your selection: " nmpick
+			read -e -p "Enter your selection: " nmpick
 
 			case "$nmpick" in
 				s)
@@ -2150,7 +2150,7 @@ printf "\n%s" ""
 
 		printf "\n"$warncolour"%s"$warncolourend"\n" "Changing your fan speed can damage your computer. Would you like to continue? y/n"
 
-		read -p "Enter your selection: " fpick
+		read -e -p "Enter your selection: " fpick
 
 			case "$fpick" in 
 				y)
@@ -2168,7 +2168,7 @@ printf "\n%s" ""
 
 		while [ 1 ]; do
 		
-			read -p "Enter your selection: " upick
+			read -e -p "Enter your selection: " upick
 
 			case "$upick" in
 				y)
@@ -2238,7 +2238,7 @@ done
 #clear replaces /dev/null and variations as they crash mpv
 #[[ ]] needs work, and is forcing an enter key press to continue after mpv and clear
 #[[ -f /usr/local/bin/ttyhs ]] && [[ -f /home/"$USER"/.splash_ttysh.png ]]; mpv /home/"$USER"/.splash_ttysh.png; clear; || echo "If you are using this for the first time, configuration is required. Do you want to continue? y/n"
-#	read answer
+#	read -e answer
 #	case "$answer" in
 #		y)
 #		echo "true"; exit
@@ -2256,7 +2256,7 @@ if [ -f /home/"$USER"/.ttyshwizardrun ] || [ "$USER" = root ]; then
 else
 	printf "\n%s\n" "First time using TTYSH, or you do not yet have TTYSH setup and configured? Press y to begin setup, or press n to exit."
 
-	read -p "Enter your selection: " answer
+	read -e -p "Enter your selection: " answer
 
 	case "$answer" in
 		y)
@@ -2281,7 +2281,7 @@ while [ 1 ]; do
 
 		printf "\n\t%s\n\n" "(sc)hedule, (s)election, (h)elp, (config) wizard, or (q)uit?"
 		
-	read -p "Enter your selection: " intro
+	read -e -p "Enter your selection: " intro
 
 	case "$intro" in
 		sc)
