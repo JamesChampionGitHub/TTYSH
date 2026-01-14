@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 # TTYSH : A daily driver and "desktop/non-desktop" experience for the tty.
 # 	  For all level of user. 
