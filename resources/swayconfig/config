@@ -4,9 +4,11 @@
 #
 # Read `man 5 sway` for a complete reference.
 
-#clipboard
-
+# clipboard
 exec wl-paste -t text --watch clipman store --no-persist
+
+# autotiling
+exec_always autotiling
 
 input * {
 	xkb_options srvrkeys:none

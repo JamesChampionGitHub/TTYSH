@@ -439,6 +439,7 @@ printf "%b\n%b\n\n%b\n%b\n%b\n\n%b\n%b\n%b\n%b\n\n%b" 'set folder = "imaps://"' 
 sudo pacman -S --noconfirm xorg-server
 sudo pacman -S --noconfirm xorg-xinit
 sudo pacman -S --noconfirm i3-wm
+sudo pacman -S --noconfirm autotiling
 sudo pacman -S --noconfirm xterm
 sudo pacman -S --noconfirm xclip
 sudo pacman -S --noconfirm xorg-xmodmap
