@@ -505,6 +505,10 @@ yay -S --noconfirm sc-im
 
 sudo pacman -S --needed --noconfirm htop
 
+# install noto-fonts
+
+sudo pacman -S --needed --noconfirm noto-fonts
+
 # make four way screen split
 
 #printf "%b\n\n%b\n\n%b\n\n%b\n\n%b\n\n%b\n\n%b\n\n%b\n\n%b\n\n%b\n\n%b\n\n%b\n\n%b\n\n%b\n\n%b\n\n%b" 'split' 'split -v' 'focus down' 'split -v' 'focus up' 'focus left' 'screen -t bash /bin/bash' 'focus right' 'screen -t bash /bin/bash' 'focus left' 'focus down' 'screen -t bash /bin/bash' 'focus right' 'screen -t bash /bin/bash' 'focus up' 'focus left' > /home/"$USER"/.screenrc.four_split
