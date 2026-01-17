@@ -318,7 +318,7 @@ sudo pacman -Syu --noconfirm
 # install yay package manager
 # need to research
 
-sudo pacman -S --noconfirm go
+sudo pacman -S --needed --noconfirm go
 sudo pacman -S --needed --noconfirm git base-devel
 cd /home/"$USER"
 git clone https://aur.archlinux.org/yay.git
@@ -332,36 +332,36 @@ yay -S --noconfirm xdo-git
 
 # install curl
 
-sudo pacman -S --noconfirm curl
+sudo pacman -S --needed --noconfirm curl
 
 # install bc
 
-sudo pacman -S --noconfirm bc
+sudo pacman -S --needed --noconfirm bc
 
 # install Cmus music player
 
-sudo pacman -S --noconfirm cmus
+sudo pacman -S --needed --noconfirm cmus
 
 # install alsa-utils for alsamixer
 
-sudo pacman -S --noconfirm alsa-utils
+sudo pacman -S --needed --noconfirm alsa-utils
 
 # install yt-dlp
 
-sudo pacman -S --noconfirm yt-dlp
+sudo pacman -S --needed --noconfirm yt-dlp
 
 # install lynx browser/pager
 
-sudo pacman -S --noconfirm lynx
+sudo pacman -S --needed --noconfirm lynx
 
 # install mpv
 # install fzf
 # make the fzf file for use with lynx
 # make the .screenrc.lynx conf file and install screen
 
-sudo pacman -S --noconfirm mpv
-sudo pacman -S --noconfirm fzf
-sudo pacman -S --noconfirm screen
+sudo pacman -S --needed --noconfirm mpv
+sudo pacman -S --needed --noconfirm fzf
+sudo pacman -S --needed --noconfirm screen
 
 [ ! -f /home/"$USER"/.config/mpv.conf ] && mkdir -p /home/"$USER"/.config/mpv; printf "%b" '--image-display-duration=1000' > /home/"$USER"/.config/mpv/mpv.conf
 
@@ -386,13 +386,13 @@ yay -S --noconfirm arkenfox-user.js
 
 # install vim, and make the .screenrc.birthdays_split file
 
-sudo pacman -S --noconfirm vim
+sudo pacman -S --needed --noconfirm vim
 
 # install less and man
 
-sudo pacman -S --noconfirm less
+sudo pacman -S --needed --noconfirm less
 
-sudo pacman -S --noconfirm man
+sudo pacman -S --needed --noconfirm man
 
 #mkdir /home/"$USER"/info
 
@@ -408,7 +408,7 @@ printf "%s\n" "NOTES" > /home/"$USER"/.notes.txt
 
 # install newsboat and make the .screenrc.rss and the yt.sh script
 
-sudo pacman -S --noconfirm newsboat
+sudo pacman -S --needed --noconfirm newsboat
 
 [ ! -f /home/"$USER"/.newsboat/urls ] && echo 'https://www.youtube.com/feeds/videos.xml?channel_id=UCeFnqXMczw4BDCoJHr5dBjg "~James Champion (Youtube)"' > /home/"$USER"/.newsboat/urls 
 
@@ -420,7 +420,7 @@ sudo pacman -S --noconfirm newsboat
 
 # install mutt email and make muttrc for configuration
 
-sudo pacman -S --noconfirm mutt
+sudo pacman -S --needed --noconfirm mutt
 
 mkdir -p /home/"$USER"/.config/mutt/ && touch /home/"$USER"/.config/mutt/muttrc
 
@@ -436,13 +436,13 @@ printf "%b\n%b\n\n%b\n%b\n%b\n\n%b\n%b\n%b\n%b\n\n%b" 'set folder = "imaps://"' 
 
 # install xorg-server, i3, etc... and make the various configuration files
 
-sudo pacman -S --noconfirm xorg-server
-sudo pacman -S --noconfirm xorg-xinit
-sudo pacman -S --noconfirm i3-wm
-sudo pacman -S --noconfirm autotiling
-sudo pacman -S --noconfirm xterm
-sudo pacman -S --noconfirm xclip
-sudo pacman -S --noconfirm xorg-xmodmap
+sudo pacman -S --needed --noconfirm xorg-server
+sudo pacman -S --needed --noconfirm xorg-xinit
+sudo pacman -S --needed --noconfirm i3-wm
+sudo pacman -S --needed --noconfirm autotiling
+sudo pacman -S --needed --noconfirm xterm
+sudo pacman -S --needed --noconfirm xclip
+sudo pacman -S --needed --noconfirm xorg-xmodmap
 yay -S --noconfirm xkbset
 
 cat /home/"$USER"/TTYSH/resources/.Xdefaults >> /home/"$USER"/.Xdefaults
@@ -453,12 +453,12 @@ printf "%s" "exec i3" > /home/"$USER"/.xinitrc
 
 # install sway
 
-sudo pacman -S --noconfirm sway
-sudo pacman -S --noconfirm foot
-sudo pacman -S --noconfirm wf-recorder
-sudo pacman -S --noconfirm wl-clipboard
+sudo pacman -S --needed --noconfirm sway
+sudo pacman -S --needed --noconfirm foot
+sudo pacman -S --needed --noconfirm wf-recorder
+sudo pacman -S --needed --noconfirm wl-clipboard
 yay -S --noconfirm clipman
-sudo pacman -S --noconfirm xorg-xwayland
+sudo pacman -S --needed --noconfirm xorg-xwayland
 
 [ ! -d /home/"$USER"/.config/sway ] && mkdir -p /home/"$USER"/.config/sway; cat /home/"$USER"/TTYSH/resources/swayconfig/config > /home/"$USER"/.config/sway/config
 
@@ -481,21 +481,21 @@ cat /home/"$USER"/TTYSH/resources/bashrc/.bashrc > /home/"$USER"/.bashrc
 
 # install jfbview and mupdf
 
-sudo pacman -S --noconfirm mupdf
+sudo pacman -S --needed --noconfirm mupdf
 yay -S --noconfirm fbpdf-git
 
 # install cryptsetup for diskformat function
 
-sudo pacman -S --noconfirm cryptsetup
+sudo pacman -S --needed --noconfirm cryptsetup
 
 # install timeshift for system backups
 
-sudo pacman -S --noconfirm timeshift
+sudo pacman -S --needed --noconfirm timeshift
 
 # install fbcat for screenshots
 
 yay -S --noconfirm fbcat
-sudo pacman -S --noconfirm imagemagick
+sudo pacman -S --needed --noconfirm imagemagick
 
 # install sc-im for spreadsheets
 
@@ -503,7 +503,7 @@ yay -S --noconfirm sc-im
 
 # install htop for system monitoring
 
-sudo pacman -S --noconfirm htop
+sudo pacman -S --needed --noconfirm htop
 
 # make four way screen split
 
