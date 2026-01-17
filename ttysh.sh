@@ -328,7 +328,7 @@ makepkg -si --noconfirm
 # install some misc. AUR packages
 
 yay -S --noconfirm devour
-yay -S --noconfirm xdo-git
+sudo pacman -S --needed --noconfirm xdo
 
 # install curl
 
