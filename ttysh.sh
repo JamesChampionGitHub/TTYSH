@@ -89,7 +89,21 @@ Key: () denote shortcut keys, e.g. (n) means pressing the n key in the selector 
 
 			reattach (cmus) screen session/
 
-			cmus-control: (ne)xt/ (pr)evious/ (p)ause/ (f)orward/ (st)atus/ (pi)ck a song/
+		Cmus/ 
+
+			(ne)xt song/ 
+
+			(pr)evious song/ 
+
+			(p)ause song/ 
+
+			(f)orward song/ 
+
+			(st)atus on music/ 
+
+			(pi)ck a song/
+
+		ALSA/
 
 			alsa (au)to setting/
 
@@ -98,6 +112,8 @@ Key: () denote shortcut keys, e.g. (n) means pressing the n key in the selector 
 			(low)er volume/
 
 			(al)samixer/
+
+		Youtube Music/
 
 			(mus)ic search on youtube/
 
@@ -201,8 +217,7 @@ Key: () denote shortcut keys, e.g. (n) means pressing the n key in the selector 
 
 			(lo)ck console/
 
-			*NOTE: if you are in xorg/i3, press Ctrl + Alt + and an F key to return to the TTY
-			       before you lock the console.
+			*NOTE: if you are in xorg/i3, press Ctrl + Alt + and an F key to return to the TTY before you lock the console.
 
 			(res)tart/
 
@@ -1684,7 +1699,7 @@ selectcheck () {
 
 if [ "$fuzselect" = true ]; then
 
-	answer="$(eofhelp | grep "(" | fzf | sed 's/.*(//g;s/).*//g')"
+	answer="$(eofhelp | sed '/^[[:space:]]*$/d;/.*[A-Z]/d;/[A-Z].*/d' | fzf | sed 's/.*(//g;s/).*//g')"
 	
 else
 
