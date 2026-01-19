@@ -239,8 +239,8 @@ bindsym $mod+r mode "resize"
 
 include /etc/sway/config.d/*
 
-font pango:monospace 1
-titlebar_border_thickness 0
+font pango:monospace 0
+titlebar_border_thickness 1
 titlebar_padding 0
 
 # Startup
