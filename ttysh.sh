@@ -1679,14 +1679,31 @@ printf "\n%s\n" ""
 selection
 }
 
+# fzf function for selection
+selectcheck () {
+
+if [ "$fuzselect" = true ]; then
+
+	answer="$(eofhelp | grep "(" | fzf | sed 's/.*(//g;s/).*//g')"
+	
+else
+
+	read -e -p "Enter your selection. h and enter if you need help: " answer
+fi
+}
+
 # function for selecting everything
 selection () {
 
 while [ 1 ]; do
 
 printf "\n%s" ""
+	
+	#read -e -p "Enter your selection. h and enter if you need help: " answer 
 
-	read -e -p "Enter your selection. h and enter if you need help: " answer
+	selectcheck
+
+	unset fuzselect
 
 	case "$answer" in
 		cm)
@@ -2233,7 +2250,6 @@ printf "\n%s" ""
 done
 }
 
-
 #
 # PROGRAMME START
 # 
@@ -2284,7 +2300,7 @@ fi
 
 while [ 1 ]; do
 
-		printf "\n\t%s\n\n" "(sc)hedule, (s)election, (h)elp, (config) wizard, or (q)uit?"
+		printf "\n\t%s\n\n" "(sc)hedule, (s)election, (f)zy selection, (h)elp, (config) wizard, or (q)uit?"
 		
 	read -e -p "Enter your selection: " intro
 
@@ -2298,6 +2314,11 @@ while [ 1 ]; do
 		selection
 		break
 		;;
+		f)
+		fuzselect='true'	
+		selection
+		break
+		;;	
 		h)
 		eofhelp
 		#ttyshhelp
