@@ -1718,8 +1718,6 @@ printf "\n%s" ""
 
 	selectcheck
 
-	unset fuzselect
-
 	case "$answer" in
 		cm)
 		cmus
@@ -2327,6 +2325,7 @@ while [ 1 ]; do
 		selection
 		;;	
 		s)
+		unset fuzselect
 		selection
 		break
 		;;
