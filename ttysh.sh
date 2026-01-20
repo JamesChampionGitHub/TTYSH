@@ -2207,7 +2207,7 @@ printf "\n%s" ""
 				)
 				for i in "${installed[@]}"; do
 				
-					[ ! "$(pacman -Qm | grep -i "$i")" ] && echo ""$i" not installed" && echo "now installing "$i"" && yay -S --noconfirm "$i" || echo ""$i" already installed"
+					[ ! "$(pacman -Qm | grep -i "$i")" ] && echo ""$i" not installed" && echo "now installing... "$i"" && yay -S --noconfirm "$i" || echo ""$i" already installed"
 				done
 				printf "\n\n%s\n" "Updating TTYSH..."
 				cd /home/"$USER"/TTYSH/
