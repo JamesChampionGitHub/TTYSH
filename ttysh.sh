@@ -2193,6 +2193,22 @@ printf "\n%s" ""
 				sudo pacman -Syu
 				printf "\n\n%s\n" "Updating the Arch Linux AUR..."
 				yay -Sua
+				installed=(
+				"devour"
+				"browsh"
+				"librewolf-bin"
+				"arkenfox-user.js"
+				"xkbset"
+				"clipman"
+				"fbpdf-git"
+				"fbcat"
+				"fbcat"
+				"sc-im"
+				)
+				for i in "${installed[@]}"; do
+				
+					[ ! "$(pacman -Qm | grep -i "$i")" ] && echo ""$i" not installed" && echo "now installing "$i"" && yay -S --noconfirm "$i" || echo ""$i" already installed"
+				done
 				printf "\n\n%s\n" "Updating TTYSH..."
 				cd /home/"$USER"/TTYSH/
 				git pull
@@ -2335,3 +2351,4 @@ while [ 1 ]; do
 		;;
 	esac
 done
+
