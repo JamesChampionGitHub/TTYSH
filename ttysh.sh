@@ -340,45 +340,130 @@ git clone https://aur.archlinux.org/yay.git
 cd yay
 makepkg -si --noconfirm
 
-# install some misc. AUR packages
+# install following pacman packages:
+# curl
+# xdo
+# bc
+# Cmus
+# alsamixer
+# yt-dlp
+# lynx 
+# mpv
+# fzf
+# vim
+# less 
+# man
+# newsboat
+# mutt
+# xorg-server
+# xorg-xinit
+# i3-wm
+# autotiling
+# xterm
+# xclip
+# xorg-xmodmap
+# sway
+# foot
+# wf-recorder
+# wl-clipboard
+# xorg-xwayland
+# mupdf
+# cryptsetup
+# timeshift
+# imagemagick
+# htop
+# noto-fonts
 
-yay -S --noconfirm devour
-sudo pacman -S --needed --noconfirm xdo
+sudo pacman -S --needed --noconfirm \ 
+		curl \
+		xdo \
+		bc \
+		cmus \
+		alsa-utils \
+		yt-dlp \
+		lynx \
+		mpv \
+		fzf \
+		screen \
+		vim \
+		less \
+		man \
+		newsboat \
+		mutt \
+		xorg-server \
+		xorg-xinit \
+		i3-wm \
+		autotiling \
+		xterm \
+		xclip \
+		xorg-xmodmap \
+		sway \
+		foot \
+		wf-recorder \
+		wl-clipboard \
+		xorg-xwayland \
+		mupdf \
+		cryptsetup \
+		timeshift \
+		imagemagick \
+		htop \
+		noto-fonts
 
-# install curl
+# install following AUR packages:
+# devour
+# browsh
+# librewolf
+# arkenfoxuser.js
+# xkbset
+# clipman
+# fbpdf-git
+# fbcat
+# sc-im
 
-sudo pacman -S --needed --noconfirm curl
+yay -S --noconfirm \
+	devour \
+	browsh \
+	librewolf-bin \
+	arkenfox-user.js \
+	xkbset \
+	clipman \
+	fbpdf-git \
+	fbcat \
+	sc-im
 
-# install bc
-
-sudo pacman -S --needed --noconfirm bc
-
-# install Cmus music player
-
-sudo pacman -S --needed --noconfirm cmus
-
-# install alsa-utils for alsamixer
-
-sudo pacman -S --needed --noconfirm alsa-utils
-
-# install yt-dlp
-
-sudo pacman -S --needed --noconfirm yt-dlp
-
-# install lynx browser/pager
-
-sudo pacman -S --needed --noconfirm lynx
-
-# install mpv
-# install fzf
-# make the fzf file for use with lynx
-# make the .screenrc.lynx conf file and install screen
-
-sudo pacman -S --needed --noconfirm mpv
-sudo pacman -S --needed --noconfirm fzf
-sudo pacman -S --needed --noconfirm screen
+# make the following configurations:
+# make the mpv config
+# make notes file
+# make newsboat url file
+# make muttrc config. Note: this need manual configuration getting/sending emails
+# make Xdefaults config
+# make Xinitrc
+# make i3 config
+# make sway config
+# make foot config
+# make bashrc config
 
 [ ! -f /home/"$USER"/.config/mpv.conf ] && mkdir -p /home/"$USER"/.config/mpv; printf "%b" '--image-display-duration=1000' > /home/"$USER"/.config/mpv/mpv.conf
+
+printf "%s\n" "NOTES" > /home/"$USER"/.notes.txt
+
+[ ! -f /home/"$USER"/.newsboat/urls ] && echo 'https://www.youtube.com/feeds/videos.xml?channel_id=UCeFnqXMczw4BDCoJHr5dBjg "~James Champion (Youtube)"' > /home/"$USER"/.newsboat/urls 
+
+mkdir -p /home/"$USER"/.config/mutt/ && touch /home/"$USER"/.config/mutt/muttrc
+
+printf "%b\n%b\n\n%b\n%b\n%b\n\n%b\n%b\n%b\n%b\n\n%b" 'set folder = "imaps://"' 'set smtp_url = "smtp://"' 'set from = ""' 'set realname = ""' 'set editor = "vim"' 'set spoolfile = "+INBOX"' 'set record = "+Sent"' 'set trash = "+Trash"' 'set postponed = "+Drafts"' 'mailboxes =INBOX =Sent =Trash =Drafts =Junk' > /home/"$USER"/.config/mutt/muttrc
+
+cat /home/"$USER"/TTYSH/resources/.Xdefaults >> /home/"$USER"/.Xdefaults
+
+printf "%s" "exec i3" > /home/"$USER"/.xinitrc
+
+[ ! -d /home/"$USER"/.config/i3 ] && mkdir -p /home/"$USER"/.config/i3; cat /home/"$USER"/TTYSH/resources/i3config/config > /home/"$USER"/.config/i3/config
+
+[ ! -d /home/"$USER"/.config/sway ] && mkdir -p /home/"$USER"/.config/sway; cat /home/"$USER"/TTYSH/resources/swayconfig/config > /home/"$USER"/.config/sway/config
+
+[ ! -d /home/"$USER"/.config/foot ] && mkdir -p /home/"$USER"/.config/foot; cat /home/"$USER"/TTYSH/resources/footconfig/foot.ini > /home/"$USER"/.config/foot/foot.ini
+
+cat /home/"$USER"/TTYSH/resources/bashrc/.bashrc > /home/"$USER"/.bashrc
 
 #try %b with \ to try and escape characters
 #printf "%b\n\n%b\n\n%b\n\n%b\n\t%b\n\t%b\n\t%b\n\t%b\n\t%b\n\t%b\n\t%b\n\t%b\n\t%b\n\t%b\n%b" '#!/bin/bash' 'x=0' 'while [ "$x" = 0 ]; do' 'printf "\\n%b\\n" "Press c to start your search. Press q to exit"' 'read -p "Enter your selection: " answer' 'case "$answer" in' 'c)' 'mpv "$(find /home/"$USER"/Downloads | /home/"$USER"/.fzf/bin/fzf -i)"' 'x=0' ';;' 'q)' 'x=1' ';;' 'esac' 'done' > /home/"$USER"/.mpv_fzf_screen.sh
@@ -387,59 +472,19 @@ sudo pacman -S --needed --noconfirm screen
 
 #printf "%b\n\n%b\n\n%b\n\n%b\n\n%b\n\n%b\n\n%b" 'split' 'focus up' 'chdir /home/"$USER"/Downloads' 'screen -t bash /bin/bash' 'screen -t ./mpv_fzf_screen.sh /home/"$USER"/.mpv_fzf_screen.sh' 'focus down' 'screen -t lynx /usr/bin/lynx /home/"$USER"/Downloads' > /home/"$USER"/.screenrc.lynx
 
-# install browsh web browser
-
-yay -S --noconfirm browsh
-
-# install librewolf
-
-yay -S --noconfirm librewolf-bin
-
-# install arkenfoxuser.js
-
-yay -S --noconfirm arkenfox-user.js
-
-# install vim, and make the .screenrc.birthdays_split file
-
-sudo pacman -S --needed --noconfirm vim
-
-# install less and man
-
-sudo pacman -S --needed --noconfirm less
-
-sudo pacman -S --needed --noconfirm man
-
 #mkdir /home/"$USER"/info
 
 #printf "\n%s\n" "BIRTHDAYS" > /home/"$USER"/info/birthdays.txt
 
 #printf "%b\n\n%b\n\n%b\n\n%b\n\n%b\n\n%b\n\n%b" 'split' 'focus up' 'screen -t vim /usr/bin/vim /home/"$USER"/info/birthdays.txt' 'focus down' 'chdir /home/"$USER"/' 'screen -t bash /bin/bash' 'focus up' > /home/"$USER"/.screenrc.birthdays_split
 
-# make notes file and the sceenrc_notes_split
-
-printf "%s\n" "NOTES" > /home/"$USER"/.notes.txt
-
 #printf "%b\n\n%b\n\n%b\n\n%b\n\n%b\n\n%b\n\n%b" 'split' 'focus up' 'screen -t vim /usr/bin/vim /home/"$USER"/info/notes.txt' 'focus down' 'chdir /home/"$USER"/' 'screen -t bash /bin/bash' 'focus up' > /home/"$USER"/.screenrc.notes_split
-
-# install newsboat and make the .screenrc.rss and the yt.sh script
-
-sudo pacman -S --needed --noconfirm newsboat
-
-[ ! -f /home/"$USER"/.newsboat/urls ] && echo 'https://www.youtube.com/feeds/videos.xml?channel_id=UCeFnqXMczw4BDCoJHr5dBjg "~James Champion (Youtube)"' > /home/"$USER"/.newsboat/urls 
 
 #printf "%b\n\n%b\n\n%b\n\n%b\n\n%b\n\n\t%b\n\n\t%b\n\t%b\n\t%b\n\t%b\n\t%b\n\t%b\n\t%b\n\t%b\n\t%b\n\t%b\n\t%b\n\t%b\n\t%b\n\t%b\n\t%b\n\t%b\n\t%b\n\t%b\n\t%b\n\t%b\n\t%b\n\t%b\n\t%b\n\t%b\n\n%b" '#!/bin/bash' '# A script for yt-dlp with search arguments.' 'x=0' 'url=$(xclip -o 2> /dev/null)' 'while [ "$x" = 0 ]; do' 'echo "y to enter video creator and video discription. x to download url from xclip. m to download music url from xclip. q to quit. yt to run again."' 'read -p "Enter your selection: " answer' 'case "$answer" in' 'y)' 'echo "Enter the creator and discription."' 'read video' "yt-dlp -f 'bv*[height=480]+ba' \"ytsearch1:\"\"\$video\"\"\"" 'x=0' ';;' 'x)' "yt-dlp -f 'bv*[height=480]+ba' \"\$url\"" 'x=0' ';;' 'm)' "yt-dlp -f 'ba' -x --audio-format mp3 \"\$url\"" 'x=0' ';;' 'yt)' '/home/"$USER"/./.yt.sh' 'x=1' ';;' 'q)' 'x=1' ';;' 'esac' 'done' > /home/"$USER"/.yt.sh
 
 #chmod +x /home/"$USER"/.yt.sh
 
 #printf "%b\n\n%b\n\n%b\n\n%b\n\n%b\n\n%b\n\n%b\n\n%b\n\n" 'split' 'focus up' 'screen -t newsboat /usr/bin/newsboat' 'focus down' 'chdir /home/"$USER"/Videos/' 'screen -t bash /bin/bash' 'screen -t ./yt.sh /home/"$USER"/.yt.sh' 'focus up' > /home/"$USER"/.screenrc.rss
-
-# install mutt email and make muttrc for configuration
-
-sudo pacman -S --needed --noconfirm mutt
-
-mkdir -p /home/"$USER"/.config/mutt/ && touch /home/"$USER"/.config/mutt/muttrc
-
-printf "%b\n%b\n\n%b\n%b\n%b\n\n%b\n%b\n%b\n%b\n\n%b" 'set folder = "imaps://"' 'set smtp_url = "smtp://"' 'set from = ""' 'set realname = ""' 'set editor = "vim"' 'set spoolfile = "+INBOX"' 'set record = "+Sent"' 'set trash = "+Trash"' 'set postponed = "+Drafts"' 'mailboxes =INBOX =Sent =Trash =Drafts =Junk' > /home/"$USER"/.config/mutt/muttrc
 
 # make mutt config screen split
 
@@ -448,39 +493,6 @@ printf "%b\n%b\n\n%b\n%b\n%b\n\n%b\n%b\n%b\n%b\n\n%b" 'set folder = "imaps://"' 
 # make screen config for listing saved articles
 
 #printf "%b\n\n%b\n\n%b\n\n%b\n\n%b\n\n%b\n\n%b" 'split' 'focus up' 'screen -t vim /usr/bin/vim /home/"$USER"/Downloads' 'focus down' 'chdir /home/"$USER"/Downloads' 'screen -t bash /bin/bash' 'focus up' > /home/"$USER"/.screenrc.articles
-
-# install xorg-server, i3, etc... and make the various configuration files
-
-sudo pacman -S --needed --noconfirm xorg-server
-sudo pacman -S --needed --noconfirm xorg-xinit
-sudo pacman -S --needed --noconfirm i3-wm
-sudo pacman -S --needed --noconfirm autotiling
-sudo pacman -S --needed --noconfirm xterm
-sudo pacman -S --needed --noconfirm xclip
-sudo pacman -S --needed --noconfirm xorg-xmodmap
-yay -S --noconfirm xkbset
-
-cat /home/"$USER"/TTYSH/resources/.Xdefaults >> /home/"$USER"/.Xdefaults
-
-printf "%s" "exec i3" > /home/"$USER"/.xinitrc
-
-[ ! -d /home/"$USER"/.config/i3 ] && mkdir -p /home/"$USER"/.config/i3; cat /home/"$USER"/TTYSH/resources/i3config/config > /home/"$USER"/.config/i3/config
-
-# install sway
-
-sudo pacman -S --needed --noconfirm sway
-sudo pacman -S --needed --noconfirm foot
-sudo pacman -S --needed --noconfirm wf-recorder
-sudo pacman -S --needed --noconfirm wl-clipboard
-yay -S --noconfirm clipman
-sudo pacman -S --needed --noconfirm xorg-xwayland
-
-[ ! -d /home/"$USER"/.config/sway ] && mkdir -p /home/"$USER"/.config/sway; cat /home/"$USER"/TTYSH/resources/swayconfig/config > /home/"$USER"/.config/sway/config
-
-[ ! -d /home/"$USER"/.config/foot ] && mkdir -p /home/"$USER"/.config/foot; cat /home/"$USER"/TTYSH/resources/footconfig/foot.ini > /home/"$USER"/.config/foot/foot.ini
-
-cat /home/"$USER"/TTYSH/resources/bashrc/.bashrc > /home/"$USER"/.bashrc
-
 
 #printf "%b\n%b\n%b\n%b\n\n\n%b\n%b\n\n%b\n%b\n%b\n%b\n%b\n%b\n%b\n%b\n%b\n%b\n%b\n%b\n%b\n%b\n%b" '#URxvt*background: black' '#URxvt*foreground: white' '#URxvt*font: xft:monospace:size=12' '#URxvt*scrollBar: false' 'XTerm.vt100.foreground: white' 'XTerm.vt100.background: black' 'xterm*faceName: Monospace' 'xterm*faceSize: 12' 'XTerm*font: -*-terminus-medium-*-*-*-18-*-*-*-*-*-iso10646-1' '# unreadable' 'XTerm*font1: -*-terminus-medium-*-*-*-12-*-*-*-*-*-iso10646-1' '# tiny' 'XTerm*font2: -*-terminus-medium-*-*-*-14-*-*-*-*-*-iso10646-1' '# small' 'XTerm*font3: -*-terminus-medium-*-*-*-16-*-*-*-*-*-iso10646-1' '# medium' 'XTerm*font4: -*-terminus-medium-*-*-*-22-*-*-*-*-*-iso10646-1' '# large' 'XTerm*font5: -*-terminus-medium-*-*-*-24-*-*-*-*-*-iso10646-1' '# huge' 'XTerm*font6: -*-terminus-medium-*-*-*-32-*-*-*-*-*-iso10646-1' > /home/"$USER"/.Xdefaults
 
@@ -493,36 +505,6 @@ cat /home/"$USER"/TTYSH/resources/bashrc/.bashrc > /home/"$USER"/.bashrc
 #chmod +x /home/"$USER"/.mpv_fzf_screen_videos.sh
 
 #printf "%b\n\n%b\n\n%b\n\n%b\n\n%b\n\n%b\n\n%b\n\n%b" 'split' 'focus up' 'screen -t vim /usr/bin/vim /home/"$USER"/Videos' 'focus down' 'chdir /home/"$USER"/Videos' 'screen -t bash /bin/bash' 'screen -t ./mpv_fzf_screen_videos.sh /home/"$USER"/.mpv_fzf_screen_videos.sh' 'focus up' > /home/"$USER"/.screenrc.videos
-
-# install jfbview and mupdf
-
-sudo pacman -S --needed --noconfirm mupdf
-yay -S --noconfirm fbpdf-git
-
-# install cryptsetup for diskformat function
-
-sudo pacman -S --needed --noconfirm cryptsetup
-
-# install timeshift for system backups
-
-sudo pacman -S --needed --noconfirm timeshift
-
-# install fbcat for screenshots
-
-yay -S --noconfirm fbcat
-sudo pacman -S --needed --noconfirm imagemagick
-
-# install sc-im for spreadsheets
-
-yay -S --noconfirm sc-im
-
-# install htop for system monitoring
-
-sudo pacman -S --needed --noconfirm htop
-
-# install noto-fonts
-
-sudo pacman -S --needed --noconfirm noto-fonts
 
 # make four way screen split
 
