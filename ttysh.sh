@@ -2216,11 +2216,12 @@ printf "\n%s" ""
 				printf "\n\n%s\n" "Updating TTYSH..."
 				cd /home/"$USER"/TTYSH/
 				git pull
-				printf "\n\n%s\n" "Setting i3, sway, foot, and bashrc configs..."
+				printf "\n\n%s\n" "Setting i3, sway, foot, bashrc, and Xdefaults configs..."
 				cat /home/"$USER"/TTYSH/resources/i3config/config > /home/"$USER"/.config/i3/config
 				cat /home/"$USER"/TTYSH/resources/swayconfig/config > /home/"$USER"/.config/sway/config
 				cat /home/"$USER"/TTYSH/resources/footconfig/foot.ini > /home/"$USER"/.config/foot/foot.ini
 				cat /home/"$USER"/TTYSH/resources/bashrc/.bashrc > /home/"$USER"/.bashrc
+				cat /home/"$USER"/TTYSH/resources/.Xdefaults > /home/"$USER"/.Xdefaults
 				printf "\n%s\n" "You should now exit TTYSH and reboot your system to complete any new updates."
 				break
 				;;
