@@ -372,6 +372,7 @@ makepkg -si --noconfirm
 # timeshift
 # imagemagick
 # htop
+# fbgrab
 # noto-fonts
 
 sudo pacman -S --needed --noconfirm \ 
@@ -407,6 +408,7 @@ sudo pacman -S --needed --noconfirm \
 		timeshift \
 		imagemagick \
 		htop \
+		fbgrab \
 		noto-fonts
 
 # install following AUR packages:
@@ -417,7 +419,6 @@ sudo pacman -S --needed --noconfirm \
 # xkbset
 # clipman
 # fbpdf-git
-# fbcat
 # sc-im
 
 yay -S --noconfirm \
@@ -428,7 +429,6 @@ yay -S --noconfirm \
 	xkbset \
 	clipman \
 	fbpdf-git \
-	fbcat \
 	sc-im
 
 # make the following configurations:
@@ -2223,6 +2223,7 @@ printf "\n%s" ""
 					timeshift \
 					imagemagick \
 					htop \
+					fbgrab \
 					noto-fonts
 
 				printf "\n\n%s\n" "Updating the Arch Linux AUR..."
@@ -2235,8 +2236,6 @@ printf "\n%s" ""
 				"xkbset"
 				"clipman"
 				"fbpdf-git"
-				"fbcat"
-				"fbcat"
 				"sc-im"
 				)
 				for i in "${installed[@]}"; do
