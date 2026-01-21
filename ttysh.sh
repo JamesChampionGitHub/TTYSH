@@ -2190,7 +2190,41 @@ printf "\n%s" ""
 			case "$upick" in
 				y)
 				printf "\n%s\n" "Updating Arch Linux..."
-				sudo pacman -Syu
+				sudo pacman --needed -Syu \
+					curl \
+					xdo \
+					bc \
+					cmus \
+					alsa-utils \
+					yt-dlp \
+					lynx \
+					mpv \
+					fzf \
+					screen \
+					vim \
+					less \
+					man \
+					newsboat \
+					mutt \
+					xorg-server \
+					xorg-xinit \
+					i3-wm \
+					autotiling \
+					xterm \
+					xclip \
+					xorg-xmodmap \
+					sway \
+					foot \
+					wf-recorder \
+					wl-clipboard \
+					xorg-xwayland \
+					mupdf \
+					cryptsetup \
+					timeshift \
+					imagemagick \
+					htop \
+					noto-fonts
+
 				printf "\n\n%s\n" "Updating the Arch Linux AUR..."
 				yay -Sua
 				installed=(
