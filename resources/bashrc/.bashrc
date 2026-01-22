@@ -32,17 +32,8 @@ alias d='cd $(find /home/"$USER"/ -type d | /home/"$USER"/.fzf/bin/fzf -i --prom
 # unmute and set volume in alsa
 alias au='amixer -c 0 -- sset Master unmute; amixer -c 0 -- sset Master playback -10dB'
 
-# kill x11
-alias killx='/home/"$USER"/scr_sh/./xorgk.sh'
-
 # record x11 desktop
-alias recx='ffmpeg -video_size 1280x800 -framerate 60 -f x11grab -i :0 output.mp4'
-
-# goto ffmpeg template directory
-alias dirf='cd /home/"$USER"/instr_vids_manuals/james_champion/working_on/ffmpeg_template/'
-
-# goto video production directory
-alias dirv='cd /home/"$USER"/test/video_production/'
+alias recx='ffmpeg -video_size 1280x800 -framerate 30 -f x11grab -i :0 output.mp4'
 
 alias xc='xclip -selection clipboard' # tty: if in vim > visual > : > :w!xclip > this will make a text file in home directory
 alias xp='xclip -selection clipboard -o'
