@@ -2341,13 +2341,17 @@ fi
 
 #options="${1:-$(printf "Use the following options after typing ttysh, e.g. ttsyh planner Note: ttysh flags create a menu picker ttyshhelp fzfcmus websearch bookmarkcheck fzfxorgvid fzfttyvid fzfvim fzfpdf yt ytmusic weather planner"}"
 
-[ "$1" ] && options=$(printf "%s" "fzfcmus websearch bookmarkcheck fzfxorgvid fzfttyvid fzfvim fzfpdf yt ytmusic weather planner helpflags" | tr ' ' '\n' | grep "$1") && "$options" || printf "\n\t%s\n" "TTYSH"
+[ "$1" ] && options=$(printf "%s" "fzfcmus websearch bookmarkcheck fzfxorgvid fzfttyvid fzfvim fzfpdf yt ytmusic weather planner helpflags" | tr ' ' '\n' | grep "$1") && "$options" || #printf "\n\t%s\n" "TTYSH"
 
 while [ 1 ]; do
 
-		printf "\n\t%s\n\n" "(sc)hedule, (s)election, (f)zy selection, (h)elp, (config) wizard, or (q)uit?"
+# printf use
+#		printf "\n\t%s\n\n" "(sc)hedule, (s)election, (f)zy selection, (h)elp, (config) wizard, or (q)uit?"
+#read -e -p "Enter your selection: " intro
+# fzf use
+
+intro="$(printf "\n%s\n%s\n%s\n%s\n%s\n%s" "(sc)hedule" "(s)election" "(f)zy selection" "(h)elp" "(config) wizard" "(q)uit?" | sed '/^[[:space:]]*$/d;/.*[A-Z]/d;/[A-Z].*/d' | fzf --prompt "Welcome to TTYSH: " --layout=reverse --margin 20% | sed 's/.*(//g;s/).*//g')"
 		
-	read -e -p "Enter your selection: " intro
 
 	case "$intro" in
 		sc)
@@ -2384,4 +2388,3 @@ while [ 1 ]; do
 		;;
 	esac
 done
-
