@@ -2350,7 +2350,7 @@ while [ 1 ]; do
 #read -e -p "Enter your selection: " intro
 # fzf use
 
-intro="$(printf "\n%s\n%s\n%s\n%s\n%s" "(sc)hedule" "(s)election" "(h)elp" "(config) wizard" "(q)uit?" | sed '/^[[:space:]]*$/d;/.*[A-Z]/d;/[A-Z].*/d' | fzf --prompt "Welcome to TTYSH: " --layout=reverse --margin 20% | sed 's/.*(//g;s/).*//g')"
+intro="$(printf "\n%s\n%s\n%s\n%s\n%s\n%s" "(sc)hedule" "(s)election" "(f)zf for selection" "(h)elp" "(config) wizard" "(q)uit?" | sed '/^[[:space:]]*$/d;/.*[A-Z]/d;/[A-Z].*/d' | fzf --prompt "TTYSH " --layout=reverse --margin 20% | sed 's/.*(//g;s/).*//g')"
 		
 
 	case "$intro" in
