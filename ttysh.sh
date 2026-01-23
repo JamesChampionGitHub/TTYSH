@@ -69,7 +69,7 @@ Key: () denote shortcut keys, e.g. (n) means pressing the n key in the selector 
 
 			search & play video in (t)ty/or (se)earch & play in gui/
 
-			(fz)f search files to open in Vim/
+			(fz)f search files to open in vim/
 
 			search files and (del)ete/
 			
@@ -127,11 +127,11 @@ Key: () denote shortcut keys, e.g. (n) means pressing the n key in the selector 
 
 		Record/
 
-			(sc)reenshot(1,2,3,4,5,6) TTY/
+			(sc)reenshot(1,2,3,4,5,6) tty/
 
-			(re)cord your TTY/s/
+			(re)cord your tty/s/
 
-			(rec)ord your X server/
+			(rec)ord your x server/
 
 		Wordprocessing/
 
@@ -157,7 +157,7 @@ Key: () denote shortcut keys, e.g. (n) means pressing the n key in the selector 
 
 			*NOTE: RUN THE ABOVE ON REMOVABLE MEDIA BEFORE MAKING YOUR BACKUPS.
 
-	 		stop! first run as sudo su!: (ba)ckup /home/$SUDO_USER/ to removable drive/
+	 		stop! first run as sudo su!: (ba)ckup /home/user/ to removable drive/
 
 			stop! first run sudo su!: (ti)meshift backup to removable drive/
 
@@ -165,11 +165,11 @@ Key: () denote shortcut keys, e.g. (n) means pressing the n key in the selector 
 
 		TTY/
 				
-			(scro)llback information for TTY/
+			(scro)llback information for tty/
 
-			change (v)t (1,2,3,4,5,6) TTY/
+			change (v)t (1,2,3,4,5,6) tty/
 
-			choose ch(vt) TTY/
+			choose ch(vt) tty/
 
 			*NOTE: cannot use this selection in screen split. Use alt+number or alt+arrow key instead
 
@@ -187,11 +187,11 @@ Key: () denote shortcut keys, e.g. (n) means pressing the n key in the selector 
 
 			(sw)ay window manager/
 
-			close (x)org and return to TTY/
+			close (x)org and return to tty/
 
-			close swa(y) and return to TTY/
+			close swa(y) and return to tty/
 
-			(cap)s lock as left mouse clock on X11 on ThinkPads/
+			(cap)s lock as left mouse click on x11 on thinkpads/
 
 		System/Utilities/
 
@@ -203,7 +203,7 @@ Key: () denote shortcut keys, e.g. (n) means pressing the n key in the selector 
 
 			network manager (dev)ices/
 
-			(fan) control on ThinkPads/
+			(fan) control on thinkpads/
 
 			(u)pdate the system/
 
@@ -1681,7 +1681,7 @@ selectcheck () {
 
 if [ "$fuzselect" = true ]; then
 
-	answer="$(eofhelp | sed '/^[[:space:]]*$/d;/.*[A-Z]/d;/[A-Z].*/d' | fzf | sed 's/.*(//g;s/).*//g')"
+	answer="$(eofhelp | sed '/^[[:space:]]*$/d;/.*[A-Z]/d;/[A-Z].*/d' | fzf --layout=reverse --margin 3% | sed 's/.*(//g;s/).*//g')"
 	
 else
 
