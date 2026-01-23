@@ -409,6 +409,7 @@ sudo pacman -S --needed --noconfirm \
 		imagemagick \
 		htop \
 		fbgrab \
+		tldr \
 		noto-fonts
 
 # install following AUR packages:
@@ -2224,6 +2225,7 @@ printf "\n%s" ""
 					imagemagick \
 					htop \
 					fbgrab \
+					tldr \
 					noto-fonts
 
 				printf "\n\n%s\n" "Updating the Arch Linux AUR..."
