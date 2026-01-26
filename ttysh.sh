@@ -38,6 +38,7 @@ HELP: j and k to go down and up. q to return to menu.
 
 Key: () denote shortcut keys, e.g. (n) means pressing the n key in the selector will load the (n)otes selection.
 
+Note: (f) will run search on this list of programs for you to select.
 
 		Internet/
 
@@ -64,6 +65,8 @@ Key: () denote shortcut keys, e.g. (n) means pressing the n key in the selector 
 			(mu)tt email configuation/
 
 		Search/
+
+			(f)ind a program from this list/
 
 			(fi)le manager/
 
@@ -97,7 +100,7 @@ Key: () denote shortcut keys, e.g. (n) means pressing the n key in the selector 
 
 			(p)ause song/ 
 
-			(f)orward song/ 
+			(fo)orward song/ 
 
 			(st)atus on music/ 
 
@@ -1701,6 +1704,8 @@ printf "\n%s" ""
 
 	selectcheck
 
+	unset fuzselect
+
 	case "$answer" in
 		cm)
 		cmus
@@ -1733,7 +1738,7 @@ printf "\n%s" ""
 		cmus-remote -Q
 		printf "\n%s\n\n" "Paused/Playing."
 		;;
-		f)
+		fo)
 		#cmuscheck
 		cmus-remote -k +5
 		printf "\n%s\n\n" "Forwarding..."
@@ -1762,6 +1767,11 @@ printf "\n%s" ""
 		;;
 		pi)
 		fzfcmus
+		;;
+		f)
+		fuzselect='true'	
+		selection
+		break
 		;;
 		we)
 		websearch
