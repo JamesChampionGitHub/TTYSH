@@ -2362,7 +2362,7 @@ while [ 1 ]; do
 #read -e -p "Enter your selection: " intro
 # fzf use
 
-intro="$(printf "\n%s\n%s\n%s\n%s\n%s\n%s" "(sc)hedule" "(s)elect program" "(f)ind program" "(h)elp" "(config) wizard" "(q)uit" | sed '/^[[:space:]]*$/d;/.*[A-Z]/d;/[A-Z].*/d' | fzf --prompt "TTYSH " --layout=reverse --margin 20% | sed 's/.*(//g;s/).*//g')"
+intro="$(printf "\n%s\n%s\n%s\n%s\n%s\n%s\n%s" "(sc)hedule" "(s)elect program" "(f)ind program" "(h)elp" "(t)tysh settings currently under development" "(config) wizard" "(q)uit" | sed '/^[[:space:]]*$/d;/.*[A-Z]/d;/[A-Z].*/d' | fzf --prompt "TTYSH " --layout=reverse --margin 20% | sed 's/.*(//g;s/).*//g')"
 		
 
 	case "$intro" in
@@ -2384,6 +2384,9 @@ intro="$(printf "\n%s\n%s\n%s\n%s\n%s\n%s" "(sc)hedule" "(s)elect program" "(f)i
 		h)
 		eofhelp
 		#ttyshhelp
+		;;
+		t)
+		printf "\n%s\n" "Under development"
 		;;
 		config)
 		wizardttysh
