@@ -546,28 +546,30 @@ while read i; do
 
 	case "$i" in
 
-		i3autotiling=false)
-		sed -i 's/#exec --no-startup-id autotiling/#exec --no-startup-id autotiling/g;s/exec --no-startup-id autotiling/#exec --no-startup-id autotiling/g' /home/"$USER"/.config/i3/config
+		i3autotiling=true|i3autotiling=false)
+		if [ "$(grep -i "i3autotiling=true" /home/"$USER"/.config/ttysh/config)" ]; then
 
-		#[ "$(grep -i "i3autotiling=true" /home/"$USER"/.config/ttysh/config)" ] && sed -i 's/i3autotiling=true/i3autotiling=false/g' /home/"$USER"/.config/ttysh/config || sed -i 's/i3autotiling=false/i3autotiling=true/g' /home/"$USER"/.config/ttysh/config
+			sed -i 's/^exec --no-startup-id autotiling/exec --no-startup-id autotiling/g' /home/"$USER"/.config/i3/config 
+			sed -i 's/^#exec --no-startup-id autotiling/exec --no-startup-id autotiling/g' /home/"$USER"/.config/i3/config 
 
-		#[ "$(grep -i "i3autotiling=true" /home/"$USER"/.config/ttysh/config)" ] && || 	
+		else	
+			sed -i 's/^#exec --no-startup-id autotiling/#exec --no-startup-id autotiling/g' /home/"$USER"/.config/i3/config
+			sed -i 's/^exec --no-startup-id autotiling/#exec --no-startup-id autotiling/g' /home/"$USER"/.config/i3/config
+		fi
 		;;
-		i3autotiling=true)
-		sed -i 's/exec --no-startup-id autotiling/exec --no-startup-id autotiling/g;s/#exec --no-startup-id autotiling/exec --no-startup-id autotiling/g' /home/"$USER"/.config/i3/config 
-		;;
-		swayautotiling=false)
-		sed -i 's/#exec_always autotiling/#exec_always autotiling/g;s/exec_always autotiling/#exec_always autotiling/g' /home/"$USER"/.config/sway/config
+		swayautotiling=true|swayautotiling=false)
+		if [ "$(grep -i "swayautotiling=true" /home/"$USER"/.config/ttysh/config)" ]; then
 
-		#[ "$(grep -i "swayautotiling=true" /home/"$USER"/.config/ttysh/config)" ] && sed -i 's/swayautotiling=true/swayautotiling=false/g' /home/"$USER"/.config/ttysh/config || sed -i 's/swayautotiling=false/swayautotiling=true/g' /home/"$USER"/.config/ttysh/config
+			sed -i 's/^exec_always autotiling/exec_always autotiling/g' /home/"$USER"/.config/sway/config 
+			sed -i 's/^#exec_always autotiling/exec_always autotiling/g' /home/"$USER"/.config/sway/config 
 
-		#[ "$(grep -i "swayautotiling=true" /home/"$USER"/.config/ttysh/config)" ] && || 		
-		;;
-		swayautotiling=true)
-		sed -i 's/exec_always autotiling/exec_always autotiling/g;s/#exec_always autotiling/exec_always autotiling/g' /home/"$USER"/.config/sway/config 
+		else	
+			sed -i 's/^#exec_always autotiling/#exec_always autotiling/g' /home/"$USER"/.config/sway/config
+			sed -i 's/^exec_always autotiling/#exec_always autotiling/g' /home/"$USER"/.config/sway/config
+		fi
 		;;
 	esac
-done < /home/"$USER"/ttysh/config
+done < /home/"$USER"/.config/ttysh/config
 }
 
 # toggles to change the desktop or ttysh
@@ -586,12 +588,12 @@ while [ 1 ]; do
 
 		if [ "$(grep -i "i3autotiling=true" /home/"$USER"/.config/ttysh/config)" ]; then
 
-			sed -i 's/exec --no-startup-id autotiling/exec --no-startup-id autotiling/g' /home/"$USER"/.config/i3/config 
-			sed -i 's/#exec --no-startup-id autotiling/exec --no-startup-id autotiling/g' /home/"$USER"/.config/i3/config 
+			sed -i 's/^exec --no-startup-id autotiling/exec --no-startup-id autotiling/g' /home/"$USER"/.config/i3/config 
+			sed -i 's/^#exec --no-startup-id autotiling/exec --no-startup-id autotiling/g' /home/"$USER"/.config/i3/config 
 
 		else	
-			sed -i 's/#exec --no-startup-id autotiling/#exec --no-startup-id autotiling/g' /home/"$USER"/.config/i3/config
-			sed -i 's/exec --no-startup-id autotiling/#exec --no-startup-id autotiling/g' /home/"$USER"/.config/i3/config
+			sed -i 's/^#exec --no-startup-id autotiling/#exec --no-startup-id autotiling/g' /home/"$USER"/.config/i3/config
+			sed -i 's/^exec --no-startup-id autotiling/#exec --no-startup-id autotiling/g' /home/"$USER"/.config/i3/config
 		fi
 		;;
 		s)
@@ -599,12 +601,12 @@ while [ 1 ]; do
 
 		if [ "$(grep -i "swayautotiling=true" /home/"$USER"/.config/ttysh/config)" ]; then
 
-			sed -i 's/exec_always autotiling/exec_always autotiling/g' /home/"$USER"/.config/sway/config 
-			sed -i 's/#exec_always autotiling/exec_always autotiling/g' /home/"$USER"/.config/sway/config 
+			sed -i 's/^exec_always autotiling/exec_always autotiling/g' /home/"$USER"/.config/sway/config 
+			sed -i 's/^#exec_always autotiling/exec_always autotiling/g' /home/"$USER"/.config/sway/config 
 
 		else	
-			sed -i 's/#exec_always autotiling/#exec_always autotiling/g' /home/"$USER"/.config/sway/config
-			sed -i 's/exec_always autotiling/#exec_always autotiling/g' /home/"$USER"/.config/sway/config
+			sed -i 's/^#exec_always autotiling/#exec_always autotiling/g' /home/"$USER"/.config/sway/config
+			sed -i 's/^exec_always autotiling/#exec_always autotiling/g' /home/"$USER"/.config/sway/config
 		fi
 		;;
 		q)
