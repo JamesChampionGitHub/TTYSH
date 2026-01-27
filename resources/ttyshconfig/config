@@ -1,0 +1,5 @@
+# you can either toggle the options below using this file, or use TTYSH's toggle (recommended)
+
+i3autotiling=false
+
+swayautotiling=false

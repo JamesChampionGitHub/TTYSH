@@ -467,6 +467,8 @@ printf "%s" "exec i3" > /home/"$USER"/.xinitrc
 
 [ ! -d /home/"$USER"/.config/foot ] && mkdir -p /home/"$USER"/.config/foot; cat /home/"$USER"/TTYSH/resources/footconfig/foot.ini > /home/"$USER"/.config/foot/foot.ini
 
+[ ! -d /home/"$USER"/.config/ttysh ] && mkdir -p /home/"$USER"/.config/ttysh; cat /home/"$USER"/TTYSH/resources/ttyshconfig/config > /home/"$USER"/.config/ttysh/config
+
 cat /home/"$USER"/TTYSH/resources/bashrc/.bashrc > /home/"$USER"/.bashrc
 
 #try %b with \ to try and escape characters
@@ -2465,6 +2467,7 @@ intro="$(printf "\n%s\n%s\n%s\n%s\n%s\n%s\n%s" "(p)lanner" "(s)elect program" "(
 		#ttyshhelp
 		;;
 		t)
+		[ ! -d /home/"$USER"/.config/ttysh ] && mkdir -p /home/"$USER"/.config/ttysh; cat /home/"$USER"/TTYSH/resources/ttyshconfig/config > /home/"$USER"/.config/ttysh/config
 		ttyshtoggles
 		printf "\n%s\n" "To see your changes restart the program/s or your computer"
 		selection
