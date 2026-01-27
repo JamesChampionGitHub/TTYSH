@@ -539,6 +539,50 @@ date >> /home/"$USER"/.ttyshwizardrun
 printf "\n%s\n" "TTYSH Wizard has finished. Please exit out of TTYSH and reboot to complete."
 }
 
+# toggles to change the desktop or ttysh
+ttyshtoggles () {
+
+while [ 1 ]; do
+
+		printf "\n%s\n%s\n%s\n%s\n" "Toggle the following on and off:" "(i)3 window manager autotiling" "(s)way window manager autotiling" "(q)uit and return to selection"
+
+	read -e -p "Enter your selection: " pickoption
+
+	case "$pickoption" in
+
+		i)
+		[ "$(grep -i "i3autotiling=true" /home/"$USER"/.config/ttysh/config)" ] && sed -i 's/i3autotiling=true/i3autotiling=false/g' /home/"$USER"/.config/ttysh/config || sed -i 's/i3autotiling=false/i3autotiling=true/g' /home/"$USER"/.config/ttysh/config
+
+		if [ "$(grep -i "i3autotiling=true" /home/"$USER"/.config/ttysh/config)" ]; then
+
+			sed -i 's/exec --no-startup-id autotiling/exec --no-startup-id autotiling/g' /home/"$USER"/.config/i3/config 
+			sed -i 's/#exec --no-startup-id autotiling/exec --no-startup-id autotiling/g' /home/"$USER"/.config/i3/config 
+
+		else	
+			sed -i 's/#exec --no-startup-id autotiling/#exec --no-startup-id autotiling/g' /home/"$USER"/.config/i3/config
+			sed -i 's/exec --no-startup-id autotiling/#exec --no-startup-id autotiling/g' /home/"$USER"/.config/i3/config
+		fi
+		;;
+		s)
+		[ "$(grep -i "swayautotiling=true" /home/"$USER"/.config/ttysh/config)" ] && sed -i 's/swayautotiling=true/swayautotiling=false/g' /home/"$USER"/.config/ttysh/config || sed -i 's/swayautotiling=false/swayautotiling=true/g' /home/"$USER"/.config/ttysh/config
+
+		if [ "$(grep -i "swayautotiling=true" /home/"$USER"/.config/ttysh/config)" ]; then
+
+			sed -i 's/exec_always autotiling/exec_always autotiling/g' /home/"$USER"/.config/sway/config 
+			sed -i 's/#exec_always autotiling/exec_always autotiling/g' /home/"$USER"/.config/sway/config 
+
+		else	
+			sed -i 's/#exec_always autotiling/#exec_always autotiling/g' /home/"$USER"/.config/sway/config
+			sed -i 's/exec_always autotiling/#exec_always autotiling/g' /home/"$USER"/.config/sway/config
+		fi
+		;;
+		q)
+		break
+		;;
+	esac
+
+done
+}
 
 #
 # functions for fzf
@@ -2362,11 +2406,11 @@ while [ 1 ]; do
 #read -e -p "Enter your selection: " intro
 # fzf use
 
-intro="$(printf "\n%s\n%s\n%s\n%s\n%s\n%s\n%s" "(sc)hedule" "(s)elect program" "(f)ind program" "(h)elp" "(t)tysh settings currently under development" "(config) wizard" "(q)uit" | sed '/^[[:space:]]*$/d;/.*[A-Z]/d;/[A-Z].*/d' | fzf --prompt "TTYSH " --layout=reverse --margin 20% | sed 's/.*(//g;s/).*//g')"
+intro="$(printf "\n%s\n%s\n%s\n%s\n%s\n%s\n%s" "(p)lanner" "(s)elect program" "(f)ind program" "(h)elp" "(t)oggle options currently under development" "(config) wizard" "(q)uit" | sed '/^[[:space:]]*$/d;/.*[A-Z]/d;/[A-Z].*/d' | fzf --prompt "TTYSH " --layout=reverse --margin 20% | sed 's/.*(//g;s/).*//g')"
 		
 
 	case "$intro" in
-		sc)
+		p)
 		clear
 		planner
 		selection
@@ -2386,7 +2430,10 @@ intro="$(printf "\n%s\n%s\n%s\n%s\n%s\n%s\n%s" "(sc)hedule" "(s)elect program" "
 		#ttyshhelp
 		;;
 		t)
-		printf "\n%s\n" "Under development"
+		ttyshtoggles
+		printf "\n%s\n" "To see your changes restart the program or your computer"
+		selection
+		break
 		;;
 		config)
 		wizardttysh

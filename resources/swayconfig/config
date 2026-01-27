@@ -8,7 +8,7 @@
 exec wl-paste -t text --watch clipman store --no-persist
 
 # autotiling
-exec_always autotiling
+#exec_always autotiling
 
 input * {
 	xkb_options srvrkeys:none

@@ -26,8 +26,8 @@ exec --no-startup-id dex --autostart --environment i3
 # Setting up keyboard default
 exec "setxkbmap -layout gb"
 
-# Auto-tiling, requires autostart from AUR to be installed
-exec --no-startup-id autotiling
+# autotiling
+#exec --no-startup-id autotiling
 
 # Start applications
 
