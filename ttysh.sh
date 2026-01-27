@@ -539,6 +539,37 @@ date >> /home/"$USER"/.ttyshwizardrun
 printf "\n%s\n" "TTYSH Wizard has finished. Please exit out of TTYSH and reboot to complete."
 }
 
+# run toggles update
+togglesupdate () {
+
+while read i; do
+
+	case "$i" in
+
+		i3autotiling=false)
+		sed -i 's/#exec --no-startup-id autotiling/#exec --no-startup-id autotiling/g;s/exec --no-startup-id autotiling/#exec --no-startup-id autotiling/g' /home/"$USER"/.config/i3/config
+
+		#[ "$(grep -i "i3autotiling=true" /home/"$USER"/.config/ttysh/config)" ] && sed -i 's/i3autotiling=true/i3autotiling=false/g' /home/"$USER"/.config/ttysh/config || sed -i 's/i3autotiling=false/i3autotiling=true/g' /home/"$USER"/.config/ttysh/config
+
+		#[ "$(grep -i "i3autotiling=true" /home/"$USER"/.config/ttysh/config)" ] && || 	
+		;;
+		i3autotiling=true)
+		sed -i 's/exec --no-startup-id autotiling/exec --no-startup-id autotiling/g;s/#exec --no-startup-id autotiling/exec --no-startup-id autotiling/g' /home/"$USER"/.config/i3/config 
+		;;
+		swayautotiling=false)
+		sed -i 's/#exec_always autotiling/#exec_always autotiling/g;s/exec_always autotiling/#exec_always autotiling/g' /home/"$USER"/.config/sway/config
+
+		#[ "$(grep -i "swayautotiling=true" /home/"$USER"/.config/ttysh/config)" ] && sed -i 's/swayautotiling=true/swayautotiling=false/g' /home/"$USER"/.config/ttysh/config || sed -i 's/swayautotiling=false/swayautotiling=true/g' /home/"$USER"/.config/ttysh/config
+
+		#[ "$(grep -i "swayautotiling=true" /home/"$USER"/.config/ttysh/config)" ] && || 		
+		;;
+		swayautotiling=true)
+		sed -i 's/exec_always autotiling/exec_always autotiling/g;s/#exec_always autotiling/exec_always autotiling/g' /home/"$USER"/.config/sway/config 
+		;;
+	esac
+done < /home/"$USER"/ttysh/config
+}
+
 # toggles to change the desktop or ttysh
 ttyshtoggles () {
 
@@ -2307,6 +2338,8 @@ printf "\n%s" ""
 				cat /home/"$USER"/TTYSH/resources/footconfig/foot.ini > /home/"$USER"/.config/foot/foot.ini
 				cat /home/"$USER"/TTYSH/resources/bashrc/.bashrc > /home/"$USER"/.bashrc
 				cat /home/"$USER"/TTYSH/resources/.Xdefaults > /home/"$USER"/.Xdefaults
+				printf "\n\n%s\n" "Setting your person toggles..."
+				togglesupdate
 				printf "\n%s\n" "You should now exit TTYSH and reboot your system to complete any new updates."
 				break
 				;;
@@ -2431,7 +2464,7 @@ intro="$(printf "\n%s\n%s\n%s\n%s\n%s\n%s\n%s" "(p)lanner" "(s)elect program" "(
 		;;
 		t)
 		ttyshtoggles
-		printf "\n%s\n" "To see your changes restart the program or your computer"
+		printf "\n%s\n" "To see your changes restart the program/s or your computer"
 		selection
 		break
 		;;
