@@ -2443,43 +2443,44 @@ while [ 1 ]; do
 #read -e -p "Enter your selection: " intro
 # fzf use
 
-intro="$(printf "\n%s\n%s\n%s\n%s\n%s\n%s\n%s" "(p)lanner" "(s)elect program" "(f)ind program" "(h)elp" "(t)oggle options" "(config) wizard" "(q)uit" | sed '/^[[:space:]]*$/d;/.*[A-Z]/d;/[A-Z].*/d' | fzf --prompt "TTYSH " --layout=reverse --margin 20% | sed 's/.*(//g;s/).*//g')"
-		
+#intro="$(printf "\n%s\n%s\n%s\n%s\n%s\n%s\n%s" "(p)lanner" "(s)elect program" "(f)ind program" "(h)elp" "(t)oggle options" "(config) wizard" "(q)uit" | sed '/^[[:space:]]*$/d;/.*[A-Z]/d;/[A-Z].*/d' | fzf --prompt "TTYSH " --layout=reverse --margin 20% | sed 's/.*(//g;s/).*//g')"
+
+intro="$(printf "%s\n%s\n%s\n%s\n%s\n%s\n%s" "schedule" "select program" "find program" "help" "toggle options" "config wizard" "quit" | fzf --prompt "TTYSH " --layout=reverse --margin 20%)"
 
 	case "$intro" in
-		p)
+		"schedule")
 		clear
 		planner
 		selection
 		;;	
-		s)
+		"select program")
 		unset fuzselect
 		selection
 		break
 		;;
-		f)
+		"find program")
 		fuzselect='true'	
 		selection
 		break
 		;;	
-		h)
+		"help")
 		eofhelp
 		#ttyshhelp
 		;;
-		t)
+		"toggle options")
 		[ ! -d /home/"$USER"/.config/ttysh ] && mkdir -p /home/"$USER"/.config/ttysh; cat /home/"$USER"/TTYSH/resources/ttyshconfig/config > /home/"$USER"/.config/ttysh/config
 		ttyshtoggles
 		printf "\n%s\n" "To see your changes restart the program/s or your computer"
 		selection
 		break
 		;;
-		config)
+		"config wizard")
 		wizardttysh
 		;;
 		#hel)
 		#vim /home/"$USER"/TTYSH/resources/.ttysh.selection
 		#;;
-		q)
+		"quit")
 		printf "\n%s" ""
 		exit 0
 		;;
