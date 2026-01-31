@@ -304,7 +304,7 @@ splashscreen () {
 
 #[ "$splash" = /dev/pts/ ] && devour mpv --really-quiet /home/"$USER"/.splash_ttysh.png && clear || mpv --really-quiet /home/"$USER"/.splash_ttysh.png && clear
 
-[ "$splash" = /dev/pts/ ] && devour mpv --really-quiet /home/"$USER"/TTYSH/resources/.splash_ttysh.png || mpv --really-quiet /home/"$USER"/TTYSH/resources/.splash_ttysh.png
+[ "$splash" = /dev/pts/ ] && devour mpv --really-quiet /home/"$USER"/ttysh/resources/.splash_ttysh.png || mpv --really-quiet /home/"$USER"/ttysh/resources/.splash_ttysh.png
 
 #if [ "$splash" = /dev/pts/ ]; then
 #	devour mpv --really-quiet /home/"$USER"/.splash_ttysh.png; clear
@@ -317,7 +317,7 @@ splashscreen () {
 # function for shortcuts selection 
 ttyshhelp () {
 
-less /home/"$USER"/TTYSH/resources/.ttysh.selection 
+less /home/"$USER"/ttysh/resources/.ttysh.selection 
 }
 
 # function for TTYSH configuration
@@ -459,19 +459,19 @@ mkdir -p /home/"$USER"/.config/mutt/ && touch /home/"$USER"/.config/mutt/muttrc
 
 printf "%b\n%b\n\n%b\n%b\n%b\n\n%b\n%b\n%b\n%b\n\n%b" 'set folder = "imaps://"' 'set smtp_url = "smtp://"' 'set from = ""' 'set realname = ""' 'set editor = "vim"' 'set spoolfile = "+INBOX"' 'set record = "+Sent"' 'set trash = "+Trash"' 'set postponed = "+Drafts"' 'mailboxes =INBOX =Sent =Trash =Drafts =Junk' > /home/"$USER"/.config/mutt/muttrc
 
-cat /home/"$USER"/TTYSH/resources/.Xdefaults >> /home/"$USER"/.Xdefaults
+cat /home/"$USER"/ttysh/resources/.Xdefaults >> /home/"$USER"/.Xdefaults
 
 printf "%s" "exec i3" > /home/"$USER"/.xinitrc
 
-[ ! -d /home/"$USER"/.config/i3 ] && mkdir -p /home/"$USER"/.config/i3; cat /home/"$USER"/TTYSH/resources/i3config/config > /home/"$USER"/.config/i3/config
+[ ! -d /home/"$USER"/.config/i3 ] && mkdir -p /home/"$USER"/.config/i3; cat /home/"$USER"/ttysh/resources/i3config/config > /home/"$USER"/.config/i3/config
 
-[ ! -d /home/"$USER"/.config/sway ] && mkdir -p /home/"$USER"/.config/sway; cat /home/"$USER"/TTYSH/resources/swayconfig/config > /home/"$USER"/.config/sway/config
+[ ! -d /home/"$USER"/.config/sway ] && mkdir -p /home/"$USER"/.config/sway; cat /home/"$USER"/ttysh/resources/swayconfig/config > /home/"$USER"/.config/sway/config
 
-[ ! -d /home/"$USER"/.config/foot ] && mkdir -p /home/"$USER"/.config/foot; cat /home/"$USER"/TTYSH/resources/footconfig/foot.ini > /home/"$USER"/.config/foot/foot.ini
+[ ! -d /home/"$USER"/.config/foot ] && mkdir -p /home/"$USER"/.config/foot; cat /home/"$USER"/ttysh/resources/footconfig/foot.ini > /home/"$USER"/.config/foot/foot.ini
 
-[ ! -d /home/"$USER"/.config/ttysh ] && mkdir -p /home/"$USER"/.config/ttysh; cat /home/"$USER"/TTYSH/resources/ttyshconfig/config > /home/"$USER"/.config/ttysh/config
+[ ! -d /home/"$USER"/.config/ttysh ] && mkdir -p /home/"$USER"/.config/ttysh; cat /home/"$USER"/ttysh/resources/ttyshconfig/config > /home/"$USER"/.config/ttysh/config
 
-cat /home/"$USER"/TTYSH/resources/bashrc/.bashrc > /home/"$USER"/.bashrc
+cat /home/"$USER"/ttysh/resources/bashrc/.bashrc > /home/"$USER"/.bashrc
 
 #try %b with \ to try and escape characters
 #printf "%b\n\n%b\n\n%b\n\n%b\n\t%b\n\t%b\n\t%b\n\t%b\n\t%b\n\t%b\n\t%b\n\t%b\n\t%b\n\t%b\n%b" '#!/bin/bash' 'x=0' 'while [ "$x" = 0 ]; do' 'printf "\\n%b\\n" "Press c to start your search. Press q to exit"' 'read -p "Enter your selection: " answer' 'case "$answer" in' 'c)' 'mpv "$(find /home/"$USER"/Downloads | /home/"$USER"/.fzf/bin/fzf -i)"' 'x=0' ';;' 'q)' 'x=1' ';;' 'esac' 'done' > /home/"$USER"/.mpv_fzf_screen.sh
@@ -1125,7 +1125,7 @@ while [ 1 ]; do
 
 	case "$ranswer" in
 		y)
-		screen -c /home/"$USER"/TTYSH/resources/.screenrc.rss
+		screen -c /home/"$USER"/ttysh/resources/.screenrc.rss
 		break
 		;;
 		n)
@@ -1205,13 +1205,13 @@ while [ 1 ]; do
 		y)	
 		printf "\n%s\n" "Enter your city or town to see the weather forecast: "
 		read -e wwanswer
-		curl wttr.in/"$wwanswer"?T --output /home/"$USER"/TTYSH/resources/.weatherdata
-		cat /home/"$USER"/TTYSH/resources/.weatherdata
+		curl wttr.in/"$wwanswer"?T --output /home/"$USER"/ttysh/resources/.weatherdata
+		cat /home/"$USER"/ttysh/resources/.weatherdata
 		#wget -qO- wttr.in/"$answer"
 		break
 		;;
 		n)
-		cat /home/"$USER"/TTYSH/resources/.weatherdata
+		cat /home/"$USER"/ttysh/resources/.weatherdata
 		break
 		;;
 		*)
@@ -1872,7 +1872,7 @@ printf "\n%s" ""
 
 			case "$answer" in
 				y)
-				screen -c /home/"$USER"/TTYSH/resources/.screenrc.lynx
+				screen -c /home/"$USER"/ttysh/resources/.screenrc.lynx
 				break
 				;;
 				n)
@@ -1938,7 +1938,7 @@ printf "\n%s" ""
 
 			case "$answer" in
 				y)
-				screen -c /home/"$USER"/TTYSH/resources/.screenrc.notes_split
+				screen -c /home/"$USER"/ttysh/resources/.screenrc.notes_split
 				break
 				;;
 				n)
@@ -1953,13 +1953,13 @@ printf "\n%s" ""
 		done
 		;;
 		mu)
-		screen -c /home/"$USER"/TTYSH/resources/.screenrc.mutt_conf
+		screen -c /home/"$USER"/ttysh/resources/.screenrc.mutt_conf
 		;;
 		d)
 		cal; date; printf "\n%s\n" "q to return" | less
 		;;
 		c)
-		screen -c /home/"$USER"/TTYSH/resources/.screenrc.clockworking
+		screen -c /home/"$USER"/ttysh/resources/.screenrc.clockworking
 		#printf "\n%s\n\n" "Ctr and C to quit"
 
 		#while [ 1 ]; do
@@ -2002,7 +2002,7 @@ printf "\n%s" ""
 
 			case "$answer" in
 				y)
-				screen -c /home/"$USER"/TTYSH/resources/.screenrc.articles 
+				screen -c /home/"$USER"/ttysh/resources/.screenrc.articles 
 				break
 				;;
 				n)
@@ -2023,7 +2023,7 @@ printf "\n%s" ""
 		sway
 		;;
 		l)
-		screen -c /home/"$USER"/TTYSH/resources/.screenrc.videos 
+		screen -c /home/"$USER"/ttysh/resources/.screenrc.videos 
 		;;
 		vid)
 		devourvid
@@ -2139,7 +2139,7 @@ printf "\n%s" ""
 		#	
 		#	printf "%s\n" "$(($i))" | tee -a /home/"$USER"/.calchist
 		#done
-		screen -c /home/"$USER"/TTYSH/resources/.screenrc.shellcalc
+		screen -c /home/"$USER"/ttysh/resources/.screenrc.shellcalc
 		;;
 		sp)
 		sc-im
@@ -2152,13 +2152,13 @@ printf "\n%s" ""
 		df -h
 		;;
 		scr)
-		screen -c /home/"$USER"/TTYSH/resources/.screenrc.four_split
+		screen -c /home/"$USER"/ttysh/resources/.screenrc.four_split
 		;;
 		scre)
-		screen -c /home/"$USER"/TTYSH/resources/.screenrc.hsplit
+		screen -c /home/"$USER"/ttysh/resources/.screenrc.hsplit
 		;;
 		scree) 
-		screen -c /home/"$USER"/TTYSH/resources/.screenrc.vsplit
+		screen -c /home/"$USER"/ttysh/resources/.screenrc.vsplit
 		;;
 		scro)
 		printf "\n\n%s\n\n%s\n\n%s\n\n%s\n\n%s\n\n%s\n\n" "How To Achieve Scrollback In A TTY" "Login to a TTY and run the following: " "bash | tee /tmp/scrollback" "Now login to a seperate TTY and run: " "less +F /tmp/scrollback" "Now switch back to your first TTY. When you want to scrollback then return to your second TTY and press CTRL+C to interrupt less from following your file. You can then scroll back through your output. When you have finished scrolling back through your history press SHIFT+F in less and it'll go back to following the /tmp/scrollback file"
@@ -2337,14 +2337,14 @@ printf "\n%s" ""
 					[ ! "$(pacman -Qm | grep -i "$i")" ] && echo ""$i" not installed" && echo "now installing... "$i"" && yay -S --noconfirm "$i" || echo ""$i" already installed"
 				done
 				printf "\n\n%s\n" "Updating TTYSH..."
-				cd /home/"$USER"/TTYSH/
+				cd /home/"$USER"/ttysh/
 				git pull
 				printf "\n\n%s\n" "Setting i3, sway, foot, bashrc, and Xdefaults configs..."
-				cat /home/"$USER"/TTYSH/resources/i3config/config > /home/"$USER"/.config/i3/config
-				cat /home/"$USER"/TTYSH/resources/swayconfig/config > /home/"$USER"/.config/sway/config
-				cat /home/"$USER"/TTYSH/resources/footconfig/foot.ini > /home/"$USER"/.config/foot/foot.ini
-				cat /home/"$USER"/TTYSH/resources/bashrc/.bashrc > /home/"$USER"/.bashrc
-				cat /home/"$USER"/TTYSH/resources/.Xdefaults > /home/"$USER"/.Xdefaults
+				cat /home/"$USER"/ttysh/resources/i3config/config > /home/"$USER"/.config/i3/config
+				cat /home/"$USER"/ttysh/resources/swayconfig/config > /home/"$USER"/.config/sway/config
+				cat /home/"$USER"/ttysh/resources/footconfig/foot.ini > /home/"$USER"/.config/foot/foot.ini
+				cat /home/"$USER"/ttysh/resources/bashrc/.bashrc > /home/"$USER"/.bashrc
+				cat /home/"$USER"/ttysh/resources/.Xdefaults > /home/"$USER"/.Xdefaults
 				printf "\n\n%s\n" "Setting your person toggles..."
 				togglesupdate
 				printf "\n%s\n" "You should now exit TTYSH and reboot your system to complete any new updates."
@@ -2362,7 +2362,7 @@ printf "\n%s" ""
 		done
 		;;	
 		fo)
-		sudo screen -c /home/"$USER"/TTYSH/resources/.screenrc.font_conf
+		sudo screen -c /home/"$USER"/ttysh/resources/.screenrc.font_conf
 		printf "\n%b\n" "You should reboot your system to see any changes that you have made."
 		;;
 		fon)
@@ -2471,7 +2471,7 @@ intro="$(printf "%s\n%s\n%s\n%s\n%s\n%s\n%s" "personal planner" "select program"
 		#ttyshhelp
 		;;
 		"toggle options")
-		[ ! -d /home/"$USER"/.config/ttysh ] && mkdir -p /home/"$USER"/.config/ttysh; cat /home/"$USER"/TTYSH/resources/ttyshconfig/config > /home/"$USER"/.config/ttysh/config
+		[ ! -d /home/"$USER"/.config/ttysh ] && mkdir -p /home/"$USER"/.config/ttysh; cat /home/"$USER"/ttysh/resources/ttyshconfig/config > /home/"$USER"/.config/ttysh/config
 		ttyshtoggles
 		printf "\n%s\n" "To see your changes restart the program/s or your computer"
 		selection
