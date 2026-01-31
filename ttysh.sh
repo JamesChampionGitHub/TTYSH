@@ -371,6 +371,7 @@ makepkg -si --noconfirm
 # wl-clipboard
 # xorg-xwayland
 # mupdf
+# zathura
 # cryptsetup
 # timeshift
 # imagemagick
@@ -407,6 +408,7 @@ sudo pacman -S --needed --noconfirm \
 		wl-clipboard \
 		xorg-xwayland \
 		mupdf \
+		zathura \
 		cryptsetup \
 		timeshift \
 		imagemagick \
@@ -2309,6 +2311,7 @@ printf "\n%s" ""
 					wl-clipboard \
 					xorg-xwayland \
 					mupdf \
+					zathura \
 					cryptsetup \
 					timeshift \
 					imagemagick \
