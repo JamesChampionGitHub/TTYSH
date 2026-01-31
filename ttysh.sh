@@ -70,7 +70,9 @@ Note: (f) will run search on this list of programs for you to select.
 
 			(fi)le manager/
 
-			search & play video in (t)ty/or (se)earch & play in gui/
+			search & play video in (t)ty/
+
+			(se)earch & play in gui/
 
 			(fz)f search files to open in vim/
 
