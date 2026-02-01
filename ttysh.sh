@@ -371,6 +371,7 @@ sudo pacman --noconfirm -Syu \
 	go \
 	git \
 	base-devel \
+	networkmanager \
 	noto-fonts
 	
 # install yay package manager
@@ -2276,6 +2277,7 @@ printf "\n%s" ""
 					go \
 					git \
 					base-devel \
+					networkmanager \
 					noto-fonts
 
 				printf "\n\n%s\n" "Updating the Arch Linux AUR..."
