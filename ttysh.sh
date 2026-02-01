@@ -330,58 +330,9 @@ wizardttysh () {
 
 # a wizard to configure TTYSH
 
-# first, update the system
+# first, update the system and install needed packages
 
-sudo pacman -Syu --noconfirm
-
-# install go as dependency for yay
-# install yay package manager
-# need to research
-
-sudo pacman -S --needed --noconfirm go
-sudo pacman -S --needed --noconfirm git base-devel
-cd /home/"$USER"
-git clone https://aur.archlinux.org/yay.git
-cd yay
-makepkg -si --noconfirm
-
-# install following pacman packages:
-# curl
-# xdo
-# bc
-# Cmus
-# alsamixer
-# yt-dlp
-# lynx 
-# mpv
-# fzf
-# vim
-# less 
-# man
-# newsboat
-# mutt
-# xorg-server
-# xorg-xinit
-# i3-wm
-# autotiling
-# xterm
-# xclip
-# xorg-xmodmap
-# sway
-# foot
-# wf-recorder
-# wl-clipboard
-# xorg-xwayland
-# mupdf
-# zathura
-# cryptsetup
-# timeshift
-# imagemagick
-# htop
-# fbgrab
-# noto-fonts
-
-sudo pacman -S --needed --noconfirm \ 
+sudo pacman -Syu --needed --noconfirm \ 
 		curl \
 		xdo \
 		bc \
@@ -417,17 +368,17 @@ sudo pacman -S --needed --noconfirm \
 		htop \
 		fbgrab \
 		tldr \
+		go \
+		git \
+		base-devel \
 		noto-fonts
 
-# install following AUR packages:
-# devour
-# browsh
-# librewolf
-# arkenfoxuser.js
-# xkbset
-# clipman
-# fbpdf-git
-# sc-im
+# install yay package manager
+
+cd /home/"$USER"
+git clone https://aur.archlinux.org/yay.git
+cd yay
+makepkg -si --noconfirm
 
 yay -S --noconfirm \
 	devour \
