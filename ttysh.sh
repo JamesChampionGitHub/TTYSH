@@ -333,45 +333,45 @@ wizardttysh () {
 # first, update the system and install needed packages
 
 sudo pacman --needed --noconfirm -Syu \
-	curl \
-	xdo \
-	bc \
-	cmus \
-	alsa-utils \
-	yt-dlp \
-	lynx \
-	mpv \
-	fzf \
-	screen \
-	vim \
-	less \
-	man \
-	newsboat \
-	mutt \
-	xorg-server \
-	xorg-xinit \
-	i3-wm \
-	autotiling \
-	xterm \
-	xclip \
-	xorg-xmodmap \
-	sway \
-	foot \
-	wf-recorder \
-	wl-clipboard \
-	xorg-xwayland \
-	mupdf \
-	zathura \
-	cryptsetup \
-	timeshift \
-	imagemagick \
-	htop \
-	fbgrab \
-	tldr \
-	go \
-	git \
-	base-devel \
-	noto-fonts
+curl \
+xdo \
+bc \
+cmus \
+alsa-utils \
+yt-dlp \
+lynx \
+mpv \
+fzf \
+screen \
+vim \
+less \
+man \
+newsboat \
+mutt \
+xorg-server \
+xorg-xinit \
+i3-wm \
+autotiling \
+xterm \
+xclip \
+xorg-xmodmap \
+sway \
+foot \
+wf-recorder \
+wl-clipboard \
+xorg-xwayland \
+mupdf \
+zathura \
+cryptsetup \
+timeshift \
+imagemagick \
+htop \
+fbgrab \
+tldr \
+go \
+git \
+base-devel \
+noto-fonts
 
 # install yay package manager
 
