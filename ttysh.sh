@@ -332,7 +332,7 @@ wizardttysh () {
 
 # first, update the system and install needed packages
 
-sudo pacman --needed --noconfirm -Syu \
+sudo pacman -Syu \
 curl \
 xdo \
 bc \
@@ -2271,6 +2271,9 @@ printf "\n%s" ""
 					htop \
 					fbgrab \
 					tldr \
+					go \
+					git \
+					base-devel \
 					noto-fonts
 
 				printf "\n\n%s\n" "Updating the Arch Linux AUR..."
