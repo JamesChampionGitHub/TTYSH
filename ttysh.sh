@@ -332,7 +332,7 @@ wizardttysh () {
 
 # first, update the system and install needed packages
 
-sudo pacman --needed --noconfirm -Syu \ 
+sudo pacman --needed --noconfirm -Syu \
 	curl \
 	xdo \
 	bc \
