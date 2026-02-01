@@ -406,7 +406,7 @@ yay -S --noconfirm \
 
 printf "%s\n" "NOTES" > /home/"$USER"/.notes.txt
 
-[ ! -f /home/"$USER"/.newsboat/urls ] && echo 'https://www.youtube.com/feeds/videos.xml?channel_id=UCeFnqXMczw4BDCoJHr5dBjg "~James Champion (Youtube)"' > /home/"$USER"/.newsboat/urls 
+[ ! -d /home/"$USER"/.newsboat ] && mkdir -p /home/"$USER"/.newsboat; echo 'https://www.youtube.com/feeds/videos.xml?channel_id=UCeFnqXMczw4BDCoJHr5dBjg "~James Champion (Youtube)"' > /home/"$USER"/.newsboat/urls 
 
 mkdir -p /home/"$USER"/.config/mutt/ && touch /home/"$USER"/.config/mutt/muttrc
 
@@ -493,7 +493,9 @@ printf "\n%s\n" "Last run" >> /home/"$USER"/.ttyshwizardrun
  
 date >> /home/"$USER"/.ttyshwizardrun
 
-printf "\n%s\n" "TTYSH Wizard has finished. Please exit out of TTYSH and reboot to complete."
+printf "\n%s\n" "TTYSH Wizard has finished. Reboot your computer to finish the setup."
+
+exit 0
 }
 
 # run toggles update
