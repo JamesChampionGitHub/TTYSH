@@ -2523,6 +2523,7 @@ intro="$(printf "%s\n%s\n%s\n%s\n%s\n%s\n%s" "select ttysh program" "find ttysh 
 		break
 		;;	
 		"run any program")
+		printf "\n%s\n" "Loading programs..."
 		pacman -Qn > /tmp/allprograms.txt && pacman -Qm >> /tmp/allprograms.txt
 		pick="$(cat /tmp/allprograms.txt | cut -d " " -f1 | fzf)" && "$pick" || printf "\n%s\n" "no selection.."
 		;;
