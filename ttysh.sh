@@ -2552,5 +2552,3 @@ intro="$(printf "%s\n%s\n%s\n%s\n%s\n%s\n%s" "select ttysh program" "find ttysh 
 		;;
 	esac
 done
-
-
