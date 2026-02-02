@@ -29,7 +29,7 @@ splash=$(tty | tr -d '[0-9]')
 # FUNCTIONS
 # 
 
-# function for help using eof
+# function for help using eof in the selection
 eofhelp () {
 
 less << EOF
@@ -72,7 +72,7 @@ Note: (f) will run search on this list of programs for you to select.
 
 			search & play video in (t)ty/
 
-			(se)earch & play in gui/
+			(se)arch & play in gui/
 
 			(fz)f search files to open in vim/
 
@@ -102,7 +102,7 @@ Note: (f) will run search on this list of programs for you to select.
 
 			(p)ause song/ 
 
-			(fo)orward song/ 
+			(fo)rward song/ 
 
 			(st)atus on music/ 
 
@@ -158,15 +158,15 @@ Note: (f) will run search on this list of programs for you to select.
 
 		Backup/
 
-			stop! first run as sudo su!: (di)sk formatting and setting up removable media/
+			stop! first run ttysh as sudo su!: (di)sk formatting and setting up removable media/
 
 			*NOTE: RUN THE ABOVE ON REMOVABLE MEDIA BEFORE MAKING YOUR BACKUPS.
 
-	 		stop! first run as sudo su!: (ba)ckup /home/user/ to removable drive/
+	 		stop! first run ttysh as sudo su!: (ba)ckup /home/user/ to removable drive/
 
-			stop! first run sudo su!: (ti)meshift backup to removable drive/
+			stop! first run ttysh as sudo su!: (ti)meshift backup to removable drive/
 
-			stop! first run sudo su!: (de)lete timeshift backups from removable drive/
+			stop! first run ttysh as sudo su!: (de)lete timeshift backups from removable drive/
 
 		TTY/
 				
@@ -188,21 +188,21 @@ Note: (f) will run search on this list of programs for you to select.
 
 		Xorg/Wayland/
 
-			(s)tartx/
+			(s)tart i3 window manager/
 
-			(sw)ay window manager/
+			start (sw)ay window manager/
 
 			close (x)org and return to tty/
 
 			close swa(y) and return to tty/
 
-			(cap)s lock as left mouse click on x11 on thinkpads/
+			(alt)Gr as left mouse click on x11 on thinkpads/
 
 		System/Utilities/
 
-			(fo)nt and text change/
+			(fon)t and text change/
 
-			set temporary (fon)t/
+			set temporary (font)/
 
 			(net)work manager/
 
@@ -238,6 +238,101 @@ Note: (f) will run search on this list of programs for you to select.
 
 EOF
 }
+
+# function for fzf selection (under development)
+eoffuz() {
+
+less << EOF
+select a bookmark for web browsing
+format bookmarks
+web search
+lynx with image viewer for saved
+browsh web browser
+browsh configuration in xorg
+librewolf in xorg
+ping jameschampion.xyz
+email
+mutt email configuation
+find a program from this list
+file manager
+search & play video in tty
+search & play in gui
+fzf search files to open in vim
+search files and delete
+remove white spaces from file names
+search images and pdfs
+articles
+cmus without screen
+cmus with screen
+reattach cmus screen session
+next song
+previous song
+pause song
+forward song
+status on music
+pick a song
+alsa auto setting
+increase volume
+lower volume
+alsamixer
+music search on youtube
+play your videos
+list videos
+video search on youtube
+screenshot tty 1
+screenshot tty 2
+screenshot tty 3
+screenshot tty 4
+screenshot tty 5
+screenshot tty 6
+record your tty/s
+record your x server
+writer
+spreadsheet
+calculator
+calender schedule
+notes/todos/split 
+date & calender
+stop! first run ttysh as sudo su!: disk formatting and setting up removable media
+stop! first run ttysh as sudo su!: backup /home/user/ to removable drive
+stop! first run ttysh as sudo su!: timeshift backup to removable drive
+stop! first run ttysh as sudo su!: delete timeshift backups from removable drive
+scrollback information for tty
+change to tty 1
+change to tty 2
+change to tty 3
+change to tty 4
+change to tty 5
+change to tty 6
+choose tty
+screen four panel split
+screen horizontal split
+screen vertical split
+start i3 window manager
+start sway window manager
+close xorg and return to tty
+close sway and return to tty
+AltGr as left mouse click on x11 on old thinkpads
+font and text change
+set temporary font
+network manager
+network manager devices
+fan control on thinkpads
+update the system
+htop
+free disk space
+clock
+stopwatch
+lock console
+restart
+shutdown
+rerun ttysh
+help
+quit
+EOF
+}
+
+
 
 # $1 arguments selection list
 helpflags () {
@@ -373,6 +468,10 @@ sudo pacman --noconfirm -Syu \
 	base-devel \
 	networkmanager \
 	noto-fonts
+
+# enable and start network manager service
+
+sudo systemctl enable --now NetworkManager.service
 	
 # install yay package manager
 
@@ -1714,7 +1813,9 @@ selectcheck () {
 
 if [ "$fuzselect" = true ]; then
 
-	answer="$(eofhelp | sed '/^[[:space:]]*$/d;/.*[A-Z]/d;/[A-Z].*/d' | fzf --layout=reverse --margin 3% | sed 's/.*(//g;s/).*//g')"
+	#answer="$(eoffuz | sed '/^[[:space:]]*$/d;/.*[A-Z]/d;/[A-Z].*/d' | fzf --layout=reverse --margin 3% | sed 's/.*(//g;s/).*//g')"
+
+	answer="$(eoffuz | fzf --layout=reverse --margin 3%)"
 	
 else
 
@@ -1736,82 +1837,82 @@ printf "\n%s" ""
 	unset fuzselect
 
 	case "$answer" in
-		cm)
+		"cmus without screen"|cm)
 		cmus
 		;;
-		cmu)
+		"cmus with screen"|cmu)
 		#cmuscheck
 		#cmus
 		#screen -q -r cmus
 		screen -S cmusdaemon cmus
 		#screen -D -R cmus
 		;;
-		cmus)
+		"reattach cmus screen session"|cmus)
 		screen -r cmusdaemon
 		;;
-		ne)
+		"next song"|ne)
 		#cmuscheck
 		cmus-remote -n
 		cmus-remote -Q
 		printf "\n%s\n\n" "The next track is playing."
 		;;
-		pr)
+		"previous song"|pr)
 		#cmuscheck
 		cmus-remote -r
 		cmus-remote -Q
 		printf "\n%s\n\n" "The previous track is playing."
 		;;
-		p)
+		"pause song"|p)
 		#cmuscheck
 		cmus-remote -u
 		cmus-remote -Q
 		printf "\n%s\n\n" "Paused/Playing."
 		;;
-		fo)
+		"forward song"|fo)
 		#cmuscheck
 		cmus-remote -k +5
 		printf "\n%s\n\n" "Forwarding..."
 		;;
-		st)
+		"status on music"|st)
 		#cmuscheck
 		cmus-remote -Q | less
 		;;
-		au)
+		"alsa auto setting"|au)
 		printf "\n%s" ""; amixer -c 0 -- sset Master unmute; amixer -c 0 -- sset Master playback -10dB
 		;;
-		inc)
+		"increase volume"|inc)
 		printf "\n%s" ""; amixer sset Master playback 5%+
 		;;
-		low)
+		"lower volume"|low)
 		printf "\n%s" ""; amixer sset Master playback 5%-
 		;;
-		al)
+		"alsamixer"|al)
 		alsamixer
 		;;
-		yo)
+		"video search on youtube"|yo)
 		[ ! -d /home/"$USER"/Video ] && mkdir /home/"$USER"/Videos; cd /home/"$USER"/Videos || cd /home/"$USER"/Videos/; yt 
 		;;
-		mus)
+		"music search on youtube"|mus)
 		[ ! -d /home/"$USER"/Music ] && mkdir /home/"$USER"/Music; cd /home/"$USER"/Music || cd /home/"$USER"/Music/; ytmusic 
 		;;
-		pi)
+		"pick a song"|pi)
 		fzfcmus
 		;;
-		f)
+		"find a program from this list"|f)
 		fuzselect='true'	
 		selection
 		break
 		;;
-		we)
+		"web search"|we)
 		websearch
 		;;
-		boo)
+		"format bookmarks"|boo)
 		bookmarkformat
 		;;
-		bo)
+		"select a bookmark for web browsing"|bo)
 		bookmarkcheck
 		;;
-		ly)
+		"lynx with image viewer for saved"|ly)
 		while [ 1 ]; do
 
 			printf "\n%s\n%s\n%s\n" "Stop! It is recommended to run lynx browser offline for your saved webpages." "Use Browsh/Librewolf for web online browsing and saving webpages for later." "Are you offline? Do you want to continue? y/n"
@@ -1833,25 +1934,25 @@ printf "\n%s" ""
 
 		done
 		;;
-		bro)
-		printf "\n%s\n" "Tips: prefix 'searx.be/search?q=' or 'wiby.me/?q=' in the URL to search."
+		"browsh web browser"|bro)
+		#tip: prefix 'searx.be/search?q=' or 'wiby.me/?q=' in the URL to search."
 		#sudo gpm -m /dev/psaux -t ps2
 		# searching: searx.be/search?q=
 		# searching: wiby.me/?q=
 		# browsh --firefox.path /usr/bin/librewolf
 		browsh
 		;;
-		brow)
+		"browsh configuration in xorg"|brow)
 		browsh --firefox.with-gui
 		;;
-		lib)
+		"librewolf in xorg"|lib)
 		devour librewolf
 		;;
-		i)
+		"ping jameschampion.xyz"|i)
 		#screen -c /home/"$USER"/TTYSH/resources/.screenrc.ping
 		ping -c 3 jameschampion.xyz
 		;;
-		sch)
+		"calender schedule"|sch)
 		calenderschedule
 		#vim /home/"$USER"/.*calenderdatafile
 		#
@@ -1877,7 +1978,7 @@ printf "\n%s" ""
 
 		#done
 		;;
-		n)
+		"notes/todos/split"|n)
 		while [ 1 ]; do
 
 			printf "\n%s\n\n" "Would you like your notes in a split-screen with a shell? y/n"
@@ -1900,13 +2001,13 @@ printf "\n%s" ""
 
 		done
 		;;
-		mu)
+		"mutt email configuation"|mu)
 		screen -c /home/"$USER"/ttysh/resources/.screenrc.mutt_conf
 		;;
-		d)
+		"date & calenderW"|d)
 		cal; date; printf "\n%s\n" "q to return" | less
 		;;
-		c)
+		"clock"|c)
 		screen -c /home/"$USER"/ttysh/resources/.screenrc.clockworking
 		#printf "\n%s\n\n" "Ctr and C to quit"
 
@@ -1920,7 +2021,7 @@ printf "\n%s" ""
 		#watch -td -n 1 date
 		#screen -c /home/"$USER"/TTYSH/resources/TTYSH/resources/.screenrc.clock
 		;;
-		sto)
+		"stopwatch"|sto)
 		before=$(date +%s)
 
 		printf "\n\n"
@@ -1938,10 +2039,10 @@ printf "\n%s" ""
 		r)
 		rsssplit
 		;;
-		e)
+		"email"|e)
 		mutt
 		;;
-		a)
+		"articles"|a)
 		while [ 1 ]; do
 
 			printf "\n%s\n\n" "Would you like your article list in a split-screen with a shell? y/n"
@@ -1964,16 +2065,16 @@ printf "\n%s" ""
 
 		done
 		;;
-		s)
+		"start i3 window manager"|s)
 		startx
 		;;
-		sw)
+		"start sway window manager"|sw)
 		sway
 		;;
-		l)
+		"list videos"|l)
 		screen -c /home/"$USER"/ttysh/resources/.screenrc.videos 
 		;;
-		vid)
+		"play your videos"|vid)
 		devourvid
 		;;
 		m)
@@ -1981,22 +2082,22 @@ printf "\n%s" ""
 		#screen -c /home/"$USER"/TTYSH/resources/TTYSH/resources/.screenrc.cd
 		printf "\n\n%b\n\n" 'alias the following in your bashrc for quick directory search and change: $(find /home/"$USER"/ -type d | fzf)'
 		;;
-		fi)
+		"file manager"|fi)
 		vim /home/"$USER"/
 		;;
-		se)
+		"seearch & play in gui"|se)
 		fzfxorgvid
 		;;
-		t)
+		"search & play video in tty"|t)
 		fzfttyvid	
 		;;
-		fz)
+		"fzf search files to open in vim"|fz)
 		fzfvim	
 		;;
-		del)
+		"search files and delete"|del)
 		fzfdelete
 		;;
-		wh)
+		"remove white spaces from file names"|wh)
 		fzfwhitespace
 		;;
 		w)
@@ -2007,7 +2108,7 @@ printf "\n%s" ""
 		#done
 		weather
 		;;
-		pdf)
+		"search images and pdfs"|pdf)
 		fzfpdf
 		;;
 		#v)
@@ -2016,64 +2117,64 @@ printf "\n%s" ""
 		#vn)
 		#vim /home/"$USER"/proj/working_on/*YEN/characters/* -o /home/"$USER"/proj/working_on/*YEN/notes/*screenplay_notes -o /home/"$USER"/proj/working_on/*YEN/notes/*prompt_notes -o /home/"$USER"/proj/working_on/*YEN/notes/*archive_notes
 		#;;
-		di)
+		"stop! first run ttysh as sudo su!: disk formatting and setting up removable media"|di)
 		diskformat
 		;;
-		ba)
+		"stop! first run ttysh as sudo su!: backup /home/user/ to removable drive"|ba)
 		filebackup
 		;;
-		ti)
+		"stop! first run ttysh as sudo su!: timeshift backup to removable drive"|ti)
 		maintimeshift
 		;;
-		de)
+		"stop! first run ttysh as sudo su!: delete timeshift backups from removable drive"|de)
 		maintdelete	
 		;;
-		x)
+		"close xorg and return to tty"|x)
 		pkill "Xorg"
 		;;
-		y)
+		"close sway and return to tty"|y)
 		pkill "sway"
 		;;
-		cap)
+		"AltGr as left mouse click on x11 on old thinkpads"|alt)
 		xkbset m; xmodmap -e "keycode 108 = Pointer_Button1"
 		;;
-		lo)
+		"lock console"|lo)
 		vlock -a
 		;;
-		sc1)
+		"screenshot tty 1"|sc1)
 		screenshotcheck 
 		sudo fbgrab -c 1 screenshot1.png
 		;;
-		sc2)
+		"screenshot tty 2"|sc2)
 		screenshotcheck 
 		sudo fbgrab -c 2 screenshot2.png
 		;;
-		sc3)
+		"screenshot tty 3"|sc3)
 		screenshotcheck 
 		sudo fbgrab -c 3 screenshot3.png
 		;;
-		sc4)
+		"screenshot tty 4"|sc4)
 		screenshotcheck 
 		sudo fbgrab -c 4 screenshot4.png
 		;;
-		sc5)
+		"screenshot tty 5"|sc5)
 		screenshotcheck 
 		sudo fbgrab -c 5 screenshot5.png
 		;;
-		sc6)
+		"screenshot tty 6"|sc6)
 		screenshotcheck
 		sudo fbgrab -c 6 screenshot6.png
 		;;
-		re)
+		"record your tty/s"|re)
 		[ ! -d /home/"$USER"/Recordings ] && mkdir /home/"$USER"/Recordings; cd /home/"$USER"/Recordings || cd /home/"$USER"/Recordings/; sudo ffmpeg -f fbdev -framerate 30 -i /dev/fb0 ttyrecord.mp4
 		;;
-		rec)
+		"record your x server"|rec)
 		[ ! -d /home/"$USER"/Recordings ] && mkdir /home/"$USER"/Recordings; cd /home/"$USER"/Recordings || cd /home/"$USER"/Recordings/; ffmpeg -video_size 1280x800 -framerate 30 -f x11grab -i :0 x11record.mp4
 		;;
-		wr)
+		"writer"|wr)
 		vim
 		;;
-		ca)
+		"calculator"|ca)
 		#screen -c /home/"$USER"/.screenrc.calculator
 		#printf "\n%s\n\n%s\n\n" "Shell Calculator" "Awaiting input:"
 		#	
@@ -2089,47 +2190,47 @@ printf "\n%s" ""
 		#done
 		screen -c /home/"$USER"/ttysh/resources/.screenrc.shellcalc
 		;;
-		sp)
+		"spreadsheet"|sp)
 		sc-im
 		;;
-		ht)
+		"htop"|ht)
 		htop
 		;;
-		fr)
+		"free disk space"|fr)
 		printf "\n%s\n" ""
 		df -h
 		;;
-		scr)
+		"screen four panel split"|scr)
 		screen -c /home/"$USER"/ttysh/resources/.screenrc.four_split
 		;;
-		scre)
+		"screen horizontal split"|scre)
 		screen -c /home/"$USER"/ttysh/resources/.screenrc.hsplit
 		;;
-		scree) 
+		"screen vertical split"|scree) 
 		screen -c /home/"$USER"/ttysh/resources/.screenrc.vsplit
 		;;
-		scro)
+		"scrollback information for tty"|scro)
 		printf "\n\n%s\n\n%s\n\n%s\n\n%s\n\n%s\n\n%s\n\n" "How To Achieve Scrollback In A TTY" "Login to a TTY and run the following: " "bash | tee /tmp/scrollback" "Now login to a seperate TTY and run: " "less +F /tmp/scrollback" "Now switch back to your first TTY. When you want to scrollback then return to your second TTY and press CTRL+C to interrupt less from following your file. You can then scroll back through your output. When you have finished scrolling back through your history press SHIFT+F in less and it'll go back to following the /tmp/scrollback file"
 		;;
-		v1)
+		"change to tty 1"|v1)
 		[ "$splash" = /dev/pts/ ] && sudo chvt 1 || chvt 1
 		;;
-		v2)
+		"change to tty 2"|v2)
 		[ "$splash" = /dev/pts/ ] && sudo chvt 2 || chvt 2
 		;;
-		v3)
+		"change to tty 3"|v3)
 		[ "$splash" = /dev/pts/ ] && sudo chvt 3 || chvt 3
 		;;
-		v4)
+		"change to tty 4"|v4)
 		[ "$splash" = /dev/pts/ ] && sudo chvt 4 || chvt 4
 		;;
-		v5)
+		"change to tty 5"|v5)
 		[ "$splash" = /dev/pts/ ] && sudo chvt 5 || chvt 5
 		;;
-		v6)
+		"change to tty 6"|v6)
 		[ "$splash" = /dev/pts/ ] && sudo chvt 6 || chvt 6
 		;;
-		vt)
+		"choose tty"|vt)
 		while [ 1 ]; do
 
 			printf "\n\n%s\n\n%s" "Choose your TTY: " "You are currently in: "; tty
@@ -2149,7 +2250,7 @@ printf "\n%s" ""
 			esac
 		done
 		;;
-		tty)
+		"rerun ttysh"|tty)
 		clear
 		refresh="$0"
 		"$refresh"
@@ -2157,10 +2258,10 @@ printf "\n%s" ""
 		#[ "$#" -lt 1 ] && "$0" || ttysh
 		exit 0
 		;;
-		net)
+		"network manager"|net)
 		nmtui
 		;;
-		dev)
+		"network manager devices"|dev)
 		printf "\n%s\n%s\n%s\n%s\n%s\n%s\n\n" "Press s to show your NetworkManager devices." "Press d to shutdown a device." "Press u to start up a device."  "Press r to restart a running device." "Press re to restart wireless device and network manager" "Press q to quit."
 
 		while [ 1 ]; do
@@ -2198,7 +2299,7 @@ printf "\n%s" ""
 			esac
 		done
 		;;
-		fan)
+		"fan control on thinkpads"|fan)
 		printf "\n%s\n" "Starting up thinkpad_acpi kernel module..."
 
 		sudo modprobe -r thinkpad_acpi && sudo modprobe thinkpad_acpi
@@ -2220,7 +2321,7 @@ printf "\n%s" ""
 				;;
 			esac
 		;;
-		u)
+		"update the system"|u)
 		printf "\n"$warncolour"%s"$warncolourend"\n" "Is your device running on A/C, incase of powerloss during updates? y/n or q to quit"
 
 		while [ 1 ]; do
@@ -2313,26 +2414,26 @@ printf "\n%s" ""
 			esac
 		done
 		;;	
-		fo)
+		"font and text change"|fon)
 		sudo screen -c /home/"$USER"/ttysh/resources/.screenrc.font_conf
 		printf "\n%b\n" "You should reboot your system to see any changes that you have made."
 		;;
-		fon)
+		"set temporary font"|font)
 		setfont "$(ls /usr/share/kbd/consolefonts | fzf -i --prompt "Pick a font, or select nothing to return to original terminal font: ")"
 		;;
-		res)
+		"restart"|res)
 		sudo reboot
 		exit 0
 		;;
-		sh)
+		"shutdown"|sh)
 		sudo poweroff
 		exit 0
 		;;
-		h)
+		"help"|h)
 		eofhelp
 		#ttyshhelp
 		;;
-		q)
+		"quit"|q)
 		printf "\n%s" ""
 		exit 0
 		;;	
