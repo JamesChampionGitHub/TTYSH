@@ -34,7 +34,10 @@ eofhelp () {
 
 less << EOF
 
-HELP: j and k to go down and up. q to return to menu.
+j and k to go down and up. q to return to menu.
+
+
+This is a help guide for the "select ttysh program".
 
 Key: () denote shortcut keys, e.g. (n) means pressing the n key in the selector will load the (n)otes selection.
 
