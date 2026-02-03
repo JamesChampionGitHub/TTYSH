@@ -2518,7 +2518,7 @@ while [ 1 ]; do
 
 #intro="$(printf "\n%s\n%s\n%s\n%s\n%s\n%s\n%s" "(p)lanner" "(s)elect program" "(f)ind program" "(h)elp" "(t)oggle options" "(config) wizard" "(q)uit" | sed '/^[[:space:]]*$/d;/.*[A-Z]/d;/[A-Z].*/d' | fzf --prompt "TTYSH " --layout=reverse --margin 20% | sed 's/.*(//g;s/).*//g')"
 
-intro="$(printf "%s\n%s\n%s\n%s\n%s\n%s\n%s" "select ttysh program" "find ttysh program" "run any program" "help" "toggle options" "config wizard" "quit" | fzf --prompt "TTYSH " --layout=reverse --margin 20%)"
+intro="$(printf "%s\n%s\n%s\n%s\n%s\n%s\n%s" "select a ttysh program" "find a ttysh program" "run any program" "help" "toggle options" "config wizard" "quit" | fzf --prompt "TTYSH " --layout=reverse --margin 20%)"
 
 	case "$intro" in
 		#"personal planner")
