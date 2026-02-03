@@ -1063,6 +1063,16 @@ done
 # function for yt-dlp
 yt () {
 
+if [ ! -d /home/"$USER"/Videos ]; then 
+		
+	mkdir /home/"$USER"/Videos/
+	cd /home/"$USER"/Videos/
+
+else
+
+	cd /home/"$USER"/Videos/ 
+fi
+
 while [ 1 ]; do
 
 	printf "\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n" "y to enter video creator and video discription." "a for video that fails choosing y." "x to download url from xclip." "b for video that fails choosing x." "yt to run again." "q to quit"
@@ -1108,6 +1118,15 @@ done
 
 # function for music in yt-dlp
 ytmusic () {
+
+if [ ! -d /home/"$USER"/Music ]; then
+		
+	mkdir /home/"$USER"/Music/
+   	cd /home/"$USER"/Music/
+else	
+
+	cd /home/"$USER"/Music/ 
+fi
 
 while [ 1 ]; do
 
@@ -1903,10 +1922,10 @@ printf "\n%s" ""
 		alsamixer
 		;;
 		"video search on youtube"|yo)
-		[ ! -d /home/"$USER"/Video ] && mkdir /home/"$USER"/Videos; cd /home/"$USER"/Videos || cd /home/"$USER"/Videos/; yt 
+		yt
 		;;
 		"music search on youtube"|mus)
-		[ ! -d /home/"$USER"/Music ] && mkdir /home/"$USER"/Music; cd /home/"$USER"/Music || cd /home/"$USER"/Music/; ytmusic 
+		ytmusic
 		;;
 		"pick a song"|pi)
 		fzfcmus
