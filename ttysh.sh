@@ -469,7 +469,6 @@ sudo pacman --noconfirm -Syu \
 	tldr \
 	go \
 	git \
-	base-devel \
 	networkmanager \
 	noto-fonts
 
@@ -2386,7 +2385,6 @@ printf "\n%s" ""
 					tldr \
 					go \
 					git \
-					base-devel \
 					networkmanager \
 					noto-fonts
 
