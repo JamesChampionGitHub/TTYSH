@@ -870,6 +870,7 @@ while [ 1 ]; do
 		cat /proc/acpi/ibm/fan
 		;;
 		q)
+		printf "\n%s\n" "Running post resets on wifi modules as fan function bug can break wifi modules..."
 		nmcli radio wifi off
 		nmcli radio wifi on
 		rfkill block wifi
