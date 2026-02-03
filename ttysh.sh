@@ -2224,7 +2224,8 @@ printf "\n%s" ""
 		#	
 		#	printf "%s\n" "$(($i))" | tee -a /home/"$USER"/.calchist
 		#done
-		screen -c /home/"$USER"/ttysh/resources/.screenrc.shellcalc
+		#screen -c /home/"$USER"/ttysh/resources/.screenrc.shellcalc
+		bc -l
 		;;
 		"spreadsheet"|sp)
 		sc-im
