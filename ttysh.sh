@@ -1076,7 +1076,7 @@ while [ 1 ]; do
 		printf "\n%s\n" "Enter the creator and discription: "
 		read -e video
 		printf "\n%s\n"	""
-		yt-dlp -f 'bv*[height=480]+ba' "ytsearch1:""$video"""
+		yt-dlp -f 'bv*[height=720]+ba' "ytsearch1:""$video"""
 		;;
 		a)
 		printf "\n%s\n" "Enter the creator and discription: "
@@ -1086,7 +1086,7 @@ while [ 1 ]; do
 		;;
 		x)
 		url=$(xclip -o)
-		yt-dlp -f 'bv*[height=480]+ba' "$url"
+		yt-dlp -f 'bv*[height=720]+ba' "$url"
 		;;
 		b)
 		url="$(xclip -o)"
@@ -2524,12 +2524,12 @@ intro="$(printf "%s\n%s\n%s\n%s\n%s\n%s\n%s" "select a ttysh program" "find a tt
 		#planner
 		#selection
 		#;;	
-		"select ttysh program")
+		"select a ttysh program")
 		unset fuzselect
 		selection
 		break
 		;;
-		"find ttysh program")
+		"find a ttysh program")
 		fuzselect='true'	
 		selection
 		break
