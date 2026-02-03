@@ -71,6 +71,8 @@ Note: (f) will run search on this list of programs for you to select.
 
 			(f)ind a program from this list/
 
+			(ru)n any program/
+
 			(fi)le manager/
 
 			search & play video in (t)ty/
@@ -257,6 +259,7 @@ ping jameschampion.xyz
 email
 mutt email configuation
 find a program from this list
+run any program
 file manager
 search & play video in tty
 search & play in gui
@@ -334,8 +337,6 @@ help
 quit
 EOF
 }
-
-
 
 # $1 arguments selection list
 helpflags () {
@@ -1811,6 +1812,16 @@ printf "\n%s\n" ""
 selection
 }
 
+# selecting any program on the system
+
+systemprograms () {
+
+printf "\n%s\n" "Loading programs..."
+pacman -Qn > /tmp/allprograms.txt && pacman -Qm >> /tmp/allprograms.txt
+pick="$(cat /tmp/allprograms.txt | cut -d " " -f1 | fzf --layout=reverse --margin 3%)" && "$pick" || printf "\n%s\n" "no selection.."
+selection
+}
+
 # fzf function for selection
 selectcheck () {
 
@@ -1826,7 +1837,7 @@ else
 fi
 }
 
-# function for selecting everything
+# function for selecting everything in ttysh
 selection () {
 
 while [ 1 ]; do
@@ -1905,6 +1916,9 @@ printf "\n%s" ""
 		fuzselect='true'	
 		selection
 		break
+		;;
+		"run any program"|ru)
+		systemprograms
 		;;
 		"web search"|we)
 		websearch
@@ -2416,7 +2430,7 @@ printf "\n%s" ""
 				;;
 			esac
 		done
-		;;	
+		;;
 		"font and text change"|fon)
 		sudo screen -c /home/"$USER"/ttysh/resources/.screenrc.font_conf
 		printf "\n%b\n" "You should reboot your system to see any changes that you have made."
@@ -2439,7 +2453,7 @@ printf "\n%s" ""
 		"quit"|q)
 		printf "\n%s" ""
 		exit 0
-		;;	
+		;;
 		*)
 		printf "\n%s\n" "Not a valid selection."
 		;;
@@ -2523,9 +2537,7 @@ intro="$(printf "%s\n%s\n%s\n%s\n%s\n%s\n%s" "select ttysh program" "find ttysh 
 		break
 		;;	
 		"run any program")
-		printf "\n%s\n" "Loading programs..."
-		pacman -Qn > /tmp/allprograms.txt && pacman -Qm >> /tmp/allprograms.txt
-		pick="$(cat /tmp/allprograms.txt | cut -d " " -f1 | fzf --layout=reverse --margin 3%)" && "$pick" || printf "\n%s\n" "no selection.."
+		systemprograms
 		;;
 		"help")
 		eofhelp
