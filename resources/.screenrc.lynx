@@ -7,7 +7,7 @@ chdir /home/"$USER"/Downloads
 
 screen -t bash /bin/bash
 
-screen -t ./mpv_fzf_screen.sh /home/"$USER"/TTYSH/resources/.mpv_fzf_screen.sh
+screen -t ./mpv_fzf_screen.sh /home/"$USER"/ttysh/resources/.mpv_fzf_screen.sh
 
 focus down
 

@@ -11,7 +11,7 @@ chdir /home/"$USER"/
 
 screen -t bash /bin/bash
 
-screen -t ./ttysh.sh /home/"$USER"/TTYSH/ttysh.sh
+screen -t ./ttysh.sh /home/"$USER"/ttysh/ttysh.sh
 
 focus up
 

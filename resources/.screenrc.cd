@@ -1,5 +1,5 @@
 
 screen -t bash /bin/bash
 
-screen -t ./cd_fzf_screen.sh /home/"$USER"/TTYSH/resources/.cd_fzf_screen.sh
+screen -t ./cd_fzf_screen.sh /home/"$USER"/ttysh/resources/.cd_fzf_screen.sh
 

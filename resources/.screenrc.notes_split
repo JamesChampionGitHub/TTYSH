@@ -3,7 +3,7 @@ split
 
 focus up
 
-screen -t vim /usr/bin/vim /home/"$USER"/TTYSH/resources/notes.txt
+screen -t vim /usr/bin/vim /home/"$USER"/ttysh/resources/notes.txt
 
 focus down
 

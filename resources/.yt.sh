@@ -41,7 +41,7 @@ do
 		x=0
 		;;
 		yt)
-		exec bash /home/"$USER"/TTYSH/resources/./yt.sh
+		exec bash /home/"$USER"/ttysh/resources/./yt.sh
 		x=1
 		;;
 		q)

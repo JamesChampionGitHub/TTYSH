@@ -1,1 +1,1 @@
-screen -t /home/"$USER"/TTYSH/resources./.testclock.sh /home/"$USER"/TTYSH/resources/.testclock.sh
+screen -t /home/"$USER"/ttysh/resources./.testclock.sh /home/"$USER"/ttysh/resources/.testclock.sh
