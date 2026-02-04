@@ -50,3 +50,5 @@ export EDITOR="vim"
 #xset b off
 
 #/usr/local/bin/ttysh
+
+[ $(tty | tr -d '[0-9]') = "/dev/tty" ] && setfont ter-218b

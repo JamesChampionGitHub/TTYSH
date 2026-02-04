@@ -244,7 +244,7 @@ Note: (f) will run search on this list of programs for you to select.
 EOF
 }
 
-# function for fzf selection (under development)
+# function for fzf selection
 eoffuz() {
 
 less << EOF
@@ -471,7 +471,8 @@ sudo pacman --noconfirm -Syu \
 	go \
 	git \
 	networkmanager \
-	noto-fonts
+	noto-fonts \
+	terminus-font
 
 # enable and start network manager service
 
@@ -636,7 +637,7 @@ ttyshtoggles () {
 
 while [ 1 ]; do
 
-		printf "\n%s\n%s\n%s\n%s\n" "Toggle the following on and off:" "(i)3 window manager autotiling" "(s)way window manager autotiling" "(q)uit and return to selection"
+		printf "\n%s\n\n%s\n%s\n%s\n\n" "Toggle the following on and off:" "(i)3 window manager autotiling" "(s)way window manager autotiling" "(q)uit and return to selection"
 
 	read -e -p "Enter your selection: " pickoption
 
@@ -2414,7 +2415,8 @@ printf "\n%s" ""
 					go \
 					git \
 					networkmanager \
-					noto-fonts
+					noto-fonts \
+					terminus-font
 
 				printf "\n\n%s\n" "Updating the Arch Linux AUR..."
 				yay -Sua
