@@ -870,7 +870,7 @@ while [ 1 ]; do
 		cat /proc/acpi/ibm/fan
 		;;
 		full)
-		echo level full-speed | sudo tee /proc/acpi/imb/fan
+		echo level full-speed | sudo tee /proc/acpi/ibm/fan
 		;;
 		q)
 		printf "\n%s\n" "Running post resets on wifi modules as fan function bug can break wifi modules..."
