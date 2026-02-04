@@ -2,9 +2,7 @@
 
 ## Running/Installation:
 
-Works on Arch Linux and Artix Linux with the Pacman package manager. It is recommended to run on a fresh install and a base install. Backup any important files to avoid data loss.
-
-Note: Artix Linux requires "extra" repository for full functionality. See Artix Linux documentation regarding setting this up.
+Works on Arch Linux. It is recommended to run on a fresh install and a base install. Backup any important files to avoid data loss.
 
 Run the following:
 
