@@ -4,6 +4,8 @@ macro y set browser "yt-dlp %u" ; open-in-browser ; set browser "librewolf %u"
 
 macro v set browser "mpv %u" ; open-in-browser ; set browser "librewolf %u" 
 
+macro b set browser "librewolf %u" ; open-in-browser ; set browser "librewolf %u" 
+
 
 # unbind keys
 unbind-key ENTER
