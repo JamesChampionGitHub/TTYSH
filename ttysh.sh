@@ -51,13 +51,11 @@ Note: (f) will run search on this list of programs for you to select.
 
 			(we)b search/
 
-			(ly)nx with image viewer for saved/
-
 			(bro)wsh web browser/
 
 			(brow)sh configuration in xorg/
 
-			(lib)rewolf in xorg/ 
+			(l)brewolf web browser/ 
 
 			p(i)ng jameschampion.xyz/
 
@@ -251,10 +249,9 @@ less << EOF
 select a bookmark for web browsing
 format bookmarks
 web search
-lynx with image viewer for saved
 browsh web browser
 browsh configuration in xorg
-librewolf in xorg
+librewolf web browser
 ping jameschampion.xyz
 email
 mutt email configuation
@@ -1953,28 +1950,28 @@ printf "\n%s" ""
 		"select a bookmark for web browsing"|bo)
 		bookmarkcheck
 		;;
-		"lynx with image viewer for saved"|ly)
-		while [ 1 ]; do
+		#"lynx with image viewer for saved"|ly)
+		#while [ 1 ]; do
 
-			printf "\n%s\n%s\n%s\n" "Stop! It is recommended to run lynx browser offline for your saved webpages." "Use Browsh/Librewolf for web online browsing and saving webpages for later." "Are you offline? Do you want to continue? y/n"
+		#	printf "\n%s\n%s\n%s\n" "Stop! It is recommended to run lynx browser offline for your saved webpages." "Use Browsh/Librewolf for web online browsing and saving webpages for later." "Are you offline? Do you want to continue? y/n"
 
-			read -e -p "Enter your selection: " answer
+		#	read -e -p "Enter your selection: " answer
 
-			case "$answer" in
-				y)
-				screen -c /home/"$USER"/ttysh/resources/.screenrc.lynx
-				break
-				;;
-				n)
-				break	
-				;;	
-				*)
-				printf "\n\n%s\n\n" "Not a valid selection."
-				;;
-			esac
+		#	case "$answer" in
+		#		y)
+		#		screen -c /home/"$USER"/ttysh/resources/.screenrc.lynx
+		#		break
+		#		;;
+		#		n)
+		#		break	
+		#		;;	
+		#		*)
+		#		printf "\n\n%s\n\n" "Not a valid selection."
+		#		;;
+		#	esac
 
-		done
-		;;
+		#done
+		#;;
 		"browsh web browser"|bro)
 		#tip: prefix 'searx.be/search?q=' or 'wiby.me/?q=' in the URL to search."
 		#sudo gpm -m /dev/psaux -t ps2
@@ -1986,7 +1983,7 @@ printf "\n%s" ""
 		"browsh configuration in xorg"|brow)
 		browsh --firefox.with-gui
 		;;
-		"librewolf in xorg"|lib)
+		"librewolf web browser"|l)
 		devour librewolf
 		;;
 		"ping jameschampion.xyz"|i)
