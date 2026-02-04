@@ -793,13 +793,13 @@ while [ 1 ]; do
 		f) 
 		printf "\n" ""
 		read -e -p "Search: " webpick
-		devour firefox searx.be/search?q="$webpick"
+		devour firefox search.brave.com/search?q="$webpick"
 		break
 		;;
 		l)
 		printf "\n" ""
 		read -e -p "Search: " webpick
-		devour librewolf searx.be/search?q="$webpick"
+		devour librewolf search.brave.com/search?q="$webpick"
 		break
 		;;
 		q)
@@ -819,7 +819,7 @@ printf "\n" ""
 
 #[ "$splash" = /dev/pts/ ] && casewebsearch && return || read -e -p "Search: " webpick && lynx searx.be/search?q="$webpick"
 
-[ "$splash" = /dev/pts/ ] && casewebsearch && return || read -e -p "Search: " webpick && browsh --startup-url searx.be/search?q="$webpick"
+[ "$splash" = /dev/pts/ ] && casewebsearch && return || read -e -p "Search: " webpick && browsh --startup-url search.brave.com/search?q="$webpick"
 	
 #[ $splash" = /dev/pts/ ] && devour librewolf searx.be/search?q="$webpick" || browsh --startup-url searx.be/search?q="$webpick"
 }
