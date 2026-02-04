@@ -123,8 +123,6 @@ Note: (f) will run search on this list of programs for you to select.
 
 			(al)samixer/
 
-		Youtube Music/
-
 			(mus)ic search on youtube/
 
 		Video/
@@ -218,6 +216,8 @@ Note: (f) will run search on this list of programs for you to select.
 			(u)pdate the system/
 
 			(ht)op/
+
+			computer (te)mperatures/
 
 			(fr)ee disk space/
 
@@ -326,6 +326,7 @@ network manager devices
 fan control on thinkpads
 update the system
 htop
+computer temperatures
 free disk space
 clock
 stopwatch
@@ -2235,6 +2236,9 @@ printf "\n%s" ""
 		;;
 		"htop"|ht)
 		htop
+		;;
+		"computer temperatures"|te)
+		watch sensors
 		;;
 		"free disk space"|fr)
 		printf "\n%s\n" ""
