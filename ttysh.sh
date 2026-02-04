@@ -87,8 +87,6 @@ Note: (f) will run search on this list of programs for you to select.
 
 			search images and (pdf)s/
 
-			(a)rticles/
-
 		Music/
 
 			(cm)us without screen/
@@ -124,10 +122,8 @@ Note: (f) will run search on this list of programs for you to select.
 			(mus)ic search on youtube/
 
 		Video/
-
-			play your (vid)eos/
-
-			(l)ist videos/
+			
+			play your downloaded youtube (vid)eos/
 
 			video search on (yo)utube/
 
@@ -153,7 +149,7 @@ Note: (f) will run search on this list of programs for you to select.
 
 			calender (sch)edule/ 
 
-			(n)otes/todos/split/ 
+			(n)otes and todos/ 
 
 			(d)ate & calender/
 
@@ -193,7 +189,7 @@ Note: (f) will run search on this list of programs for you to select.
 
 			start (sw)ay window manager/
 
-			close (x)org and return to tty/
+			close (i3) and return to tty/
 
 			close swa(y) and return to tty/
 
@@ -264,7 +260,6 @@ fzf search files to open in vim
 search files and delete
 remove white spaces from file names
 search images and pdfs
-articles
 cmus without screen
 cmus with screen
 reattach cmus screen session
@@ -279,9 +274,8 @@ increase volume
 lower volume
 alsamixer
 music search on youtube
-play your videos
-list videos
 video search on youtube
+play your downloaded youtube videos
 screenshot tty 1
 screenshot tty 2
 screenshot tty 3
@@ -294,7 +288,7 @@ writer
 spreadsheet
 calculator
 calender schedule
-notes/todos/split 
+notes and todos 
 date & calender
 stop! first run ttysh as sudo su!: disk formatting and setting up removable media
 stop! first run ttysh as sudo su!: backup /home/user/ to removable drive
@@ -313,7 +307,7 @@ screen horizontal split
 screen vertical split
 start i3 window manager
 start sway window manager
-close xorg and return to tty
+close i3 and return to tty
 close sway and return to tty
 AltGr as left mouse click on x11 on old thinkpads
 font and text change
@@ -2016,34 +2010,36 @@ printf "\n%s" ""
 
 		#done
 		;;
-		"notes/todos/split"|n)
-		while [ 1 ]; do
-
-			printf "\n%s\n\n" "Would you like your notes in a split-screen with a shell? y/n"
-
-			read -e -p "Enter your selection: " answer
-
-			case "$answer" in
-				y)
-				screen -c /home/"$USER"/ttysh/resources/.screenrc.notes_split
-				break
-				;;
-				n)
-				vim /home/"$USER"/.notes.txt
-				break
-				;;
-				*)
-				printf "\n\n%s\n\n" "Not a valid selection."
-				;;
-			esac
-
-		done
+		"notes and todos"|n)
+		vim /home/"$USER"/.notes.txt
+#
+#		while [ 1 ]; do
+#
+#			printf "\n%s\n\n" "Would you like your notes in a split-screen with a shell? y/n"
+#
+#			read -e -p "Enter your selection: " answer
+#
+#			case "$answer" in
+#				y)
+#				screen -c /home/"$USER"/ttysh/resources/.screenrc.notes_split
+#				break
+#				;;
+#				n)
+#				vim /home/"$USER"/.notes.txt
+#				break
+#				;;
+#				*)
+#				printf "\n\n%s\n\n" "Not a valid selection."
+#				;;
+#			esac
+#
+#		done
 		;;
 		"mutt email configuation"|mu)
 		screen -c /home/"$USER"/ttysh/resources/.screenrc.mutt_conf
 		;;
-		"date & calenderW"|d)
-		cal; date; printf "\n%s\n" "q to return" | less
+		"date & calender"|d)
+		cal; date; printf "\n%s\n"
 		;;
 		"clock"|c)
 		screen -c /home/"$USER"/ttysh/resources/.screenrc.clockworking
@@ -2080,39 +2076,39 @@ printf "\n%s" ""
 		"email"|e)
 		mutt
 		;;
-		"articles"|a)
-		while [ 1 ]; do
+		#"articles"|a)
+		#while [ 1 ]; do
 
-			printf "\n%s\n\n" "Would you like your article list in a split-screen with a shell? y/n"
+		#	printf "\n%s\n\n" "Would you like your article list in a split-screen with a shell? y/n"
 
-			read -e -p "Enter your selection: " answer
+		#	read -e -p "Enter your selection: " answer
 
-			case "$answer" in
-				y)
-				screen -c /home/"$USER"/ttysh/resources/.screenrc.articles 
-				break
-				;;
-				n)
-				vim /home/"$USER"/Downloads
-				break
-				;;
-				*)
-				printf "\n\n%s\n\n" "Not a valid selection."
-				;;
-			esac
+		#	case "$answer" in
+		#		y)
+		#		screen -c /home/"$USER"/ttysh/resources/.screenrc.articles 
+		#		break
+		#		;;
+		#		n)
+		#		vim /home/"$USER"/Downloads
+		#		break
+		#		;;
+		#		*)
+		#		printf "\n\n%s\n\n" "Not a valid selection."
+		#		;;
+		#	esac
 
-		done
-		;;
+		#done
+		#;;
 		"start i3 window manager"|s)
 		startx
 		;;
 		"start sway window manager"|sw)
 		sway
 		;;
-		"list videos"|l)
-		screen -c /home/"$USER"/ttysh/resources/.screenrc.videos 
-		;;
-		"play your videos"|vid)
+		#"list videos"|l)
+		#screen -c /home/"$USER"/ttysh/resources/.screenrc.videos 
+		#;;
+		"play your downloaded youtube videos"|vid)
 		devourvid
 		;;
 		m)
@@ -2167,7 +2163,7 @@ printf "\n%s" ""
 		"stop! first run ttysh as sudo su!: delete timeshift backups from removable drive"|de)
 		maintdelete	
 		;;
-		"close xorg and return to tty"|x)
+		"close i3 and return to tty"|i3)
 		pkill "Xorg"
 		;;
 		"close sway and return to tty"|y)
