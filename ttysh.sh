@@ -2075,7 +2075,8 @@ printf "\n%s" ""
 		done
 		;;
 		r)
-		[ ! -d /home/"$USER"/.newsboat ] && mkdir -p /home/"$USER"/.newsboat; echo 'https://www.youtube.com/feeds/videos.xml?channel_id=UCeFnqXMczw4BDCoJHr5dBjg "~James Champion (Youtube)"' > /home/"$USER"/.newsboat/urls; cat /home/"$USER"/ttysh/resources/newboatconfig/config > /home/"$USER"/.newsboat/config || cd /home/"$USER"/Videos/; newsboat; cd /home/"$USER"/
+		cd /home/"$USER"/Videos
+		newsboat
 		#rsssplit
 		;;
 		"email"|e)
