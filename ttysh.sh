@@ -502,7 +502,7 @@ yay -S --noconfirm \
 
 printf "%s\n" "NOTES" > /home/"$USER"/.notes.txt
 
-[ ! -d /home/"$USER"/.newsboat ] && mkdir -p /home/"$USER"/.newsboat; echo 'https://www.youtube.com/feeds/videos.xml?channel_id=UCeFnqXMczw4BDCoJHr5dBjg "~James Champion (Youtube)"' > /home/"$USER"/.newsboat/urls 
+[ ! -d /home/"$USER"/.newsboat ] && mkdir -p /home/"$USER"/.newsboat; echo 'https://www.youtube.com/feeds/videos.xml?channel_id=UCeFnqXMczw4BDCoJHr5dBjg "~James Champion (Youtube)"' > /home/"$USER"/.newsboat/urls; cat /home/"$USER"/ttysh/resources/newboatconfig/config > /home/"$USER"/.newsboat/config
 
 mkdir -p /home/"$USER"/.config/mutt/ && touch /home/"$USER"/.config/mutt/muttrc
 
@@ -1199,7 +1199,7 @@ while [ 1 ]; do
 		break
 		;;
 		n)
-		[ ! -f /home/"$USER"/.newsboat/urls ] && echo 'https://www.youtube.com/feeds/videos.xml?channel_id=UCeFnqXMczw4BDCoJHr5dBjg "~James Champion (Youtube)"' > /home/"$USER"/.newsboat/urls || cd /home/"$USER"/Videos/; newsboat; cd /home/"$USER"/; break
+		[ ! -d /home/"$USER"/.newsboat ] && mkdir -p /home/"$USER"/.newsboat; echo 'https://www.youtube.com/feeds/videos.xml?channel_id=UCeFnqXMczw4BDCoJHr5dBjg "~James Champion (Youtube)"' > /home/"$USER"/.newsboat/urls; cat /home/"$USER"/ttysh/resources/newboatconfig/config > /home/"$USER"/.newsboat/config || cd /home/"$USER"/Videos/; newsboat; cd /home/"$USER"/; break
 		;;
 		*)
 		printf "\n\n%s\n\n" "Not a valid selection."
@@ -2434,12 +2434,13 @@ printf "\n%s" ""
 				printf "\n\n%s\n" "Updating TTYSH..."
 				cd /home/"$USER"/ttysh/
 				git pull
-				printf "\n\n%s\n" "Setting i3, sway, foot, bashrc, and Xdefaults configs..."
+				printf "\n\n%s\n" "Setting i3, sway, foot, bashrc, Xdefaults configs etc..."
 				cat /home/"$USER"/ttysh/resources/i3config/config > /home/"$USER"/.config/i3/config
 				cat /home/"$USER"/ttysh/resources/swayconfig/config > /home/"$USER"/.config/sway/config
 				cat /home/"$USER"/ttysh/resources/footconfig/foot.ini > /home/"$USER"/.config/foot/foot.ini
 				cat /home/"$USER"/ttysh/resources/bashrc/.bashrc > /home/"$USER"/.bashrc
 				cat /home/"$USER"/ttysh/resources/.Xdefaults > /home/"$USER"/.Xdefaults
+				cat /home/"$USER"/ttysh/resources/newsboatconfig/config > /home/"$USER"/.newsboat/config
 				printf "\n\n%s\n" "Setting your person toggles..."
 				togglesupdate
 				printf "\n%s\n" "You should now exit TTYSH and reboot your system to complete any new updates."
