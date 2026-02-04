@@ -826,7 +826,7 @@ printf "\n" ""
 # function for fan speed control
 fanspeed () {
 
-printf "\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n\n" "The following options:" "s for current fan speed" "Type auto for auto speed. Recommeneded" "1-7 for speeds" "e.g. Press 2 for low speed" "Press 4 for medium speed" "Press 7 for max speed" "q to quit"
+		printf "\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n\n" "The following options:" "s for current fan speed" "Type auto for auto speed. Recommeneded" "1-7 for speeds" "e.g. Press 2 for low speed" "Press 4 for medium speed" "Press 7 for max speed" "full for full-speed (Beware!)" "q to quit"
 
 while [ 1 ]; do
 
@@ -868,6 +868,9 @@ while [ 1 ]; do
 		7)
 		echo level 7 | sudo tee /proc/acpi/ibm/fan
 		cat /proc/acpi/ibm/fan
+		;;
+		full)
+		echo level full-speed | sudo tee /proc/acpi/imb/fan
 		;;
 		q)
 		printf "\n%s\n" "Running post resets on wifi modules as fan function bug can break wifi modules..."
