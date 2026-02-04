@@ -690,30 +690,32 @@ cmus-remote -Q && printf "\n" ""
 # fzfbookmark case statement
 casefzfbookmark () {
 
-while [ 1 ]; do
+devour librewolf "$bookmark"
 
-	printf "\n%s\n\n" "Pick f for firefox, l for librewolf, or q to quit:"
-
-	read -e -p "Enter your selection: " xbrowser
-
-	case "$xbrowser" in 
-		f) 
-		devour firefox "$bookmark"
-		break
-		;;
-		l)
-		devour librewolf "$bookmark"
-		break
-		;;
-		q)
-		break
-		;;
-		*)
-		printf "\n%s\n" "Not a valid selection."
-		;;
-	esac 
-done
-
+#while [ 1 ]; do
+#
+#	printf "\n%s\n\n" "Pick f for firefox, l for librewolf, or q to quit:"
+#
+#	read -e -p "Enter your selection: " xbrowser
+#
+#	case "$xbrowser" in 
+#		f) 
+#		devour firefox "$bookmark"
+#		break
+#		;;
+#		l)
+#		devour librewolf "$bookmark"
+#		break
+#		;;
+#		q)
+#		break
+#		;;
+#		*)
+#		printf "\n%s\n" "Not a valid selection."
+#		;;
+#	esac 
+#done
+#
 #[ "$splash" = /dev/pts/ ] && read -e -p "Pick f for firefox or l for librewolf: " xbrowser && case "$xbrowser" in 
 #
 #										        f) 
@@ -775,33 +777,35 @@ printf "\n%s\n" "Your /home/"$USER"/.bookmarks_ttysh.html is now formatted for t
 # websearch case statement
 casewebsearch () {
 
-while [ 1 ]; do
+devour librewolf search.brave.com/search?q="$webpick"
 
-	printf "\n%s\n\n" "Pick f for firefox, l for librewolf, or q to quit:"
-
-	read -e -p "Enter your selection: " xbrowser
-
-	case "$xbrowser" in 
-		f) 
-		printf "\n" ""
-		read -e -p "Search: " webpick
-		devour firefox search.brave.com/search?q="$webpick"
-		break
-		;;
-		l)
-		printf "\n" ""
-		read -e -p "Search: " webpick
-		devour librewolf search.brave.com/search?q="$webpick"
-		break
-		;;
-		q)
-		break
-		;;
-		*)
-		printf "\n%s\n" "Not a valid selection."
-		;;
-	esac 
-done
+#while [ 1 ]; do
+#
+#	printf "\n%s\n\n" "Pick f for firefox, l for librewolf, or q to quit:"
+#
+#	read -e -p "Enter your selection: " xbrowser
+#
+#	case "$xbrowser" in 
+#		f) 
+#		printf "\n" ""
+#		read -e -p "Search: " webpick
+#		devour firefox search.brave.com/search?q="$webpick"
+#		break
+#		;;
+#		l)
+#		printf "\n" ""
+#		read -e -p "Search: " webpick
+#		devour librewolf search.brave.com/search?q="$webpick"
+#		break
+#		;;
+#		q)
+#		break
+#		;;
+#		*)
+#		printf "\n%s\n" "Not a valid selection."
+#		;;
+#	esac 
+#done
 }
 
 # search the internet
