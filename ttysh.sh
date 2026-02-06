@@ -640,7 +640,7 @@ while [ 1 ]; do
 	case "$pickoption" in
 
 		c)
-		cat /home/"$USER"/.config/ttysh/config
+		less /home/"$USER"/.config/ttysh/config
 		;;
 		i)
 		[ "$(grep -i "i3autotiling=true" /home/"$USER"/.config/ttysh/config)" ] && sed -i 's/i3autotiling=true/i3autotiling=false/g' /home/"$USER"/.config/ttysh/config || sed -i 's/i3autotiling=false/i3autotiling=true/g' /home/"$USER"/.config/ttysh/config
