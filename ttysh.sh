@@ -2535,6 +2535,7 @@ printf "\n%s" ""
 		;;
 		"font and text change"|fon)
 		sudo screen -c /home/"$USER"/ttysh/resources/.screenrc.font_conf
+		[ "$(grep -i "ttyshfont=true" /home/"$USER"/.config/ttysh/config)" ] && sed -i 's/ttyshfont=true/ttyshfont=false/g' /home/"$USER"/.config/ttysh/config && sed -i 's/.*setfont ter-218b.*/#[ $(tty | tr -d '\''[0-9]'\'') = "\/dev\/tty" ] \&\& setfont ter-218b/' /home/"$USER"/.bashrc
 		printf "\n%b\n" "You should reboot your system to see any changes that you have made."
 		;;
 		"set temporary font"|font)
