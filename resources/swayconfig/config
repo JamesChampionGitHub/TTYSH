@@ -246,3 +246,8 @@ titlebar_padding 0
 # Startup
 
 exec swaymsg "workspace 1; exec $term"
+
+# Screen tearing
+
+output <name> allow_tearing yes
+output * max_render_time off
