@@ -51,9 +51,7 @@ Note: (f) will run search on this list of programs for you to select.
 
 			(we)b search/
 
-			(ly)nx web browser/
-
-			(l)brewolf web browser/ 
+			(w)eb browser/ 
 
 			p(i)ng jameschampion.xyz/
 
@@ -107,7 +105,7 @@ Note: (f) will run search on this list of programs for you to select.
 
 			(pi)ck a song/
 
-		ALSA/
+		Audio/
 
 			alsa (au)to setting/
 
@@ -150,6 +148,8 @@ Note: (f) will run search on this list of programs for you to select.
 			(n)otes and todos/ 
 
 			(d)ate & calender/
+
+			(we)ather/
 
 		Backup/
 
@@ -243,8 +243,7 @@ less << EOF
 select a bookmark for web browsing
 format bookmarks
 web search
-lynx web browser
-librewolf web browser
+web browser
 ping jameschampion.xyz
 email
 mutt email configuation
@@ -287,6 +286,7 @@ calculator
 calender schedule
 notes and todos 
 date & calender
+weather
 stop! first run ttysh as sudo su!: disk formatting and setting up removable media
 stop! first run ttysh as sudo su!: backup /home/user/ to removable drive
 stop! first run ttysh as sudo su!: timeshift backup to removable drive
@@ -2036,19 +2036,19 @@ printf "\n%s" ""
 
 		#done
 		#;;
-		"lynx web browser"|ly)
+		#"lynx web browser"|ly)
 		#tip: prefix 'searx.be/search?q=' or 'wiby.me/?q=' in the URL to search."
 		#sudo gpm -m /dev/psaux -t ps2
 		# searching: searx.be/search?q=
 		# searching: wiby.me/?q=
 		# browsh --firefox.path /usr/bin/librewolf
-		lynx
-		;;
+		#lynx
+		#;;
 		#"browsh configuration in xorg"|brow)
 		#browsh --firefox.with-gui
 		#;;
-		"librewolf web browser"|l)
-		devour librewolf
+		"web browser"|w)
+		[ $splash = "/dev/tty" ] && lynx || devour librewolf
 		;;
 		"ping jameschampion.xyz"|i)
 		#screen -c /home/"$USER"/TTYSH/resources/.screenrc.ping
@@ -2206,7 +2206,7 @@ printf "\n%s" ""
 		"remove white spaces from file names"|wh)
 		fzfwhitespace
 		;;
-		w)
+		"weather"we)
 		#until curl wttr.in 1>/dev/null; do
 			#sleep 1
 			#echo "Awaiting wttr.in to respond. The server might be down. You could try again later."
