@@ -619,6 +619,15 @@ while read i; do
 			sed -i 's/^#exec_always autotiling/#exec_always autotiling/g;s/^exec_always autotiling/#exec_always autotiling/g' /home/"$USER"/.config/sway/config
 		fi
 		;;
+		ttyshfont=true|ttyshfont=false)
+		if [ "$(grep -i "ttyshfont=true" /home/"$USER"/.config/ttysh/config)" ]; then
+
+ 			sed -i 's/.*setfont ter-218b.*/[ $(tty | tr -d '\''[0-9]'\'') = "\/dev\/tty" ] \&\& setfont ter-218b/' /home/"$USER"/.bashrc
+
+		else	
+ 			sed -i 's/.*setfont ter-218b.*/#[ $(tty | tr -d '\''[0-9]'\'') = "\/dev\/tty" ] \&\& setfont ter-218b/' /home/"$USER"/.bashrc
+		fi
+		;;
 	esac
 done < /home/"$USER"/.config/ttysh/config
 }
@@ -628,7 +637,7 @@ ttyshtoggles () {
 
 while [ 1 ]; do
 
-		printf "\n%s\n\n%s\n%s\n%s\n\n" "Toggle the following on and off:" "(i)3 window manager autotiling" "(s)way window manager autotiling" "(q)uit and return to selection"
+		printf "\n%s\n\n%s\n%s\n%s\n%s\n\n" "Toggle the following on and off:" "(i)3 window manager autotiling" "(s)way window manager autotiling" "(t)tysh tty font" "(q)uit and return to selection"
 
 	read -e -p "Enter your selection: " pickoption
 
@@ -654,6 +663,17 @@ while [ 1 ]; do
 
 		else	
 			sed -i 's/^#exec_always autotiling/#exec_always autotiling/g;s/^exec_always autotiling/#exec_always autotiling/g' /home/"$USER"/.config/sway/config
+		fi
+		;;
+		t)
+		[ "$(grep -i "ttyshfont=true" /home/"$USER"/.config/ttysh/config)" ] && sed -i 's/ttyshfont=true/ttyshfont=false/g' /home/"$USER"/.config/ttysh/config || sed -i 's/ttyshfont=false/ttyshfont=true/g' /home/"$USER"/.config/ttysh/config
+
+		if [ "$(grep -i "ttyshfont=true" /home/"$USER"/.config/ttysh/config)" ]; then
+
+ 			sed -i 's/.*setfont ter-218b.*/[ $(tty | tr -d '\''[0-9]'\'') = "\/dev\/tty" ] \&\& setfont ter-218b/' /home/"$USER"/.bashrc
+
+		else	
+ 			sed -i 's/.*setfont ter-218b.*/#[ $(tty | tr -d '\''[0-9]'\'') = "\/dev\/tty" ] \&\& setfont ter-218b/' /home/"$USER"/.bashrc
 		fi
 		;;
 		q)
@@ -776,6 +796,8 @@ printf "\n%s\n" "Your /home/"$USER"/.bookmarks_ttysh.html is now formatted for t
 
 # websearch case statement
 casewebsearch () {
+
+read -e -p "Search: " webpick
 
 devour librewolf search.brave.com/search?q="$webpick"
 
@@ -2572,7 +2594,7 @@ intro="$(printf "%s\n%s\n%s\n%s\n%s\n%s\n%s" "select a ttysh program" "find a tt
 		#ttyshhelp
 		;;
 		"toggle options")
-		[ ! -d /home/"$USER"/.config/ttysh ] && mkdir -p /home/"$USER"/.config/ttysh; cat /home/"$USER"/ttysh/resources/ttyshconfig/config > /home/"$USER"/.config/ttysh/config
+		#[ ! -d /home/"$USER"/.config/ttysh ] && mkdir -p /home/"$USER"/.config/ttysh; cat /home/"$USER"/ttysh/resources/ttyshconfig/config > /home/"$USER"/.config/ttysh/config
 		ttyshtoggles
 		printf "\n%s\n" "To see your changes restart the program/s or your computer"
 		selection

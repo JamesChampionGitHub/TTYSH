@@ -23,6 +23,9 @@ alias t='/home/"$USER"/ttysh/./ttysh.sh'
 # Quit pane
 alias q='exit'
 
+# Clear terminal
+alias c='clear'
+
 # Videos Directory
 alias v='cd /home/"$USER"/Videos/'
 

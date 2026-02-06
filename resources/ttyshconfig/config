@@ -3,3 +3,5 @@
 i3autotiling=false
 
 swayautotiling=false
+
+ttyshfont=true
