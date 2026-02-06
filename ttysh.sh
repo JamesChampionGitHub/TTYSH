@@ -833,8 +833,15 @@ printf "\n" ""
 
 #[ "$splash" = /dev/pts/ ] && casewebsearch && return || read -e -p "Search: " webpick && lynx searx.be/search?q="$webpick"
 
-[ "$splash" = /dev/pts/ ] && casewebsearch && return || read -e -p "Search: " webpick && lynx search.brave.com/search?q="$webpick"
+if [ "$splash" = /dev/pts/ ]; then
+		
+	casewebsearch
+	return
+else
 	
+	read -e -p "Search: " webpick 
+	lynx search.brave.com/search?q="$webpick"
+fi
 #[ $splash" = /dev/pts/ ] && devour librewolf searx.be/search?q="$webpick" || browsh --startup-url searx.be/search?q="$webpick"
 }
 
@@ -1611,7 +1618,19 @@ lstdevname=$(ls /dev/disk/by-uuid -l | grep "$tuuid")
 
 printf "\n%s\n" "Looking for "$tdrive"..."
 
-[ "$lstdevname" ] && printf "\n%s\n" ""$tdrive" has been found. Starting..." && tdrivecheck && timeshift --list | less && timedelete || printf "\n%s\n\n" "Cannot find "$tuuid". Check you are run as sudo su. Check that you have connected your drive. Exiting..." && lsblk && printf "\n%s" "" && exit 1
+if [ "$lstdevname" ]; then 
+	
+	printf "\n%s\n" ""$tdrive" has been found. Starting..." 
+	tdrivecheck 
+	timeshift --list | less 
+	timedelete 
+else
+	
+	printf "\n%s\n\n" "Cannot find "$tuuid". Check you are run as sudo su. Check that you have connected your drive. Exiting..."   
+	lsblk 
+	printf "\n%s" "" 
+	exit 1
+fi
 
 #if [ "$lstdevname" ]; then
 #
@@ -1653,8 +1672,18 @@ lstdevname=$(ls /dev/disk/by-uuid -l | grep "$tuuid")
 
 printf "\n%s\n" "Looking for "$tdrive"..."
 
-[ "$lstdevname" ] && printf "\n%s\n" ""$tdrive" has been found. Starting..." && starttimeshift && closetimeshift || printf "\n%s\n\n" "Cannot find "$tuuid". Check you are run as sudo su. Check that you have connected your drive. Exiting..." && lsblk && printf "\n%s" "" && exit 1
+if [ "$lstdevname" ]; then
+	   
+	printf "\n%s\n" ""$tdrive" has been found. Starting..." 
+	starttimeshift 
+	closetimeshift 
+else
 
+	printf "\n%s\n\n" "Cannot find "$tuuid". Check you are run as sudo su. Check that you have connected your drive. Exiting..."   
+	lsblk
+	printf "\n%s" ""
+	exit 1
+fi
 #if [ "$lstdevname" ]; then
 #
 #	printf "\n%s\n" ""$tdrive" has been found. Starting..."
