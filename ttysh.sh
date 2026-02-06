@@ -775,7 +775,20 @@ bookmark=$(cat /home/"$USER"/.bookmarks_ttysh.html | fzf -i --prompt "Pick a boo
 # check for bookmark file
 bookmarkcheck () {
 
-[ -e /home/"$USER"/.bookmarks_ttysh.html ] && printf "\n%s\n" "Bookmarks file found." && fzfbookmark && return || printf "\n%s\n" "Bookmarks file not found." && touch /home/"$USER"/.bookmarks_ttysh.html && printf "\n%s\n" "Created." && sleep 1 && printf "\n%s\n" "Remember to add your bookmarks manually, or export them from librewolf. If exported or updated, run the 'boo' command. See help for more info. Starting in 10 seconds." && sleep 10 && return
+if [ -e /home/"$USER"/.bookmarks_ttysh.html ]; then
+
+	printf "\n%s\n" "Bookmarks file found."
+	fzfbookmark
+	return
+else
+	
+	printf "\n%s\n" "Bookmarks file not found."
+	touch /home/"$USER"/.bookmarks_ttysh.html && printf "\n%s\n" "Created."
+	sleep 1
+	printf "\n%s\n" "Remember to add your bookmarks manually, or export them from librewolf. If exported or updated, run the 'boo' command. See help for more info. Starting in 10 seconds."
+	sleep 10
+	return
+fi
 }
 
 # format bookmarks for fzfbookmark
@@ -1896,7 +1909,6 @@ if [ "$fuzselect" = true ]; then
 	#answer="$(eoffuz | sed '/^[[:space:]]*$/d;/.*[A-Z]/d;/[A-Z].*/d' | fzf --layout=reverse --margin 3% | sed 's/.*(//g;s/).*//g')"
 
 	answer="$(eoffuz | fzf --layout=reverse --margin 3%)"
-	
 else
 
 	read -e -p "Enter your selection. h and enter if you need help: " answer
@@ -2253,10 +2265,26 @@ printf "\n%s" ""
 		sudo fbgrab -c 6 screenshot6.png
 		;;
 		"record your tty/s"|re)
-		[ ! -d /home/"$USER"/Recordings ] && mkdir /home/"$USER"/Recordings; cd /home/"$USER"/Recordings || cd /home/"$USER"/Recordings/; sudo ffmpeg -f fbdev -framerate 30 -i /dev/fb0 ttyrecord.mp4
+		if [ ! -d /home/"$USER"/Recordings ]; then
+
+			mkdir /home/"$USER"/Recordings
+			cd /home/"$USER"/Recordings 
+		else
+
+			cd /home/"$USER"/Recordings/
+			sudo ffmpeg -f fbdev -framerate 30 -i /dev/fb0 ttyrecord.mp4
+		fi
 		;;
 		"record your x server"|rec)
-		[ ! -d /home/"$USER"/Recordings ] && mkdir /home/"$USER"/Recordings; cd /home/"$USER"/Recordings || cd /home/"$USER"/Recordings/; ffmpeg -video_size 1280x800 -framerate 30 -f x11grab -i :0 x11record.mp4
+		if [ ! -d /home/"$USER"/Recordings ]; then
+
+			mkdir /home/"$USER"/Recordings
+			cd /home/"$USER"/Recordings 
+		else
+
+			cd /home/"$USER"/Recordings/
+			ffmpeg -video_size 1280x800 -framerate 30 -f x11grab -i :0 x11record.mp4
+		fi
 		;;
 		"writer"|wr)
 		vim
