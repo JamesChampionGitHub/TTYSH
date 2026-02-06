@@ -47,13 +47,11 @@ Note: (f) will run search on this list of programs for you to select.
 
 			select a (bo)okmark for web browsing/
 
-			format (boo)kmarks/
-
 			(we)b search/
 
 			(w)eb browser/ 
 
-			p(i)ng jameschampion.xyz/
+			format (boo)kmarks/
 
 		Email/
 
@@ -83,15 +81,13 @@ Note: (f) will run search on this list of programs for you to select.
 
 			search images and (pdf)s/
 
-		Music/
+		Music Player/ 
 
 			(cm)us without screen/
 
 			(cmu)s with screen/
 
 			reattach (cmus) screen session/
-
-		Cmus/ 
 
 			(ne)xt song/ 
 
@@ -105,23 +101,23 @@ Note: (f) will run search on this list of programs for you to select.
 
 			(pi)ck a song/
 
-		Audio/
-
-			alsa (au)to setting/
-
 			(inc)rease volume/
 
 			(low)er volume/
 
-			(al)samixer/
-
 			(mus)ic search on youtube/
+
+		Audio Settings/
+
+			alsa (au)to setting/
+
+			(al)samixer/
 
 		Video/
 			
-			play your downloaded youtube (vid)eos/
-
 			video search on (yo)utube/
+
+			play your downloaded youtube (vid)eos/
 
 		Record/
 
@@ -203,6 +199,8 @@ Note: (f) will run search on this list of programs for you to select.
 
 			network manager (dev)ices/
 
+			p(i)ng jameschampion.xyz/
+
 			(fan) control on thinkpads/
 
 			(u)pdate the system/
@@ -241,10 +239,9 @@ eoffuz() {
 
 less << EOF
 select a bookmark for web browsing
-format bookmarks
 web search
 web browser
-ping jameschampion.xyz
+format bookmarks
 email
 mutt email configuation
 find a program from this list
@@ -311,6 +308,7 @@ font and text change
 set temporary font
 network manager
 network manager devices
+ping jameschampion.xyz
 fan control on thinkpads
 update the system
 htop
@@ -1943,7 +1941,7 @@ printf "\n%s" ""
 		#cmuscheck
 		#cmus
 		#screen -q -r cmus
-		screen -S cmusdaemon cmus
+		screen -d -m -S cmusdaemon cmus
 		#screen -D -R cmus
 		;;
 		"reattach cmus screen session"|cmus)
@@ -2627,6 +2625,8 @@ while [ 1 ]; do
 # fzf use
 
 #intro="$(printf "\n%s\n%s\n%s\n%s\n%s\n%s\n%s" "(p)lanner" "(s)elect program" "(f)ind program" "(h)elp" "(t)oggle options" "(config) wizard" "(q)uit" | sed '/^[[:space:]]*$/d;/.*[A-Z]/d;/[A-Z].*/d' | fzf --prompt "TTYSH " --layout=reverse --margin 20% | sed 's/.*(//g;s/).*//g')"
+
+[ ! $(screen -list | grep -i "cmusdaemon" | cut -d "." -f2 | cut -f1) = "cmusdaemon" ] && screen -d -m -S cmusdaemon cmus
 
 intro="$(printf "%s\n%s\n%s\n%s\n%s\n%s\n%s" "select a ttysh program" "find a ttysh program" "run any program" "help" "toggle options" "config wizard" "quit" | fzf --prompt "TTYSH " --layout=reverse --margin 20%)"
 
