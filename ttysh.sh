@@ -633,12 +633,15 @@ ttyshtoggles () {
 
 while [ 1 ]; do
 
-		printf "\n%s\n\n%s\n%s\n%s\n%s\n\n" "Toggle the following on and off:" "(i)3 window manager autotiling" "(s)way window manager autotiling" "(t)tysh tty font" "(q)uit and return to selection"
+		printf "\n%s\n\n%s\n%s\n%s\n%s\n%s\n%s\n\n" "Toggle the following on and off:" "(c)urrent toggle status" "(i)3 window manager autotiling" "(s)way window manager autotiling" "(t)tysh tty font" "(r)eset toggles to defaults" "(q)uit and return to selection"
 
 	read -e -p "Enter your selection: " pickoption
 
 	case "$pickoption" in
 
+		c)
+		cat /home/"$USER"/.config/ttysh/config
+		;;
 		i)
 		[ "$(grep -i "i3autotiling=true" /home/"$USER"/.config/ttysh/config)" ] && sed -i 's/i3autotiling=true/i3autotiling=false/g' /home/"$USER"/.config/ttysh/config || sed -i 's/i3autotiling=false/i3autotiling=true/g' /home/"$USER"/.config/ttysh/config
 
@@ -671,6 +674,9 @@ while [ 1 ]; do
 		else	
  			sed -i 's/.*setfont ter-218b.*/#[ $(tty | tr -d '\''[0-9]'\'') = "\/dev\/tty" ] \&\& setfont ter-218b/' /home/"$USER"/.bashrc
 		fi
+		;;
+		r)
+		[ ! -d /home/"$USER"/.config/ttysh ] && mkdir -p /home/"$USER"/.config/ttysh && cat /home/"$USER"/ttysh/resources/ttyshconfig/config > /home/"$USER"/.config/ttysh/config || cat /home/"$USER"/ttysh/resources/ttyshconfig/config > /home/"$USER"/.config/ttysh/config
 		;;
 		q)
 		break
