@@ -51,9 +51,7 @@ Note: (f) will run search on this list of programs for you to select.
 
 			(we)b search/
 
-			(bro)wsh web browser/
-
-			(brow)sh configuration in xorg/
+			(ly)nx web browser/
 
 			(l)brewolf web browser/ 
 
@@ -245,8 +243,7 @@ less << EOF
 select a bookmark for web browsing
 format bookmarks
 web search
-browsh web browser
-browsh configuration in xorg
+lynx web browser
 librewolf web browser
 ping jameschampion.xyz
 email
@@ -478,7 +475,6 @@ makepkg -si --noconfirm
 
 yay -S --noconfirm \
 	devour \
-	browsh \
 	librewolf-bin \
 	arkenfox-user.js \
 	xkbset \
@@ -755,7 +751,7 @@ bookmark=$(cat /home/"$USER"/.bookmarks_ttysh.html | fzf -i --prompt "Pick a boo
 
 #[ "$splash" = /dev/pts/ ] && casefzfbookmark && return || lynx "$bookmark"
 
-[ "$splash" = /dev/pts/ ] && casefzfbookmark && return || browsh --startup-url "$bookmark"
+[ "$splash" = /dev/pts/ ] && casefzfbookmark && return || lynx "$bookmark"
 	
 #printf "\n" ""
 #
@@ -837,7 +833,7 @@ printf "\n" ""
 
 #[ "$splash" = /dev/pts/ ] && casewebsearch && return || read -e -p "Search: " webpick && lynx searx.be/search?q="$webpick"
 
-[ "$splash" = /dev/pts/ ] && casewebsearch && return || read -e -p "Search: " webpick && browsh --startup-url search.brave.com/search?q="$webpick"
+[ "$splash" = /dev/pts/ ] && casewebsearch && return || read -e -p "Search: " webpick && lynx search.brave.com/search?q="$webpick"
 	
 #[ $splash" = /dev/pts/ ] && devour librewolf searx.be/search?q="$webpick" || browsh --startup-url searx.be/search?q="$webpick"
 }
@@ -1992,17 +1988,17 @@ printf "\n%s" ""
 
 		#done
 		#;;
-		"browsh web browser"|bro)
+		"lynx web browser"|ly)
 		#tip: prefix 'searx.be/search?q=' or 'wiby.me/?q=' in the URL to search."
 		#sudo gpm -m /dev/psaux -t ps2
 		# searching: searx.be/search?q=
 		# searching: wiby.me/?q=
 		# browsh --firefox.path /usr/bin/librewolf
-		browsh
+		lynx
 		;;
-		"browsh configuration in xorg"|brow)
-		browsh --firefox.with-gui
-		;;
+		#"browsh configuration in xorg"|brow)
+		#browsh --firefox.with-gui
+		#;;
 		"librewolf web browser"|l)
 		devour librewolf
 		;;
@@ -2443,7 +2439,6 @@ printf "\n%s" ""
 				yay -Sua
 				installed=(
 				"devour"
-				"browsh"
 				"librewolf-bin"
 				"arkenfox-user.js"
 				"xkbset"
