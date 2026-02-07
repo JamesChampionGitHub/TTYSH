@@ -2626,7 +2626,7 @@ while [ 1 ]; do
 
 #intro="$(printf "\n%s\n%s\n%s\n%s\n%s\n%s\n%s" "(p)lanner" "(s)elect program" "(f)ind program" "(h)elp" "(t)oggle options" "(config) wizard" "(q)uit" | sed '/^[[:space:]]*$/d;/.*[A-Z]/d;/[A-Z].*/d' | fzf --prompt "TTYSH " --layout=reverse --margin 20% | sed 's/.*(//g;s/).*//g')"
 
-[ ! $(screen -list | grep -i "cmusdaemon" | cut -d "." -f2 | cut -f1) = "cmusdaemon" ] && screen -d -m -S cmusdaemon cmus
+[ ! $(screen -list | grep "cmusdaemon" | cut -d "." -f2 | cut -f1) ] && screen -d -m -S cmusdaemon cmus
 
 intro="$(printf "%s\n%s\n%s\n%s\n%s\n%s\n%s" "select a ttysh program" "find a ttysh program" "run any program" "help" "toggle options" "config wizard" "quit" | fzf --prompt "TTYSH " --layout=reverse --margin 20%)"
 
