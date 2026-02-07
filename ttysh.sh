@@ -83,11 +83,7 @@ Note: (f) will run search on this list of programs for you to select.
 
 		Music Player/ 
 
-			(cm)us without screen/
-
-			(cmu)s with screen/
-
-			reattach (cmus) screen session/
+			(cm)us music player/
 
 			(ne)xt song/ 
 
@@ -253,9 +249,7 @@ fzf search files to open in vim
 search files and delete
 remove white spaces from file names
 search images and pdfs
-cmus without screen
-cmus with screen
-reattach cmus screen session
+cmus music player 
 next song
 previous song
 pause song
@@ -1934,19 +1928,19 @@ printf "\n%s" ""
 	unset fuzselect
 
 	case "$answer" in
-		"cmus without screen"|cm)
-		cmus
+		"cmus music player"|cm)
+		screen -r cmusdaemon
 		;;
 		"cmus with screen"|cmu)
 		#cmuscheck
 		#cmus
 		#screen -q -r cmus
-		screen -d -m -S cmusdaemon cmus
+		#screen -d -m -S cmusdaemon cmus
 		#screen -D -R cmus
 		;;
-		"reattach cmus screen session"|cmus)
-		screen -r cmusdaemon
-		;;
+		#"reattach cmus screen session"|cmus)
+		#screen -r cmusdaemon
+		#;;
 		"next song"|ne)
 		#cmuscheck
 		cmus-remote -n
