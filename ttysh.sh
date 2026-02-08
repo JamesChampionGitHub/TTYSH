@@ -1918,7 +1918,13 @@ printf "\n%s" ""
 		bookmarkformat
 		;;
 		"select a bookmark for web browsing"|b)
-		bookmarkcheck
+		[ ! -f /home/"$USER"/.bookmarks_ttysh.html ] && cat /home/"$USER"/ttysh/resources/bookmarks/.bookmarks_ttysh.html > /home/"$USER"/.bookmarks_ttysh.html
+		bookmarkpick="$(cat /home/"$USER"/.bookmarks_ttysh.html | fzf --prompt "Pick a bookmark: ")"
+		if [ $(tty | tr -d '[0-9]')  = "/dev/pts/" ]; then
+			devour librewolf "$bookmarkpick" 
+		else
+			 lynx "$bookmarkpick"
+		fi
 		;;
 		#"lynx with image viewer for saved"|ly)
 		#while [ 1 ]; do
