@@ -343,32 +343,6 @@ else
 fi
 }
 
-# cmus daemon question
-cmusquest () {
-
-while [ 1 ]; do
-
-	printf "\n%s\n%s\n%s\n" "Do you want to start the music daemon?" "Note: the music daemon runs with screen. Press Ctrl a + d to detach the running daemon, unless you are running special binds for cmus." "Starting up the daemon from a TTY is prefered behaviour, incase of errors with X11."
-
-	read -e -p "Press y to run the cmus music daemon, or n for no: " cmusanswer
-
-	case "$cmusanswer" in
-		y)
-		printf "\n%s\n\n" "Run cmus from the command line to run the daemon before starting TTYSH again."
-		exit 0
-		#cmus
-		#break
-		;;
-		n)
-		break
-		;;
-		*)
-		printf "\n%s\n\n" "Invalid selection"
-	esac
-
-done
-}
-
 # function for shortcuts selection 
 ttyshhelp () {
 
@@ -701,7 +675,7 @@ while [ 1 ]; do
 	case "$answer" in
 		s)
 		if [[ $ttytest = "/dev/pts/" ]]; then
-			 mpv "$(find /home/"$USER"/ -type f | fzf -i --prompt "Pick the video you want to watch in the GUI: ")"
+			mpv "$(find /home/"$USER"/ -type f | fzf -i --prompt "Pick the video you want to watch in the GUI: ")"
 		else
 			mpv -vo=drm "$(find /home/"$USER"/ -type f | fzf -i --prompt "Pick the video you want to watch in the TTY: ")"
 		fi
@@ -946,32 +920,6 @@ while [ 1 ]; do
 		*)
 		printf "\n%s\n" "Not a valid selection."
 		;;
-	esac
-done
-}
-
-# rss function
-rssread () {
-
-printf "\n%s\n" "Do you want to run your rss reader? y/n"
-
-while [ 1 ]; do
-
-	read -e -p "Enter your selection: " rpick
-
-	case "$rpick" in
-		y)
-		[[ ! -d /home/"$USER"/.newsboat ]] && mkdir -p /home/"$USER"/.newsboat && echo 'https://www.youtube.com/feeds/videos.xml?channel_id=UCeFnqXMczw4BDCoJHr5dBjg "~James Champion (Youtube)"' > /home/"$USER"/.newsboat/urls && cat /home/"$USER"/ttysh/resources/newboatconfig/config > /home/"$USER"/.newsboat/config
-		cd /home/"$USER"/Videos/
-		newsboat
-		cd /home/"$USER"/
-		printf "\n%s\n" "Do you want to run your rss reader again? y/n"
-		;;
-		n)
-		break
-		;;
-		*)
-		printf "\n%s\n\n" "Not a valid selection"
 	esac
 done
 }
@@ -1517,7 +1465,9 @@ done
 weather
 
 # rss
-rssread
+cd /home/"$USER"/Videos
+newsboat
+cd /home/"$USER"/
 
 printf "\n%s\n" ""
 
