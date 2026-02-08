@@ -327,13 +327,24 @@ options=$(printf "\n%s\n" "eofhelp fzfcmus websearch fzfxorgvid fzfttyvid fzfvim
 # sudo user check
 sudocheck () {
 
-[ ! "$SUDO_USER" ] && printf "\n"$warncolour"%s"$warncolourend"\n\n" "Run as sudo su first! Exiting..." && exit 1 || printf "\n%s\n\n%s\n\n" "Checking you are running as sudo user..." "Continuing..."
+if [ ! "$SUDO_USER" ]; then
+	 printf "\n"$warncolour"%s"$warncolourend"\n\n" "Run as sudo su first! Exiting..."
+	 exit 1 
+else
+	printf "\n%s\n\n%s\n\n" "Checking you are running as sudo user..." "Continuing..."
+fi
 }
 
 # /dev/mapper/drive check for timeshift
 mappercheck () {
 
-[ ! -h /dev/mapper/timeshiftbackup ] && printf "\n\n%s\n\n" "cryptsetup has failed to open /dev/mapper/timeshiftbackup from /dev/"$tdevname" . Make sure you are entering the correct password, or check your devices and mountpoints. Running lsblk and exiting..." && lsblk && exit 1 || printf "\n\n%s\n\n" "dev/mapper/timeshiftbackup found. Continuing..." 
+if [ ! -h /dev/mapper/timeshiftbackup ]; then
+	printf "\n\n%s\n\n" "cryptsetup has failed to open /dev/mapper/timeshiftbackup from /dev/"$tdevname" . Make sure you are entering the correct password, or check your devices and mountpoints. Running lsblk and exiting..."
+	lsblk
+	exit 1
+else
+	printf "\n\n%s\n\n" "dev/mapper/timeshiftbackup found. Continuing..." 
+fi
 }
 
 # cmus daemon question
@@ -360,20 +371,6 @@ while [ 1 ]; do
 	esac
 
 done
-}
-
-# cmus checker for running daemon
-cmuscheck () {
-
-cmuslist=$(screen -list | grep -i "cmus" | cut -d '.' -f2 | awk '{print $1}')
-
-[ "$cmuslist" = cmus ] && printf "\n%s\n\n" "Cmus Status: The cmus daemon is running." && return || cmusquest 
-}
-
-# function for tty or pts splash screen
-splashscreen () {
-
-[ "$ttytest" = /dev/pts/ ] && devour mpv --really-quiet /home/"$USER"/ttysh/resources/.splash_ttysh.png || mpv --really-quiet /home/"$USER"/ttysh/resources/.splash_ttysh.png
 }
 
 # function for shortcuts selection 
@@ -453,11 +450,11 @@ yay -S --noconfirm \
 
 # make the following configurations:
 
-[ ! -f /home/"$USER"/.config/mpv.conf ] && mkdir -p /home/"$USER"/.config/mpv; printf "%b" '--image-display-duration=1000' > /home/"$USER"/.config/mpv/mpv.conf
+[ ! -f /home/"$USER"/.config/mpv.conf ] && mkdir -p /home/"$USER"/.config/mpv && printf "%b" '--image-display-duration=1000' > /home/"$USER"/.config/mpv/mpv.conf
 
 printf "%s\n" "NOTES" > /home/"$USER"/.notes.txt
 
-[ ! -d /home/"$USER"/.newsboat ] && mkdir -p /home/"$USER"/.newsboat; echo 'https://www.youtube.com/feeds/videos.xml?channel_id=UCeFnqXMczw4BDCoJHr5dBjg "~James Champion (Youtube)"' > /home/"$USER"/.newsboat/urls; cat /home/"$USER"/ttysh/resources/newboatconfig/config > /home/"$USER"/.newsboat/config
+[ ! -d /home/"$USER"/.newsboat ] && mkdir -p /home/"$USER"/.newsboat && echo 'https://www.youtube.com/feeds/videos.xml?channel_id=UCeFnqXMczw4BDCoJHr5dBjg "~James Champion (Youtube)"' > /home/"$USER"/.newsboat/urls && cat /home/"$USER"/ttysh/resources/newboatconfig/config > /home/"$USER"/.newsboat/config
 
 mkdir -p /home/"$USER"/.config/mutt/ && touch /home/"$USER"/.config/mutt/muttrc
 
@@ -467,13 +464,13 @@ cat /home/"$USER"/ttysh/resources/.Xdefaults >> /home/"$USER"/.Xdefaults
 
 printf "%s" "exec i3" > /home/"$USER"/.xinitrc
 
-[ ! -d /home/"$USER"/.config/i3 ] && mkdir -p /home/"$USER"/.config/i3; cat /home/"$USER"/ttysh/resources/i3config/config > /home/"$USER"/.config/i3/config
+[ ! -d /home/"$USER"/.config/i3 ] && mkdir -p /home/"$USER"/.config/i3 && cat /home/"$USER"/ttysh/resources/i3config/config > /home/"$USER"/.config/i3/config
 
-[ ! -d /home/"$USER"/.config/sway ] && mkdir -p /home/"$USER"/.config/sway; cat /home/"$USER"/ttysh/resources/swayconfig/config > /home/"$USER"/.config/sway/config
+[ ! -d /home/"$USER"/.config/sway ] && mkdir -p /home/"$USER"/.config/sway && cat /home/"$USER"/ttysh/resources/swayconfig/config > /home/"$USER"/.config/sway/config
 
-[ ! -d /home/"$USER"/.config/foot ] && mkdir -p /home/"$USER"/.config/foot; cat /home/"$USER"/ttysh/resources/footconfig/foot.ini > /home/"$USER"/.config/foot/foot.ini
+[ ! -d /home/"$USER"/.config/foot ] && mkdir -p /home/"$USER"/.config/foot && cat /home/"$USER"/ttysh/resources/footconfig/foot.ini > /home/"$USER"/.config/foot/foot.ini
 
-[ ! -d /home/"$USER"/.config/ttysh ] && mkdir -p /home/"$USER"/.config/ttysh; cat /home/"$USER"/ttysh/resources/ttyshconfig/config > /home/"$USER"/.config/ttysh/config
+[ ! -d /home/"$USER"/.config/ttysh ] && mkdir -p /home/"$USER"/.config/ttysh && cat /home/"$USER"/ttysh/resources/ttyshconfig/config > /home/"$USER"/.config/ttysh/config
 
 cat /home/"$USER"/ttysh/resources/bashrc/.bashrc > /home/"$USER"/.bashrc
 
@@ -593,8 +590,6 @@ done
 # pick music track to play in cmus remotely
 fzfcmus () {
 
-#cmuscheck
-
 cmuspicker=$(find /home/"$USER"/Music/starred/ -type f | fzf -i --prompt "Pick the music track you want to play in cmus: ") 
 
 cmus-remote -f "$cmuspicker"
@@ -606,8 +601,6 @@ cmus-remote -Q && printf "\n" ""
 bookmarkformat () {
 
 formathtml=$(find /home/"$USER"/ -name '*.html' | fzf -i --prompt "Note: if you already have a /home/"$USER"/.bookmarks_ttysh.html file, it will be overwritten. Pick the html file you want to format: ")
-
-#sed 's/\ /\n/g' "$formathtml" | sed -n '/https\|https/p' | sed 's/^HREF="//g;s/ICON_URI="//g;s/^LAST_MODIFIED="//g;s/[0-9]//g;s/">//g;s/^fake-icon-uri//g;s/"$//g'
 
 sed 's/\ /\n/g' "$formathtml" | grep "https\?" | cut -d '"' -f2 | grep "https\?" | grep -v "^fake-favicon-uri" | grep -v ".ico$" > /home/"$USER"/.bookmarks_ttysh.html
 
@@ -627,14 +620,10 @@ websearch () {
 
 printf "\n" ""
 
-#[ "$splash" = /dev/pts/ ] && casewebsearch && return || read -e -p "Search: " webpick && lynx searx.be/search?q="$webpick"
-
 if [ "$ttytest" = /dev/pts/ ]; then
-		
 	casewebsearch
 	return
 else
-	
 	read -e -p "Search: " webpick 
 	lynx search.brave.com/search?q="$webpick"
 fi
@@ -697,10 +686,8 @@ while [ 1 ]; do
 		nmcli radio wifi on
 		rfkill block wifi
 		rfkill list
-		#killall nm-applet
 		rfkill unblock wifi
 		rfkill list
-		#nm-applet
 		break
 		;;
 	esac
@@ -787,7 +774,11 @@ while [ 1 ]; do
 
 	case "$answer" in
 		s)
-		[ "$ttytest" = /dev/pts/ ] && devour mupdf "$(find /home/"$USER"/ -type f | fzf -i --prompt "Pick the pdf you want to view. ESC to exit: ")" || sudo fbpdf "$(find /home/"$USER"/ -type f | fzf -i --prompt "Pick the pdf you want to view. ESC to exit: ")"
+		if [ "$ttytest" = /dev/pts/ ]; then
+			devour mupdf "$(find /home/"$USER"/ -type f | fzf -i --prompt "Pick the pdf you want to view. ESC to exit: ")" 		
+		else 
+			sudo fbpdf "$(find /home/"$USER"/ -type f | fzf -i --prompt "Pick the pdf you want to view. ESC to exit: ")"
+		fi
 		;;
 		q)
 		break		
@@ -865,18 +856,15 @@ done
 yt () {
 
 if [ ! -d /home/"$USER"/Videos ]; then 
-		
 	mkdir /home/"$USER"/Videos/
 	cd /home/"$USER"/Videos/
-
 else
-
 	cd /home/"$USER"/Videos/ 
 fi
 
 while [ 1 ]; do
 
-	printf "\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n" "y to enter video creator and video discription." "a for video that fails choosing y." "x to download url from xclip." "b for video that fails choosing x." "yt to run again." "q to quit"
+		printf "\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n" "y to enter video creator and video discription (720p)." "a for video in best quality available." "x to download video from xclip (720p)." "b for video from xclip in best available quality." "yt to run again." "q to quit"
 
 	read -e -p "Enter your selection: " answer
 
@@ -921,11 +909,9 @@ done
 ytmusic () {
 
 if [ ! -d /home/"$USER"/Music ]; then
-		
 	mkdir /home/"$USER"/Music/
    	cd /home/"$USER"/Music/
 else	
-
 	cd /home/"$USER"/Music/ 
 fi
 
@@ -972,7 +958,10 @@ while [ 1 ]; do
 
 	case "$rpick" in
 		y)
-		rsssplit
+		[ ! -d /home/"$USER"/.newsboat ] && mkdir -p /home/"$USER"/.newsboat && echo 'https://www.youtube.com/feeds/videos.xml?channel_id=UCeFnqXMczw4BDCoJHr5dBjg "~James Champion (Youtube)"' > /home/"$USER"/.newsboat/urls && cat /home/"$USER"/ttysh/resources/newboatconfig/config > /home/"$USER"/.newsboat/config
+		cd /home/"$USER"/Videos/
+		newsboat
+		cd /home/"$USER"/
 		printf "\n%s\n" "Do you want to run your rss reader again? y/n"
 		;;
 		n)
@@ -980,30 +969,6 @@ while [ 1 ]; do
 		;;
 		*)
 		printf "\n%s\n\n" "Not a valid selection"
-	esac
-done
-}
-
-# rss split
-rsssplit () {
-
-while [ 1 ]; do
-
-	printf "\n%s\n\n" "Would you like your rss feed in a split-screen with a shell? y/n"
-
-	read -e -p "Enter your selection: " ranswer
-
-	case "$ranswer" in
-		y)
-		screen -c /home/"$USER"/ttysh/resources/.screenrc.rss
-		break
-		;;
-		n)
-		[ ! -d /home/"$USER"/.newsboat ] && mkdir -p /home/"$USER"/.newsboat; echo 'https://www.youtube.com/feeds/videos.xml?channel_id=UCeFnqXMczw4BDCoJHr5dBjg "~James Champion (Youtube)"' > /home/"$USER"/.newsboat/urls; cat /home/"$USER"/ttysh/resources/newboatconfig/config > /home/"$USER"/.newsboat/config || cd /home/"$USER"/Videos/; newsboat; cd /home/"$USER"/; break
-		;;
-		*)
-		printf "\n\n%s\n\n" "Not a valid selection."
-		;;
 	esac
 done
 }
@@ -1035,7 +1000,7 @@ done
 # function for calender schedule
 calenderschedule () {
 
-[ ! -f /home/"$USER"/.*calenderdatafile ] && printf "\n%s\n" "Set up your calender data: " && calenderdata && echo "Calender made. Fill in your calender at /home/"$USER"/.*calenderdata and run this selection again or continue with the option to edit your calender." ||
+[ ! -f /home/"$USER"/.*calenderdatafile ] && printf "\n%s\n" "Set up your calender data: " && calenderdata && echo "Calender made. Fill in your calender at /home/"$USER"/.*calenderdata and run this selection again or continue with the option to edit your calender." 
 
 printf "\n%s\n\n" "Your Calender Schedule For Today: "
 
@@ -1077,7 +1042,6 @@ while [ 1 ]; do
 		read -e wwanswer
 		curl wttr.in/"$wwanswer"?T --output /home/"$USER"/ttysh/resources/.weatherdata
 		cat /home/"$USER"/ttysh/resources/.weatherdata
-		#wget -qO- wttr.in/"$answer"
 		break
 		;;
 		n)
@@ -1152,7 +1116,7 @@ done
 
 printf "\n%s\n%s\n" "Please enter the name of your disk. e.g. sdb. Do not enter any number, as these will be partitions, and we will be formatting the whole disk." "Be careful not to format the wrong drive!"
 
-	read -e answer
+read -e -p answer
 
 fdisk /dev/"$answer"
 
@@ -1162,7 +1126,7 @@ lsblk
 
 printf "\n%s\n" "What is the new partition name of your drive? e.g. sdb1 ?"
 
-	read -e setuuid
+read -e -p setuuid
 
 cryptsetup luksFormat /dev/"$setuuid"
 
@@ -1249,8 +1213,6 @@ printf "\n%s\n" ""
 
 lsblk
 
-#sed -n 32p $SUDO_USER/timebackup.sh
-	
 printf "\n"$warncolour"%s"$warncolourend"\n" "Stop! Have you run sudo su? Is /dev/"$tdevname" location correct? Are you running on A/C power? y/n"
 
 read -e -p "Enter your selection: " answer
@@ -1414,12 +1376,10 @@ lstdevname=$(ls /dev/disk/by-uuid -l | grep "$tuuid")
 printf "\n%s\n" "Looking for "$tdrive"..."
 
 if [ "$lstdevname" ]; then
-	   
 	printf "\n%s\n" ""$tdrive" has been found. Starting..." 
 	starttimeshift 
 	closetimeshift 
 else
-
 	printf "\n%s\n\n" "Cannot find "$tuuid". Check you are run as sudo su. Check that you have connected your drive. Exiting..."   
 	lsblk
 	printf "\n%s" ""
@@ -1441,9 +1401,7 @@ lsbdevname=$(ls /dev/disk/by-uuid -l | grep "$buuid")
 printf "\n%s\n" "Looking for "$bdrive"..."
 
 if [ "$lsbdevname" ]; then
-
 	printf "\n%s\n\n" ""$bdrive" has been found. Starting..."
-
 	lsblk
 
 while [ 1 ]; do
@@ -1457,7 +1415,14 @@ while [ 1 ]; do
 		printf "\n%s\n" "Continuing..."
 		cryptsetup open /dev/"$bdevname" drive
 		# enter password
-		[ ! -h /dev/mapper/drive ] && printf "\n\n%s\n\n" "cryptsetup has failed to open /dev/mapper/drive from /dev/"$bdevname" . Make sure you are entering the correct password, or check your devices and mountpoints. Running lsblk and exiting..." && lsblk && exit 1 || printf "\n\n%s\n\n" "dev/mapper/drive found. Continuing..." 
+		if [ ! -h /dev/mapper/drive ]; then
+			printf "\n\n%s\n\n" "cryptsetup has failed to open /dev/mapper/drive from /dev/"$bdevname" . Make sure you are entering the correct password, or check your devices and mountpoints. Running lsblk and exiting..."
+			lsblk
+			exit 1
+		else
+			printf "\n\n%s\n\n" "dev/mapper/drive found. Continuing..." 
+		fi
+
 		mount /dev/mapper/drive /mnt
 		rsync -av /home/"$SUDO_USER"/ /mnt --delete
 		sync
@@ -1496,8 +1461,12 @@ fi
 
 screenshotcheck () {
 
-[ ! -d /home/"$USER"/Screenshots ] && mkdir /home/"$USER"/Screenshots; cd /home/"$USER"/Screenshots || cd /home/"$USER"/Screenshots/
-
+if [ ! -d /home/"$USER"/Screenshots ]; then
+	mkdir /home/"$USER"/Screenshots
+	cd /home/"$USER"/Screenshots
+else
+	cd /home/"$USER"/Screenshots/
+fi
 }
 
 # date
@@ -1567,10 +1536,8 @@ selection
 selectcheck () {
 
 if [ "$fuzselect" = true ]; then
-
 	answer="$(eoffuz | fzf --layout=reverse --margin 3%)"
 else
-
 	read -e -p "Enter your selection. h and enter if you need help: " answer
 fi
 }
@@ -1686,15 +1653,16 @@ printf "\n%s" ""
 
 		while [ 1 ]; do
 
-        		minutes=$(($(date +%s)-$before))
-        		printf "\033[A"
-        		echo "Seconds: $(($(date +%s)-$before)) - Minutes: $(($minutes/60)) - Hours: $(($minutes/3600))"
-        		sleep 1
+        	minutes=$(($(date +%s)-$before))
+        	printf "\033[A"
+        	echo "Seconds: $(($(date +%s)-$before)) - Minutes: $(($minutes/60)) - Hours: $(($minutes/3600))"
+        	sleep 1
 		done
 		;;
 		r)
 		cd /home/"$USER"/Videos
 		newsboat
+		cd /home/"$USER"/
 		;;
 		"email"|e)
 		mutt
@@ -1709,8 +1677,6 @@ printf "\n%s" ""
 		devourvid
 		;;
 		m)
-		#chosendir=$(find /home/"$USER"/ -type d | fzf)
-		#screen -c /home/"$USER"/TTYSH/resources/TTYSH/resources/.screenrc.cd
 		printf "\n\n%b\n\n" 'alias the following in your bashrc for quick directory search and change: $(find /home/"$USER"/ -type d | fzf)'
 		;;
 		"file manager"|fi)
@@ -1787,22 +1753,18 @@ printf "\n%s" ""
 		;;
 		"record your tty/s"|re)
 		if [ ! -d /home/"$USER"/Recordings ]; then
-
 			mkdir /home/"$USER"/Recordings
 			cd /home/"$USER"/Recordings 
 		else
-
 			cd /home/"$USER"/Recordings/
 			sudo ffmpeg -f fbdev -framerate 30 -i /dev/fb0 ttyrecord.mp4
 		fi
 		;;
 		"record your x server"|rec)
 		if [ ! -d /home/"$USER"/Recordings ]; then
-
 			mkdir /home/"$USER"/Recordings
 			cd /home/"$USER"/Recordings 
 		else
-
 			cd /home/"$USER"/Recordings/
 			ffmpeg -video_size 1280x800 -framerate 30 -f x11grab -i :0 x11record.mp4
 		fi
@@ -1811,20 +1773,6 @@ printf "\n%s" ""
 		vim
 		;;
 		"calculator"|ca)
-		#screen -c /home/"$USER"/.screenrc.calculator
-		#printf "\n%s\n\n%s\n\n" "Shell Calculator" "Awaiting input:"
-		#	
-		#date >> /home/"$USER"/.calchist
-		#	
-		#while [ 1 ]; do
-		#
-		#	read -e i 
-		#	
-		#	printf "%s\n" ""$i"" >> /home/"$USER"/.calchist
-		#	
-		#	printf "%s\n" "$(($i))" | tee -a /home/"$USER"/.calchist
-		#done
-		#screen -c /home/"$USER"/ttysh/resources/.screenrc.shellcalc
 		bc -l
 		;;
 		"spreadsheet"|sp)
@@ -1881,7 +1829,11 @@ printf "\n%s" ""
 			
 			case "$answer" in
 				"1" | "2" | "3" | "4" | "5" | "6" )	
-				[ "$ttytest" = /dev/pts/ ] && sudo chvt "$answer" || chvt "$answer"
+				if [ "$ttytest" = /dev/pts/ ];then
+					sudo chvt "$answer"
+				else
+					chvt "$answer"
+				fi
 				break
 				;;
 				*)
@@ -1894,8 +1846,6 @@ printf "\n%s" ""
 		clear
 		refresh="$0"
 		"$refresh"
-		#ttysh
-		#[ "$#" -lt 1 ] && "$0" || ttysh
 		exit 0
 		;;
 		"network manager"|net)
@@ -1928,10 +1878,8 @@ printf "\n%s" ""
 				nmcli radio wifi on
 				rfkill block wifi
 				rfkill list
-				#killall nm-applet
 				rfkill unblock wifi
 				rfkill list
-				#nm-applet
 				;;
 				q)
 				break
@@ -2026,7 +1974,13 @@ printf "\n%s" ""
 				)
 				for i in "${installed[@]}"; do
 				
-					[ ! "$(pacman -Qm | grep -i "$i")" ] && echo ""$i" not installed" && echo "now installing... "$i"" && yay -S --noconfirm "$i" || echo ""$i" already installed"
+					if [ ! "$(pacman -Qm | grep -i "$i")" ]; then
+						echo ""$i" not installed"
+						echo "now installing... "$i""
+						yay -S --noconfirm "$i"
+					else
+						echo ""$i" already installed"
+					fi	
 				done
 				printf "\n\n%s\n" "Updating TTYSH..."
 				cd /home/"$USER"/ttysh/
@@ -2108,7 +2062,7 @@ else
 	esac
 fi
 
-[ "$1" ] && options=$(printf "%s" "fzfcmus websearch fzfxorgvid fzfttyvid fzfvim fzfpdf yt ytmusic weather planner helpflags" | tr ' ' '\n' | grep "$1") && "$options" || #printf "\n\t%s\n" "TTYSH"
+[ "$1" ] && options=$(printf "%s" "fzfcmus websearch fzfxorgvid fzfttyvid fzfvim fzfpdf yt ytmusic weather planner helpflags" | tr ' ' '\n' | grep "$1") && "$options"
 
 while [ 1 ]; do
 
