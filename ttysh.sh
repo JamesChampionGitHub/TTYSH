@@ -327,7 +327,7 @@ options=$(printf "\n%s\n" "eofhelp fzfcmus websearch fzfxorgvid fzfttyvid fzfvim
 # sudo user check
 sudocheck () {
 
-if [ ! "$SUDO_USER" ]; then
+if [[ ! "$SUDO_USER" ]]; then
 	 printf "\n"$warncolour"%s"$warncolourend"\n\n" "Run as sudo su first! Exiting..."
 	 exit 1 
 else
@@ -338,7 +338,7 @@ fi
 # /dev/mapper/drive check for timeshift
 mappercheck () {
 
-if [ ! -h /dev/mapper/timeshiftbackup ]; then
+if [[ ! -h /dev/mapper/timeshiftbackup ]]; then
 	printf "\n\n%s\n\n" "cryptsetup has failed to open /dev/mapper/timeshiftbackup from /dev/"$tdevname" . Make sure you are entering the correct password, or check your devices and mountpoints. Running lsblk and exiting..."
 	lsblk
 	exit 1
@@ -450,11 +450,11 @@ yay -S --noconfirm \
 
 # make the following configurations:
 
-[ ! -f /home/"$USER"/.config/mpv.conf ] && mkdir -p /home/"$USER"/.config/mpv && printf "%b" '--image-display-duration=1000' > /home/"$USER"/.config/mpv/mpv.conf
+[[ ! -f /home/"$USER"/.config/mpv.conf ]] && mkdir -p /home/"$USER"/.config/mpv && printf "%b" '--image-display-duration=1000' > /home/"$USER"/.config/mpv/mpv.conf
 
 printf "%s\n" "NOTES" > /home/"$USER"/.notes.txt
 
-[ ! -d /home/"$USER"/.newsboat ] && mkdir -p /home/"$USER"/.newsboat && echo 'https://www.youtube.com/feeds/videos.xml?channel_id=UCeFnqXMczw4BDCoJHr5dBjg "~James Champion (Youtube)"' > /home/"$USER"/.newsboat/urls && cat /home/"$USER"/ttysh/resources/newboatconfig/config > /home/"$USER"/.newsboat/config
+[[ ! -d /home/"$USER"/.newsboat ]] && mkdir -p /home/"$USER"/.newsboat && echo 'https://www.youtube.com/feeds/videos.xml?channel_id=UCeFnqXMczw4BDCoJHr5dBjg "~James Champion (Youtube)"' > /home/"$USER"/.newsboat/urls && cat /home/"$USER"/ttysh/resources/newboatconfig/config > /home/"$USER"/.newsboat/config
 
 mkdir -p /home/"$USER"/.config/mutt/ && touch /home/"$USER"/.config/mutt/muttrc
 
@@ -464,13 +464,13 @@ cat /home/"$USER"/ttysh/resources/.Xdefaults >> /home/"$USER"/.Xdefaults
 
 printf "%s" "exec i3" > /home/"$USER"/.xinitrc
 
-[ ! -d /home/"$USER"/.config/i3 ] && mkdir -p /home/"$USER"/.config/i3 && cat /home/"$USER"/ttysh/resources/i3config/config > /home/"$USER"/.config/i3/config
+[[ ! -d /home/"$USER"/.config/i3 ]] && mkdir -p /home/"$USER"/.config/i3 && cat /home/"$USER"/ttysh/resources/i3config/config > /home/"$USER"/.config/i3/config
 
-[ ! -d /home/"$USER"/.config/sway ] && mkdir -p /home/"$USER"/.config/sway && cat /home/"$USER"/ttysh/resources/swayconfig/config > /home/"$USER"/.config/sway/config
+[[ ! -d /home/"$USER"/.config/sway ]] && mkdir -p /home/"$USER"/.config/sway && cat /home/"$USER"/ttysh/resources/swayconfig/config > /home/"$USER"/.config/sway/config
 
-[ ! -d /home/"$USER"/.config/foot ] && mkdir -p /home/"$USER"/.config/foot && cat /home/"$USER"/ttysh/resources/footconfig/foot.ini > /home/"$USER"/.config/foot/foot.ini
+[[ ! -d /home/"$USER"/.config/foot ]] && mkdir -p /home/"$USER"/.config/foot && cat /home/"$USER"/ttysh/resources/footconfig/foot.ini > /home/"$USER"/.config/foot/foot.ini
 
-[ ! -d /home/"$USER"/.config/ttysh ] && mkdir -p /home/"$USER"/.config/ttysh && cat /home/"$USER"/ttysh/resources/ttyshconfig/config > /home/"$USER"/.config/ttysh/config
+[[ ! -d /home/"$USER"/.config/ttysh ]] && mkdir -p /home/"$USER"/.config/ttysh && cat /home/"$USER"/ttysh/resources/ttyshconfig/config > /home/"$USER"/.config/ttysh/config
 
 cat /home/"$USER"/ttysh/resources/bashrc/.bashrc > /home/"$USER"/.bashrc
 
@@ -491,7 +491,7 @@ while read i; do
 	case "$i" in
 
 		i3autotiling=true|i3autotiling=false)
-		if [ "$(grep -i "i3autotiling=true" /home/"$USER"/.config/ttysh/config)" ]; then
+		if [[ "$(grep -i "i3autotiling=true" /home/"$USER"/.config/ttysh/config)" ]]; then
 
 			sed -i 's/^exec --no-startup-id autotiling/exec --no-startup-id autotiling/g;s/^#exec --no-startup-id autotiling/exec --no-startup-id autotiling/g' /home/"$USER"/.config/i3/config 
 
@@ -500,7 +500,7 @@ while read i; do
 		fi
 		;;
 		swayautotiling=true|swayautotiling=false)
-		if [ "$(grep -i "swayautotiling=true" /home/"$USER"/.config/ttysh/config)" ]; then
+		if [[ "$(grep -i "swayautotiling=true" /home/"$USER"/.config/ttysh/config)" ]]; then
 
 			sed -i 's/^exec_always autotiling/exec_always autotiling/g;s/^#exec_always autotiling/exec_always autotiling/g' /home/"$USER"/.config/sway/config 
 
@@ -509,7 +509,7 @@ while read i; do
 		fi
 		;;
 		ttyshfont=true|ttyshfont=false)
-		if [ "$(grep -i "ttyshfont=true" /home/"$USER"/.config/ttysh/config)" ]; then
+		if [[ "$(grep -i "ttyshfont=true" /home/"$USER"/.config/ttysh/config)" ]]; then
 
  			sed -i 's/.*setfont ter-218b.*/[ $(tty | tr -d '\''[0-9]'\'') = "\/dev\/tty" ] \&\& setfont ter-218b/' /home/"$USER"/.bashrc
 
@@ -539,9 +539,9 @@ while [ 1 ]; do
 		#[ "$(grep -i "ttyshautostart=true" /home/"$USER"/.config/ttysh/config)" ] && sed -i 's/ttyshautostart=true/ttyshautostart=false/g' /home/"$USER"/.config/ttysh/config || sed -i 's/ttyshautostart=false/ttyshautostart=true/g' /home/"$USER"/.config/ttysh/config
 		#;;
 		i)
-		[ "$(grep -i "i3autotiling=true" /home/"$USER"/.config/ttysh/config)" ] && sed -i 's/i3autotiling=true/i3autotiling=false/g' /home/"$USER"/.config/ttysh/config || sed -i 's/i3autotiling=false/i3autotiling=true/g' /home/"$USER"/.config/ttysh/config
+		[[ "$(grep -i "i3autotiling=true" /home/"$USER"/.config/ttysh/config)" ]] && sed -i 's/i3autotiling=true/i3autotiling=false/g' /home/"$USER"/.config/ttysh/config || sed -i 's/i3autotiling=false/i3autotiling=true/g' /home/"$USER"/.config/ttysh/config
 
-		if [ "$(grep -i "i3autotiling=true" /home/"$USER"/.config/ttysh/config)" ]; then
+		if [[ "$(grep -i "i3autotiling=true" /home/"$USER"/.config/ttysh/config)" ]]; then
 
 			sed -i 's/^exec --no-startup-id autotiling/exec --no-startup-id autotiling/g;s/^#exec --no-startup-id autotiling/exec --no-startup-id autotiling/g' /home/"$USER"/.config/i3/config 
 
@@ -550,9 +550,9 @@ while [ 1 ]; do
 		fi
 		;;
 		s)
-		[ "$(grep -i "swayautotiling=true" /home/"$USER"/.config/ttysh/config)" ] && sed -i 's/swayautotiling=true/swayautotiling=false/g' /home/"$USER"/.config/ttysh/config || sed -i 's/swayautotiling=false/swayautotiling=true/g' /home/"$USER"/.config/ttysh/config
+		[[ "$(grep -i "swayautotiling=true" /home/"$USER"/.config/ttysh/config)" ]] && sed -i 's/swayautotiling=true/swayautotiling=false/g' /home/"$USER"/.config/ttysh/config || sed -i 's/swayautotiling=false/swayautotiling=true/g' /home/"$USER"/.config/ttysh/config
 
-		if [ "$(grep -i "swayautotiling=true" /home/"$USER"/.config/ttysh/config)" ]; then
+		if [[ "$(grep -i "swayautotiling=true" /home/"$USER"/.config/ttysh/config)" ]]; then
 
 			sed -i 's/^exec_always autotiling/exec_always autotiling/g;s/^#exec_always autotiling/exec_always autotiling/g' /home/"$USER"/.config/sway/config 
 
@@ -561,9 +561,9 @@ while [ 1 ]; do
 		fi
 		;;
 		f)
-		[ "$(grep -i "ttyshfont=true" /home/"$USER"/.config/ttysh/config)" ] && sed -i 's/ttyshfont=true/ttyshfont=false/g' /home/"$USER"/.config/ttysh/config || sed -i 's/ttyshfont=false/ttyshfont=true/g' /home/"$USER"/.config/ttysh/config
+		[[ "$(grep -i "ttyshfont=true" /home/"$USER"/.config/ttysh/config)" ]] && sed -i 's/ttyshfont=true/ttyshfont=false/g' /home/"$USER"/.config/ttysh/config || sed -i 's/ttyshfont=false/ttyshfont=true/g' /home/"$USER"/.config/ttysh/config
 
-		if [ "$(grep -i "ttyshfont=true" /home/"$USER"/.config/ttysh/config)" ]; then
+		if [[ "$(grep -i "ttyshfont=true" /home/"$USER"/.config/ttysh/config)" ]]; then
 
  			sed -i 's/.*setfont ter-218b.*/[ $(tty | tr -d '\''[0-9]'\'') = "\/dev\/tty" ] \&\& setfont ter-218b/' /home/"$USER"/.bashrc
 
@@ -572,7 +572,7 @@ while [ 1 ]; do
 		fi
 		;;
 		r)
-		[ ! -d /home/"$USER"/.config/ttysh ] && mkdir -p /home/"$USER"/.config/ttysh && cat /home/"$USER"/ttysh/resources/ttyshconfig/config > /home/"$USER"/.config/ttysh/config || cat /home/"$USER"/ttysh/resources/ttyshconfig/config > /home/"$USER"/.config/ttysh/config
+		[[ ! -d /home/"$USER"/.config/ttysh ]] && mkdir -p /home/"$USER"/.config/ttysh && cat /home/"$USER"/ttysh/resources/ttyshconfig/config > /home/"$USER"/.config/ttysh/config || cat /home/"$USER"/ttysh/resources/ttyshconfig/config > /home/"$USER"/.config/ttysh/config
 		;;
 		q)
 		break
@@ -620,14 +620,13 @@ websearch () {
 
 printf "\n" ""
 
-if [ "$ttytest" = /dev/pts/ ]; then
+if [[ "$ttytest" = /dev/pts/ ]]; then
 	casewebsearch
 	return
 else
 	read -e -p "Search: " webpick 
 	lynx search.brave.com/search?q="$webpick"
 fi
-#[ $splash" = /dev/pts/ ] && devour librewolf searx.be/search?q="$webpick" || browsh --startup-url searx.be/search?q="$webpick"
 }
 
 # function for fan speed control
@@ -705,7 +704,11 @@ while [ 1 ]; do
 
 	case "$answer" in
 		s)
-		[ "$ttytest" = /dev/pts/ ] && mpv "$(find /home/"$USER"/ -type f | fzf -i --prompt "Pick the video you want to watch in the GUI: ")" || mpv -vo=drm "$(find /home/"$USER"/ -type f | fzf -i --prompt "Pick the video you want to watch in the TTY: ")"
+		if [[ "$ttytest" = /dev/pts/ ]]; then
+			 mpv "$(find /home/"$USER"/ -type f | fzf -i --prompt "Pick the video you want to watch in the GUI: ")"
+		else
+			mpv -vo=drm "$(find /home/"$USER"/ -type f | fzf -i --prompt "Pick the video you want to watch in the TTY: ")"
+		fi
 		;;
 		q)
 		break
@@ -728,7 +731,11 @@ while [ 1 ]; do
 
 	case "$answer" in
 		s)
-		[ "$ttytest" = /dev/pts/ ] && devour mpv "$(find /home/"$USER"/ -type f | fzf -i --prompt "Pick the video you want to watch in the terminal GUI: ")" || mpv -vo=drm "$(find /home/"$USER"/ -type f | fzf -i --prompt "Pick the video you want to watch fullscreen in the TTY: ")"
+		if [[ "$ttytest" = /dev/pts/ ]]; then
+			devour mpv "$(find /home/"$USER"/ -type f | fzf -i --prompt "Pick the video you want to watch in the terminal GUI: ")"
+		else
+			mpv -vo=drm "$(find /home/"$USER"/ -type f | fzf -i --prompt "Pick the video you want to watch fullscreen in the TTY: ")"
+		fi
 		;;
 		q)
 		break
@@ -774,7 +781,7 @@ while [ 1 ]; do
 
 	case "$answer" in
 		s)
-		if [ "$ttytest" = /dev/pts/ ]; then
+		if [[ "$ttytest" = /dev/pts/ ]]; then
 			devour mupdf "$(find /home/"$USER"/ -type f | fzf -i --prompt "Pick the pdf you want to view. ESC to exit: ")" 		
 		else 
 			sudo fbpdf "$(find /home/"$USER"/ -type f | fzf -i --prompt "Pick the pdf you want to view. ESC to exit: ")"
@@ -855,7 +862,7 @@ done
 # function for yt-dlp
 yt () {
 
-if [ ! -d /home/"$USER"/Videos ]; then 
+if [[ ! -d /home/"$USER"/Videos ]]; then 
 	mkdir /home/"$USER"/Videos/
 	cd /home/"$USER"/Videos/
 else
@@ -908,7 +915,7 @@ done
 # function for music in yt-dlp
 ytmusic () {
 
-if [ ! -d /home/"$USER"/Music ]; then
+if [[ ! -d /home/"$USER"/Music ]]; then
 	mkdir /home/"$USER"/Music/
    	cd /home/"$USER"/Music/
 else	
@@ -958,7 +965,7 @@ while [ 1 ]; do
 
 	case "$rpick" in
 		y)
-		[ ! -d /home/"$USER"/.newsboat ] && mkdir -p /home/"$USER"/.newsboat && echo 'https://www.youtube.com/feeds/videos.xml?channel_id=UCeFnqXMczw4BDCoJHr5dBjg "~James Champion (Youtube)"' > /home/"$USER"/.newsboat/urls && cat /home/"$USER"/ttysh/resources/newboatconfig/config > /home/"$USER"/.newsboat/config
+		[[ ! -d /home/"$USER"/.newsboat ]] && mkdir -p /home/"$USER"/.newsboat && echo 'https://www.youtube.com/feeds/videos.xml?channel_id=UCeFnqXMczw4BDCoJHr5dBjg "~James Champion (Youtube)"' > /home/"$USER"/.newsboat/urls && cat /home/"$USER"/ttysh/resources/newboatconfig/config > /home/"$USER"/.newsboat/config
 		cd /home/"$USER"/Videos/
 		newsboat
 		cd /home/"$USER"/
@@ -1000,7 +1007,7 @@ done
 # function for calender schedule
 calenderschedule () {
 
-[ ! -f /home/"$USER"/.*calenderdatafile ] && printf "\n%s\n" "Set up your calender data: " && calenderdata && echo "Calender made. Fill in your calender at /home/"$USER"/.*calenderdata and run this selection again or continue with the option to edit your calender." 
+[[ ! -f /home/"$USER"/.*calenderdatafile ]] && printf "\n%s\n" "Set up your calender data: " && calenderdata && echo "Calender made. Fill in your calender at /home/"$USER"/.*calenderdata and run this selection again or continue with the option to edit your calender." 
 
 printf "\n%s\n\n" "Your Calender Schedule For Today: "
 
@@ -1058,7 +1065,7 @@ done
 # function for devour vid in xorg
 devourvid () {
 
-[ "$ttytest" = /dev/pts/ ] && devour mpv /home/"$USER"/Videos/* || mpv -vo=drm /home/"$USER"/Videos/*
+[[ "$ttytest" = /dev/pts/ ]] && devour mpv /home/"$USER"/Videos/* || mpv -vo=drm /home/"$USER"/Videos/*
 }
 
 # function for formating and setting up disks for rsync and timeshift
@@ -1344,7 +1351,7 @@ lstdevname=$(ls /dev/disk/by-uuid -l | grep "$tuuid")
 
 printf "\n%s\n" "Looking for "$tdrive"..."
 
-if [ "$lstdevname" ]; then 
+if [[ "$lstdevname" ]]; then 
 	
 	printf "\n%s\n" ""$tdrive" has been found. Starting..." 
 	tdrivecheck 
@@ -1375,7 +1382,7 @@ lstdevname=$(ls /dev/disk/by-uuid -l | grep "$tuuid")
 
 printf "\n%s\n" "Looking for "$tdrive"..."
 
-if [ "$lstdevname" ]; then
+if [[ "$lstdevname" ]]; then
 	printf "\n%s\n" ""$tdrive" has been found. Starting..." 
 	starttimeshift 
 	closetimeshift 
@@ -1400,7 +1407,7 @@ lsbdevname=$(ls /dev/disk/by-uuid -l | grep "$buuid")
 
 printf "\n%s\n" "Looking for "$bdrive"..."
 
-if [ "$lsbdevname" ]; then
+if [[ "$lsbdevname" ]]; then
 	printf "\n%s\n\n" ""$bdrive" has been found. Starting..."
 	lsblk
 
@@ -1415,7 +1422,7 @@ while [ 1 ]; do
 		printf "\n%s\n" "Continuing..."
 		cryptsetup open /dev/"$bdevname" drive
 		# enter password
-		if [ ! -h /dev/mapper/drive ]; then
+		if [[ ! -h /dev/mapper/drive ]]; then
 			printf "\n\n%s\n\n" "cryptsetup has failed to open /dev/mapper/drive from /dev/"$bdevname" . Make sure you are entering the correct password, or check your devices and mountpoints. Running lsblk and exiting..."
 			lsblk
 			exit 1
@@ -1461,7 +1468,7 @@ fi
 
 screenshotcheck () {
 
-if [ ! -d /home/"$USER"/Screenshots ]; then
+if [[ ! -d /home/"$USER"/Screenshots ]]; then
 	mkdir /home/"$USER"/Screenshots
 	cd /home/"$USER"/Screenshots
 else
@@ -1535,7 +1542,7 @@ selection
 # fzf function for selection
 selectcheck () {
 
-if [ "$fuzselect" = true ]; then
+if [[ "$fuzselect" = true ]]; then
 	answer="$(eoffuz | fzf --layout=reverse --margin 3%)"
 else
 	read -e -p "Enter your selection. h and enter if you need help: " answer
@@ -1626,7 +1633,7 @@ printf "\n%s" ""
 		fi
 		;;
 		"web browser"|w)
-		[ $ttytest = "/dev/tty" ] && lynx || devour librewolf
+		[[ $ttytest = "/dev/tty" ]] && lynx || devour librewolf
 		;;
 		"ping jameschampion.xyz"|i)
 		ping -c 3 jameschampion.xyz
@@ -1752,7 +1759,7 @@ printf "\n%s" ""
 		sudo fbgrab -c 6 screenshot6.png
 		;;
 		"record your tty/s"|re)
-		if [ ! -d /home/"$USER"/Recordings ]; then
+		if [[ ! -d /home/"$USER"/Recordings ]]; then
 			mkdir /home/"$USER"/Recordings
 			cd /home/"$USER"/Recordings 
 		else
@@ -1761,7 +1768,7 @@ printf "\n%s" ""
 		fi
 		;;
 		"record your x server"|rec)
-		if [ ! -d /home/"$USER"/Recordings ]; then
+		if [[ ! -d /home/"$USER"/Recordings ]]; then
 			mkdir /home/"$USER"/Recordings
 			cd /home/"$USER"/Recordings 
 		else
@@ -1801,22 +1808,22 @@ printf "\n%s" ""
 		printf "\n\n%s\n\n%s\n\n%s\n\n%s\n\n%s\n\n%s\n\n" "How To Achieve Scrollback In A TTY" "Login to a TTY and run the following: " "bash | tee /tmp/scrollback" "Now login to a seperate TTY and run: " "less +F /tmp/scrollback" "Now switch back to your first TTY. When you want to scrollback then return to your second TTY and press CTRL+C to interrupt less from following your file. You can then scroll back through your output. When you have finished scrolling back through your history press SHIFT+F in less and it'll go back to following the /tmp/scrollback file"
 		;;
 		"change to tty 1"|v1)
-		[ "$ttytest" = /dev/pts/ ] && sudo chvt 1 || chvt 1
+		[[ "$ttytest" = /dev/pts/ ]] && sudo chvt 1 || chvt 1
 		;;
 		"change to tty 2"|v2)
-		[ "$ttytest" = /dev/pts/ ] && sudo chvt 2 || chvt 2
+		[[ "$ttytest" = /dev/pts/ ]] && sudo chvt 2 || chvt 2
 		;;
 		"change to tty 3"|v3)
-		[ "$ttytest" = /dev/pts/ ] && sudo chvt 3 || chvt 3
+		[[ "$ttytest" = /dev/pts/ ]] && sudo chvt 3 || chvt 3
 		;;
 		"change to tty 4"|v4)
-		[ "$ttytest" = /dev/pts/ ] && sudo chvt 4 || chvt 4
+		[[ "$ttytest" = /dev/pts/ ]] && sudo chvt 4 || chvt 4
 		;;
 		"change to tty 5"|v5)
-		[ "$ttytest" = /dev/pts/ ] && sudo chvt 5 || chvt 5
+		[[ "$ttytest" = /dev/pts/ ]] && sudo chvt 5 || chvt 5
 		;;
 		"change to tty 6"|v6)
-		[ "$ttytest" = /dev/pts/ ] && sudo chvt 6 || chvt 6
+		[[ "$ttytest" = /dev/pts/ ]] && sudo chvt 6 || chvt 6
 		;;
 		"choose tty"|vt)
 		while [ 1 ]; do
@@ -1829,7 +1836,7 @@ printf "\n%s" ""
 			
 			case "$answer" in
 				"1" | "2" | "3" | "4" | "5" | "6" )	
-				if [ "$ttytest" = /dev/pts/ ];then
+				if [[ "$ttytest" = /dev/pts/ ]];then
 					sudo chvt "$answer"
 				else
 					chvt "$answer"
@@ -1974,7 +1981,7 @@ printf "\n%s" ""
 				)
 				for i in "${installed[@]}"; do
 				
-					if [ ! "$(pacman -Qm | grep -i "$i")" ]; then
+					if [[ ! "$(pacman -Qm | grep -i "$i")" ]]; then
 						echo ""$i" not installed"
 						echo "now installing... "$i""
 						yay -S --noconfirm "$i"
@@ -2010,7 +2017,7 @@ printf "\n%s" ""
 		;;
 		"font and text change"|fon)
 		sudo screen -c /home/"$USER"/ttysh/resources/.screenrc.font_conf
-		[ "$(grep -i "ttyshfont=true" /home/"$USER"/.config/ttysh/config)" ] && sed -i 's/ttyshfont=true/ttyshfont=false/g' /home/"$USER"/.config/ttysh/config && sed -i 's/.*setfont ter-218b.*/#[ $(tty | tr -d '\''[0-9]'\'') = "\/dev\/tty" ] \&\& setfont ter-218b/' /home/"$USER"/.bashrc
+		[[ "$(grep -i "ttyshfont=true" /home/"$USER"/.config/ttysh/config)" ]] && sed -i 's/ttyshfont=true/ttyshfont=false/g' /home/"$USER"/.config/ttysh/config && sed -i 's/.*setfont ter-218b.*/#[ $(tty | tr -d '\''[0-9]'\'') = "\/dev\/tty" ] \&\& setfont ter-218b/' /home/"$USER"/.bashrc
 		printf "\n%b\n" "You should reboot your system to see any changes that you have made."
 		;;
 		"set temporary font"|font)
@@ -2042,7 +2049,7 @@ done
 # PROGRAMME START
 # 
 
-if [ -f /home/"$USER"/.ttyshwizardrun ] || [ "$USER" = root ]; then
+if [[ -f /home/"$USER"/.ttyshwizardrun ]] || [[ "$USER" = root ]]; then
 	printf "%s" ""
 else
 	printf "\n%s\n" "First time using TTYSH, or you do not yet have TTYSH setup and configured? Press y to begin setup, or press n to exit."
@@ -2062,11 +2069,11 @@ else
 	esac
 fi
 
-[ "$1" ] && options=$(printf "%s" "fzfcmus websearch fzfxorgvid fzfttyvid fzfvim fzfpdf yt ytmusic weather planner helpflags" | tr ' ' '\n' | grep "$1") && "$options"
+[[ "$1" ]] && options=$(printf "%s" "fzfcmus websearch fzfxorgvid fzfttyvid fzfvim fzfpdf yt ytmusic weather planner helpflags" | tr ' ' '\n' | grep "$1") && "$options"
 
 while [ 1 ]; do
 
-[ ! $(screen -list | grep "cmusdaemon" | cut -d "." -f2 | cut -f1) ] && screen -dmS cmusdaemon cmus
+[[ ! $(screen -list | grep "cmusdaemon" | cut -d "." -f2 | cut -f1) ]] && screen -dmS cmusdaemon cmus
 
 intro="$(printf "%s\n%s\n%s\n%s\n%s\n%s\n%s" "select a ttysh program" "find a ttysh program" "run any program" "help" "toggle options" "config wizard" "quit" | fzf --prompt "TTYSH " --layout=reverse --margin 20%)"
 
