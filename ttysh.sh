@@ -1,7 +1,6 @@
 #!/bin/bash
 
-# TTYSH : A daily driver and "desktop/non-desktop" experience for the tty.
-# 	  For all level of user. 
+# TTYSH : A daily driver and "desktop/texttop" experience for the tty.
 
 
 #
