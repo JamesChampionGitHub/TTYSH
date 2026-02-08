@@ -625,7 +625,7 @@ ttyshtoggles () {
 
 while [ 1 ]; do
 
-		printf "\n%s\n\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n\n" "Toggle the following on and off:" "(c)urrent toggle status" "(t)tysh autostart" "(i)3 window manager autotiling" "(s)way window manager autotiling" "ttysh tty (f)ont" "(r)eset toggles to defaults" "(q)uit and return to selection"
+		printf "\n%s\n\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n\n" "Toggle the following on and off:" "(c)urrent toggle status" "(t)tysh autostart (under development)" "(i)3 window manager autotiling" "(s)way window manager autotiling" "ttysh tty (f)ont" "(r)eset toggles to defaults" "(q)uit and return to selection"
 
 	read -e -p "Enter your selection: " pickoption
 
@@ -634,6 +634,9 @@ while [ 1 ]; do
 		c)
 		less /home/"$USER"/.config/ttysh/config
 		;;
+		#t)
+		#[ "$(grep -i "ttyshautostart=true" /home/"$USER"/.config/ttysh/config)" ] && sed -i 's/ttyshautostart=true/ttyshautostart=false/g' /home/"$USER"/.config/ttysh/config || sed -i 's/ttyshautostart=false/ttyshautostart=true/g' /home/"$USER"/.config/ttysh/config
+		#;;
 		i)
 		[ "$(grep -i "i3autotiling=true" /home/"$USER"/.config/ttysh/config)" ] && sed -i 's/i3autotiling=true/i3autotiling=false/g' /home/"$USER"/.config/ttysh/config || sed -i 's/i3autotiling=false/i3autotiling=true/g' /home/"$USER"/.config/ttysh/config
 
@@ -643,14 +646,6 @@ while [ 1 ]; do
 
 		else	
 			sed -i 's/^#exec --no-startup-id autotiling/#exec --no-startup-id autotiling/g;s/^exec --no-startup-id autotiling/#exec --no-startup-id autotiling/g' /home/"$USER"/.config/i3/config
-		fi
-		;;
-		t)
-		[ "$(grep -i "ttyshautostart=true" /home/"$USER"/.config/ttysh/config)" ] && sed -i 's/ttyshautostart=true/ttyshautostart=false/g' /home/"$USER"/.config/ttysh/config || sed -i 's/ttyshautostart=false/ttyshautostart=true/g' /home/"$USER"/.config/ttysh/config
-
-		if [ "$(grep -i "ttyshautostart=true" /home/"$USER"/.config/ttysh/config)" ]; then
-
-			echo "under development"
 		fi
 		;;
 		s)
