@@ -625,7 +625,7 @@ ttyshtoggles () {
 
 while [ 1 ]; do
 
-		printf "\n%s\n\n%s\n%s\n%s\n%s\n%s\n%s\n\n" "Toggle the following on and off:" "(c)urrent toggle status" "(i)3 window manager autotiling" "(s)way window manager autotiling" "(t)tysh tty font" "(r)eset toggles to defaults" "(q)uit and return to selection"
+		printf "\n%s\n\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n\n" "Toggle the following on and off:" "(c)urrent toggle status" "(t)tysh autostart" "(i)3 window manager autotiling" "(s)way window manager autotiling" "ttysh tty (f)ont" "(r)eset toggles to defaults" "(q)uit and return to selection"
 
 	read -e -p "Enter your selection: " pickoption
 
@@ -645,6 +645,14 @@ while [ 1 ]; do
 			sed -i 's/^#exec --no-startup-id autotiling/#exec --no-startup-id autotiling/g;s/^exec --no-startup-id autotiling/#exec --no-startup-id autotiling/g' /home/"$USER"/.config/i3/config
 		fi
 		;;
+		t)
+		[ "$(grep -i "ttyshautostart=true" /home/"$USER"/.config/ttysh/config)" ] && sed -i 's/ttyshautostart=true/ttyshautostart=false/g' /home/"$USER"/.config/ttysh/config || sed -i 's/ttyshautostart=false/ttyshautostart=true/g' /home/"$USER"/.config/ttysh/config
+
+		if [ "$(grep -i "ttyshautostart=true" /home/"$USER"/.config/ttysh/config)" ]; then
+
+			echo "under development"
+		fi
+		;;
 		s)
 		[ "$(grep -i "swayautotiling=true" /home/"$USER"/.config/ttysh/config)" ] && sed -i 's/swayautotiling=true/swayautotiling=false/g' /home/"$USER"/.config/ttysh/config || sed -i 's/swayautotiling=false/swayautotiling=true/g' /home/"$USER"/.config/ttysh/config
 
@@ -656,7 +664,7 @@ while [ 1 ]; do
 			sed -i 's/^#exec_always autotiling/#exec_always autotiling/g;s/^exec_always autotiling/#exec_always autotiling/g' /home/"$USER"/.config/sway/config
 		fi
 		;;
-		t)
+		f)
 		[ "$(grep -i "ttyshfont=true" /home/"$USER"/.config/ttysh/config)" ] && sed -i 's/ttyshfont=true/ttyshfont=false/g' /home/"$USER"/.config/ttysh/config || sed -i 's/ttyshfont=false/ttyshfont=true/g' /home/"$USER"/.config/ttysh/config
 
 		if [ "$(grep -i "ttyshfont=true" /home/"$USER"/.config/ttysh/config)" ]; then

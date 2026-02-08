@@ -1,7 +1,6 @@
 # you can either toggle the options below using this file, or use TTYSH's toggle (recommended)
 
+ttyshautostart=true
 i3autotiling=false
-
 swayautotiling=false
-
 ttyshfont=true
