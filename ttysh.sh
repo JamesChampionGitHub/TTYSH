@@ -880,6 +880,8 @@ while [ 1 ]; do
 		;;
 	esac
 done
+
+printf "\n%s\n" "Any video downloaded will be saved in your /home/"$USER"/Videos/ folder"
 }
 
 # function for music in yt-dlp
@@ -922,6 +924,8 @@ while [ 1 ]; do
 		;;
 	esac
 done
+
+printf "\n%s\n" "Any music downloaded will be saved in your /home/"$USER"/Music/ folder"
 }
 
 # function for creating calender data
