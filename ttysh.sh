@@ -11,10 +11,6 @@
 warncolour='\033[31;1m'
 warncolourend='\033[0m'
 
-
-# variable for while loop
-x=0
-
 # splash screen variable for tty/pts
 ttytest="$(tty | tr -d '[0-9]')"
 #splash=$(echo ""${splash%y*}"y")
