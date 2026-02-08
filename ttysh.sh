@@ -17,7 +17,7 @@ warncolourend='\033[0m'
 x=0
 
 # splash screen variable for tty/pts
-splash=$(tty | tr -d '[0-9]') 
+ttytest=$(tty | tr -d '[0-9]') 
 #splash=$(tty)
 #splash=$(echo ""${splash%y*}"y")
 
@@ -386,7 +386,7 @@ splashscreen () {
 
 #[ "$splash" = /dev/pts/ ] && devour mpv --really-quiet /home/"$USER"/.splash_ttysh.png && clear || mpv --really-quiet /home/"$USER"/.splash_ttysh.png && clear
 
-[ "$splash" = /dev/pts/ ] && devour mpv --really-quiet /home/"$USER"/ttysh/resources/.splash_ttysh.png || mpv --really-quiet /home/"$USER"/ttysh/resources/.splash_ttysh.png
+[ "$ttytest" = /dev/pts/ ] && devour mpv --really-quiet /home/"$USER"/ttysh/resources/.splash_ttysh.png || mpv --really-quiet /home/"$USER"/ttysh/resources/.splash_ttysh.png
 
 #if [ "$splash" = /dev/pts/ ]; then
 #	devour mpv --really-quiet /home/"$USER"/.splash_ttysh.png; clear
@@ -749,7 +749,7 @@ bookmark=$(cat /home/"$USER"/.bookmarks_ttysh.html | fzf -i --prompt "Pick a boo
 
 #[ "$splash" = /dev/pts/ ] && casefzfbookmark && return || lynx "$bookmark"
 
-[ "$splash" = /dev/pts/ ] && casefzfbookmark && return || lynx "$bookmark"
+[ "$ttytest" = /dev/pts/ ] && casefzfbookmark && return || lynx "$bookmark"
 	
 #printf "\n" ""
 #
@@ -844,7 +844,7 @@ printf "\n" ""
 
 #[ "$splash" = /dev/pts/ ] && casewebsearch && return || read -e -p "Search: " webpick && lynx searx.be/search?q="$webpick"
 
-if [ "$splash" = /dev/pts/ ]; then
+if [ "$ttytest" = /dev/pts/ ]; then
 		
 	casewebsearch
 	return
@@ -933,7 +933,7 @@ while [ 1 ]; do
 
 	case "$answer" in
 		s)
-		[ "$splash" = /dev/pts/ ] && mpv "$(find /home/"$USER"/ -type f | fzf -i --prompt "Pick the video you want to watch in the GUI: ")" || mpv -vo=drm "$(find /home/"$USER"/ -type f | fzf -i --prompt "Pick the video you want to watch in the TTY: ")"
+		[ "$ttytest" = /dev/pts/ ] && mpv "$(find /home/"$USER"/ -type f | fzf -i --prompt "Pick the video you want to watch in the GUI: ")" || mpv -vo=drm "$(find /home/"$USER"/ -type f | fzf -i --prompt "Pick the video you want to watch in the TTY: ")"
 		;;
 		q)
 		break
@@ -956,7 +956,7 @@ while [ 1 ]; do
 
 	case "$answer" in
 		s)
-		[ "$splash" = /dev/pts/ ] && devour mpv "$(find /home/"$USER"/ -type f | fzf -i --prompt "Pick the video you want to watch in the terminal GUI: ")" || mpv -vo=drm "$(find /home/"$USER"/ -type f | fzf -i --prompt "Pick the video you want to watch fullscreen in the TTY: ")"
+		[ "$ttytest" = /dev/pts/ ] && devour mpv "$(find /home/"$USER"/ -type f | fzf -i --prompt "Pick the video you want to watch in the terminal GUI: ")" || mpv -vo=drm "$(find /home/"$USER"/ -type f | fzf -i --prompt "Pick the video you want to watch fullscreen in the TTY: ")"
 		;;
 		q)
 		break
@@ -1024,7 +1024,7 @@ while [ 1 ]; do
 
 	case "$answer" in
 		s)
-		[ "$splash" = /dev/pts/ ] && devour mupdf "$(find /home/"$USER"/ -type f | fzf -i --prompt "Pick the pdf you want to view. ESC to exit: ")" || sudo fbpdf "$(find /home/"$USER"/ -type f | fzf -i --prompt "Pick the pdf you want to view. ESC to exit: ")"
+		[ "$ttytest" = /dev/pts/ ] && devour mupdf "$(find /home/"$USER"/ -type f | fzf -i --prompt "Pick the pdf you want to view. ESC to exit: ")" || sudo fbpdf "$(find /home/"$USER"/ -type f | fzf -i --prompt "Pick the pdf you want to view. ESC to exit: ")"
 		;;
 		q)
 		break		
@@ -1331,7 +1331,7 @@ done
 # function for devour vid in xorg
 devourvid () {
 
-[ "$splash" = /dev/pts/ ] && devour mpv /home/"$USER"/Videos/* || mpv -vo=drm /home/"$USER"/Videos/*
+[ "$ttytest" = /dev/pts/ ] && devour mpv /home/"$USER"/Videos/* || mpv -vo=drm /home/"$USER"/Videos/*
 
 #if [ "$splash" = /dev/pts/ ]; then
 #	devour mpv /home/"$USER"/Videos/*
@@ -2040,7 +2040,7 @@ printf "\n%s" ""
 		#browsh --firefox.with-gui
 		#;;
 		"web browser"|w)
-		[ $splash = "/dev/tty" ] && lynx || devour librewolf
+		[ $ttytest = "/dev/tty" ] && lynx || devour librewolf
 		;;
 		"ping jameschampion.xyz"|i)
 		#screen -c /home/"$USER"/TTYSH/resources/.screenrc.ping
@@ -2331,22 +2331,22 @@ printf "\n%s" ""
 		printf "\n\n%s\n\n%s\n\n%s\n\n%s\n\n%s\n\n%s\n\n" "How To Achieve Scrollback In A TTY" "Login to a TTY and run the following: " "bash | tee /tmp/scrollback" "Now login to a seperate TTY and run: " "less +F /tmp/scrollback" "Now switch back to your first TTY. When you want to scrollback then return to your second TTY and press CTRL+C to interrupt less from following your file. You can then scroll back through your output. When you have finished scrolling back through your history press SHIFT+F in less and it'll go back to following the /tmp/scrollback file"
 		;;
 		"change to tty 1"|v1)
-		[ "$splash" = /dev/pts/ ] && sudo chvt 1 || chvt 1
+		[ "$ttytest" = /dev/pts/ ] && sudo chvt 1 || chvt 1
 		;;
 		"change to tty 2"|v2)
-		[ "$splash" = /dev/pts/ ] && sudo chvt 2 || chvt 2
+		[ "$ttytest" = /dev/pts/ ] && sudo chvt 2 || chvt 2
 		;;
 		"change to tty 3"|v3)
-		[ "$splash" = /dev/pts/ ] && sudo chvt 3 || chvt 3
+		[ "$ttytest" = /dev/pts/ ] && sudo chvt 3 || chvt 3
 		;;
 		"change to tty 4"|v4)
-		[ "$splash" = /dev/pts/ ] && sudo chvt 4 || chvt 4
+		[ "$ttytest" = /dev/pts/ ] && sudo chvt 4 || chvt 4
 		;;
 		"change to tty 5"|v5)
-		[ "$splash" = /dev/pts/ ] && sudo chvt 5 || chvt 5
+		[ "$ttytest" = /dev/pts/ ] && sudo chvt 5 || chvt 5
 		;;
 		"change to tty 6"|v6)
-		[ "$splash" = /dev/pts/ ] && sudo chvt 6 || chvt 6
+		[ "$ttytest" = /dev/pts/ ] && sudo chvt 6 || chvt 6
 		;;
 		"choose tty"|vt)
 		while [ 1 ]; do
@@ -2359,7 +2359,7 @@ printf "\n%s" ""
 			
 			case "$answer" in
 				"1" | "2" | "3" | "4" | "5" | "6" )	
-				[ "$splash" = /dev/pts/ ] && sudo chvt "$answer" || chvt "$answer"
+				[ "$ttytest" = /dev/pts/ ] && sudo chvt "$answer" || chvt "$answer"
 				break
 				;;
 				*)
