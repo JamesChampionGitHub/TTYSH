@@ -44,7 +44,7 @@ Note: (f) will run search on this list of programs for you to select.
 
 		Internet/
 
-			select a (bo)okmark for web browsing/
+			select a (b)ookmark for web browsing/
 
 			(we)b search/
 
@@ -327,7 +327,7 @@ helpflags () {
 
 #clear
 
-options=$(printf "\n%s\n" "eofhelp fzfcmus websearch bookmarkcheck fzfxorgvid fzfttyvid fzfvim fzfpdf yt ytmusic weather planner" |
+options=$(printf "\n%s\n" "eofhelp fzfcmus websearch fzfxorgvid fzfttyvid fzfvim fzfpdf yt ytmusic weather planner" |
        	tr ' ' '\n' |
        	fzf -i --prompt "Pick the option that you would like: ")
 
@@ -701,94 +701,6 @@ cmus-remote -Q && printf "\n" ""
 #pscmus=$(ps aux | grep -i "[c]mus" | cut -d " " -f22)
 
 #[ ! "$pscmus" = cmus ] && screen -c /home/"$USER"/.screenrc.cmusplay && return || cmuspicker=$(find /home/"$USER"/Music/starred/ -type f | fzf -i --prompt "Pick the music track you want to play in cmus: ") && cmus-remote -f "$cmuspicker" && cmus-remote -Q && printf "\n" ""
-}
-
-# fzfbookmark case statement
-casefzfbookmark () {
-
-devour librewolf "$bookmark"
-
-#while [ 1 ]; do
-#
-#	printf "\n%s\n\n" "Pick f for firefox, l for librewolf, or q to quit:"
-#
-#	read -e -p "Enter your selection: " xbrowser
-#
-#	case "$xbrowser" in 
-#		f) 
-#		devour firefox "$bookmark"
-#		break
-#		;;
-#		l)
-#		devour librewolf "$bookmark"
-#		break
-#		;;
-#		q)
-#		break
-#		;;
-#		*)
-#		printf "\n%s\n" "Not a valid selection."
-#		;;
-#	esac 
-#done
-#
-#[ "$splash" = /dev/pts/ ] && read -e -p "Pick f for firefox or l for librewolf: " xbrowser && case "$xbrowser" in 
-#
-#										        f) 
-#											[ "$splash" = /dev/pts/ ] && devour firefox "$bookmark" || browsh --startup-url "$bookmark" 
-#											;;
-#											l)
-#											[ "$splash" = /dev/pts/ ] && devour librewolf "$bookmark" || browsh --startup-url "$bookmark" 
-
-}
-
-# pick a bookmark to open in TTY or X11 using the appropriate web browser
-fzfbookmark () {
-
-printf "\n" ""
-
-bookmark=$(cat /home/"$USER"/.bookmarks_ttysh.html | fzf -i --prompt "Pick a bookmark: ") 
-
-#[ "$splash" = /dev/pts/ ] && casefzfbookmark && return || lynx "$bookmark"
-
-[ "$ttytest" = /dev/pts/ ] && casefzfbookmark && return || lynx "$bookmark"
-	
-#printf "\n" ""
-#
-#
-#
-#[ "$splash" = /dev/pts/ ] && read -e -p "Pick f for firefox or l for librewolf: " xbrowser && case "$xbrowser" in 
-#
-#										        f) 
-#											[ "$splash" = /dev/pts/ ] && devour librewolf "$bookmark" || browsh --startup-url "$bookmark" 
-#											;;
-#											l)
-#											[ "$splash" = /dev/pts/ ] && devour librewolf "$bookmark" || browsh --startup-url "$bookmark" 
-#											;;
-#									       esac
-#
-
-#[ "$splash" = /dev/pts/ ] && devour librewolf "$bookmark" || browsh --startup-url "$bookmark" 
-
-}
-
-# check for bookmark file
-bookmarkcheck () {
-
-if [ -e /home/"$USER"/.bookmarks_ttysh.html ]; then
-
-	printf "\n%s\n" "Bookmarks file found."
-	fzfbookmark
-	return
-else
-	
-	printf "\n%s\n" "Bookmarks file not found."
-	touch /home/"$USER"/.bookmarks_ttysh.html && printf "\n%s\n" "Created."
-	sleep 1
-	printf "\n%s\n" "Remember to add your bookmarks manually, or export them from librewolf. If exported or updated, run the 'boo' command. See help for more info. Starting in 10 seconds."
-	sleep 10
-	return
-fi
 }
 
 # format bookmarks for fzfbookmark
@@ -2005,7 +1917,7 @@ printf "\n%s" ""
 		"format bookmarks"|boo)
 		bookmarkformat
 		;;
-		"select a bookmark for web browsing"|bo)
+		"select a bookmark for web browsing"|b)
 		bookmarkcheck
 		;;
 		#"lynx with image viewer for saved"|ly)
@@ -2611,7 +2523,7 @@ fi
 
 #options="${1:-$(printf "Use the following options after typing ttysh, e.g. ttsyh planner Note: ttysh flags create a menu picker ttyshhelp fzfcmus websearch bookmarkcheck fzfxorgvid fzfttyvid fzfvim fzfpdf yt ytmusic weather planner"}"
 
-[ "$1" ] && options=$(printf "%s" "fzfcmus websearch bookmarkcheck fzfxorgvid fzfttyvid fzfvim fzfpdf yt ytmusic weather planner helpflags" | tr ' ' '\n' | grep "$1") && "$options" || #printf "\n\t%s\n" "TTYSH"
+[ "$1" ] && options=$(printf "%s" "fzfcmus websearch fzfxorgvid fzfttyvid fzfvim fzfpdf yt ytmusic weather planner helpflags" | tr ' ' '\n' | grep "$1") && "$options" || #printf "\n\t%s\n" "TTYSH"
 
 while [ 1 ]; do
 
@@ -2622,7 +2534,7 @@ while [ 1 ]; do
 
 #intro="$(printf "\n%s\n%s\n%s\n%s\n%s\n%s\n%s" "(p)lanner" "(s)elect program" "(f)ind program" "(h)elp" "(t)oggle options" "(config) wizard" "(q)uit" | sed '/^[[:space:]]*$/d;/.*[A-Z]/d;/[A-Z].*/d' | fzf --prompt "TTYSH " --layout=reverse --margin 20% | sed 's/.*(//g;s/).*//g')"
 
-[ ! $(screen -list | grep "cmusdaemon" | cut -d "." -f2 | cut -f1) ] && screen -d -m -S cmusdaemon cmus
+[ ! $(screen -list | grep "cmusdaemon" | cut -d "." -f2 | cut -f1) ] && screen -dmS cmusdaemon cmus
 
 intro="$(printf "%s\n%s\n%s\n%s\n%s\n%s\n%s" "select a ttysh program" "find a ttysh program" "run any program" "help" "toggle options" "config wizard" "quit" | fzf --prompt "TTYSH " --layout=reverse --margin 20%)"
 
