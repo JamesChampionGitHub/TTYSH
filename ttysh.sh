@@ -850,13 +850,13 @@ while [ 1 ]; do
 	case "$answer" in
 		y)
 		printf "\n%s\n" "Enter the creator and discription: "
-		read -e video
+		read -e -p video
 		printf "\n%s\n"	""
 		yt-dlp -f 'bv*[height=720]+ba' "ytsearch1:""$video"""
 		;;
 		a)
 		printf "\n%s\n" "Enter the creator and discription: "
-		read -e video
+		read -e -p video
 		printf "\n%s\n"	""
 		yt-dlp -f 'bv+ba' "ytsearch1:""$video"""
 		;;
@@ -905,7 +905,7 @@ while [ 1 ]; do
 	case "$answer" in
 		sm)
 		printf "\n%s\n" "Enter music creator and title: "
-		read -e music
+		read -e -p music
 		yt-dlp -f 'ba' -x --audio-format mp3 "ytsearch1:""$music"""
 		;;
 		m)
@@ -994,7 +994,7 @@ while [ 1 ]; do
 	case "$wanswer" in
 		y)	
 		printf "\n%s\n" "Enter your city or town to see the weather forecast: "
-		read -e wwanswer
+		read -e -p wwanswer
 		curl wttr.in/"$wwanswer"?T --output /home/"$USER"/ttysh/resources/.weatherdata
 		cat /home/"$USER"/ttysh/resources/.weatherdata
 		break
