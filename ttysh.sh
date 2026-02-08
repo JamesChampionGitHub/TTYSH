@@ -256,7 +256,7 @@ pause song
 forward song
 status on music
 pick a song
-alsa auto setting
+audio auto setting
 increase volume
 lower volume
 alsamixer
@@ -1968,7 +1968,7 @@ printf "\n%s" ""
 		#cmuscheck
 		cmus-remote -Q | less
 		;;
-		"alsa auto setting"|au)
+		"audio auto setting"|au)
 		printf "\n%s" ""; amixer -c 0 -- sset Master unmute; amixer -c 0 -- sset Master playback -10dB
 		;;
 		"increase volume"|inc)
