@@ -737,7 +737,7 @@ while [ 1 ]; do
 	case "$answer" in
 		s)
 		if [[ $(tty | tr -d '[0-9]') = "/dev/pts/" ]]; then
-			devour mupdf "$(find /home/"$USER"/ -type f | fzf -i --prompt "Pick the pdf you want to view. ESC to exit: ")" 		
+			devour zathura "$(find /home/"$USER"/ -type f | fzf -i --prompt "Pick the pdf you want to view. ESC to exit: ")" 		
 		else 
 			sudo fbpdf "$(find /home/"$USER"/ -type f | fzf -i --prompt "Pick the pdf you want to view. ESC to exit: ")"
 		fi
