@@ -29,189 +29,189 @@ Key: () denote shortcut keys, e.g. (n) means pressing the n key in the selector 
 
 Note: (f) will run search on this list of programs for you to select.
 
-		Internet/
+	Internet/
 
-			select a (b)ookmark for web browsing/
+		select a (b)ookmark for web browsing/
 
-			(we)b search/
+		(we)b search/
 
-			(w)eb browser/ 
+		(w)eb browser/ 
 
-			format (boo)kmarks/
+		format (boo)kmarks/
 
-		Email/
+	Email/
 
-			(e)mail/
+		(e)mail/
 
-			(mu)tt email configuation/
+		(mu)tt email configuation/
 
-		Search/
+	Search/
 
-			(f)ind a program from this list/
+		(f)ind a program from this list/
 
-			(ru)n any program/
+		(ru)n any program/
 
-			(fi)le manager/
+		(fi)le manager/
 
-			search & play video in (t)ty/
+		search & play video in (t)ty/
 
-			(se)arch & play in gui/
+		(se)arch & play in gui/
 
-			(fz)f search files to open in vim/
+		(fz)f search files to open in vim/
 
-			search files and (del)ete/
+		search files and (del)ete/
 			
-			NOTE: the above command will only work effectively on properly named files. Try the command below:
+		NOTE: the above command will only work effectively on properly named files. Try the command below:
 
-			remove (wh)ite spaces from file names/
+		remove (wh)ite spaces from file names/
 
-			search images and (pdf)s/
+		search images and (pdf)s/
 
-		Music Player/ 
+	Music Player/ 
 
-			(cm)us music player/
+		(cm)us music player/
 
-			(ne)xt song/ 
+		(ne)xt song/ 
 
-			(pr)evious song/ 
+		(pr)evious song/ 
 
-			(p)ause song/ 
+		(p)ause song/ 
 
-			(fo)rward song/ 
+		(fo)rward song/ 
 
-			(st)atus on music/ 
+		(st)atus on music/ 
 
-			(pi)ck a song/
+		(pi)ck a song/
 
-			(inc)rease volume/
+		(inc)rease volume/
 
-			(low)er volume/
+		(low)er volume/
 
-			(mus)ic search on youtube/
+		(mus)ic search on youtube/
 
-		Audio Settings/
+	Audio Settings/
 
-			alsa (au)to setting/
+		alsa (au)to setting/
 
-			(al)samixer/
+		(al)samixer/
 
-		Video/
+	Video/
 			
-			video search on (yo)utube/
+		video search on (yo)utube/
 
-			play your downloaded youtube (vid)eos/
+		play your downloaded youtube (vid)eos/
 
-		Record/
+	Record/
 
-			(sc)reenshot(1,2,3,4,5,6) tty/
+		(sc)reenshot(1,2,3,4,5,6) tty/
 
-			(re)cord your tty/s/
+		(re)cord your tty/s/
 
-			(rec)ord your x server/
+		(rec)ord your x server/
 
-		Wordprocessing/
+	Wordprocessing/
 
-			(wr)iter/
+		(wr)iter/
 
-		Calc/Spreadsheet/
+	Calc/Spreadsheet/
 
-			(sp)readsheet/
+		(sp)readsheet/
 
-			(ca)lculator/
+		(ca)lculator/
 
-		Accessories/
+	Accessories/
 
-			calender (sch)edule/ 
+		calender (sch)edule/ 
 
-			(n)otes and todos/ 
+		(n)otes and todos/ 
 
-			(d)ate & calender/
+		(d)ate & calender/
 
-			(we)ather/
+		(we)ather/
 
-		Backup/
+	Backup/
 
-			stop! first run ttysh as sudo su!: (di)sk formatting and setting up removable media/
+		stop! first run ttysh as sudo su!: (di)sk formatting and setting up removable media/
 
-			*NOTE: RUN THE ABOVE ON REMOVABLE MEDIA BEFORE MAKING YOUR BACKUPS.
+		*NOTE: RUN THE ABOVE ON REMOVABLE MEDIA BEFORE MAKING YOUR BACKUPS.
 
-	 		stop! first run ttysh as sudo su!: (ba)ckup /home/user/ to removable drive/
+ 		stop! first run ttysh as sudo su!: (ba)ckup /home/user/ to removable drive/
 
-			stop! first run ttysh as sudo su!: (ti)meshift backup to removable drive/
+		stop! first run ttysh as sudo su!: (ti)meshift backup to removable drive/
 
-			stop! first run ttysh as sudo su!: (de)lete timeshift backups from removable drive/
+		stop! first run ttysh as sudo su!: (de)lete timeshift backups from removable drive/
 
-		TTY/
+	TTY/
 				
-			(scro)llback information for tty/
+		(scro)llback information for tty/
 
-			change (v)t (1,2,3,4,5,6) tty/
+		change (v)t (1,2,3,4,5,6) tty/
 
-			choose ch(vt) tty/
+		choose ch(vt) tty/
 
-			*NOTE: cannot use this selection in screen split. Use alt+number or alt+arrow key instead
+		*NOTE: cannot use this selection in screen split. Use alt+number or alt+arrow key instead
 
-		Screen splits/
+	Screen splits/
 
-			(scr)een four panel split/
+		(scr)een four panel split/
 
-			(scre)en horizontal split/
+		(scre)en horizontal split/
 
-			(scree)n vertical split/
+		(scree)n vertical split/
 
-		Xorg/Wayland/
+	Xorg/Wayland/
 
-			(s)tart i3 window manager/
+		(s)tart i3 window manager/
 
-			start (sw)ay window manager/
+		start (sw)ay window manager/
 
-			close (i3) and return to tty/
+		close (i3) and return to tty/
 
-			close swa(y) and return to tty/
+		close swa(y) and return to tty/
 
-			(alt)Gr as left mouse click on x11 on thinkpads/
+		(alt)Gr as left mouse click on x11 on thinkpads/
 
-		System/Utilities/
+	System/Utilities/
 
-			(fon)t and text change/
+		(fon)t and text change/
 
-			set temporary (font)/
+		set temporary (font)/
 
-			(net)work manager/
+		(net)work manager/
 
-			network manager (dev)ices/
+		network manager (dev)ices/
 
-			p(i)ng jameschampion.xyz/
+		p(i)ng jameschampion.xyz/
 
-			(fan) control on thinkpads/
+		(fan) control on thinkpads/
 
-			(u)pdate the system/
+		(u)pdate the system/
 
-			(ht)op/
+		(ht)op/
 
-			computer (te)mperatures/
+		computer (te)mperatures/
 
-			(fr)ee disk space/
+		(fr)ee disk space/
 
-			(c)lock/
+		(c)lock/
 
-			(sto)pwatch/
+		(sto)pwatch/
 
-			(lo)ck console/
+		(lo)ck console/
 
-			*NOTE: if you are in xorg/i3, press Ctrl + Alt + and an F key to return to the TTY before you lock the console.
+		*NOTE: if you are in xorg/i3, press Ctrl + Alt + and an F key to return to the TTY before you lock the console.
 
-			(res)tart/
+		(res)tart/
 
-			(sh)utdown/
+		(sh)utdown/
 
-		Rerun/Help/Quit/
+	Rerun/Help/Quit/
 
-			rerun (tty)sh/
+		rerun (tty)sh/
 
-			(h)elp/
+		(h)elp/
 
-			(q)uit/
+		(q)uit/
 
 EOF
 }
@@ -2028,7 +2028,7 @@ while [ 1 ]; do
 
 [[ ! $(screen -list | grep "cmusdaemon" | cut -d "." -f2 | cut -f1) ]] && screen -dmS cmusdaemon cmus
 
-intro="$(printf "%s\n%s\n%s\n%s\n%s\n%s\n%s" "select a ttysh program" "find a ttysh program" "run any program" "help" "toggle options" "config wizard" "quit" | fzf --prompt "TTYSH " --layout=reverse --margin 20%)"
+intro="$(printf "%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s" "select a ttysh program" "find a ttysh program" "run any program" "i3 window manager" "sway window manager" "help" "toggle options" "config wizard" "quit" | fzf --prompt "TTYSH " --layout=reverse --margin 20%)"
 
 	case "$intro" in
 		"select a ttysh program")
