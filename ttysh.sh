@@ -12,7 +12,7 @@ warncolour='\033[31;1m'
 warncolourend='\033[0m'
 
 # splash screen variable for tty/pts
-ttytest="$(tty | tr -d '[0-9]')"
+#ttytest="$(tty | tr -d '[0-9]')"
 #splash=$(echo ""${splash%y*}"y")
 
 
@@ -584,7 +584,7 @@ websearch () {
 
 printf "\n" ""
 
-if [[ $ttytest = "/dev/pts/" ]]; then
+if [[ $(tty | tr -d '[0-9]') = "/dev/pts/" ]]; then
 	casewebsearch
 	return
 else
@@ -668,7 +668,7 @@ while [ 1 ]; do
 
 	case "$answer" in
 		s)
-		if [[ $ttytest = "/dev/pts/" ]]; then
+		if [[ $(tty | tr -d '[0-9]') = "/dev/pts/" ]]; then
 			mpv "$(find /home/"$USER"/ -type f | fzf -i --prompt "Pick the video you want to watch in the GUI: ")"
 		else
 			mpv -vo=drm "$(find /home/"$USER"/ -type f | fzf -i --prompt "Pick the video you want to watch in the TTY: ")"
@@ -695,7 +695,7 @@ while [ 1 ]; do
 
 	case "$answer" in
 		s)
-		if [[ $ttytest = "/dev/pts/" ]]; then
+		if [[ $(tty | tr -d '[0-9]') = "/dev/pts/" ]]; then
 			devour mpv "$(find /home/"$USER"/ -type f | fzf -i --prompt "Pick the video you want to watch in the terminal GUI: ")"
 		else
 			mpv -vo=drm "$(find /home/"$USER"/ -type f | fzf -i --prompt "Pick the video you want to watch fullscreen in the TTY: ")"
@@ -745,7 +745,7 @@ while [ 1 ]; do
 
 	case "$answer" in
 		s)
-		if [[ $ttytest = "/dev/pts/" ]]; then
+		if [[ $(tty | tr -d '[0-9]') = "/dev/pts/" ]]; then
 			devour mupdf "$(find /home/"$USER"/ -type f | fzf -i --prompt "Pick the pdf you want to view. ESC to exit: ")" 		
 		else 
 			sudo fbpdf "$(find /home/"$USER"/ -type f | fzf -i --prompt "Pick the pdf you want to view. ESC to exit: ")"
@@ -1007,7 +1007,7 @@ done
 # function for devour vid in xorg
 devourvid () {
 
-[[ $ttytest = "/dev/pts/" ]] && devour mpv /home/"$USER"/Videos/* || mpv -vo=drm /home/"$USER"/Videos/*
+[[ $(tty | tr -d '[0-9]') = "/dev/pts/" ]] && devour mpv /home/"$USER"/Videos/* || mpv -vo=drm /home/"$USER"/Videos/*
 }
 
 # function for formating and setting up disks for rsync and timeshift
@@ -1577,7 +1577,7 @@ printf "\n%s" ""
 		fi
 		;;
 		"web browser"|w)
-		[[ $ttytest = "/dev/pts/" ]] && devour librewolf || lynx
+		[[ $(tty | tr -d '[0-9]') = "/dev/pts/" ]] && devour librewolf || lynx
 		;;
 		"ping jameschampion.xyz"|i)
 		ping -c 3 jameschampion.xyz
@@ -1752,22 +1752,22 @@ printf "\n%s" ""
 		printf "\n\n%s\n\n%s\n\n%s\n\n%s\n\n%s\n\n%s\n\n" "How To Achieve Scrollback In A TTY" "Login to a TTY and run the following: " "bash | tee /tmp/scrollback" "Now login to a seperate TTY and run: " "less +F /tmp/scrollback" "Now switch back to your first TTY. When you want to scrollback then return to your second TTY and press CTRL+C to interrupt less from following your file. You can then scroll back through your output. When you have finished scrolling back through your history press SHIFT+F in less and it'll go back to following the /tmp/scrollback file"
 		;;
 		"change to tty 1"|v1)
-		[[ $ttytest = "/dev/pts/" ]] && sudo chvt 1 || chvt 1
+		[[ $(tty | tr -d '[0-9]') = "/dev/pts/" ]] && sudo chvt 1 || chvt 1
 		;;
 		"change to tty 2"|v2)
-		[[ $ttytest = "/dev/pts/" ]] && sudo chvt 2 || chvt 2
+		[[ $(tty | tr -d '[0-9]') = "/dev/pts/" ]] && sudo chvt 2 || chvt 2
 		;;
 		"change to tty 3"|v3)
-		[[ $ttytest = "/dev/pts/" ]] && sudo chvt 3 || chvt 3
+		[[ $(tty | tr -d '[0-9]') = "/dev/pts/" ]] && sudo chvt 3 || chvt 3
 		;;
 		"change to tty 4"|v4)
-		[[ $ttytest = "/dev/pts/" ]] && sudo chvt 4 || chvt 4
+		[[ $(tty | tr -d '[0-9]') = "/dev/pts/" ]] && sudo chvt 4 || chvt 4
 		;;
 		"change to tty 5"|v5)
-		[[ $ttytest = "/dev/pts/" ]] && sudo chvt 5 || chvt 5
+		[[ $(tty | tr -d '[0-9]') = "/dev/pts/" ]] && sudo chvt 5 || chvt 5
 		;;
 		"change to tty 6"|v6)
-		[[ $ttytest = "/dev/pts/" ]] && sudo chvt 6 || chvt 6
+		[[ $(tty | tr -d '[0-9]') = "/dev/pts/" ]] && sudo chvt 6 || chvt 6
 		;;
 		"choose tty"|vt)
 		while [ 1 ]; do
@@ -1780,7 +1780,7 @@ printf "\n%s" ""
 			
 			case "$answer" in
 				"1" | "2" | "3" | "4" | "5" | "6" )	
-				if [[ $ttytest = "/dev/pts/" ]]; then
+				if [[ $(tty | tr -d '[0-9]') = "/dev/pts/" ]]; then
 					sudo chvt "$answer"
 				else
 					chvt "$answer"
