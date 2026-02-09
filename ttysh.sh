@@ -461,29 +461,30 @@ while read i; do
 
 	case "$i" in
 
+		ttyshautostart=true|ttyshautostart=false)
+		if [[ "$(grep -i "ttyshautostart=true" /home/"$USER"/.config/ttysh/config)" ]]; then
+			sed -i 's/.*autostart.*/\/home\/"$USER"\/ttysh\/\.\/ttysh\.sh #autostart/g' /home/"$USER"/.bashrc 
+		else	
+			sed -i 's/.*autostart.*/#\/home\/"$USER"\/ttysh\/\.\/ttysh\.sh #autostart/g' /home/"$USER"/.bashrc 
+		fi
+		;;
 		i3autotiling=true|i3autotiling=false)
 		if [[ "$(grep -i "i3autotiling=true" /home/"$USER"/.config/ttysh/config)" ]]; then
-
 			sed -i 's/^exec --no-startup-id autotiling/exec --no-startup-id autotiling/g;s/^#exec --no-startup-id autotiling/exec --no-startup-id autotiling/g' /home/"$USER"/.config/i3/config 
-
 		else	
 			sed -i 's/^#exec --no-startup-id autotiling/#exec --no-startup-id autotiling/g;s/^exec --no-startup-id autotiling/#exec --no-startup-id autotiling/g' /home/"$USER"/.config/i3/config
 		fi
 		;;
 		swayautotiling=true|swayautotiling=false)
 		if [[ "$(grep -i "swayautotiling=true" /home/"$USER"/.config/ttysh/config)" ]]; then
-
 			sed -i 's/^exec_always autotiling/exec_always autotiling/g;s/^#exec_always autotiling/exec_always autotiling/g' /home/"$USER"/.config/sway/config 
-
 		else	
 			sed -i 's/^#exec_always autotiling/#exec_always autotiling/g;s/^exec_always autotiling/#exec_always autotiling/g' /home/"$USER"/.config/sway/config
 		fi
 		;;
 		ttyshfont=true|ttyshfont=false)
 		if [[ "$(grep -i "ttyshfont=true" /home/"$USER"/.config/ttysh/config)" ]]; then
-
  			sed -i 's/.*setfont ter-218b.*/[ $(tty | tr -d '\''[0-9]'\'') = "\/dev\/tty" ] \&\& setfont ter-218b/' /home/"$USER"/.bashrc
-
 		else	
  			sed -i 's/.*setfont ter-218b.*/#[ $(tty | tr -d '\''[0-9]'\'') = "\/dev\/tty" ] \&\& setfont ter-218b/' /home/"$USER"/.bashrc
 		fi
