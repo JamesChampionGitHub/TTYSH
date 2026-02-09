@@ -11,11 +11,6 @@
 warncolour='\033[31;1m'
 warncolourend='\033[0m'
 
-# splash screen variable for tty/pts
-#ttytest="$(tty | tr -d '[0-9]')"
-#splash=$(echo ""${splash%y*}"y")
-
-
 #
 # FUNCTIONS
 # 
@@ -2048,6 +2043,16 @@ intro="$(printf "%s\n%s\n%s\n%s\n%s\n%s\n%s" "select a ttysh program" "find a tt
 		;;	
 		"run any program")
 		systemprograms
+		;;
+		"i3 window manager")
+		startx
+		selection
+		break
+		;;
+		"sway window manager")
+		sway
+		selection
+		break
 		;;
 		"help")
 		eofhelp
