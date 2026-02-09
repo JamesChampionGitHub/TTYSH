@@ -1567,7 +1567,11 @@ printf "\n%s" ""
 		fi
 		;;
 		"web browser"|w)
-		[[ $(tty | tr -d '[0-9]') = "/dev/pts/" ]] && devour librewolf || lynx
+		if [[ $(tty | tr -d '[0-9]') = "/dev/pts/" ]]; then
+				devour librewolf
+		else
+			lynx
+		fi
 		;;
 		"ping jameschampion.xyz"|i)
 		ping -c 3 jameschampion.xyz
