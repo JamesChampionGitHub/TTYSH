@@ -139,7 +139,7 @@ Note: (f) will run search on this list of programs for you to select.
 
 		remove (wh)ite spaces from file names/
 
-		search images and (pdf)s/
+		search (pdf)s/
 
 	Audio Settings/
 
@@ -153,7 +153,7 @@ Note: (f) will run search on this list of programs for you to select.
 
 		(re)cord your tty/s/
 
-		(rec)ord your x server/
+		(rec)ord your i3 window manager/
 
 	TTY/
 				
@@ -247,10 +247,10 @@ spreadsheet
 find a program from this list
 run any program
 file manager
-fzf search files to open in vim
+search files to open in vim
 search files and delete
 remove white spaces from file names
-search images and pdfs
+search pdfs
 stop! first run ttysh as sudo su!: disk formatting and setting up removable media
 stop! first run ttysh as sudo su!: backup /home/user/ to removable drive
 stop! first run ttysh as sudo su!: timeshift backup to removable drive
@@ -262,7 +262,7 @@ screenshot tty 4
 screenshot tty 5
 screenshot tty 6
 record your tty/s
-record your x server
+record your i3 window manager
 calculator
 calender schedule
 notes and todos 
@@ -1620,10 +1620,10 @@ printf "\n%s" ""
 		"file manager"|fi)
 		vim /home/"$USER"/
 		;;
-		"search & play video"|t)
+		"search & play video in tty i3 sway"|t)
 		fzfvid	
 		;;
-		"fzf search files to open in vim"|fz)
+		"search files to open in vim"|fz)
 		fzfvim	
 		;;
 		"search files and delete"|del)
@@ -1635,7 +1635,7 @@ printf "\n%s" ""
 		"weather"we)
 		weather
 		;;
-		"search images and pdfs"|pdf)
+		"search pdfs"|pdf)
 		fzfpdf
 		;;
 		"stop! first run ttysh as sudo su!: disk formatting and setting up removable media"|di)
@@ -1695,7 +1695,7 @@ printf "\n%s" ""
 			sudo ffmpeg -f fbdev -framerate 30 -i /dev/fb0 ttyrecord.mp4
 		fi
 		;;
-		"record your x server"|rec)
+		"record your i3 window manager"|rec)
 		if [[ ! -d /home/"$USER"/Recordings ]]; then
 			mkdir /home/"$USER"/Recordings
 			cd /home/"$USER"/Recordings 
