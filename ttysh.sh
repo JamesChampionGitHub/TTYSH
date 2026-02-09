@@ -506,9 +506,15 @@ while [ 1 ]; do
 		c)
 		less /home/"$USER"/.config/ttysh/config
 		;;
-		#t)
-		#[ "$(grep -i "ttyshautostart=true" /home/"$USER"/.config/ttysh/config)" ] && sed -i 's/ttyshautostart=true/ttyshautostart=false/g' /home/"$USER"/.config/ttysh/config || sed -i 's/ttyshautostart=false/ttyshautostart=true/g' /home/"$USER"/.config/ttysh/config
-		#;;
+		t)
+		[ "$(grep -i "ttyshautostart=true" /home/"$USER"/.config/ttysh/config)" ] && sed -i 's/ttyshautostart=true/ttyshautostart=false/g' /home/"$USER"/.config/ttysh/config || sed -i 's/ttyshautostart=false/ttyshautostart=true/g' /home/"$USER"/.config/ttysh/config
+
+		if [[ "$(grep -i "ttyshautostart=true" /home/"$USER"/.config/ttysh/config)" ]]; then
+			sed -i 's/.*autostart.*/\/home\/"$USER"\/ttysh\/\.\/ttysh\.sh #autostart/g' /home/"$USER"/.bashrc 
+		else	
+			sed -i 's/.*autostart.*/#\/home\/"$USER"\/ttysh\/\.\/ttysh\.sh #autostart/g' /home/"$USER"/.bashrc 
+		fi
+		;;
 		i)
 		[[ "$(grep -i "i3autotiling=true" /home/"$USER"/.config/ttysh/config)" ]] && sed -i 's/i3autotiling=true/i3autotiling=false/g' /home/"$USER"/.config/ttysh/config || sed -i 's/i3autotiling=false/i3autotiling=true/g' /home/"$USER"/.config/ttysh/config
 
@@ -537,7 +543,12 @@ while [ 1 ]; do
 		fi
 		;;
 		r)
-		[[ ! -d /home/"$USER"/.config/ttysh ]] && mkdir -p /home/"$USER"/.config/ttysh && cat /home/"$USER"/ttysh/resources/ttyshconfig/config > /home/"$USER"/.config/ttysh/config || cat /home/"$USER"/ttysh/resources/ttyshconfig/config > /home/"$USER"/.config/ttysh/config
+		if [[ ! -d /home/"$USER"/.config/ttysh ]]; then
+			mkdir -p /home/"$USER"/.config/ttysh
+			cat /home/"$USER"/ttysh/resources/ttyshconfig/config > /home/"$USER"/.config/ttysh/config
+		else
+			cat /home/"$USER"/ttysh/resources/ttyshconfig/config > /home/"$USER"/.config/ttysh/config
+		fi
 		;;
 		q)
 		break
