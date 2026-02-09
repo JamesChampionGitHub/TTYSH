@@ -31,13 +31,31 @@ Note: (f) will run search on this list of programs for you to select.
 
 	Internet/
 
+		(w)eb browser/ 
+
 		select a (b)ookmark for web browsing/
 
 		(we)b search/
 
-		(w)eb browser/ 
+		format librewolf (boo)kmarks/
 
-		format (boo)kmarks/
+	Window Managers/
+
+		(s)tart i3 window manager/
+
+		start (sw)ay window manager/
+
+		close (i3) and return to tty/
+
+		close swa(y) and return to tty/
+
+	Screen splits/
+
+		(scr)een four panel split/
+
+		(scre)en horizontal split/
+
+		(scree)n vertical split/
 
 	Email/
 
@@ -45,27 +63,11 @@ Note: (f) will run search on this list of programs for you to select.
 
 		(mu)tt email configuation/
 
-	Search/
-
-		(f)ind a program from this list/
-
-		(ru)n any program/
-
-		(fi)le manager/
-
-		search & play video in (t)ty/
-
-		(se)arch & play in gui/
-
-		(fz)f search files to open in vim/
-
-		search files and (del)ete/
+	Video/
 			
-		NOTE: the above command will only work effectively on properly named files. Try the command below:
+		video search on (yo)utube/
 
-		remove (wh)ite spaces from file names/
-
-		search images and (pdf)s/
+		search & play video in (t)ty/i3/sway/
 
 	Music Player/ 
 
@@ -88,26 +90,6 @@ Note: (f) will run search on this list of programs for you to select.
 		(low)er volume/
 
 		(mus)ic search on youtube/
-
-	Audio Settings/
-
-		alsa (au)to setting/
-
-		(al)samixer/
-
-	Video/
-			
-		video search on (yo)utube/
-
-		play your downloaded youtube (vid)eos/
-
-	Record/
-
-		(sc)reenshot(1,2,3,4,5,6) tty/
-
-		(re)cord your tty/s/
-
-		(rec)ord your x server/
 
 	Wordprocessing/
 
@@ -141,6 +123,38 @@ Note: (f) will run search on this list of programs for you to select.
 
 		stop! first run ttysh as sudo su!: (de)lete timeshift backups from removable drive/
 
+	Search/
+
+		(f)ind a program from this list/
+
+		(ru)n any program/
+
+		(fi)le manager/
+
+		(fz)f search files to open in vim/
+
+		search files and (del)ete/
+			
+		NOTE: the above command will only work effectively on properly named files. Try the command below:
+
+		remove (wh)ite spaces from file names/
+
+		search images and (pdf)s/
+
+	Audio Settings/
+
+		alsa (au)to setting/
+
+		(al)samixer/
+
+	Record/
+
+		(sc)reenshot(1,2,3,4,5,6) tty/
+
+		(re)cord your tty/s/
+
+		(rec)ord your x server/
+
 	TTY/
 				
 		(scro)llback information for tty/
@@ -150,26 +164,6 @@ Note: (f) will run search on this list of programs for you to select.
 		choose ch(vt) tty/
 
 		*NOTE: cannot use this selection in screen split. Use alt+number or alt+arrow key instead
-
-	Screen splits/
-
-		(scr)een four panel split/
-
-		(scre)en horizontal split/
-
-		(scree)n vertical split/
-
-	Xorg/Wayland/
-
-		(s)tart i3 window manager/
-
-		start (sw)ay window manager/
-
-		close (i3) and return to tty/
-
-		close swa(y) and return to tty/
-
-		(alt)Gr as left mouse click on x11 on thinkpads/
 
 	System/Utilities/
 
@@ -199,6 +193,8 @@ Note: (f) will run search on this list of programs for you to select.
 
 		(lo)ck console/
 
+		(alt)Gr as left mouse click on x11 on thinkpads/
+
 		*NOTE: if you are in xorg/i3, press Ctrl + Alt + and an F key to return to the TTY before you lock the console.
 
 		(res)tart/
@@ -220,21 +216,20 @@ EOF
 eoffuz() {
 
 less << EOF
+web browser
 select a bookmark for web browsing
 web search
-web browser
-format bookmarks
-email
-mutt email configuation
-find a program from this list
-run any program
-file manager
-search & play video in tty
-search & play in gui
-fzf search files to open in vim
-search files and delete
-remove white spaces from file names
-search images and pdfs
+format librewolf bookmarks
+start i3 window manager
+start sway window manager
+close i3 and return to tty
+close sway and return to tty
+screen four panel split
+screen horizontal split
+screen vertical split
+video search on youtube
+search & play video in tty i3 sway
+music search on youtube
 cmus music player 
 next song
 previous song
@@ -245,10 +240,21 @@ pick a song
 audio auto setting
 increase volume
 lower volume
-alsamixer
-music search on youtube
-video search on youtube
-play your downloaded youtube videos
+email
+mutt email configuation
+writer
+spreadsheet
+find a program from this list
+run any program
+file manager
+fzf search files to open in vim
+search files and delete
+remove white spaces from file names
+search images and pdfs
+stop! first run ttysh as sudo su!: disk formatting and setting up removable media
+stop! first run ttysh as sudo su!: backup /home/user/ to removable drive
+stop! first run ttysh as sudo su!: timeshift backup to removable drive
+stop! first run ttysh as sudo su!: delete timeshift backups from removable drive
 screenshot tty 1
 screenshot tty 2
 screenshot tty 3
@@ -257,17 +263,11 @@ screenshot tty 5
 screenshot tty 6
 record your tty/s
 record your x server
-writer
-spreadsheet
 calculator
 calender schedule
 notes and todos 
 date & calender
 weather
-stop! first run ttysh as sudo su!: disk formatting and setting up removable media
-stop! first run ttysh as sudo su!: backup /home/user/ to removable drive
-stop! first run ttysh as sudo su!: timeshift backup to removable drive
-stop! first run ttysh as sudo su!: delete timeshift backups from removable drive
 scrollback information for tty
 change to tty 1
 change to tty 2
@@ -276,16 +276,9 @@ change to tty 4
 change to tty 5
 change to tty 6
 choose tty
-screen four panel split
-screen horizontal split
-screen vertical split
-start i3 window manager
-start sway window manager
-close i3 and return to tty
-close sway and return to tty
-AltGr as left mouse click on x11 on old thinkpads
 font and text change
 set temporary font
+alsamixer
 network manager
 network manager devices
 ping jameschampion.xyz
@@ -297,6 +290,7 @@ free disk space
 clock
 stopwatch
 lock console
+AltGr as left mouse click on x11 on old thinkpads
 restart
 shutdown
 rerun ttysh
@@ -681,8 +675,8 @@ while [ 1 ]; do
 done
 }
 
-# function for fzf video search in the xorg/GUI
-fzfxorgvid () {
+# function for fzf video search
+fzfvid () {
 
 while [ 1 ]; do
 
@@ -693,36 +687,9 @@ while [ 1 ]; do
 	case "$answer" in
 		s)
 		if [[ $(tty | tr -d '[0-9]') = "/dev/pts/" ]]; then
-			mpv "$(find /home/"$USER"/ -type f | fzf -i --prompt "Pick the video you want to watch in the GUI: ")"
+			devour mpv "$(find /home/"$USER"/ -type f | fzf -i --prompt "Pick the video you want to watch: ")"
 		else
-			mpv -vo=drm "$(find /home/"$USER"/ -type f | fzf -i --prompt "Pick the video you want to watch in the TTY: ")"
-		fi
-		;;
-		q)
-		break
-		;;
-		*)
-		printf "\n%s\n" "Not a valid selection."
-		;;
-	esac
-done
-}
-
-# function for fzf video in TTY & Xorg
-fzfttyvid () {
-
-while [ 1 ]; do
-
-	printf "\n%s\n" "Press s to start. Press q to quit."
-
-	read -e -p "Enter your selection: " answer
-
-	case "$answer" in
-		s)
-		if [[ $(tty | tr -d '[0-9]') = "/dev/pts/" ]]; then
-			devour mpv "$(find /home/"$USER"/ -type f | fzf -i --prompt "Pick the video you want to watch in the terminal GUI: ")"
-		else
-			mpv -vo=drm "$(find /home/"$USER"/ -type f | fzf -i --prompt "Pick the video you want to watch fullscreen in the TTY: ")"
+			mpv -vo=drm "$(find /home/"$USER"/ -type f | fzf -i --prompt "Pick the video you want to watch: ")"
 		fi
 		;;
 		q)
@@ -1647,20 +1614,14 @@ printf "\n%s" ""
 		"start sway window manager"|sw)
 		sway
 		;;
-		"play your downloaded youtube videos"|vid)
-		devourvid
-		;;
 		m)
 		printf "\n\n%b\n\n" 'alias the following in your bashrc for quick directory search and change: $(find /home/"$USER"/ -type d | fzf)'
 		;;
 		"file manager"|fi)
 		vim /home/"$USER"/
 		;;
-		"seearch & play in gui"|se)
-		fzfxorgvid
-		;;
-		"search & play video in tty"|t)
-		fzfttyvid	
+		"search & play video"|t)
+		fzfvid	
 		;;
 		"fzf search files to open in vim"|fz)
 		fzfvim	
