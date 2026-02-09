@@ -498,7 +498,7 @@ ttyshtoggles () {
 
 while [ 1 ]; do
 
-		printf "\n%s\n\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n\n" "Toggle the following on and off:" "(c)urrent toggle status" "(t)tysh autostart (under development)" "(i)3 window manager autotiling" "(s)way window manager autotiling" "ttysh tty (f)ont" "(r)eset toggles to defaults" "(q)uit and return to selection"
+		printf "\n%s\n\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n\n" "Toggle the following on and off:" "(c)urrent toggle status" "(t)tysh autostart" "(i)3 window manager autotiling" "(s)way window manager autotiling" "ttysh tty (f)ont" "(r)eset toggles to defaults" "(q)uit and return to selection"
 
 	read -e -p "Enter your selection: " pickoption
 
