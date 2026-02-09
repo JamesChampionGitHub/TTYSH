@@ -357,6 +357,7 @@ wizardttysh () {
 # first, update the system and install needed packages
 
 sudo pacman --noconfirm -Syu \
+	base-devel \
 	curl \
 	xdo \
 	bc \
@@ -1871,6 +1872,7 @@ printf "\n%s" ""
 				y)
 				printf "\n%s\n" "Updating Arch Linux..."
 				sudo pacman --needed -Syu \
+					base-devel \
 					curl \
 					xdo \
 					bc \
