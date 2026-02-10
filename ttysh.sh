@@ -133,12 +133,6 @@ Note: (f) will run search on this list of programs for you to select.
 
 		(fz)f search files to open in vim/
 
-		search files and (del)ete/
-			
-		NOTE: the above command will only work effectively on properly named files. Try the command below:
-
-		remove (wh)ite spaces from file names/
-
 		search (pdf)s/
 
 	Audio Settings/
@@ -248,8 +242,6 @@ find a program from this list
 run any program
 file manager
 search files to open in vim
-search files and delete
-remove white spaces from file names
 search pdfs
 stop! first run ttysh as sudo su!: disk formatting and setting up removable media
 stop! first run ttysh as sudo su!: backup /home/user/ to removable drive
@@ -744,67 +736,6 @@ while [ 1 ]; do
 		;;
 		q)
 		break		
-		;;
-		*)
-		printf "\n%s\n" "Not a valid selection."
-		;;
-	esac
-done
-}
-
-# function for fzf file search and deletion
-fzfdelete () {
-
-while [ 1 ]; do
-
-	printf "\n%s\n" "Press s to start. Press q to quit."
-
-	read -e -p "Enter your selection: " answer
-
-	case "$answer" in
-		s)
-		rm -iv $(find /home/"$USER"/ -type f | fzf -i --multi --prompt "Pick the file for deletion. ESC to exit: ")
-		;;
-		q)
-		break	
-		;;
-		*)
-		printf "\n%s\n" "Not a valid selection."
-		;;
-	esac
-done
-}
-
-# function for fzf directory and file search to remove white space
-fzfwhitespace () {
-
-while [ 1 ]; do
-
-	printf "\n%s\n" "Press s to start. Press q to quit."
-
-	read -e -p "Enter your selection: " answer
-
-	case "$answer" in
-		s)
-		chosendir="$(find /home/"$USER"/ | fzf -i --prompt "Pick the directory with the files names that you want to remove white space from: ")"
-		for file in "$chosendir"/*; do
-			read -e -p "Did you pick something, or do you want to quit? Press c to continue, or e to exit: " pick
-			case "$pick" in
-				c)
-				mv "$file" "$(echo "$file" | sed -e 's/\ /_/g')"
-				break
-				;;
-				e)
-				break
-				;;
-				*)
-				printf "\n%s\n" "Not a valid selection."
-				;;
-			esac
-		done
-		;;
-		q)
-		break	
 		;;
 		*)
 		printf "\n%s\n" "Not a valid selection."
@@ -1630,12 +1561,6 @@ printf "\n%s" ""
 		;;
 		"search files to open in vim"|fz)
 		fzfvim	
-		;;
-		"search files and delete"|del)
-		fzfdelete
-		;;
-		"remove white spaces from file names"|wh)
-		fzfwhitespace
 		;;
 		"weather"we)
 		weather
