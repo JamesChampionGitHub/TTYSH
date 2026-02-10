@@ -51,11 +51,11 @@ Note: (f) will run search on this list of programs for you to select.
 
 	Screen splits/
 
-		(scr)een four panel split/
+		screen (fou)r panel split/
 
-		(scre)en horizontal split/
+		screen (hor)izontal split/
 
-		(scree)n vertical split/
+		screen (ver)tical split/
 
 	Email/
 
@@ -1652,13 +1652,13 @@ printf "\n%s" ""
 		printf "\n%s\n" ""
 		df -h
 		;;
-		"screen four panel split"|scr)
+		"screen four panel split"|fou)
 		screen -c /home/"$USER"/ttysh/resources/.screenrc.four_split
 		;;
-		"screen horizontal split"|scre)
+		"screen horizontal split"|hor)
 		screen -c /home/"$USER"/ttysh/resources/.screenrc.hsplit
 		;;
-		"screen vertical split"|scree) 
+		"screen vertical split"|ver) 
 		screen -c /home/"$USER"/ttysh/resources/.screenrc.vsplit
 		;;
 		"scrollback information for tty"|scro)
