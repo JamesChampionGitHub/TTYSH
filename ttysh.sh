@@ -1630,7 +1630,7 @@ printf "\n%s" ""
 
 		if [[ $TERM = "foot" ]]; then
 			cd /home/"$USER"/Recordings/ 
-			wf-recorder -r 30 -f swayrecord.mp4
+			wf-recorder -r 30 -F "scale=1280:720" -f swayrecord.mp4
 		else
 			cd /home/"$USER"/Recordings/
 			ffmpeg -video_size 1280x800 -framerate 30 -f x11grab -i :0 x11record.mp4
