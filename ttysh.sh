@@ -67,7 +67,7 @@ Note: (f) will run search on this list of programs for you to select.
 			
 		video search on (yo)utube/
 
-		search & play video in (t)ty/i3/sway/
+		search & play (v)ideo in tty/i3/sway/
 
 	Music Player/ 
 
@@ -1556,7 +1556,7 @@ printf "\n%s" ""
 		"file manager"|fi)
 		vim /home/"$USER"/
 		;;
-		"search & play video in tty i3 sway"|t)
+		"search & play video in tty i3 sway"|v)
 		fzfvid	
 		;;
 		"search files to open in vim"|fz)
