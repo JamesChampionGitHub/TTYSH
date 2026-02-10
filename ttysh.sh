@@ -37,7 +37,7 @@ Note: (f) will run search on this list of programs for you to select.
 
 		(we)b search/
 
-		format librewolf (boo)kmarks/
+		format librewolf (book)marks/
 
 	Window Managers/
 
@@ -1486,7 +1486,7 @@ printf "\n%s" ""
 		"web search"|we)
 		websearch
 		;;
-		"format bookmarks"|boo)
+		"format bookmarks"|book)
 		bookmarkformat
 		;;
 		"select a bookmark for web browsing"|b)
