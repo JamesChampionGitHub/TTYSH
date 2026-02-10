@@ -45,7 +45,7 @@ Note: (f) will run search on this list of programs for you to select.
 
 		start (s)way window manager/
 
-		close (i3) and return to tty/
+		close i(3) and return to tty/
 
 		close swa(y) and return to tty/
 
@@ -1580,7 +1580,7 @@ printf "\n%s" ""
 		"stop! first run ttysh as sudo su!: delete timeshift backups from removable drive"|de)
 		maintdelete	
 		;;
-		"close i3 and return to tty"|i3)
+		"close i3 and return to tty"|3)
 		pkill "Xorg"
 		;;
 		"close sway and return to tty"|y)
