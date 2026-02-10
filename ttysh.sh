@@ -41,9 +41,9 @@ Note: (f) will run search on this list of programs for you to select.
 
 	Window Managers/
 
-		(s)tart i3 window manager/
+		start (i)3 window manager/
 
-		start (sw)ay window manager/
+		start (s)way window manager/
 
 		close (i3) and return to tty/
 
@@ -1544,10 +1544,10 @@ printf "\n%s" ""
 		"email"|e)
 		mutt
 		;;
-		"start i3 window manager"|s)
+		"start i3 window manager"|i)
 		startx
 		;;
-		"start sway window manager"|sw)
+		"start sway window manager"|s)
 		sway
 		;;
 		m)
