@@ -30,7 +30,7 @@ alias c='clear'
 alias v='cd /home/"$USER"/Videos/'
 
 # Directory cd with fzf
-alias d='cd $(find /home/"$USER"/ -type d | /home/"$USER"/.fzf/bin/fzf -i --prompt "Pick a directory that you want to move to: ")'
+alias d='cd $(find /home/"$USER"/ -type d | fzf -i --prompt "Pick a directory that you want to move to: ")'
 
 # unmute and set volume in alsa
 alias au='amixer -c 0 -- sset Master unmute; amixer -c 0 -- sset Master playback -10dB'
