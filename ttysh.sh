@@ -1741,22 +1741,46 @@ printf "\n%s" ""
 		printf "\n\n%s\n\n%s\n\n%s\n\n%s\n\n%s\n\n%s\n\n" "How To Achieve Scrollback In A TTY" "Login to a TTY and run the following: " "bash | tee /tmp/scrollback" "Now login to a seperate TTY and run: " "less +F /tmp/scrollback" "Now switch back to your first TTY. When you want to scrollback then return to your second TTY and press CTRL+C to interrupt less from following your file. You can then scroll back through your output. When you have finished scrolling back through your history press SHIFT+F in less and it'll go back to following the /tmp/scrollback file"
 		;;
 		"change to tty 1"|v1)
-		[[ $(tty | tr -d '[0-9]') = "/dev/pts/" ]] && sudo chvt 1 || chvt 1
+		if [[ $(tty | tr -d '[0-9]') = "/dev/pts/" ]]; then
+			sudo chvt 1
+		else
+			chvt 1
+		fi
 		;;
 		"change to tty 2"|v2)
-		[[ $(tty | tr -d '[0-9]') = "/dev/pts/" ]] && sudo chvt 2 || chvt 2
+		if [[ $(tty | tr -d '[0-9]') = "/dev/pts/" ]]; then
+			sudo chvt 2
+		else
+			chvt 2
+		fi
 		;;
 		"change to tty 3"|v3)
-		[[ $(tty | tr -d '[0-9]') = "/dev/pts/" ]] && sudo chvt 3 || chvt 3
+		if [[ $(tty | tr -d '[0-9]') = "/dev/pts/" ]]; then
+			sudo chvt 3
+		else
+			chvt 3
+		fi
 		;;
 		"change to tty 4"|v4)
-		[[ $(tty | tr -d '[0-9]') = "/dev/pts/" ]] && sudo chvt 4 || chvt 4
+		if [[ $(tty | tr -d '[0-9]') = "/dev/pts/" ]];then
+			sudo chvt 4
+		else
+			chvt 4
+		fi
 		;;
 		"change to tty 5"|v5)
-		[[ $(tty | tr -d '[0-9]') = "/dev/pts/" ]] && sudo chvt 5 || chvt 5
+		if [[ $(tty | tr -d '[0-9]') = "/dev/pts/" ]]; then
+			sudo chvt 5
+		else
+			chvt 5
+		fi
 		;;
 		"change to tty 6"|v6)
-		[[ $(tty | tr -d '[0-9]') = "/dev/pts/" ]] && sudo chvt 6 || chvt 6
+		if [[ $(tty | tr -d '[0-9]') = "/dev/pts/" ]]; then
+			sudo chvt 6
+		else
+			chvt 6
+		fi
 		;;
 		"choose tty"|vt)
 		while [ 1 ]; do
