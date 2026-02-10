@@ -254,7 +254,7 @@ screenshot tty 4
 screenshot tty 5
 screenshot tty 6
 record your tty/s
-record your i3 window manager
+record your i3 or sway window manager
 calculator
 calender schedule
 notes and todos 
