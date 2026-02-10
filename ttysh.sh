@@ -169,13 +169,13 @@ Note: (f) will run search on this list of programs for you to select.
 
 		network manager (dev)ices/
 
-		p(i)ng jameschampion.xyz/
+		(pin)g jameschampion.xyz/
 
 		(fan) control on thinkpads/
 
 		(u)pdate the system/
 
-		(ht)op/
+		(sy)tem monitor/
 
 		computer (te)mperatures/
 
@@ -276,7 +276,7 @@ network manager devices
 ping jameschampion.xyz
 fan control on thinkpads
 update the system
-htop
+system monitor
 computer temperatures
 free disk space
 clock
@@ -1505,7 +1505,7 @@ printf "\n%s" ""
 			lynx
 		fi
 		;;
-		"ping jameschampion.xyz"|i)
+		"ping jameschampion.xyz"|pin)
 		ping -c 3 jameschampion.xyz
 		;;
 		"calender schedule"|sch)
@@ -1643,7 +1643,7 @@ printf "\n%s" ""
 		"spreadsheet"|sp)
 		sc-im
 		;;
-		"htop"|ht)
+		"system monitor"|sy)
 		htop
 		;;
 		"computer temperatures"|te)
