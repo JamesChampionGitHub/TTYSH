@@ -994,12 +994,6 @@ while [ 1 ]; do
 done
 }
 
-# function for devour vid in xorg
-devourvid () {
-
-[[ $(tty | tr -d '[0-9]') = "/dev/pts/" ]] && devour mpv /home/"$USER"/Videos/* || mpv -vo=drm /home/"$USER"/Videos/*
-}
-
 # function for formating and setting up disks for rsync and timeshift
 diskformat () {
 
@@ -1469,7 +1463,14 @@ systemprograms () {
 
 printf "\n%s\n" "Loading programs..."
 pacman -Qn > /tmp/allprograms.txt && pacman -Qm >> /tmp/allprograms.txt
-pick="$(cat /tmp/allprograms.txt | cut -d " " -f1 | fzf --layout=reverse --margin 3%)" && "$pick" || printf "\n%s\n" "no selection.."
+pick="$(cat /tmp/allprograms.txt | cut -d " " -f1 | fzf --layout=reverse --margin 3%)" 
+
+if [[ "$pick" ]]; then
+	"$pick"
+else	
+	printf "\n%s\n" "no selection.."
+fi
+
 selection
 }
 
