@@ -71,7 +71,7 @@ Note: (f) will run search on this list of programs for you to select.
 
 	Music Player/ 
 
-		(cm)us music player/
+		(m)usic player/
 
 		(ne)xt song/ 
 
@@ -224,7 +224,7 @@ screen vertical split
 video search on youtube
 search & play video in tty i3 sway
 music search on youtube
-cmus music player 
+music player 
 next song
 previous song
 pause song
@@ -1427,7 +1427,7 @@ printf "\n%s" ""
 	unset fuzselect
 
 	case "$answer" in
-		"cmus music player"|cm)
+		"music player"|m)
 		screen -r cmusdaemon
 		;;
 		"cmus with screen"|cmu)
@@ -1549,9 +1549,6 @@ printf "\n%s" ""
 		;;
 		"start sway window manager"|s)
 		sway
-		;;
-		m)
-		printf "\n\n%b\n\n" 'alias the following in your bashrc for quick directory search and change: $(find /home/"$USER"/ -type d | fzf)'
 		;;
 		"file manager"|fi)
 		vim /home/"$USER"/
