@@ -147,7 +147,7 @@ Note: (f) will run search on this list of programs for you to select.
 
 		(re)cord your tty/s/
 
-		(rec)ord your i3 window manager/
+		(rec)ord your i3 or sway window manager/
 
 	TTY/
 				
@@ -1625,10 +1625,12 @@ printf "\n%s" ""
 			sudo ffmpeg -f fbdev -framerate 30 -i /dev/fb0 ttyrecord.mp4
 		fi
 		;;
-		"record your i3 window manager"|rec)
-		if [[ ! -d /home/"$USER"/Recordings ]]; then
-			mkdir /home/"$USER"/Recordings
-			cd /home/"$USER"/Recordings 
+		"record your i3 or sway window manager"|rec)
+		[[ ! -d /home/"$USER"/Recordings ]] && mkdir /home/"$USER"/Recordings
+
+		if [[ $TERM = "foot" ]]; then
+			cd /home/"$USER"/Recordings/ 
+			wf-recorder -r 30 -f swayrecord.mp4
 		else
 			cd /home/"$USER"/Recordings/
 			ffmpeg -video_size 1280x800 -framerate 30 -f x11grab -i :0 x11record.mp4
