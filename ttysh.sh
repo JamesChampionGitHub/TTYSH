@@ -70,6 +70,10 @@ Note: (f) will run search on this list of programs for you to select.
 
 		search & play (v)ideo in tty/i3/sway/
 
+	Images/
+	
+		search & view (im)ages
+
 	Music Player/ 
 
 		(m)usic player/
@@ -224,6 +228,7 @@ screen horizontal split
 screen vertical split
 video search on youtube
 search & play video in tty i3 sway
+search & view images
 music search on youtube
 music player 
 next song
@@ -683,6 +688,32 @@ while [ 1 ]; do
 			devour mpv "$(find /home/"$USER"/ -type f | fzf -i --prompt "Pick the video you want to watch: ")"
 		else
 			mpv -vo=drm "$(find /home/"$USER"/ -type f | fzf -i --prompt "Pick the video you want to watch: ")"
+		fi
+		;;
+		q)
+		break
+		;;
+		*)
+		printf "\n%s\n" "Not a valid selection."
+		;;
+	esac
+done
+}
+
+fzfimage() {
+
+while [ 1 ]; do
+
+	printf "\n%s\n" "Press s to start Press q to quit."
+
+	read -e -p "Enter you selection: " answer
+
+	case "$answer" in
+		s)
+		if [[ $(tty | tr -d '[0-9]') = "/dev/pts/" ]]; then
+			devour mpv "$(find /home/"$USER"/ -type f | fzf -i --prompt "Pick the image you want to view: ")"
+		else
+			mpv -vo=drm "$(find /home/"$USER"/ -type f | fzf -i --prompt "Pick the image you want to view: ")"
 		fi
 		;;
 		q)
@@ -1556,6 +1587,9 @@ printf "\n%s" ""
 		;;
 		"search & play video in tty i3 sway"|v)
 		fzfvid	
+		;;
+		"search & view images"|im)
+		fzfimage	
 		;;
 		"search files to open in text editor"|edi)
 		fzfvim	
