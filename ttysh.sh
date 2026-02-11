@@ -1732,7 +1732,6 @@ printf "\n%s" ""
 		done
 		;;
 		"rerun ttysh"|tty)
-		clear
 		refresh="$0"
 		"$refresh"
 		exit 0
