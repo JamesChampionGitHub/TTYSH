@@ -8,9 +8,7 @@ Run the following:
 
 ```
 git clone https://github.com/jameschampiongithub/ttysh.git
-
 cd ttysh/
-
 ./ttysh.sh
 ```
 
