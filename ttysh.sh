@@ -29,6 +29,7 @@ Key: () denote shortcut keys, e.g. (n) means pressing the n key in the selector 
 
 Note: (f) will run search on this list of programs for you to select.
 
+
 	Internet/
 
 		(w)eb browser/ 
@@ -91,9 +92,9 @@ Note: (f) will run search on this list of programs for you to select.
 
 		(mus)ic search on youtube/
 
-	Wordprocessing/
+	Text Editing/
 
-		(wr)iter/
+		text (ed)itor/
 
 	Calc/Spreadsheet/
 
@@ -111,6 +112,18 @@ Note: (f) will run search on this list of programs for you to select.
 
 		(we)ather/
 
+	Search/
+
+		(f)ind a program from this list/
+
+		(ru)n any program/
+
+		(fi)le manager/
+
+		search files to open in text (edi)tor/
+
+		search (pdf)s/
+
 	Backup/
 
 		stop! first run ttysh as sudo su!: (di)sk formatting and setting up removable media/
@@ -123,19 +136,7 @@ Note: (f) will run search on this list of programs for you to select.
 
 		stop! first run ttysh as sudo su!: (de)lete timeshift backups from removable drive/
 
-	Search/
-
-		(f)ind a program from this list/
-
-		(ru)n any program/
-
-		(fi)le manager/
-
-		(fz)f search files to open in vim/
-
-		search (pdf)s/
-
-	Audio Settings/
+		Audio Settings/
 
 		alsa (au)to setting/
 
@@ -236,12 +237,12 @@ increase volume
 lower volume
 email
 mutt email configuation
-writer
+text editor
 spreadsheet
 find a program from this list
 run any program
 file manager
-search files to open in vim
+search files to open in text editor
 search pdfs
 stop! first run ttysh as sudo su!: disk formatting and setting up removable media
 stop! first run ttysh as sudo su!: backup /home/user/ to removable drive
@@ -1556,7 +1557,7 @@ printf "\n%s" ""
 		"search & play video in tty i3 sway"|v)
 		fzfvid	
 		;;
-		"search files to open in vim"|fz)
+		"search files to open in text editor"|edi)
 		fzfvim	
 		;;
 		"weather"we)
@@ -1633,7 +1634,7 @@ printf "\n%s" ""
 			ffmpeg -video_size 1280x800 -framerate 30 -f x11grab -i :0 x11record.mp4
 		fi
 		;;
-		"writer"|wr)
+		"text editor"|ed)
 		vim
 		;;
 		"calculator"|ca)
