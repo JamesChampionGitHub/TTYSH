@@ -1687,7 +1687,7 @@ printf "\n%s" ""
 		fi
 		;;
 		"change to tty 4"|v4)
-		if [[ $(tty | tr -d '[0-9]') = "/dev/pts/" ]];then
+		if [[ $(tty | tr -d '[0-9]') = "/dev/pts/" ]]; then
 			sudo chvt 4
 		else
 			chvt 4
