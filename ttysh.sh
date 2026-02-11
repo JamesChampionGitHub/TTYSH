@@ -1550,7 +1550,10 @@ printf "\n%s" ""
 		screen -c /home/"$USER"/ttysh/resources/.screenrc.mutt_conf
 		;;
 		"date & calender"|d)
-		cal; date; printf "\n%s\n"
+		printf "\n%s\n"
+		cal
+		date
+		printf "\n%s\n"
 		;;
 		"clock"|c)
 		screen -c /home/"$USER"/ttysh/resources/.screenrc.clockworking
