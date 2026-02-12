@@ -166,9 +166,9 @@ Note: (f) will run search on this list of programs for you to select.
 
 	System/Utilities/
 
-		(fon)t and text change/
+		(fon)t and text change in tty/
 
-		set temporary (font)/
+		set temporary (font) in tty/
 
 		(net)work manager/
 
@@ -273,8 +273,8 @@ change to tty 4
 change to tty 5
 change to tty 6
 choose tty
-font and text change
-set temporary font
+font and text change in tty
+set temporary font in tty
 audio controls
 default audio levels
 network manager
@@ -1932,12 +1932,12 @@ printf "\n%s" ""
 			esac
 		done
 		;;
-		"font and text change"|fon)
+		"font and text change in tty"|fon)
 		sudo screen -c /home/"$USER"/ttysh/resources/.screenrc.font_conf
 		[[ "$(grep -i "ttyshfont=true" /home/"$USER"/.config/ttysh/config)" ]] && sed -i 's/ttyshfont=true/ttyshfont=false/' /home/"$USER"/.config/ttysh/config && sed -i 's/.*setfont ter-218b.*/#[ $(tty | tr -d '\''[0-9]'\'') = "\/dev\/tty" ] \&\& setfont ter-218b/' /home/"$USER"/.bashrc
 		printf "\n%b\n" "You should reboot your system to see any changes that you have made."
 		;;
-		"set temporary font"|font)
+		"set temporary font in tty"|font)
 		setfont "$(ls /usr/share/kbd/consolefonts | fzf -i --prompt "Pick a font, or select nothing to return to original terminal font: ")"
 		;;
 		"restart"|res)
