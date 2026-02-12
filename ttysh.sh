@@ -308,8 +308,8 @@ options=$(printf "\n%s\n" "eofhelp fzfcmus websearch fzfxorgvid fzfttyvid fzfvim
 sudocheck () {
 
 if [[ ! "$SUDO_USER" ]]; then
-	 printf "\n"$warncolour"%s"$warncolourend"\n\n" "Run as sudo su first! Exiting..."
-	 exit 1 
+	printf "\n"$warncolour"%s"$warncolourend"\n\n" "Run as sudo su first! Exiting..."
+	exit 1 
 else
 	printf "\n%s\n\n%s\n\n" "Checking you are running as sudo user..." "Continuing..."
 fi
