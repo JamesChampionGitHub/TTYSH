@@ -188,11 +188,9 @@ Note: (f) will run search on this list of programs for you to select.
 
 		(sto)pwatch/
 
-		(lo)ck console/
+		(lo)ck the screen/
 
 		(alt)Gr as left mouse click on x11 on thinkpads/
-
-		*NOTE: if you are in xorg/i3, press Ctrl + Alt + and an F key to return to the TTY before you lock the console.
 
 		(res)tart/
 
@@ -284,7 +282,7 @@ computer temperatures
 free disk space
 clock
 stopwatch
-lock console
+lock the screen
 AltGr as left mouse click on x11 on old thinkpads
 restart
 shutdown
@@ -381,6 +379,8 @@ sudo pacman --needed --noconfirm -Syu \
 	git \
 	networkmanager \
 	noto-fonts \
+	i3lock \
+	swaylock \
 	terminus-font
 
 # enable and start network manager service
@@ -1622,8 +1622,14 @@ printf "\n%s" ""
 		"AltGr as left mouse click on x11 on old thinkpads"|alt)
 		xkbset m; xmodmap -e "keycode 108 = Pointer_Button1"
 		;;
-		"lock console"|lo)
+		"lock the screen"|lo)
+		if [[ $TERM = "linux" ]]; then
 		vlock -a
+		elif [[ $TERM = "xterm-256color" ]]; then
+		i3lock
+		elif [[ $TERM = "foot" ]]; then
+		swaylock
+		fi
 		;;
 		"screenshot tty 1"|sc1)
 		screenshotcheck 
@@ -1883,6 +1889,8 @@ printf "\n%s" ""
 					git \
 					networkmanager \
 					noto-fonts \
+					i3lock \
+					swaylock \
 					terminus-font
 
 				printf "\n\n%s\n" "Updating the Arch Linux AUR..."
