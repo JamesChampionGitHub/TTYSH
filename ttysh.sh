@@ -429,6 +429,8 @@ printf "%s" "exec i3" > /home/"$USER"/.xinitrc
 
 cat /home/"$USER"/ttysh/resources/bashrc/.bashrc > /home/"$USER"/.bashrc
 
+sudo cat /home/"$USER"/ttysh/resources/x11config/xorg.conf > /etc/X11/xorg.conf
+
 printf "\n%s\n" "Last run" >> /home/"$USER"/.ttyshwizardrun
  
 date >> /home/"$USER"/.ttyshwizardrun
@@ -578,9 +580,9 @@ bookmarkformat () {
 
 formathtml=$(find /home/"$USER"/ -name '*.html' | fzf -i --prompt "Note: if you already have a /home/"$USER"/.bookmarks_ttysh.txt file, it will be overwritten. Pick the html file you want to format: ")
 
-sed 's/\ /\n/g' "$formathtml" | grep "https\?" | cut -d '"' -f2 | grep "https\?" | grep -v "^fake-favicon-uri" | grep -v ".ico$" > /home/"$USER"/.bookmarks_ttysh.text
+sed 's/\ /\n/g' "$formathtml" | grep "https\?" | cut -d '"' -f2 | grep "https\?" | grep -v "^fake-favicon-uri" | grep -v ".ico$" > /home/"$USER"/.bookmarks_ttysh.txt
 
-printf "\n%s\n" "Your /home/"$USER"/.bookmarks_ttysh.txt is now formatted for the 'bo' command"
+printf "\n%s\n" "Your /home/"$USER"/.bookmarks_ttysh.txt is now formatted for the (b) command"
 }
 
 # search the internet
@@ -1923,6 +1925,7 @@ printf "\n%s" ""
 				cat /home/"$USER"/ttysh/resources/bashrc/.bashrc > /home/"$USER"/.bashrc
 				cat /home/"$USER"/ttysh/resources/.Xdefaults > /home/"$USER"/.Xdefaults
 				cat /home/"$USER"/ttysh/resources/newsboatconfig/config > /home/"$USER"/.newsboat/config
+				sudo cat /home/"$USER"/ttysh/resources/x11config/xorg.conf > /etc/X11/xorg.conf
 				printf "\n\n%s\n" "Setting your person toggles..."
 				togglesupdate
 				printf "\n%s\n" "You should now exit TTYSH and reboot your system to complete any new updates."
