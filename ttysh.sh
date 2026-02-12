@@ -706,7 +706,6 @@ while [ 1 ]; do
 			devour mpv "$(find /home/"$USER"/ -type f | fzf -i --prompt "Pick the image you want to view: ")"
 		elif [[ $TERM = "foot" ]]; then
 			mpv "$(find /home/"$USER"/ -type f | fzf -i --prompt "Pick the image you want to view: ")"
-		else
 		fi
 		;;
 		q)
