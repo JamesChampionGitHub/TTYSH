@@ -600,7 +600,7 @@ fi
 # function for fan speed control
 fanspeed () {
 
-		printf "\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n\n" "The following options:" "s for current fan speed" "Type auto for auto speed. Recommeneded" "1-7 for speeds" "e.g. Press 2 for low speed" "Press 4 for medium speed" "Press 7 for high speed" "full for full-speed (Beware!)" "q to quit"
+	printf "\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n\n" "The following options:" "s for current fan speed" "Type auto for auto speed. Recommeneded" "1-7 for speeds" "e.g. Press 2 for low speed" "Press 4 for medium speed" "Press 7 for high speed" "full for full-speed (Beware!)" "q to quit"
 
 while [ 1 ]; do
 
