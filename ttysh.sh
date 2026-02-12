@@ -576,11 +576,11 @@ cmus-remote -Q && printf "\n" ""
 # format bookmarks for fzfbookmark
 bookmarkformat () {
 
-formathtml=$(find /home/"$USER"/ -name '*.html' | fzf -i --prompt "Note: if you already have a /home/"$USER"/.bookmarks_ttysh.html file, it will be overwritten. Pick the html file you want to format: ")
+formathtml=$(find /home/"$USER"/ -name '*.html' | fzf -i --prompt "Note: if you already have a /home/"$USER"/.bookmarks_ttysh.txt file, it will be overwritten. Pick the html file you want to format: ")
 
-sed 's/\ /\n/g' "$formathtml" | grep "https\?" | cut -d '"' -f2 | grep "https\?" | grep -v "^fake-favicon-uri" | grep -v ".ico$" > /home/"$USER"/.bookmarks_ttysh.html
+sed 's/\ /\n/g' "$formathtml" | grep "https\?" | cut -d '"' -f2 | grep "https\?" | grep -v "^fake-favicon-uri" | grep -v ".ico$" > /home/"$USER"/.bookmarks_ttysh.text
 
-printf "\n%s\n" "Your /home/"$USER"/.bookmarks_ttysh.html is now formatted for the 'bo' command"
+printf "\n%s\n" "Your /home/"$USER"/.bookmarks_ttysh.txt is now formatted for the 'bo' command"
 }
 
 # search the internet
@@ -1515,8 +1515,8 @@ printf "\n%s" ""
 		bookmarkformat
 		;;
 		"select a bookmark for web browsing"|b)
-		[[ ! -f /home/"$USER"/.bookmarks_ttysh.html ]] && cat /home/"$USER"/ttysh/resources/bookmarks/.bookmarks_ttysh.html > /home/"$USER"/.bookmarks_ttysh.html
-		bookmarkpick="$(cat /home/"$USER"/.bookmarks_ttysh.html | fzf --prompt "Pick a bookmark: ")"
+		[[ ! -f /home/"$USER"/.bookmarks_ttysh.txt ]] && cat /home/"$USER"/ttysh/resources/bookmarks/.bookmarks_ttysh.txt > /home/"$USER"/.bookmarks_ttysh.txt
+		bookmarkpick="$(cat /home/"$USER"/.bookmarks_ttysh.txt | fzf --prompt "Pick a bookmark: ")"
 		if [[ $TERM  = "linux" ]]; then
 			lynx "$bookmarkpick"
 		elif [[ $TERM = "xterm-256color" ]]; then
