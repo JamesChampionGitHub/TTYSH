@@ -30,7 +30,7 @@ Key: () denote shortcut keys, e.g. (n) means pressing the n key in the selector 
 Note: (f) will run search on this list of programs for you to select.
 
 
-	Internet/
+	Web Browsing/
 
 		(w)eb browser/ 
 
