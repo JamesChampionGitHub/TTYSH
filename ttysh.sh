@@ -583,25 +583,17 @@ sed 's/\ /\n/g' "$formathtml" | grep "https\?" | cut -d '"' -f2 | grep "https\?"
 printf "\n%s\n" "Your /home/"$USER"/.bookmarks_ttysh.html is now formatted for the 'bo' command"
 }
 
-# websearch case statement
-casewebsearch () {
-
-read -e -p "Search: " webpick
-
-devour librewolf search.brave.com/search?q="$webpick"
-}
-
 # search the internet
 websearch () {
 
-printf "\n" ""
+read -e -p "Enter your search: " webpick
 
-if [[ $(tty | tr -d '[0-9]') = "/dev/pts/" ]]; then
-	casewebsearch
-	return
-else
-	read -e -p "Search: " webpick 
+if [[ $TERM = "linux" ]]; then
 	lynx search.brave.com/search?q="$webpick"
+elif [[ $TERM = "xterm-256color" ]]; then
+	devour librewolf search.brave.com/search?q="$webpick"
+elif [[ $TERM = "foot" ]]; then
+	librewolf search.brave.com/search?q="$webpick"
 fi
 }
 
@@ -680,10 +672,12 @@ while [ 1 ]; do
 
 	case "$answer" in
 		s)
-		if [[ $(tty | tr -d '[0-9]') = "/dev/pts/" ]]; then
-			devour mpv "$(find /home/"$USER"/ -type f | fzf -i --prompt "Pick the video you want to watch: ")"
-		else
+		if [[ $TERM = "linux" ]]; then
 			mpv -vo=drm "$(find /home/"$USER"/ -type f | fzf -i --prompt "Pick the video you want to watch: ")"
+		elif [[ $TERM = "xterm-256color" ]]; then
+			devour mpv "$(find /home/"$USER"/ -type f | fzf -i --prompt "Pick the video you want to watch: ")"
+		elif [[ $TERM = "foot" ]]; then
+			devour mpv "$(find /home/"$USER"/ -type f | fzf -i --prompt "Pick the video you want to watch: ")"
 		fi
 		;;
 		q)
