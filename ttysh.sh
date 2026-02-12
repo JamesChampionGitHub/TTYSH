@@ -586,7 +586,7 @@ printf "\n%s\n" "Your /home/"$USER"/.bookmarks_ttysh.html is now formatted for t
 # search the internet
 websearch () {
 
-read -e -p "Enter your search: " webpick
+read -e -p "Enter your web search: " webpick
 
 if [[ $TERM = "linux" ]]; then
 	lynx search.brave.com/search?q="$webpick"
