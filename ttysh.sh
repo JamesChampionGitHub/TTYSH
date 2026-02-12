@@ -753,10 +753,12 @@ while [ 1 ]; do
 
 	case "$answer" in
 		s)
-		if [[ $(tty | tr -d '[0-9]') = "/dev/pts/" ]]; then
-			devour zathura "$(find /home/"$USER"/ -type f | fzf -i --prompt "Pick the pdf you want to view. ESC to exit: ")" 		
-		else 
+		if [[ $TERM = "linux" ]]; then
 			sudo fbpdf "$(find /home/"$USER"/ -type f | fzf -i --prompt "Pick the pdf you want to view. ESC to exit: ")"
+		elif [[ $TERM = "xterm-256color" ]]; then
+			devour zathura "$(find /home/"$USER"/ -type f | fzf -i --prompt "Pick the pdf you want to view. ESC to exit: ")" 		
+		elif [[ $TERM = "foot" ]]; then
+			zathura "$(find /home/"$USER"/ -type f | fzf -i --prompt "Pick the pdf you want to view. ESC to exit: ")" 		
 		fi
 		;;
 		q)
@@ -1515,17 +1517,21 @@ printf "\n%s" ""
 		"select a bookmark for web browsing"|b)
 		[[ ! -f /home/"$USER"/.bookmarks_ttysh.html ]] && cat /home/"$USER"/ttysh/resources/bookmarks/.bookmarks_ttysh.html > /home/"$USER"/.bookmarks_ttysh.html
 		bookmarkpick="$(cat /home/"$USER"/.bookmarks_ttysh.html | fzf --prompt "Pick a bookmark: ")"
-		if [[ $(tty | tr -d '[0-9]')  = "/dev/pts/" ]]; then
-			devour librewolf "$bookmarkpick" 
-		else
+		if [[ $TERM  = "linux" ]]; then
 			lynx "$bookmarkpick"
+		elif [[ $TERM = "xterm-256color" ]]; then
+			devour librewolf "$bookmarkpick" 
+		elif [[ $TERM = "foot" ]]; then
+			librewolf "$bookmarkpick" 
 		fi
 		;;
 		"web browser"|w)
-		if [[ $(tty | tr -d '[0-9]') = "/dev/pts/" ]]; then
-			devour librewolf
-		else
+		if [[ $TERM = "linux" ]]; then
 			lynx
+		elif [[ $TERM = "xterm-256color" ]]; then
+			devour librewolf
+		elif [[ $TERM = "foot" ]]; then
+			librewolf
 		fi
 		;;
 		"ping jameschampion.xyz"|pin)
