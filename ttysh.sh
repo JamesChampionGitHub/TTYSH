@@ -46,9 +46,7 @@ Note: (f) will run search on this list of programs for you to select.
 
 		start (s)way window manager/
 
-		close i(3) and return to tty/
-
-		close swa(y) and return to tty/
+		(cl)ose i3 or sway and return to tty/
 
 	Screen splits/
 
@@ -221,8 +219,7 @@ web search
 format librewolf bookmarks
 start i3 window manager
 start sway window manager
-close i3 and return to tty
-close sway and return to tty
+close i3 or sway and return to tty
 screen four panel split
 screen horizontal split
 screen vertical split
@@ -1613,11 +1610,12 @@ printf "\n%s" ""
 		"stop! first run ttysh as sudo su!: delete timeshift backups from removable drive"|de)
 		maintdelete	
 		;;
-		"close i3 and return to tty"|3)
-		pkill "Xorg"
-		;;
-		"close sway and return to tty"|y)
-		pkill "sway"
+		"close i3 or sway and return to tty"|cl)
+		if [[ $TERM = "foot" ]]; then
+			pkill "sway"
+		else
+			pkill "Xorg"
+		fi
 		;;
 		"AltGr as left mouse click on x11 on old thinkpads"|alt)
 		xkbset m; xmodmap -e "keycode 108 = Pointer_Button1"
