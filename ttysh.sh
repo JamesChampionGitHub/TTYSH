@@ -429,7 +429,7 @@ printf "%s" "exec i3" > /home/"$USER"/.xinitrc
 
 cat /home/"$USER"/ttysh/resources/bashrc/.bashrc > /home/"$USER"/.bashrc
 
-sudo cat /home/"$USER"/ttysh/resources/x11config/xorg.conf > /etc/X11/xorg.conf
+cat /home/"$USER"/ttysh/resources/x11config/xorg.conf | sudo tee /etc/X11/xorg.conf
 
 printf "\n%s\n" "Last run" >> /home/"$USER"/.ttyshwizardrun
  
@@ -1925,7 +1925,8 @@ printf "\n%s" ""
 				cat /home/"$USER"/ttysh/resources/bashrc/.bashrc > /home/"$USER"/.bashrc
 				cat /home/"$USER"/ttysh/resources/.Xdefaults > /home/"$USER"/.Xdefaults
 				cat /home/"$USER"/ttysh/resources/newsboatconfig/config > /home/"$USER"/.newsboat/config
-				sudo cat /home/"$USER"/ttysh/resources/x11config/xorg.conf > /etc/X11/xorg.conf
+				printf "\n\n%s\n" "Setting X11 xorg.conf..."
+				cat /home/"$USER"/ttysh/resources/x11config/xorg.conf | sudo tee /etc/X11/xorg.conf
 				printf "\n\n%s\n" "Setting your person toggles..."
 				togglesupdate
 				printf "\n%s\n" "You should now exit TTYSH and reboot your system to complete any new updates."
