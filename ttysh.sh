@@ -140,11 +140,11 @@ Note: (f) will run search on this list of programs for you to select.
 
 		stop! first run ttysh as sudo su!: (de)lete timeshift backups from removable drive/
 
-		Audio Settings/
+	Audio Settings/
 
-		alsa (au)to setting/
+		(a)udio controls/
 
-		(al)samixer/
+		default (au)dio levels/
 
 	Record/
 
@@ -237,7 +237,6 @@ pause song
 forward song
 status on music
 pick a song
-audio auto setting
 increase volume
 lower volume
 email
@@ -276,7 +275,8 @@ change to tty 6
 choose tty
 font and text change
 set temporary font
-alsamixer
+audio controls
+default audio levels
 network manager
 network manager devices
 ping jameschampion.xyz
@@ -1486,7 +1486,7 @@ printf "\n%s" ""
 		"status on music"|st)
 		cmus-remote -Q | less
 		;;
-		"audio auto setting"|au)
+		"default audio levels"|au)
 		printf "\n%s" ""; amixer -c 0 -- sset Master unmute; amixer -c 0 -- sset Master playback -10dB
 		;;
 		"increase volume"|inc)
@@ -1495,7 +1495,7 @@ printf "\n%s" ""
 		"lower volume"|low)
 		printf "\n%s" ""; amixer sset Master playback 5%-
 		;;
-		"alsamixer"|al)
+		"audio controls"|a)
 		alsamixer
 		;;
 		"video search on youtube"|yo)
