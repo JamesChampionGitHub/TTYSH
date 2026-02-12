@@ -677,7 +677,7 @@ while [ 1 ]; do
 		elif [[ $TERM = "xterm-256color" ]]; then
 			devour mpv "$(find /home/"$USER"/ -type f | fzf -i --prompt "Pick the video you want to watch: ")"
 		elif [[ $TERM = "foot" ]]; then
-			devour mpv "$(find /home/"$USER"/ -type f | fzf -i --prompt "Pick the video you want to watch: ")"
+			mpv "$(find /home/"$USER"/ -type f | fzf -i --prompt "Pick the video you want to watch: ")"
 		fi
 		;;
 		q)
@@ -700,10 +700,13 @@ while [ 1 ]; do
 
 	case "$answer" in
 		s)
-		if [[ $(tty | tr -d '[0-9]') = "/dev/pts/" ]]; then
-			devour mpv "$(find /home/"$USER"/ -type f | fzf -i --prompt "Pick the image you want to view: ")"
-		else
+		if [[ $TERM = "linux" ]]; then
 			mpv -vo=drm "$(find /home/"$USER"/ -type f | fzf -i --prompt "Pick the image you want to view: ")"
+		elif [[ $TERM = "xterm-256color" ]]; then
+			devour mpv "$(find /home/"$USER"/ -type f | fzf -i --prompt "Pick the image you want to view: ")"
+		elif [[ $TERM = "foot" ]]; then
+			mpv "$(find /home/"$USER"/ -type f | fzf -i --prompt "Pick the image you want to view: ")"
+		else
 		fi
 		;;
 		q)
@@ -1520,7 +1523,7 @@ printf "\n%s" ""
 		;;
 		"web browser"|w)
 		if [[ $(tty | tr -d '[0-9]') = "/dev/pts/" ]]; then
-				devour librewolf
+			devour librewolf
 		else
 			lynx
 		fi
