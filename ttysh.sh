@@ -343,7 +343,7 @@ wizardttysh () {
 
 # first, update the system and install needed packages
 
-sudo pacman --noconfirm -Syu \
+sudo pacman --needed --noconfirm -Syu \
 	base-devel \
 	curl \
 	xdo \
@@ -796,14 +796,12 @@ while [ 1 ]; do
 
 	case "$answer" in
 		y)
-		printf "\n%s\n" "Enter the creator and discription: "
-		read -e -p video
+		read -e -p  "Enter the creator and discription: " video
 		printf "\n%s\n"	""
 		yt-dlp -f 'bv*[height=720]+ba' "ytsearch1:""$video"""
 		;;
 		a)
-		printf "\n%s\n" "Enter the creator and discription: "
-		read -e -p video
+		read -e -p  "Enter the creator and discription: " video
 		printf "\n%s\n"	""
 		yt-dlp -f 'bv+ba' "ytsearch1:""$video"""
 		;;
