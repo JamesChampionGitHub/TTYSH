@@ -555,7 +555,6 @@ while [ 1 ]; do
 		break
 		;;
 	esac
-
 done
 }
 
