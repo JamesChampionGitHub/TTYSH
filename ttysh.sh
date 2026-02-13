@@ -686,7 +686,7 @@ while [ 1 ]; do
 done
 }
 
-fzfimage() {
+fzfimage () {
 
 while [ 1 ]; do
 
@@ -861,6 +861,12 @@ while [ 1 ]; do
 done
 
 printf "\n%s\n" "Any music downloaded will be saved in your /home/"$USER"/Music/ folder"
+}
+
+# function for starting up cmus
+startupcmus () {
+
+[[ ! "$(screen -list | grep "cmusdaemon" | cut -d "." -f2 | cut -f1)" ]] && screen -dmS cmusdaemon cmus
 }
 
 # function for creating calender data
@@ -1448,31 +1454,34 @@ printf "\n%s" ""
 
 	case "$answer" in
 		"music player"|m)
-		[[ ! "$(screen -list | grep "cmusdaemon" | cut -d "." -f2 | cut -f1)" ]] && screen -dmS cmusdaemon cmus
+		startupcmus
 		screen -r cmusdaemon
 		;;
-		"cmus with screen"|cmu)
-		;;
 		"next song"|ne)
+		startupcmus
 		cmus-remote -n
 		cmus-remote -Q
 		printf "\n%s\n\n" "The next track is playing."
 		;;
 		"previous song"|pr)
+		startupcmus
 		cmus-remote -r
 		cmus-remote -Q
 		printf "\n%s\n\n" "The previous track is playing."
 		;;
 		"pause song"|p)
+		startupcmus
 		cmus-remote -u
 		cmus-remote -Q
 		printf "\n%s\n\n" "Paused/Playing."
 		;;
 		"forward song"|fo)
+		startupcmus
 		cmus-remote -k +5
 		printf "\n%s\n\n" "Forwarding..."
 		;;
 		"status on music"|st)
+		startupcmus
 		cmus-remote -Q | less
 		;;
 		"default audio levels"|au)
@@ -1996,7 +2005,7 @@ fi
 
 while [ 1 ]; do
 
-[[ ! "$(screen -list | grep "cmusdaemon" | cut -d "." -f2 | cut -f1)" ]] && screen -dmS cmusdaemon cmus
+startupcmus
 
 intro="$(printf "%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s" "select a ttysh program" "find a ttysh program" "run any program" "i3 window manager" "sway window manager" "toggle options" "config wizard" "help" "quit" | fzf --prompt "TTYSH " --layout=reverse --margin 20%)"
 
