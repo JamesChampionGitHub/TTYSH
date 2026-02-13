@@ -385,13 +385,13 @@ git clone https://aur.archlinux.org/yay.git
 cd yay
 makepkg -si --noconfirm
 
-yay -Sua --noconfirm \
+yay -Sua --noconfirm
 	installed=(
-	"devour"
-	"librewolf-bin"
-	"xkbset"
-	"clipman"
-	"fbpdf-git"
+	"devour" 
+	"librewolf-bin" 
+	"xkbset" 
+	"clipman" 
+	"fbpdf-git" 
 	"sc-im"
 	)
 	for i in "${installed[@]}"; do
