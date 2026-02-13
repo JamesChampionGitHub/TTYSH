@@ -148,9 +148,7 @@ Note: (f) will run search on this list of programs for you to select.
 
 		(sc)reenshot(1,2,3,4,5,6) tty/
 
-		(re)cord your tty/s/
-
-		(rec)ord your i3 or sway window manager/
+		(re)cord your desktop
 
 	TTY/
 				
@@ -253,8 +251,7 @@ screenshot tty 3
 screenshot tty 4
 screenshot tty 5
 screenshot tty 6
-record your tty/s
-record your i3 or sway window manager
+record your desktop
 calculator
 calender schedule
 notes and todos 
@@ -1660,26 +1657,20 @@ printf "\n%s" ""
 		screenshotcheck
 		sudo fbgrab -c 6 screenshot6.png
 		;;
-		"record your tty/s"|re)
-		if [[ ! -d /home/"$USER"/Recordings ]]; then
-			mkdir /home/"$USER"/Recordings
-			cd /home/"$USER"/Recordings 
-		else
-			cd /home/"$USER"/Recordings/
-			sudo ffmpeg -f fbdev -framerate 30 -i /dev/fb0 ttyrecord.mp4
-		fi
-		;;
-		"record your i3 or sway window manager"|rec)
+		"record your desktop"|re)
 		[[ ! -d /home/"$USER"/Recordings ]] && mkdir /home/"$USER"/Recordings
 
-		if [[ $TERM = "foot" ]]; then
-			cd /home/"$USER"/Recordings/ 
-			wf-recorder -r 30 -F "scale=1280:720" -f swayrecord.mp4
-		else
+		if [[ $TERM = "linux" ]]; then
+			cd /home/"$USER"/Recordings/
+			sudo ffmpeg -f fbdev -framerate 30 -i /dev/fb0 ttyrecord.mp4
+		elif [[ $TERM = "xterm-256color" ]]; then
 			cd /home/"$USER"/Recordings/
 			ffmpeg -video_size 1280x800 -framerate 30 -f x11grab -i :0 x11record.mp4
+		elif [[ $TERM = "foot" ]]; then
+			cd /home/"$USER"/Recordings/ 
+			wf-recorder -r 30 -F "scale=1280:720" -f swayrecord.mp4
 		fi
-		;;
+		;;	
 		"text editor"|ed)
 		vim
 		;;
