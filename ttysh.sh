@@ -385,14 +385,25 @@ git clone https://aur.archlinux.org/yay.git
 cd yay
 makepkg -si --noconfirm
 
-yay -S --noconfirm \
-	devour \
-	librewolf-bin \
-	arkenfox-user.js \
-	xkbset \
-	clipman \
-	fbpdf-git \
-	sc-im
+yay -Sua --noconfirm \
+	installed=(
+	"devour"
+	"librewolf-bin"
+	"xkbset"
+	"clipman"
+	"fbpdf-git"
+	"sc-im"
+	)
+	for i in "${installed[@]}"; do
+			
+		if [[ ! "$(pacman -Qm | grep -i "$i")" ]]; then
+			echo ""$i" not installed"
+			echo "now installing... "$i""
+			yay -S --noconfirm "$i"
+		else
+			echo ""$i" already installed"
+		fi	
+	done
 
 # make the following configurations:
 
@@ -1894,7 +1905,6 @@ printf "\n%s" ""
 				installed=(
 				"devour"
 				"librewolf-bin"
-				"arkenfox-user.js"
 				"xkbset"
 				"clipman"
 				"fbpdf-git"
