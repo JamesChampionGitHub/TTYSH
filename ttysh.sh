@@ -186,9 +186,9 @@ Note: (f) will run search on this list of programs for you to select.
 
 		(sto)pwatch/
 
-		(lo)ck the screen/
-
 		(alt)Gr as left mouse click on x11 on thinkpads/
+
+		(lo)ck the screen/
 
 		(res)tart/
 
@@ -279,8 +279,8 @@ computer temperatures
 free disk space
 clock
 stopwatch
-lock the screen
 AltGr as left mouse click on x11 on old thinkpads
+lock the screen
 restart
 shutdown
 rerun ttysh
@@ -395,7 +395,6 @@ yay -Sua --noconfirm
 	"sc-im"
 	)
 	for i in "${installed[@]}"; do
-			
 		if [[ ! "$(pacman -Qm | grep -i "$i")" ]]; then
 			echo ""$i" not installed"
 			echo "now installing... "$i""
@@ -1911,7 +1910,6 @@ printf "\n%s" ""
 				"sc-im"
 				)
 				for i in "${installed[@]}"; do
-				
 					if [[ ! "$(pacman -Qm | grep -i "$i")" ]]; then
 						echo ""$i" not installed"
 						echo "now installing... "$i""
