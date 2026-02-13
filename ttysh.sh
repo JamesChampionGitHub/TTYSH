@@ -325,12 +325,6 @@ else
 fi
 }
 
-# function for shortcuts selection 
-ttyshhelp () {
-
-less /home/"$USER"/ttysh/resources/.ttysh.selection 
-}
-
 # function for TTYSH configuration
 wizardttysh () {
 
