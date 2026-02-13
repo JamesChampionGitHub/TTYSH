@@ -144,7 +144,7 @@ Note: (f) will run search on this list of programs for you to select.
 
 		default (au)dio levels/
 
-	Record/
+	Recording/
 
 		(sc)reenshot(1,2,3,4,5,6) tty/
 
