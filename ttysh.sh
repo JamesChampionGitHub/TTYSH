@@ -66,7 +66,7 @@ Note: (f) will run search on this list of programs for you to select.
 			
 		video search on (yo)utube/
 
-		search & play (v)ideo in tty/i3/sway/
+		search & play (v)ideo/
 
 	Images/
 	
@@ -220,7 +220,7 @@ screen four panel split
 screen horizontal split
 screen vertical split
 video search on youtube
-search & play video in tty i3 sway
+search & play video 
 search & view images
 music search on youtube
 music player 
@@ -1587,7 +1587,7 @@ printf "\n%s" ""
 		"file manager"|fi)
 		vim /home/"$USER"/
 		;;
-		"search & play video in tty i3 sway"|v)
+		"search & play video"|v)
 		fzfvid	
 		;;
 		"search & view images"|im)
