@@ -106,11 +106,9 @@ Note: (f) will run search on this list of programs for you to select.
 
 	Accessories/
 
-		calender (sch)edule/ 
+		(cal)ender/ 
 
-		(n)otes and todos/ 
-
-		(d)ate & calender/
+		(n)otes/ 
 
 		(we)ather/
 
@@ -259,9 +257,8 @@ screenshot tty 5
 screenshot tty 6
 record your desktop
 calculator
-calender schedule
-notes and todos 
-date & calender
+calender
+notes
 weather
 scrollback information for tty
 change to tty 1
@@ -1607,20 +1604,14 @@ printf "\n%s" ""
 		"ping jameschampion.xyz"|pin)
 		ping -c 3 jameschampion.xyz
 		;;
-		"calender schedule"|sch)
-		calenderschedule
+		"calender"|cal)
+		calcurse
 		;;
-		"notes and todos"|n)
+		"notes"|n)
 		vim /home/"$USER"/.notes.txt
 		;;
 		"mutt email configuation"|mu)
 		screen -c /home/"$USER"/ttysh/resources/.screenrc.mutt_conf
-		;;
-		"date & calender"|d)
-		printf "\n%s\n"
-		cal
-		date
-		printf "\n%s\n"
 		;;
 		"clock"|c)
 		screen -c /home/"$USER"/ttysh/resources/.screenrc.clockworking
