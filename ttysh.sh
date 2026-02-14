@@ -371,6 +371,8 @@ sudo pacman --needed --noconfirm -Syu \
 	networkmanager \
 	noto-fonts \
 	noto-fonts-emoji \
+	noto-fonts-cjk \
+	noto-fonts-exta \
 	i3lock \
 	swaylock \
 	terminus-font
@@ -1897,6 +1899,8 @@ printf "\n%s" ""
 					networkmanager \
 					noto-fonts \
 					noto-fonts-emoji \
+					noto-fonts-cjk \
+					noto-fonts-extra \
 					i3lock \
 					swaylock \
 					terminus-font
