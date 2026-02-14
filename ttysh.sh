@@ -160,6 +160,12 @@ Note: (f) will run search on this list of programs for you to select.
 
 		*NOTE: cannot use this selection in screen split. Use alt+number or alt+arrow key instead
 
+	Manage Packages/Programs/
+
+		(u)pdate the system/
+
+		(ma)nage packages and programs
+
 	System/Utilities/
 
 		(fon)t and text change in tty/
@@ -265,6 +271,8 @@ change to tty 4
 change to tty 5
 change to tty 6
 choose tty
+update the system
+manage packages and programs
 font and text change in tty
 set temporary font in tty
 audio controls
@@ -273,7 +281,6 @@ network manager
 network manager devices
 ping jameschampion.xyz
 fan control on thinkpads
-update the system
 system monitor
 computer temperatures
 free disk space
@@ -564,10 +571,58 @@ while [ 1 ]; do
 done
 }
 
-#
-# functions for fzf
-#
+# package management
+pacmanage () {
 
+while [ 1 ]; do
+
+	packname () {
+
+	read -ep "name of package/program: " package
+	}
+
+	printf "\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n" "(i)nstall a package/program" "(r)emove a package/program" "(l)ook up a package/program" "(in)stall an aur package/program" "(re)move an aur/package/program" "(lo)ok up an aur package/program" "(q)uit"
+
+	read -ep "choose your option : " option
+
+	case "$option" in
+	
+	i)
+	# install package
+	packname
+	sudo pacman -Syu "$(pacman -Ss "$package" | grep "[0-9]" | fzf --reverse | cut -d " " -f1 | cut -d "/" -f2)"
+	;;
+	r)
+	# remove package
+	packname
+	sudo pacman -Rns "$(pacman -Ss "$package" | grep -i "installed" | grep "[0-9]" | fzf --reverse | cut -d " " -f1 | cut -d "/" -f2)"
+	;;
+	l)
+	packname
+	# look up packages
+	pacman -Ss "$package" | less
+	;;
+	in)
+	packname
+	# install aur package
+	yay -Syu "$(yay -Ss "$package" | grep -i "aur" | grep "[0-9]" | fzf --reverse | cut -d " " -f1 | cut -d "/" -f2)"
+	;;
+	re)
+	packname
+	# remove aur package
+	yay -Rns "$(yay -Ss "$package" | grep -i "aur" | grep -i "installed" | grep "[0-9]" | fzf --reverse | cut -d " " -f1 | cut -d "/" -f2)"
+	;;
+	lo)
+	packname
+	# look up aur packages
+	yay -Ss "$package" | grep -i "aur" | less
+	;;
+	q)
+	break
+	;;
+	esac
+done
+}
 
 # pick music track to play in cmus remotely
 fzfcmus () {
@@ -1951,6 +2006,9 @@ printf "\n%s" ""
 				;;
 			esac
 		done
+		;;
+		"manage packages and programs"|ma)
+		pacmanage
 		;;
 		"font and text change in tty"|fon)
 		sudo screen -c /home/"$USER"/ttysh/resources/.screenrc.font_conf
