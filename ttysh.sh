@@ -370,6 +370,7 @@ sudo pacman --needed --noconfirm -Syu \
 	git \
 	networkmanager \
 	noto-fonts \
+	noto-fonts-emoji \
 	i3lock \
 	swaylock \
 	terminus-font
@@ -1895,6 +1896,7 @@ printf "\n%s" ""
 					git \
 					networkmanager \
 					noto-fonts \
+					noto-fonts-emoji \
 					i3lock \
 					swaylock \
 					terminus-font
