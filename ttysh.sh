@@ -580,7 +580,7 @@ while [ 1 ]; do
 	read -ep "name of package/program: " package
 	}
 
-	printf "\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n" "(i)nstall a package/program" "(r)emove a package/program" "(l)ook up a package/program" "(in)stall an aur package/program" "(re)move an aur/package/program" "(lo)ok up an aur package/program" "(q)uit"
+printf "\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n" "(i)nstall a package/program" "(r)emove a package/program" "(l)ook up a package/program" "(in)stall an aur package/program" "(re)move an aur/package/program" "(lo)ok up an aur package/program" "(e)mpty package manager cache" "(q)uit"
 
 	read -ep "choose your option : " option
 
@@ -615,6 +615,9 @@ while [ 1 ]; do
 	packname
 	# look up aur packages
 	yay -Ss "$package" | grep -i "aur" | less
+	;;
+	e)
+	sudo pacman -Sc
 	;;
 	q)
 	break
