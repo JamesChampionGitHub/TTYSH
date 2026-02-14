@@ -396,6 +396,7 @@ makepkg -si --noconfirm
 yay -Sua --noconfirm
 	installed=(
 	"devour" 
+	"swayhide"
 	"librewolf-bin" 
 	"xkbset" 
 	"clipman" 
@@ -652,7 +653,7 @@ if [[ $TERM = "linux" ]]; then
 elif [[ $TERM = "xterm-256color" ]]; then
 	devour librewolf search.brave.com/search?q="$webpick"
 elif [[ $TERM = "foot" ]]; then
-	librewolf search.brave.com/search?q="$webpick"
+	swayhide librewolf search.brave.com/search?q="$webpick"
 fi
 }
 
@@ -736,7 +737,7 @@ while [ 1 ]; do
 		elif [[ $TERM = "xterm-256color" ]]; then
 			devour mpv "$(find /home/"$USER"/ -type f | fzf -i --prompt "Pick the video you want to watch: ")"
 		elif [[ $TERM = "foot" ]]; then
-			mpv "$(find /home/"$USER"/ -type f | fzf -i --prompt "Pick the video you want to watch: ")"
+			swayhide mpv "$(find /home/"$USER"/ -type f | fzf -i --prompt "Pick the video you want to watch: ")"
 		fi
 		;;
 		q)
@@ -764,7 +765,7 @@ while [ 1 ]; do
 		elif [[ $TERM = "xterm-256color" ]]; then
 			devour mpv "$(find /home/"$USER"/ -type f | fzf -i --prompt "Pick the image you want to view: ")"
 		elif [[ $TERM = "foot" ]]; then
-			mpv "$(find /home/"$USER"/ -type f | fzf -i --prompt "Pick the image you want to view: ")"
+			swayhide mpv "$(find /home/"$USER"/ -type f | fzf -i --prompt "Pick the image you want to view: ")"
 		fi
 		;;
 		q)
@@ -816,7 +817,7 @@ while [ 1 ]; do
 		elif [[ $TERM = "xterm-256color" ]]; then
 			devour zathura "$(find /home/"$USER"/ -type f | fzf -i --prompt "Pick the pdf you want to view. ESC to exit: ")" 		
 		elif [[ $TERM = "foot" ]]; then
-			zathura "$(find /home/"$USER"/ -type f | fzf -i --prompt "Pick the pdf you want to view. ESC to exit: ")" 		
+			swayhide zathura "$(find /home/"$USER"/ -type f | fzf -i --prompt "Pick the pdf you want to view. ESC to exit: ")" 		
 		fi
 		;;
 		q)
@@ -1536,7 +1537,7 @@ printf "\n%s" ""
 		elif [[ $TERM = "xterm-256color" ]]; then
 			devour librewolf "$bookmarkpick" 
 		elif [[ $TERM = "foot" ]]; then
-			librewolf "$bookmarkpick" 
+			swayhide librewolf "$bookmarkpick" 
 		fi
 		;;
 		"web browser"|w)
@@ -1545,7 +1546,7 @@ printf "\n%s" ""
 		elif [[ $TERM = "xterm-256color" ]]; then
 			devour librewolf
 		elif [[ $TERM = "foot" ]]; then
-			librewolf
+			swayhide librewolf
 		fi
 		;;
 		"ping jameschampion.xyz"|pin)
@@ -1903,6 +1904,7 @@ printf "\n%s" ""
 				yay -Sua
 				installed=(
 				"devour"
+				"swayhide"
 				"librewolf-bin"
 				"xkbset"
 				"clipman"
