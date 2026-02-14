@@ -379,6 +379,7 @@ sudo pacman --needed --noconfirm -Syu \
 	noto-fonts-exta \
 	i3lock \
 	swaylock \
+	calcurse \
 	terminus-font
 
 # enable and start network manager service
@@ -437,7 +438,7 @@ printf "%s" "exec i3" > /home/"$USER"/.xinitrc
 
 cat /home/"$USER"/ttysh/resources/bashrc/.bashrc > /home/"$USER"/.bashrc
 
-cat /home/"$USER"/ttysh/resources/x11config/xorg.conf | sudo tee /etc/X11/xorg.conf
+cat /home/"$USER"/ttysh/resources/x11config/xorg.conf | sudo tee /etc/X11/xorg.conf >/dev/null
 
 printf "\n%s\n" "Last run" >> /home/"$USER"/.ttyshwizardrun
  
@@ -1895,6 +1896,7 @@ printf "\n%s" ""
 					noto-fonts-extra \
 					i3lock \
 					swaylock \
+					calcurse \
 					terminus-font
 
 				printf "\n\n%s\n" "Updating the Arch Linux AUR..."
@@ -1927,7 +1929,7 @@ printf "\n%s" ""
 				cat /home/"$USER"/ttysh/resources/.Xdefaults > /home/"$USER"/.Xdefaults
 				cat /home/"$USER"/ttysh/resources/newsboatconfig/config > /home/"$USER"/.newsboat/config
 				printf "\n\n%s\n" "Setting X11 xorg.conf..."
-				cat /home/"$USER"/ttysh/resources/x11config/xorg.conf | sudo tee /etc/X11/xorg.conf
+				cat /home/"$USER"/ttysh/resources/x11config/xorg.conf | sudo tee /etc/X11/xorg.conf >/dev/null
 				printf "\n\n%s\n" "Setting your person toggles..."
 				togglesupdate
 				printf "\n%s\n" "You should now exit TTYSH and reboot your system to complete any new updates."
