@@ -931,60 +931,6 @@ startupcmus () {
 [[ ! "$(screen -list | grep "cmusdaemon" | cut -d "." -f2 | cut -f1)" ]] && screen -dmS cmusdaemon cmus && printf "\n%s\n\n" "starting up cmus daemon..." && sleep 1
 }
 
-# function for creating calender data
-calenderdata () {
-
-printf "\n%s\n" "Set your start date, e.g. 2024-01-01"
-
-read -e -p "Enter your start date: " startd
-
-printf "\n%s\n" "Set your end date, e.g. 2024-12-31"
-
-read -e -p "Enter your end date: " endd
-
-printf "\n%s\n" "Running... Please wait..."
-
-d=
-n=0
-
-until [ "$d" = $endd ]; do
-
-	n=$((n+1))
-	d=$(date +%Y-%m-%d --date "$startd + $n day")
-	echo "$d" | tr '-' ' ' | awk '{print $3, $2, $1}' | tr ' ' '-' >> /home/"$USER"/."$(date +%Y)"calenderdatafile
-done
-}
-
-# function for calender schedule
-calenderschedule () {
-
-[[ ! -f /home/"$USER"/.*calenderdatafile ]] && printf "\n%s\n" "Set up your calender data: " && calenderdata && echo "Calender made. Fill in your calender at /home/"$USER"/.*calenderdata and run this selection again or continue with the option to edit your calender." 
-
-printf "\n%s\n\n" "Your Calender Schedule For Today: "
-
-grep -C 15 ""^$(date +%d-%m-%Y)"" /home/"$USER"/.*calenderdatafile | less
-
-printf "\n%s\n" "Do you want to edit your calender? y/n"
-
-while [ 1 ]; do
-
-	read -e -p "Enter your selection: " cpick
-
-	case "$cpick" in
-		y)
-		vim /home/"$USER"/.*calenderdatafile
-		grep -C 15 ""^$(date +%d-%m-%Y)"" /home/"$USER"/.*calenderdatafile | less
-		printf "\n%s\n" "Do you want to edit your calender again? y/n"
-		;;
-		n)
-		break
-		;;
-		*)
-		printf "\n%s\n\n" "Not a valid selection"
-	esac
-done
-}
-
 # function for searching weather in wttr.in
 weather () {
 
