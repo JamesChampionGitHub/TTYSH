@@ -873,7 +873,7 @@ printf "\n%s\n" "Any music downloaded will be saved in your /home/"$USER"/Music/
 # function for starting up cmus
 startupcmus () {
 
-[[ ! "$(screen -list | grep "cmusdaemon" | cut -d "." -f2 | cut -f1)" ]] && screen -dmS cmusdaemon cmus && printf "\n%s\n" "starting up cmus daemon..." && sleep 1
+[[ ! "$(screen -list | grep "cmusdaemon" | cut -d "." -f2 | cut -f1)" ]] && screen -dmS cmusdaemon cmus && printf "\n%s\n\n" "starting up cmus daemon..." && sleep 1
 }
 
 # function for creating calender data
