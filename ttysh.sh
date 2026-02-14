@@ -896,7 +896,7 @@ fi
 
 while [ 1 ]; do
 
-	printf "\n%s\n"	"sm to enter creator and title. m to download music url from xclip. ytm to run again. q to quit."
+	printf "\n%s\n%s\n%s\n%s\n"	"sm to enter creator and title" "m to download music url from xclip" "ytm to run again" "q to quit"
 
 	read -e -p "Enter your selection: " answer
 
