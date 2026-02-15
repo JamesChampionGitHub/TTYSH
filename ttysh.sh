@@ -912,8 +912,7 @@ while [ 1 ]; do
 
 	case "$answer" in
 		sm)
-		printf "\n%s\n" "Enter music creator and title: "
-		read -e -p music
+		read -e -p "Enter music creator and title: "music
 		yt-dlp -f 'ba' -x --audio-format mp3 "ytsearch1:""$music"""
 		;;
 		m)
