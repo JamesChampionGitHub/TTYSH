@@ -429,6 +429,8 @@ cat /home/"$USER"/ttysh/resources/.Xdefaults >> /home/"$USER"/.Xdefaults
 
 printf "%s" "exec i3" > /home/"$USER"/.xinitrc
 
+[[ ! -d /home/"$USER"/.config/vim ]] && mkdir -p /home/"$USER"/.config/vim && cat /home/"$USER"/ttysh/resources/vimconfig/.vimrc > /home/"$USER"/.config/vim/.vimrc
+
 [[ ! -d /home/"$USER"/.config/i3 ]] && mkdir -p /home/"$USER"/.config/i3 && cat /home/"$USER"/ttysh/resources/i3config/config > /home/"$USER"/.config/i3/config
 
 [[ ! -d /home/"$USER"/.config/sway ]] && mkdir -p /home/"$USER"/.config/sway && cat /home/"$USER"/ttysh/resources/swayconfig/config > /home/"$USER"/.config/sway/config
