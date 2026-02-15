@@ -1,0 +1,13 @@
+set folder = "imaps://"
+set smtp_url = "smtp://"
+
+set from = ""
+set realname = ""
+set editor = "vim"
+
+set spoolfile = "+INBOX"
+set record = "+Sent"
+set trash = "+Trash"
+set postponed = "+Drafts"
+
+mailboxes =INBOX =Sent =Trash =Drafts =Junk

@@ -415,31 +415,39 @@ yay -Sua --noconfirm
 
 # make the following configurations:
 
-[[ ! -f /home/"$USER"/.config/mpv.conf ]] && mkdir -p /home/"$USER"/.config/mpv && printf "%b" '--image-display-duration=1000' > /home/"$USER"/.config/mpv/mpv.conf
-
-printf "%s\n" "NOTES" > /home/"$USER"/.notes.txt
-
-[[ ! -d /home/"$USER"/.newsboat ]] && mkdir -p /home/"$USER"/.newsboat && echo 'https://www.youtube.com/feeds/videos.xml?channel_id=UCeFnqXMczw4BDCoJHr5dBjg "~James Champion (Youtube)"' > /home/"$USER"/.newsboat/urls && cat /home/"$USER"/ttysh/resources/newboatconfig/config > /home/"$USER"/.newsboat/config
-
-mkdir -p /home/"$USER"/.config/mutt/ && touch /home/"$USER"/.config/mutt/muttrc
-
-printf "%b\n%b\n\n%b\n%b\n%b\n\n%b\n%b\n%b\n%b\n\n%b" 'set folder = "imaps://"' 'set smtp_url = "smtp://"' 'set from = ""' 'set realname = ""' 'set editor = "vim"' 'set spoolfile = "+INBOX"' 'set record = "+Sent"' 'set trash = "+Trash"' 'set postponed = "+Drafts"' 'mailboxes =INBOX =Sent =Trash =Drafts =Junk' > /home/"$USER"/.config/mutt/muttrc
-
 cat /home/"$USER"/ttysh/resources/.Xdefaults >> /home/"$USER"/.Xdefaults
 
 printf "%s" "exec i3" > /home/"$USER"/.xinitrc
 
-[[ ! -d /home/"$USER"/.config/vim ]] && mkdir -p /home/"$USER"/.config/vim && cat /home/"$USER"/ttysh/resources/vimconfig/.vimrc > /home/"$USER"/.config/vim/.vimrc
-
-[[ ! -d /home/"$USER"/.config/i3 ]] && mkdir -p /home/"$USER"/.config/i3 && cat /home/"$USER"/ttysh/resources/i3config/config > /home/"$USER"/.config/i3/config
-
-[[ ! -d /home/"$USER"/.config/sway ]] && mkdir -p /home/"$USER"/.config/sway && cat /home/"$USER"/ttysh/resources/swayconfig/config > /home/"$USER"/.config/sway/config
-
-[[ ! -d /home/"$USER"/.config/foot ]] && mkdir -p /home/"$USER"/.config/foot && cat /home/"$USER"/ttysh/resources/footconfig/foot.ini > /home/"$USER"/.config/foot/foot.ini
-
-[[ ! -d /home/"$USER"/.config/ttysh ]] && mkdir -p /home/"$USER"/.config/ttysh && cat /home/"$USER"/ttysh/resources/ttyshconfig/config > /home/"$USER"/.config/ttysh/config
-
 cat /home/"$USER"/ttysh/resources/bashrc/.bashrc > /home/"$USER"/.bashrc
+
+[[ ! -d /home/"$USER"/.config/mpv ]] && mkdir -p /home/"$USER"/.config/mpv
+cat /home/"$USER"/ttysh/resources/mpvconfig/mpv.conf > /home/"$USER"/.config/mpv/mpv.conf
+cat /home/"$USER"/ttysh/resources/mpvconfig/input.conf > /home/"$USER"/.config/mpv/input.conf
+
+[[ ! -d /home/"$USER"/.newsboat ]] && mkdir -p /home/"$USER"/.newsboat
+cat /home/"$USER"/ttysh/resources/newsboatconfig/urls > /home/"$USER"/.newsboat/urls
+cat /home/"$USER"/ttysh/resources/newboatconfig/config > /home/"$USER"/.newsboat/config
+
+[[ ! -d /home/"$USER"/.config/mutt ]] && mkdir -p /home/"$USER"/.config/mutt
+cat /home/"$USER"/ttysh/resources/muttconfig/muttrc > /home/"$USER"/.config/mutt/muttrc
+
+[[ ! -d /home/"$USER"/.config/vim ]] && mkdir -p /home/"$USER"/.config/vim
+cat /home/"$USER"/ttysh/resources/vimconfig/.vimrc > /home/"$USER"/.config/vim/.vimrc
+
+[[ ! -d /home/"$USER"/.config/i3 ]] && mkdir -p /home/"$USER"/.config/i3
+cat /home/"$USER"/ttysh/resources/i3config/config > /home/"$USER"/.config/i3/config
+
+[[ ! -d /home/"$USER"/.config/sway ]] && mkdir -p /home/"$USER"/.config/sway
+cat /home/"$USER"/ttysh/resources/swayconfig/config > /home/"$USER"/.config/sway/config
+
+[[ ! -d /home/"$USER"/.config/foot ]] && mkdir -p /home/"$USER"/.config/foot
+cat /home/"$USER"/ttysh/resources/footconfig/foot.ini > /home/"$USER"/.config/foot/foot.ini
+
+[[ ! -d /home/"$USER"/.config/ttysh ]] && mkdir -p /home/"$USER"/.config/ttysh
+cat /home/"$USER"/ttysh/resources/ttyshconfig/config > /home/"$USER"/.config/ttysh/config
+
+printf "%s\n\n" "NOTES" > /home/"$USER"/.notes.txt
 
 cat /home/"$USER"/ttysh/resources/x11config/xorg.conf | sudo tee /etc/X11/xorg.conf >/dev/null
 
