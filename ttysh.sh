@@ -296,9 +296,9 @@ EOF
 # $1 arguments selection list
 helpflags () {
 
-options=$(printf "\n%s\n" "eofhelp fzfcmus websearch fzfxorgvid fzfttyvid fzfvim fzfpdf yt ytmusic weather" |
+options="$(printf "\n%s\n" "eofhelp fzfcmus websearch fzfxorgvid fzfttyvid fzfvim fzfpdf yt ytmusic weather" |
        	tr ' ' '\n' |
-       	fzf -i --prompt "Pick the option that you would like: ")
+       	fzf -i --prompt "Pick the option that you would like: ")"
 
 "$options"
 }
@@ -645,7 +645,7 @@ done
 # pick music track to play in cmus remotely
 fzfcmus () {
 
-cmuspicker=$(find /home/"$USER"/Music/starred/ -type f | fzf -i --prompt "Pick the music track you want to play in cmus: ") 
+cmuspicker="$(find /home/"$USER"/Music/starred/ -type f | fzf -i --prompt "Pick the music track you want to play in cmus: ")"
 
 cmus-remote -f "$cmuspicker"
 
@@ -655,7 +655,7 @@ cmus-remote -Q && printf "\n" ""
 # format bookmarks for fzfbookmark
 bookmarkformat () {
 
-formathtml=$(find /home/"$USER"/ -name '*.html' | fzf -i --prompt "Note: if you already have a /home/"$USER"/.bookmarks_ttysh.txt file, it will be overwritten. Pick the html file you want to format: ")
+formathtml="$(find /home/"$USER"/ -name '*.html' | fzf -i --prompt "Note: if you already have a /home/"$USER"/.bookmarks_ttysh.txt file, it will be overwritten. Pick the html file you want to format: ")"
 
 sed 's/\ /\n/g' "$formathtml" | grep "https\?" | cut -d '"' -f2 | grep "https\?" | grep -v "^fake-favicon-uri" | grep -v ".ico$" > /home/"$USER"/.bookmarks_ttysh.txt
 
@@ -879,7 +879,7 @@ while [ 1 ]; do
 		yt-dlp -f 'bv+ba' "ytsearch1:""$video"""
 		;;
 		x)
-		url=$(xclip -o)
+		url="$(xclip -o)"
 		yt-dlp -f 'bv*[height=720]+ba' "$url"
 		;;
 		b)
@@ -926,7 +926,7 @@ while [ 1 ]; do
 		yt-dlp -f 'ba' -x --audio-format mp3 "ytsearch1:""$music"""
 		;;
 		m)
-		url=$(xclip -o)
+		url="$(xclip -o)"
 		yt-dlp -f 'ba' -x --audio-format mp3 "$url"
 		;;
 		ytm)
@@ -1120,12 +1120,12 @@ starttimeshift () {
 
 # timeshift
 # find uuid
-tdrive=$(cat /home/"$SUDO_USER"/.uuidtimeshift)
-tuuid=$(echo "$tdrive")
-tdevname=$(ls /dev/disk/by-uuid/ -l | grep "$tuuid" | awk '{print $11}' | tr -d /.)
+tdrive="$(cat /home/"$SUDO_USER"/.uuidtimeshift)"
+tuuid="$(echo "$tdrive")"
+tdevname="$(ls /dev/disk/by-uuid/ -l | grep "$tuuid" | awk '{print $11}' | tr -d /.)"
 tencryptedname="timeshiftbackup"
-tunmounting=$(lsblk | grep "$tencryptedname" | awk '{print $7}')
-lstdevname=$(ls /dev/disk/by-uuid -l | grep "$tuuid")
+tunmounting="$(lsblk | grep "$tencryptedname" | awk '{print $7}')"
+lstdevname="$(ls /dev/disk/by-uuid -l | grep "$tuuid")"
 
 printf "\n%s\n" ""
 
@@ -1233,7 +1233,7 @@ while [ 1 ]; do
 	case "$answer" in 
 		d)
 		read -e -p "Enter the line number matching the backup you want to delete: " delete
-		tdelete=$(timeshift --list | grep -i -m 1 "^"$delete"" | awk '{print $3}')
+		tdelete="$(timeshift --list | grep -i -m 1 "^"$delete"" | awk '{print $3}')"
 		timeshift --delete --snapshot "$tdelete"
 		;;
 		q)
@@ -1253,12 +1253,12 @@ sudocheck
 
 # timeshift
 # find uuid
-tdrive=$(cat /home/"$SUDO_USER"/.uuidtimeshift)
-tuuid=$(echo "$tdrive")
-tdevname=$(ls /dev/disk/by-uuid/ -l | grep "$tuuid" | awk '{print $11}' | tr -d /.)
+tdrive="$(cat /home/"$SUDO_USER"/.uuidtimeshift)"
+tuuid="$(echo "$tdrive")"
+tdevname="$(ls /dev/disk/by-uuid/ -l | grep "$tuuid" | awk '{print $11}' | tr -d /.)"
 tencryptedname="timeshiftbackup"
-tunmounting=$(lsblk | grep "$tencryptedname" | awk '{print $7}')
-lstdevname=$(ls /dev/disk/by-uuid -l | grep "$tuuid")
+tunmounting="$(lsblk | grep "$tencryptedname" | awk '{print $7}')"
+lstdevname="$(ls /dev/disk/by-uuid -l | grep "$tuuid")"
 
 printf "\n%s\n" "Looking for "$tdrive"..."
 
@@ -1284,12 +1284,12 @@ sudocheck
 
 # timeshift
 # find uuid
-tdrive=$(cat /home/"$SUDO_USER"/.uuidtimeshift)
-tuuid=$(echo "$tdrive")
-tdevname=$(ls /dev/disk/by-uuid/ -l | grep "$tuuid" | awk '{print $11}' | tr -d /.)
+tdrive="$(cat /home/"$SUDO_USER"/.uuidtimeshift)"
+tuuid="$(echo "$tdrive")"
+tdevname="$(ls /dev/disk/by-uuid/ -l | grep "$tuuid" | awk '{print $11}' | tr -d /.)"
 tencryptedname="timeshiftbackup"
-tunmounting=$(lsblk | grep "$tencryptedname" | awk '{print $7}')
-lstdevname=$(ls /dev/disk/by-uuid -l | grep "$tuuid")
+tunmounting="$(lsblk | grep "$tencryptedname" | awk '{print $7}')"
+lstdevname="$(ls /dev/disk/by-uuid -l | grep "$tuuid")"
 
 printf "\n%s\n" "Looking for "$tdrive"..."
 
@@ -1311,10 +1311,10 @@ filebackup () {
 sudocheck
 
 # find uuid variables
-bdrive=$(cat /home/"$SUDO_USER"/.uuidfiles)
-buuid=$(echo "$bdrive")
-bdevname=$(ls /dev/disk/by-uuid/ -l | grep "$buuid" | cut -d "/" -f3)
-lsbdevname=$(ls /dev/disk/by-uuid -l | grep "$buuid")
+bdrive="$(cat /home/"$SUDO_USER"/.uuidfiles)"
+buuid="$(echo "$bdrive")"
+bdevname="$(ls /dev/disk/by-uuid/ -l | grep "$buuid" | cut -d "/" -f3)"
+lsbdevname="$(ls /dev/disk/by-uuid -l | grep "$buuid")"
 
 printf "\n%s\n" "Looking for "$bdrive"..."
 
@@ -1528,13 +1528,13 @@ printf "\n%s" ""
 		screen -c /home/"$USER"/ttysh/resources/.screenrc.clockworking
 		;;
 		"stopwatch"|sto)
-		before=$(date +%s)
+		before="$(date +%s)"
 
 		printf "\n\n"
 
 		while [ 1 ]; do
 
-        	minutes=$(($(date +%s)-$before))
+        	minutes="$(($(date +%s)-$before))"
         	printf "\033[A"
         	echo "Seconds: $(($(date +%s)-$before)) - Minutes: $(($minutes/60)) - Hours: $(($minutes/3600))"
         	sleep 1
@@ -1968,7 +1968,7 @@ else
 	esac
 fi
 
-[[ "$1" ]] && options=$(printf "%s" "fzfcmus websearch fzfxorgvid fzfttyvid fzfvim fzfpdf yt ytmusic weather helpflags" | tr ' ' '\n' | grep "$1") && "$options"
+[[ "$1" ]] && options="$(printf "%s" "fzfcmus websearch fzfxorgvid fzfttyvid fzfvim fzfpdf yt ytmusic weather helpflags" | tr ' ' '\n' | grep "$1")" && "$options"
 
 [[ ! "$(screen -list | grep "cmusdaemon" | cut -d "." -f2 | cut -f1)" ]] && screen -dmS cmusdaemon cmus
 
