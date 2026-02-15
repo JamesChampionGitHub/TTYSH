@@ -1378,61 +1378,6 @@ else
 fi
 }
 
-# date
-planner () {
-
-printf "\n%s\n\n" "The time and date is:"
-
-date
-
-# calender
-printf "\n%s\n\n" "This month's calender:"
-
-cal
-
-printf "\n%s\n" "press q when ready..." | less
-
-calenderschedule
-
-# cat out notes/todo
-printf "\n%s\n" ""
-
-less /home/"$USER"/.notes.txt 
-
-printf "\n%s\n" "Do you want to edit your notes? y/n"
-
-while [ 1 ]; do
-
-	read -e -p "Enter your selection: " npick
-
-	case "$npick" in
-		y)
-		vim /home/"$USER"/.notes.txt
-		less /home/"$USER"/.notes.txt 
-		printf "\n%s\n" "Do you want to edit your notes again? y/n"
-		;;
-		n)
-		break
-		;;
-		*)
-		printf "\n%s\n\n" "Not a valid selection"
-	esac
-done
-
-# weather function
-weather
-
-# rss
-cd /home/"$USER"/Videos
-newsboat
-cd /home/"$USER"/
-
-printf "\n%s\n" ""
-
-# go everything selection
-selection
-}
-
 # selecting any program on the system
 
 systemprograms () {
