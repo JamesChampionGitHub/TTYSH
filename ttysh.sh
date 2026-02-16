@@ -351,6 +351,8 @@ sudo pacman --needed --noconfirm -Syu \
 	foot \
 	wf-recorder \
 	wl-clipboard \
+	grim \
+	scrot \
 	xorg-xwayland \
 	mupdf \
 	zathura \
@@ -1858,6 +1860,8 @@ printf "\n%s" ""
 					foot \
 					wf-recorder \
 					wl-clipboard \
+					grim \
+					scrot \
 					xorg-xwayland \
 					mupdf \
 					zathura \
