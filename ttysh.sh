@@ -591,12 +591,12 @@ printf "\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n" "(i)nstall a package/pro
 	i)
 	# install package
 	packname
-	sudo pacman -Syu "$(pacman -Ss "$package" | grep "[0-9]" | fzf --reverse | cut -d " " -f1 | cut -d "/" -f2)"
+	sudo pacman -Syu "$(pacman -Ss "$package" | grep "[0-9]" | fzf --reverse -m | cut -d " " -f1 | cut -d "/" -f2 | xargs)"
 	;;
 	r)
 	# remove package
 	packname
-	sudo pacman -Rns "$(pacman -Ss "$package" | grep -i "installed" | grep "[0-9]" | fzf --reverse | cut -d " " -f1 | cut -d "/" -f2)"
+	sudo pacman -Rns "$(pacman -Ss "$package" | grep -i "installed" | grep "[0-9]" | fzf --reverse -m | cut -d " " -f1 | cut -d "/" -f2 | xargs)"
 	;;
 	l)
 	packname
@@ -606,12 +606,12 @@ printf "\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n" "(i)nstall a package/pro
 	in)
 	packname
 	# install aur package
-	yay -Syu "$(yay -Ss "$package" | grep -i "aur" | grep "[0-9]" | fzf --reverse | cut -d " " -f1 | cut -d "/" -f2)"
+	yay -Syu "$(yay -Ss "$package" | grep -i "aur" | grep "[0-9]" | fzf --reverse -m | cut -d " " -f1 | cut -d "/" -f2 | xargs)"
 	;;
 	re)
 	packname
 	# remove aur package
-	yay -Rns "$(yay -Ss "$package" | grep -i "aur" | grep -i "installed" | grep "[0-9]" | fzf --reverse | cut -d " " -f1 | cut -d "/" -f2)"
+	yay -Rns "$(yay -Ss "$package" | grep -i "aur" | grep -i "installed" | grep "[0-9]" | fzf --reverse -m | cut -d " " -f1 | cut -d "/" -f2 | xargs)"
 	;;
 	lo)
 	packname
