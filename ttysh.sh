@@ -392,7 +392,6 @@ yay -Sua --noconfirm
 	"swayhide"
 	"librewolf-bin" 
 	"xkbset" 
-	"clipman" 
 	"fbpdf-git" 
 	"sc-im"
 	)
@@ -1879,7 +1878,6 @@ printf "\n%s" ""
 				"swayhide"
 				"librewolf-bin"
 				"xkbset"
-				"clipman"
 				"fbpdf-git"
 				"sc-im"
 				)
