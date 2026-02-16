@@ -293,16 +293,6 @@ quit
 EOF
 }
 
-# $1 arguments selection list
-helpflags () {
-
-options="$(printf "\n%s\n" "eofhelp fzfcmus websearch fzfxorgvid fzfttyvid fzfvim fzfpdf yt ytmusic weather" |
-       	tr ' ' '\n' |
-       	fzf -i --prompt "Pick the option that you would like: ")"
-
-"$options"
-}
-
 # sudo user check
 sudocheck () {
 
@@ -1971,8 +1961,6 @@ else
 		;;
 	esac
 fi
-
-[[ "$1" ]] && options="$(printf "%s" "fzfcmus websearch fzfxorgvid fzfttyvid fzfvim fzfpdf yt ytmusic weather helpflags" | tr ' ' '\n' | grep "$1")" && "$options"
 
 [[ ! "$(screen -list | grep "cmusdaemon" | cut -d "." -f2 | cut -f1)" ]] && screen -dmS cmusdaemon cmus
 
