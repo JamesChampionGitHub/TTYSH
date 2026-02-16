@@ -932,8 +932,15 @@ while [ 1 ]; do
 		yt-dlp -f 'ba' -x --audio-format mp3 "ytsearch1:""$music"""
 		;;
 		m)
-		url="$(xclip -o)"
-		yt-dlp -f 'ba' -x --audio-format mp3 "$url"
+		if [[ $TERM = "linux" ]]; then
+			printf "\n%s\n\n" "run i3 or sway to use this feature"
+		elif [[ $TERM = "xterm-256color" ]]; then
+			url="$(xclip -o)"
+			yt-dlp -f 'ba' -x --audio-format mp3 "$url"
+		elif [[ $TERM = "foot" ]]; then
+			url="$(wl-paste)"
+			yt-dlp -f 'ba' -x --audio-format mp3 "$url"
+		fi
 		;;
 		ytm)
 		ytmusic
