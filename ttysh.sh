@@ -872,12 +872,26 @@ while [ 1 ]; do
 		yt-dlp -f 'bv+ba' "ytsearch1:""$video"""
 		;;
 		x)
-		url="$(xclip -o)"
-		yt-dlp -f 'bv*[height=720]+ba' "$url"
+		if [[ $TERM = "linux" ]]; then
+			printf "\n%s\n\n" "run i3 or sway to use this feature"
+		elif [[ $TERM = "xterm-256color" ]]; then
+			url="$(xclip -o)"
+			yt-dlp -f 'bv*[height=720]+ba' "$url"
+		elif [[ $TERM = "foot" ]]; then
+			url="$(wl-paste)"
+			yt-dlp -f 'bv*[height=720]+ba' "$url"
+		fi
 		;;
 		b)
-		url="$(xclip -o)"
-		yt-dlp -f 'bv+ba' "$url"
+		if [[ $TERM = "linux" ]]; then
+			printf "\n%s\n\n" "run i3 or sway to use this feature"
+		elif [[ $TERM = "xterm-256color" ]]; then
+			url="$(xclip -o)"
+			yt-dlp -f 'bv+ba' "$url"
+		elif [[ $TERM = "foot" ]]; then
+			url="$(wl-paste)"
+			yt-dlp -f 'bv+ba' "$url"
+		fi
 		;;
 		yo)
 		yt
