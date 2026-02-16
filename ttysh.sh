@@ -1557,7 +1557,7 @@ printf "\n%s" ""
 		sway
 		;;
 		"file manager"|fi)
-		vim /home/"$USER"/
+		yazi
 		;;
 		"search & play video"|v)
 		fzfvid	
