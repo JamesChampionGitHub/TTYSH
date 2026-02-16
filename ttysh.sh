@@ -1380,7 +1380,7 @@ else
 fi
 }
 
-# file check for recording
+# file check for screenshotting
 
 screenshotcheck () {
 
@@ -1389,6 +1389,34 @@ if [[ ! -d /home/"$USER"/Screenshots ]]; then
 	cd /home/"$USER"/Screenshots
 else
 	cd /home/"$USER"/Screenshots/
+fi
+
+current="$(ls /home/"$USER"/Screenshots | grep '[0-9]' | tail -n 1 | sed 's/[a-z]//g;s/[A-Z]//g;s/\.//g')" 
+
+if [[ ! "$current" ]]; then
+	new=1
+else
+	new="$(($current+1))"
+fi
+}
+
+# file check for screen recording
+
+recordingcheck () {
+
+if [[ ! -d /home/"$USER"/Recordings ]]; then
+	mkdir /home/"$USER"/Recordings
+	cd /home/"$USER"/Recordings
+else
+	cd /home/"$USER"/Recordings/
+fi
+
+current="$(ls /home/"$USER"/Recordings | grep '[0-9]' | tail -n 1 | sed 's/[a-z]//g;s/[A-Z]//g;s/\.//g')" 
+
+if [[ ! "$current" ]]; then
+	new=1	
+else
+	new="$(($current+1))"
 fi
 }
 
@@ -1610,40 +1638,36 @@ printf "\n%s" ""
 		;;
 		"screenshot tty 1"|sc1)
 		screenshotcheck 
-		sudo fbgrab -c 1 screenshot1.png
+		sudo fbgrab -c 1 screenshot"$new".png
 		;;
 		"screenshot tty 2"|sc2)
 		screenshotcheck 
-		sudo fbgrab -c 2 screenshot2.png
+		sudo fbgrab -c 2 screenshot2"$new".png
 		;;
 		"screenshot tty 3"|sc3)
 		screenshotcheck 
-		sudo fbgrab -c 3 screenshot3.png
+		sudo fbgrab -c 3 screenshot"$new".png
 		;;
 		"screenshot tty 4"|sc4)
 		screenshotcheck 
-		sudo fbgrab -c 4 screenshot4.png
+		sudo fbgrab -c 4 screenshot"$new".png
 		;;
 		"screenshot tty 5"|sc5)
 		screenshotcheck 
-		sudo fbgrab -c 5 screenshot5.png
+		sudo fbgrab -c 5 screenshot"$new".png
 		;;
 		"screenshot tty 6"|sc6)
 		screenshotcheck
-		sudo fbgrab -c 6 screenshot6.png
+		sudo fbgrab -c 6 screenshot"$new".png
 		;;
 		"record your desktop"|re)
-		[[ ! -d /home/"$USER"/Recordings ]] && mkdir /home/"$USER"/Recordings
-
+		recordingcheck
 		if [[ $TERM = "linux" ]]; then
-			cd /home/"$USER"/Recordings/
-			sudo ffmpeg -f fbdev -framerate 30 -i /dev/fb0 ttyrecord.mp4
+			sudo ffmpeg -f fbdev -framerate 30 -i /dev/fb0 ttyrecord"$new".mp4
 		elif [[ $TERM = "xterm-256color" ]]; then
-			cd /home/"$USER"/Recordings/
-			ffmpeg -video_size 1280x800 -framerate 30 -f x11grab -i :0 x11record.mp4
+			ffmpeg -video_size 1280x800 -framerate 30 -f x11grab -i :0 x11record"$new".mp4
 		elif [[ $TERM = "foot" ]]; then
-			cd /home/"$USER"/Recordings/ 
-			wf-recorder -r 30 -F "scale=1280:800" -f swayrecord.mp4
+			wf-recorder -r 30 -F "scale=1280:800" -f swayrecord"$new".mp4
 		fi
 		;;	
 		"text editor"|ed)
@@ -2023,3 +2047,10 @@ while [ 1 ]; do
 		;;
 	esac
 done
+
+current="$(ls /home/"$USER"/test/testdir | grep '[0-9]' | tail -n 1 | sed 's/[a-z]//g;s/[A-Z]//g;s/\.//g')" 
+
+new="$(($current+1))"
+
+echo "$new"
+
