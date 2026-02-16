@@ -371,6 +371,7 @@ sudo pacman --needed --noconfirm -Syu \
 	swaylock \
 	yazi \
 	ueberzugpp \
+	chafa \
 	calcurse \
 	terminus-font
 
@@ -1853,6 +1854,7 @@ printf "\n%s" ""
 					swaylock \
 					yazi \
 					ueberzugpp \
+					chafa \
 					calcurse \
 					terminus-font
 
