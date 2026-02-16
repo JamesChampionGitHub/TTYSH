@@ -1959,7 +1959,8 @@ done
 # PROGRAMME START
 # 
 
-if [[ ! -f /home/"$USER"/.ttyshwizardrun ]] || [[ ! "$USER" = root ]]; then
+if [[ ! -f /home/"$USER"/.ttyshwizardrun ]] && [[ ! $USER = "root" ]]; then
+
 	printf "\n%s\n" "First time using TTYSH, or you do not yet have TTYSH setup and configured? Press y to begin setup, or press n to exit."
 
 	read -ep "Enter your selection: " answer
@@ -1969,7 +1970,8 @@ if [[ ! -f /home/"$USER"/.ttyshwizardrun ]] || [[ ! "$USER" = root ]]; then
 		wizardttysh
 		;;
 		n)
-		printf "\n%s\n" "exiting"; exit 0
+		printf "\n%s\n" "exiting"
+		exit 0
 		;;
 		*)
 		printf "\n%s\n" "Not a valid selection."
