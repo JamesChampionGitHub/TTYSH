@@ -1963,9 +1963,9 @@ fi
 
 [[ ! "$(screen -list | grep "cmusdaemon" | cut -d "." -f2 | cut -f1)" ]] && screen -dmS cmusdaemon cmus
 
-while [ 1 ]; do
-
 intro="$(printf "%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s" "select a ttysh program" "find a ttysh program" "run any program" "i3 window manager" "sway window manager" "toggle options" "config wizard" "help" "quit" | fzf --prompt "TTYSH " --layout=reverse --margin 20%)"
+
+while [ 1 ]; do
 
 	case "$intro" in
 		"select a ttysh program")
@@ -2006,9 +2006,6 @@ intro="$(printf "%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s" "select a ttysh program" "f
 		"quit")
 		printf "\n%s" ""
 		exit 0
-		;;
-		*)
-		printf "\n%s\n" "Not a valid selection."
 		;;
 	esac
 done
