@@ -379,6 +379,8 @@ sudo pacman --needed --noconfirm -Syu \
 	noto-fonts-exta \
 	i3lock \
 	swaylock \
+	yazi \
+	ueberzugpp \
 	calcurse \
 	terminus-font
 
@@ -1860,6 +1862,8 @@ printf "\n%s" ""
 					noto-fonts-extra \
 					i3lock \
 					swaylock \
+					yazi \
+					ueberzugpp \
 					calcurse \
 					terminus-font
 
