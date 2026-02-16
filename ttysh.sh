@@ -1391,7 +1391,7 @@ else
 	cd /home/"$USER"/Screenshots/
 fi
 
-timestamp="$(date +%M%H%d%m%Y)"
+timestamp="$(date +%S%M%H%d%m%Y)"
 }
 
 # selecting any program on the system
@@ -1643,11 +1643,11 @@ printf "\n%s" ""
 		fi
 
 		if [[ $TERM = "linux" ]]; then
-			sudo ffmpeg -f fbdev -framerate 30 -i /dev/fb0 ttyrecord"$(date +%M%H%d%m%Y)".mp4
+			sudo ffmpeg -f fbdev -framerate 30 -i /dev/fb0 ttyrecord"$(date +%S%M%H%d%m%Y)".mp4
 		elif [[ $TERM = "xterm-256color" ]]; then
-			ffmpeg -video_size 1280x800 -framerate 30 -f x11grab -i :0 x11record"$(date +%M%H%d%m%Y)".mp4
+			ffmpeg -video_size 1280x800 -framerate 30 -f x11grab -i :0 x11record"$(date +%S%M%H%d%m%Y)".mp4
 		elif [[ $TERM = "foot" ]]; then
-			wf-recorder -r 30 -F "scale=1280:800" -f swayrecord"$(date +%M%H%d%m%Y)".mp4
+			wf-recorder -r 30 -F "scale=1280:800" -f swayrecord"$(date +%S%M%H%d%m%Y)".mp4
 		fi
 		;;	
 		"text editor"|ed)
@@ -1959,9 +1959,7 @@ done
 # PROGRAMME START
 # 
 
-if [[ -f /home/"$USER"/.ttyshwizardrun ]] || [[ "$USER" = root ]]; then
-	printf "%s" ""
-else
+if [[ ! -f /home/"$USER"/.ttyshwizardrun ]] || [[ ! "$USER" = root ]]; then
 	printf "\n%s\n" "First time using TTYSH, or you do not yet have TTYSH setup and configured? Press y to begin setup, or press n to exit."
 
 	read -ep "Enter your selection: " answer
