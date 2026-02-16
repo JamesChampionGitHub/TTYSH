@@ -498,7 +498,7 @@ while [ 1 ]; do
 
 		printf "\n%s\n\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n\n" "Toggle the following on and off:" "(c)urrent toggle status" "(t)tysh autostart" "(i)3 window manager autotiling" "(s)way window manager autotiling" "ttysh tty (f)ont" "(r)eset toggles to defaults" "(q)uit and return to selection"
 
-	read -e -p "Enter your selection: " pickoption
+	read -ep "Enter your selection: " pickoption
 
 	case "$pickoption" in
 
@@ -657,7 +657,7 @@ printf "\n%s\n" "Your /home/"$USER"/.bookmarks_ttysh.txt is now formatted for th
 # search the internet
 websearch () {
 
-read -e -p "Enter your web search: " webpick
+read -ep "Enter your web search: " webpick
 
 if [[ $TERM = "linux" ]]; then
 	lynx search.brave.com/search?q="$webpick"
@@ -675,7 +675,7 @@ fanspeed () {
 
 while [ 1 ]; do
 
-	read -e -p "Enter your selection: " fanselec	
+	read -ep "Enter your selection: " fanselec	
 
 	case "$fanselec" in
 
@@ -739,7 +739,7 @@ while [ 1 ]; do
 
 	printf "\n%s\n" "Press s to start Press q to quit."
 
-	read -e -p "Enter you selection: " answer
+	read -ep "Enter you selection: " answer
 
 	case "$answer" in
 		s)
@@ -767,7 +767,7 @@ while [ 1 ]; do
 
 	printf "\n%s\n" "Press s to start Press q to quit."
 
-	read -e -p "Enter you selection: " answer
+	read -ep "Enter you selection: " answer
 
 	case "$answer" in
 		s)
@@ -796,7 +796,7 @@ while [ 1 ]; do
 
 	printf "\n%s\n" "Press s to start. Press q to quit."
 
-	read -e -p "Enter your selection: " answer
+	read -ep "Enter your selection: " answer
 
 	case "$answer" in
 		s)
@@ -819,7 +819,7 @@ while [ 1 ]; do
 
 	printf "\n%s\n" "Press s to start. Press q to quit."
 
-	read -e -p "Enter your selection: " answer
+	read -ep "Enter your selection: " answer
 
 	case "$answer" in
 		s)
@@ -855,18 +855,18 @@ while [ 1 ]; do
 
 		printf "\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n" "y to enter video creator and video discription (720p)." "a for video in best quality available." "x to download video from xclip (720p)." "b for video from xclip in best available quality." "yt to run again." "q to quit"
 
-	read -e -p "Enter your selection: " answer
+	read -ep "Enter your selection: " answer
 
 	printf "\n%s\n" ""
 
 	case "$answer" in
 		y)
-		read -e -p  "Enter the creator and discription: " video
+		read -ep  "Enter the creator and discription: " video
 		printf "\n%s\n"	""
 		yt-dlp -f 'bv*[height=720]+ba' "ytsearch1:""$video"""
 		;;
 		a)
-		read -e -p  "Enter the creator and discription: " video
+		read -ep  "Enter the creator and discription: " video
 		printf "\n%s\n"	""
 		yt-dlp -f 'bv+ba' "ytsearch1:""$video"""
 		;;
@@ -908,13 +908,13 @@ while [ 1 ]; do
 
 	printf "\n%s\n%s\n%s\n%s\n\n"	"sm to enter creator and title" "m to download music url from xclip" "ytm to run again" "q to quit"
 
-	read -e -p "Enter your selection: " answer
+	read -ep "Enter your selection: " answer
 
 	printf "\n%s\n" ""
 
 	case "$answer" in
 		sm)
-		read -e -p "Enter music creator and title: " music
+		read -ep "Enter music creator and title: " music
 		yt-dlp -f 'ba' -x --audio-format mp3 "ytsearch1:""$music"""
 		;;
 		m)
@@ -950,12 +950,11 @@ while [ 1 ]; do
 
 	printf "\n%s\n" "Do you want to update the weather data file? y/n"
 
-	read -e -p "Enter your selection: " wanswer
+	read -ep "Enter your selection: " wanswer
 
 	case "$wanswer" in
 		y)	
-		printf "\n%s\n" "Enter your city or town to see the weather forecast: "
-		read -e -p wwanswer
+		read -ep "Enter your city or town to see the weather forecast: " wwanswer
 		curl wttr.in/"$wwanswer"?T --output /home/"$USER"/ttysh/resources/.weatherdata
 		cat /home/"$USER"/ttysh/resources/.weatherdata
 		break
@@ -980,7 +979,7 @@ while [ 1 ]; do
 
 	printf "\n"$warncolour"%s"$warncolourend"\n" "Stop! Have you run sudo su? Are you running on A/C power? y/n"
 
-	read -e -p "Enter your selection: " answer
+	read -ep "Enter your selection: " answer
 
 	case "$answer" in
 		y)
@@ -1009,7 +1008,7 @@ while [ 1 ]; do
 
 	printf "\n%s\n" "Please look for your inserted device above. Is it correct? y/n"
 
-	read -e -p "Enter your selection: " answer
+	read -ep "Enter your selection: " answer
 
 	case "$answer" in
 		y)
@@ -1026,7 +1025,7 @@ done
 
 printf "\n%s\n%s\n" "Please enter the name of your disk. e.g. sdb. Do not enter any number, as these will be partitions, and we will be formatting the whole disk." "Be careful not to format the wrong drive!"
 
-read -e -p answer
+read -ep "Enter the name of your disk: " answer
 
 fdisk /dev/"$answer"
 
@@ -1036,7 +1035,7 @@ lsblk
 
 printf "\n%s\n" "What is the new partition name of your drive? e.g. sdb1 ?"
 
-read -e -p setuuid
+read -ep "Enter the new partition name of the your drive: " setuuid
 
 cryptsetup luksFormat /dev/"$setuuid"
 
@@ -1066,7 +1065,7 @@ while [ 1 ]; do
 
 	printf "\n%s\n%s\n" "You need to now add the UUID number of the disk you have setup for either file backups or system backups." "See above, is this correct? y/n"
 
-	read -e -p "Enter your selection: " answer
+	read -ep "Enter your selection: " answer
 
 	case "$answer" in
 		y)
@@ -1086,7 +1085,7 @@ while [ 1 ]; do
 
 	printf "\n%s\n" "Choose what this disk will be used for. Press t for timeshift system backups or press f for file system backups"
 
-	read -e -p "Enter your selection: " answer
+	read -ep "Enter your selection: " answer
 	
 	case "$answer" in
 		t)
@@ -1125,7 +1124,7 @@ lsblk
 
 printf "\n"$warncolour"%s"$warncolourend"\n" "Stop! Have you run sudo su? Is /dev/"$tdevname" location correct? Are you running on A/C power? y/n"
 
-read -e -p "Enter your selection: " answer
+read -ep "Enter your selection: " answer
 
 case "$answer" in
 	y)
@@ -1154,7 +1153,7 @@ while [ 1 ]; do
 
 	printf "\n%s\n" "Does the /dev/mapper/"$tencryptedname" need unmounting? check MOUNTPOINT. press y for umount or n to exit"
 
-	read -e -p "Enter your selection: " answer
+	read -ep "Enter your selection: " answer
 
 	case "$answer" in
 		y)
@@ -1194,7 +1193,7 @@ while [ 1 ]; do
 
 	printf "\n"$warncolour"%s"$warncolourend"\n" "Stop! Have you run sudo su? Is /dev/"$tdevname" location correct? Are you running A/C power? y/n"
 
-	read -e -p "Enter your selection: " answer
+	read -ep "Enter your selection: " answer
 
 	case "$answer" in
 		y)
@@ -1220,11 +1219,11 @@ while [ 1 ]; do
 
 	printf "\n%s\n" "Do you want to delete a backup? press d to continue or q to exit"
 
-	read -e -p "Enter your selection: " answer
+	read -ep "Enter your selection: " answer
 
 	case "$answer" in 
 		d)
-		read -e -p "Enter the line number matching the backup you want to delete: " delete
+		read -ep "Enter the line number matching the backup you want to delete: " delete
 		tdelete="$(timeshift --list | grep -i -m 1 "^"$delete"" | awk '{print $3}')"
 		timeshift --delete --snapshot "$tdelete"
 		;;
@@ -1318,7 +1317,7 @@ while [ 1 ]; do
 
 	printf "\n"$warncolour"%s"$warncolourend"\n" "Stop! Have you run sudo su first? Have you saved your latest bookmarks? Is /dev/"$bdevname" correct? Are you running on A/C power? y/n" 
 
-	read -e -p "Enter your selection: " answer
+	read -ep "Enter your selection: " answer
 
 	case "$answer" in
 		y)
@@ -1402,7 +1401,7 @@ selectcheck () {
 if [[ "$fuzselect" = true ]]; then
 	answer="$(eoffuz | fzf --layout=reverse --margin 3%)"
 else
-	read -e -p "Enter your selection. h and enter if you need help: " answer
+	read -ep "Enter your selection. h and enter if you need help: " answer
 fi
 }
 
@@ -1713,7 +1712,7 @@ printf "\n%s" ""
 
 			printf "\n"
 
-			read -e -p "Enter your selection [ 1 - 6 ]: " answer
+			read -ep "Enter your selection [ 1 - 6 ]: " answer
 			
 			case "$answer" in
 				"1" | "2" | "3" | "4" | "5" | "6" )	
@@ -1743,7 +1742,7 @@ printf "\n%s" ""
 
 		while [ 1 ]; do
 
-			read -e -p "Enter your selection: " nmpick
+			read -ep "Enter your selection: " nmpick
 
 			case "$nmpick" in
 				s)
@@ -1783,7 +1782,7 @@ printf "\n%s" ""
 
 		printf "\n"$warncolour"%s"$warncolourend"\n" "Changing your fan speed can damage your computer. Would you like to continue? y/n"
 
-		read -e -p "Enter your selection: " fpick
+		read -ep "Enter your selection: " fpick
 
 			case "$fpick" in 
 				y)
@@ -1801,7 +1800,7 @@ printf "\n%s" ""
 
 		while [ 1 ]; do
 		
-			read -e -p "Enter your selection: " upick
+			read -ep "Enter your selection: " upick
 
 			case "$upick" in
 				y)
@@ -1947,7 +1946,7 @@ if [[ -f /home/"$USER"/.ttyshwizardrun ]] || [[ "$USER" = root ]]; then
 else
 	printf "\n%s\n" "First time using TTYSH, or you do not yet have TTYSH setup and configured? Press y to begin setup, or press n to exit."
 
-	read -e -p "Enter your selection: " answer
+	read -ep "Enter your selection: " answer
 
 	case "$answer" in
 		y)
