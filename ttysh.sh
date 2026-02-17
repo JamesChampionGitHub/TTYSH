@@ -1887,7 +1887,7 @@ printf "\n%s" ""
 					i3lock \
 					swaylock \
 					yazi \
-					ffmpeg \ 
+					ffmpeg \
 					7zip \
 					jq \
 					poppler \
