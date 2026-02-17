@@ -855,7 +855,7 @@ fi
 
 while [ 1 ]; do
 
-		printf "\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n" "y to enter video creator and video discription (720p)." "a for video in best quality available." "x to download video from xclip (720p)." "b for video from xclip in best available quality." "yt to run again." "q to quit"
+		printf "\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n" "y to enter video creator and video discription (720p)." "a for video in best quality available." "x to download video from xclip/wl-clipboard (720p)." "b for video from xclip/wl-clipboard in best available quality." "yt to run again." "q to quit"
 
 	read -ep "Enter your selection: " answer
 
