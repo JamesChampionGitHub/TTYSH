@@ -333,7 +333,6 @@ sudo pacman --needed --noconfirm -Syu \
 	yt-dlp \
 	lynx \
 	mpv \
-	fzf \
 	screen \
 	vim \
 	less \
@@ -358,7 +357,6 @@ sudo pacman --needed --noconfirm -Syu \
 	zathura \
 	cryptsetup \
 	timeshift \
-	imagemagick \
 	htop \
 	fbgrab \
 	tldr \
@@ -372,6 +370,16 @@ sudo pacman --needed --noconfirm -Syu \
 	i3lock \
 	swaylock \
 	yazi \
+	ffmpeg \
+	7zip \
+	jq \
+	poppler \
+	fd \
+	ripgrep \
+	fzf \
+	zoxide \
+	resvg \
+	imagemagick \
 	ueberzugpp \
 	chafa \
 	calcurse \
@@ -1842,7 +1850,6 @@ printf "\n%s" ""
 					yt-dlp \
 					lynx \
 					mpv \
-					fzf \
 					screen \
 					vim \
 					less \
@@ -1867,7 +1874,6 @@ printf "\n%s" ""
 					zathura \
 					cryptsetup \
 					timeshift \
-					imagemagick \
 					htop \
 					fbgrab \
 					tldr \
@@ -1881,6 +1887,16 @@ printf "\n%s" ""
 					i3lock \
 					swaylock \
 					yazi \
+					ffmpeg \ 
+					7zip \
+					jq \
+					poppler \
+					fd \
+					ripgrep \
+					fzf \
+					zoxide \
+					resvg \
+					imagemagick \
 					ueberzugpp \
 					chafa \
 					calcurse \
