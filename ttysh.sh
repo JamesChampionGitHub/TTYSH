@@ -38,7 +38,7 @@ Note: (f) will run search on this list of programs for you to select.
 
 		(we)b search/
 
-		format librewolf (book)marks/
+		format firefox (book)marks/
 
 	Window Managers/
 
@@ -216,7 +216,7 @@ less << EOF
 web browser
 select a bookmark for web browsing
 web search
-format librewolf bookmarks
+format firefox bookmarks
 start i3 window manager
 start sway window manager
 close i3 or sway and return to tty
@@ -331,6 +331,7 @@ sudo pacman --needed --noconfirm -Syu \
 	cmus \
 	alsa-utils \
 	yt-dlp \
+	firefox \
 	lynx \
 	mpv \
 	screen \
@@ -400,7 +401,6 @@ yay -Sua --noconfirm
 	installed=(
 	"devour" 
 	"swayhide"
-	"librewolf-bin" 
 	"xkbset" 
 	"fbpdf-git" 
 	"sc-im"
@@ -672,9 +672,9 @@ read -ep "Enter your web search: " webpick
 if [[ $TERM = "linux" ]]; then
 	lynx search.brave.com/search?q="$webpick"
 elif [[ $TERM = "xterm-256color" ]]; then
-	devour librewolf search.brave.com/search?q="$webpick"
+	devour firefox search.brave.com/search?q="$webpick"
 elif [[ $TERM = "foot" ]]; then
-	swayhide librewolf search.brave.com/search?q="$webpick"
+	swayhide firefox search.brave.com/search?q="$webpick"
 fi
 }
 
@@ -1522,18 +1522,18 @@ printf "\n%s" ""
 		if [[ $TERM  = "linux" ]]; then
 			lynx "$bookmarkpick"
 		elif [[ $TERM = "xterm-256color" ]]; then
-			devour librewolf "$bookmarkpick" 
+			devour firefox "$bookmarkpick" 
 		elif [[ $TERM = "foot" ]]; then
-			swayhide librewolf "$bookmarkpick" 
+			swayhide firefox "$bookmarkpick" 
 		fi
 		;;
 		"web browser"|w)
 		if [[ $TERM = "linux" ]]; then
 			lynx
 		elif [[ $TERM = "xterm-256color" ]]; then
-			devour librewolf
+			devour firefox
 		elif [[ $TERM = "foot" ]]; then
-			swayhide librewolf
+			swayhide firefox
 		fi
 		;;
 		"ping jameschampion.xyz"|pin)
@@ -1848,6 +1848,7 @@ printf "\n%s" ""
 					cmus \
 					alsa-utils \
 					yt-dlp \
+					firefox \
 					lynx \
 					mpv \
 					screen \
@@ -1907,7 +1908,6 @@ printf "\n%s" ""
 				installed=(
 				"devour"
 				"swayhide"
-				"librewolf-bin"
 				"xkbset"
 				"fbpdf-git"
 				"sc-im"
