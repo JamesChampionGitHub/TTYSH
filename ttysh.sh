@@ -335,7 +335,7 @@ sudo pacman --needed --noconfirm -Syu \
 	lynx \
 	mpv \
 	screen \
-	vim \
+	gvim \
 	less \
 	man \
 	newsboat \
@@ -429,7 +429,7 @@ cat /home/"$USER"/ttysh/resources/mpvconfig/input.conf > /home/"$USER"/.config/m
 
 [[ ! -d /home/"$USER"/.newsboat ]] && mkdir -p /home/"$USER"/.newsboat
 cat /home/"$USER"/ttysh/resources/newsboatconfig/urls > /home/"$USER"/.newsboat/urls
-cat /home/"$USER"/ttysh/resources/newboatconfig/config > /home/"$USER"/.newsboat/config
+cat /home/"$USER"/ttysh/resources/newsboatconfig/config > /home/"$USER"/.newsboat/config
 
 [[ ! -d /home/"$USER"/.config/mutt ]] && mkdir -p /home/"$USER"/.config/mutt
 cat /home/"$USER"/ttysh/resources/muttconfig/muttrc > /home/"$USER"/.config/mutt/muttrc
@@ -1852,7 +1852,7 @@ printf "\n%s" ""
 					lynx \
 					mpv \
 					screen \
-					vim \
+					gvim \
 					less \
 					man \
 					newsboat \
@@ -1934,7 +1934,7 @@ printf "\n%s" ""
 				cat /home/"$USER"/ttysh/resources/footconfig/foot.ini > /home/"$USER"/.config/foot/foot.ini
 				[[ ! -d /home/"$USER"/.newsboat ]] && mkdir -p /home/"$USER"/.newsboat
 				cat /home/"$USER"/ttysh/resources/newsboatconfig/urls > /home/"$USER"/.newsboat/urls
-				cat /home/"$USER"/ttysh/resources/newboatconfig/config > /home/"$USER"/.newsboat/config
+				cat /home/"$USER"/ttysh/resources/newsboatconfig/config > /home/"$USER"/.newsboat/config
 				[[ ! -d /home/"$USER"/.config/vim ]] && mkdir -p /home/"$USER"/.config/vim
 				cat /home/"$USER"/ttysh/resources/vimconfig/.vimrc > /home/"$USER"/.config/vim/.vimrc
 				[[ ! -d /home/"$USER"/.config/mpv ]] && mkdir -p /home/"$USER"/.config/mpv
