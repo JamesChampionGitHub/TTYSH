@@ -336,6 +336,7 @@ sudo pacman --needed --noconfirm -Syu \
 	mpv \
 	screen \
 	gvim \
+	neovim \
 	less \
 	man \
 	newsboat \
@@ -434,8 +435,8 @@ cat /home/"$USER"/ttysh/resources/newsboatconfig/config > /home/"$USER"/.newsboa
 [[ ! -d /home/"$USER"/.config/mutt ]] && mkdir -p /home/"$USER"/.config/mutt
 cat /home/"$USER"/ttysh/resources/muttconfig/muttrc > /home/"$USER"/.config/mutt/muttrc
 
-[[ ! -d /home/"$USER"/.config/vim ]] && mkdir -p /home/"$USER"/.config/vim
-cat /home/"$USER"/ttysh/resources/vimconfig/.vimrc > /home/"$USER"/.config/vim/.vimrc
+[[ ! -d /home/"$USER"/.config/nvim ]] && mkdir -p /home/"$USER"/.config/nvim
+cat /home/"$USER"/ttysh/resources/vimconfig/.vimrc > /home/"$USER"/.config/nvim/init.vim
 
 [[ ! -d /home/"$USER"/.config/i3 ]] && mkdir -p /home/"$USER"/.config/i3
 cat /home/"$USER"/ttysh/resources/i3config/config > /home/"$USER"/.config/i3/config
@@ -810,7 +811,7 @@ while [ 1 ]; do
 
 	case "$answer" in
 		s)
-		vim "$(find /home/"$USER"/ -type f | fzf -i --prompt "Pick the file you want to open in vim: ")"
+		nvim "$(find /home/"$USER"/ -type f | fzf -i --prompt "Pick the file you want to open in vim: ")"
 		;;
 		q)
 		break
@@ -1543,7 +1544,7 @@ printf "\n%s" ""
 		calcurse
 		;;
 		"notes"|n)
-		vim /home/"$USER"/.notes.txt
+		nvim /home/"$USER"/.notes.txt
 		;;
 		"mutt email configuation"|mu)
 		screen -c /home/"$USER"/ttysh/resources/.screenrc.mutt_conf
@@ -1668,7 +1669,7 @@ printf "\n%s" ""
 		fi
 		;;
 		"text editor"|ed)
-		vim
+		nvim
 		;;
 		"calculator"|ca)
 		bc -l
@@ -1853,6 +1854,7 @@ printf "\n%s" ""
 					mpv \
 					screen \
 					gvim \
+					neovim \
 					less \
 					man \
 					newsboat \
@@ -1935,8 +1937,8 @@ printf "\n%s" ""
 				[[ ! -d /home/"$USER"/.newsboat ]] && mkdir -p /home/"$USER"/.newsboat
 				cat /home/"$USER"/ttysh/resources/newsboatconfig/urls > /home/"$USER"/.newsboat/urls
 				cat /home/"$USER"/ttysh/resources/newsboatconfig/config > /home/"$USER"/.newsboat/config
-				[[ ! -d /home/"$USER"/.config/vim ]] && mkdir -p /home/"$USER"/.config/vim
-				cat /home/"$USER"/ttysh/resources/vimconfig/.vimrc > /home/"$USER"/.config/vim/.vimrc
+				[[ ! -d /home/"$USER"/.config/nvim ]] && mkdir -p /home/"$USER"/.config/nvim
+				cat /home/"$USER"/ttysh/resources/vimconfig/.vimrc > /home/"$USER"/.config/nvim/init.vim
 				[[ ! -d /home/"$USER"/.config/mpv ]] && mkdir -p /home/"$USER"/.config/mpv
 				cat /home/"$USER"/ttysh/resources/mpvconfig/mpv.conf > /home/"$USER"/.config/mpv/mpv.conf
 				cat /home/"$USER"/ttysh/resources/mpvconfig/input.conf > /home/"$USER"/.config/mpv/input.conf

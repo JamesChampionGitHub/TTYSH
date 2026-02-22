@@ -1,7 +1,7 @@
 inoremap jj <esc>
-vnoremap <C-c> "+y
-map <C-p> "+p
-vnoremap <C-c> "*y :let @+=@*<CR>
+vnoremap <C-S-C> "+y
+map <C-S-P> "+p
+vnoremap <C-C> "*y :let @+=@*<CR>
 
 filetype plugin on
 syntax on
