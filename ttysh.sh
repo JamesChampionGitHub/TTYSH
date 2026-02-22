@@ -13,7 +13,7 @@ warncolourend='\033[0m'
 
 #
 # FUNCTIONS
-# 
+#
 
 # function for help using eof in the selection
 eofhelp () {
@@ -32,7 +32,7 @@ Note: (f) will run search on this list of programs for you to select.
 
 	Web Browsing/
 
-		(w)eb browser/ 
+		(w)eb browser/
 
 		select a (b)ookmark for web browsing/
 
@@ -63,28 +63,28 @@ Note: (f) will run search on this list of programs for you to select.
 		(mu)tt email configuation/
 
 	Video/
-			
+
 		video search on (yo)utube/
 
 		search & play (v)ideo/
 
 	Images/
-	
+
 		search & view (im)ages
 
-	Music Player/ 
+	Music Player/
 
 		(m)usic player/
 
-		(ne)xt song/ 
+		(ne)xt song/
 
-		(pr)evious song/ 
+		(pr)evious song/
 
-		(p)ause song/ 
+		(p)ause song/
 
-		(fo)rward song/ 
+		(fo)rward song/
 
-		(st)atus on music/ 
+		(st)atus on music/
 
 		(pi)ck a song/
 
@@ -106,9 +106,9 @@ Note: (f) will run search on this list of programs for you to select.
 
 	Accessories/
 
-		(cal)ender/ 
+		(cal)ender/
 
-		(n)otes/ 
+		(n)otes/
 
 		(we)ather/
 
@@ -149,7 +149,7 @@ Note: (f) will run search on this list of programs for you to select.
 		(re)cord your desktop
 
 	TTY/
-				
+
 		(scro)llback information for tty/
 
 		change (v)t (1,2,3,4,5,6) tty/
@@ -224,10 +224,10 @@ screen four panel split
 screen horizontal split
 screen vertical split
 video search on youtube
-search & play video 
+search & play video
 search & view images
 music search on youtube
-music player 
+music player
 next song
 previous song
 pause song
@@ -298,7 +298,7 @@ sudocheck () {
 
 if [[ ! "$SUDO_USER" ]]; then
 	printf "\n"$warncolour"%s"$warncolourend"\n\n" "Run as sudo su first! Exiting..."
-	exit 1 
+	exit 1
 else
 	printf "\n%s\n\n%s\n\n" "Checking you are running as sudo user..." "Continuing..."
 fi
@@ -312,7 +312,7 @@ if [[ ! -h /dev/mapper/timeshiftbackup ]]; then
 	lsblk
 	exit 1
 else
-	printf "\n\n%s\n\n" "dev/mapper/timeshiftbackup found. Continuing..." 
+	printf "\n\n%s\n\n" "dev/mapper/timeshiftbackup found. Continuing..."
 fi
 }
 
@@ -389,7 +389,7 @@ sudo pacman --needed --noconfirm -Syu \
 # enable and start network manager service
 
 sudo systemctl enable --now NetworkManager.service
-	
+
 # install yay package manager
 
 cd /home/"$USER"
@@ -399,10 +399,10 @@ makepkg -si --noconfirm
 
 yay -Sua --noconfirm
 	installed=(
-	"devour" 
+	"devour"
 	"swayhide"
-	"xkbset" 
-	"fbpdf-git" 
+	"xkbset"
+	"fbpdf-git"
 	"sc-im"
 	)
 	for i in "${installed[@]}"; do
@@ -412,7 +412,7 @@ yay -Sua --noconfirm
 			yay -S --noconfirm "$i"
 		else
 			echo ""$i" already installed"
-		fi	
+		fi
 	done
 
 # make the following configurations:
@@ -454,7 +454,7 @@ printf "%s\n\n" "NOTES" > /home/"$USER"/.notes.txt
 cat /home/"$USER"/ttysh/resources/x11config/xorg.conf | sudo tee /etc/X11/xorg.conf >/dev/null
 
 printf "\n%s\n" "Last run" >> /home/"$USER"/.ttyshwizardrun
- 
+
 date >> /home/"$USER"/.ttyshwizardrun
 
 printf "\n%s\n" "TTYSH Wizard has finished. Reboot your computer to finish the setup."
@@ -471,29 +471,29 @@ while read i; do
 
 		ttyshautostart=true|ttyshautostart=false)
 		if [[ "$(grep -i "ttyshautostart=true" /home/"$USER"/.config/ttysh/config)" ]]; then
-			sed -i 's/.*autostart.*/\/home\/"$USER"\/ttysh\/\.\/ttysh\.sh #autostart/' /home/"$USER"/.bashrc 
-		else	
-			sed -i 's/.*autostart.*/#\/home\/"$USER"\/ttysh\/\.\/ttysh\.sh #autostart/' /home/"$USER"/.bashrc 
+			sed -i 's/.*autostart.*/\/home\/"$USER"\/ttysh\/\.\/ttysh\.sh #autostart/' /home/"$USER"/.bashrc
+		else
+			sed -i 's/.*autostart.*/#\/home\/"$USER"\/ttysh\/\.\/ttysh\.sh #autostart/' /home/"$USER"/.bashrc
 		fi
 		;;
 		i3autotiling=true|i3autotiling=false)
 		if [[ "$(grep -i "i3autotiling=true" /home/"$USER"/.config/ttysh/config)" ]]; then
-			sed -i 's/.*autotiling.*/exec --no-startup-id autotiling/' /home/"$USER"/.config/i3/config 
-		else	
+			sed -i 's/.*autotiling.*/exec --no-startup-id autotiling/' /home/"$USER"/.config/i3/config
+		else
 			sed -i 's/.*autotiling.*/#exec --no-startup-id autotiling/' /home/"$USER"/.config/i3/config
 		fi
 		;;
 		swayautotiling=true|swayautotiling=false)
 		if [[ "$(grep -i "swayautotiling=true" /home/"$USER"/.config/ttysh/config)" ]]; then
-			sed -i 's/.*autotiling.*/exec_always autotiling/' /home/"$USER"/.config/sway/config 
-		else	
+			sed -i 's/.*autotiling.*/exec_always autotiling/' /home/"$USER"/.config/sway/config
+		else
 			sed -i 's/.*autotiling.*/#exec_always autotiling/' /home/"$USER"/.config/sway/config
 		fi
 		;;
 		ttyshfont=true|ttyshfont=false)
 		if [[ "$(grep -i "ttyshfont=true" /home/"$USER"/.config/ttysh/config)" ]]; then
  			sed -i 's/.*setfont ter-218b.*/[ $(tty | tr -d '\''[0-9]'\'') = "\/dev\/tty" ] \&\& setfont ter-218b/' /home/"$USER"/.bashrc
-		else	
+		else
  			sed -i 's/.*setfont ter-218b.*/#[ $(tty | tr -d '\''[0-9]'\'') = "\/dev\/tty" ] \&\& setfont ter-218b/' /home/"$USER"/.bashrc
 		fi
 		;;
@@ -523,9 +523,9 @@ while [ 1 ]; do
 		fi
 
 		if [[ "$(grep -i "ttyshautostart=true" /home/"$USER"/.config/ttysh/config)" ]]; then
-			sed -i 's/.*autostart.*/\/home\/"$USER"\/ttysh\/\.\/ttysh\.sh #autostart/' /home/"$USER"/.bashrc 
-		else	
-			sed -i 's/.*autostart.*/#\/home\/"$USER"\/ttysh\/\.\/ttysh\.sh #autostart/' /home/"$USER"/.bashrc 
+			sed -i 's/.*autostart.*/\/home\/"$USER"\/ttysh\/\.\/ttysh\.sh #autostart/' /home/"$USER"/.bashrc
+		else
+			sed -i 's/.*autostart.*/#\/home\/"$USER"\/ttysh\/\.\/ttysh\.sh #autostart/' /home/"$USER"/.bashrc
 		fi
 		;;
 		i)
@@ -536,8 +536,8 @@ while [ 1 ]; do
 		fi
 
 		if [[ "$(grep -i "i3autotiling=true" /home/"$USER"/.config/ttysh/config)" ]]; then
-			sed -i 's/.*autotiling.*/exec --no-startup-id autotiling/' /home/"$USER"/.config/i3/config 
-		else	
+			sed -i 's/.*autotiling.*/exec --no-startup-id autotiling/' /home/"$USER"/.config/i3/config
+		else
 			sed -i 's/.*autotiling.*/#exec --no-startup-id autotiling/' /home/"$USER"/.config/i3/config
 		fi
 		;;
@@ -549,8 +549,8 @@ while [ 1 ]; do
 		fi
 
 		if [[ "$(grep -i "swayautotiling=true" /home/"$USER"/.config/ttysh/config)" ]]; then
-			sed -i 's/.*autotiling.*/exec_always autotiling/' /home/"$USER"/.config/sway/config 
-		else	
+			sed -i 's/.*autotiling.*/exec_always autotiling/' /home/"$USER"/.config/sway/config
+		else
 			sed -i 's/.*autotiling.*/#exec_always autotiling/' /home/"$USER"/.config/sway/config
 		fi
 		;;
@@ -563,7 +563,7 @@ while [ 1 ]; do
 
 		if [[ "$(grep -i "ttyshfont=true" /home/"$USER"/.config/ttysh/config)" ]]; then
  			sed -i 's/.*setfont ter-218b.*/[ $(tty | tr -d '\''[0-9]'\'') = "\/dev\/tty" ] \&\& setfont ter-218b/' /home/"$USER"/.bashrc
-		else	
+		else
  			sed -i 's/.*setfont ter-218b.*/#[ $(tty | tr -d '\''[0-9]'\'') = "\/dev\/tty" ] \&\& setfont ter-218b/' /home/"$USER"/.bashrc
 		fi
 		;;
@@ -597,7 +597,7 @@ printf "\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n" "(i)nstall a package/pro
 	read -ep "choose your option : " option
 
 	case "$option" in
-	
+
 	i)
 	# install package
 	packname
@@ -632,7 +632,7 @@ printf "\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n" "(i)nstall a package/pro
 	pacman -Qn | less
 	;;
 	lis)
-	pacman -Qm | less	
+	pacman -Qm | less
 	;;
 	e)
 	sudo pacman -Sc
@@ -685,7 +685,7 @@ fanspeed () {
 
 while [ 1 ]; do
 
-	read -ep "Enter your selection: " fanselec	
+	read -ep "Enter your selection: " fanselec
 
 	case "$fanselec" in
 
@@ -813,7 +813,7 @@ while [ 1 ]; do
 		vim "$(find /home/"$USER"/ -type f | fzf -i --prompt "Pick the file you want to open in vim: ")"
 		;;
 		q)
-		break	
+		break
 		;;
 		*)
 		printf "\n%s\n" "Not a valid selection."
@@ -836,13 +836,13 @@ while [ 1 ]; do
 		if [[ $TERM = "linux" ]]; then
 			sudo fbpdf "$(find /home/"$USER"/ -type f | fzf -i --prompt "Pick the pdf you want to view. ESC to exit: ")"
 		elif [[ $TERM = "xterm-256color" ]]; then
-			devour zathura "$(find /home/"$USER"/ -type f | fzf -i --prompt "Pick the pdf you want to view. ESC to exit: ")" 		
+			devour zathura "$(find /home/"$USER"/ -type f | fzf -i --prompt "Pick the pdf you want to view. ESC to exit: ")"
 		elif [[ $TERM = "foot" ]]; then
-			swayhide zathura "$(find /home/"$USER"/ -type f | fzf -i --prompt "Pick the pdf you want to view. ESC to exit: ")" 		
+			swayhide zathura "$(find /home/"$USER"/ -type f | fzf -i --prompt "Pick the pdf you want to view. ESC to exit: ")"
 		fi
 		;;
 		q)
-		break		
+		break
 		;;
 		*)
 		printf "\n%s\n" "Not a valid selection."
@@ -854,11 +854,11 @@ done
 # function for yt-dlp
 yt () {
 
-if [[ ! -d /home/"$USER"/Videos ]]; then 
+if [[ ! -d /home/"$USER"/Videos ]]; then
 	mkdir /home/"$USER"/Videos/
 	cd /home/"$USER"/Videos/
 else
-	cd /home/"$USER"/Videos/ 
+	cd /home/"$USER"/Videos/
 fi
 
 while [ 1 ]; do
@@ -924,8 +924,8 @@ ytmusic () {
 if [[ ! -d /home/"$USER"/Music ]]; then
 	mkdir /home/"$USER"/Music/
    	cd /home/"$USER"/Music/
-else	
-	cd /home/"$USER"/Music/ 
+else
+	cd /home/"$USER"/Music/
 fi
 
 while [ 1 ]; do
@@ -984,7 +984,7 @@ while [ 1 ]; do
 	read -ep "Enter your selection: " wanswer
 
 	case "$wanswer" in
-		y)	
+		y)
 		read -ep "Enter your city or town to see the weather forecast: " wwanswer
 		curl wttr.in/"$wwanswer"?T --output /home/"$USER"/ttysh/resources/.weatherdata
 		cat /home/"$USER"/ttysh/resources/.weatherdata
@@ -1117,7 +1117,7 @@ while [ 1 ]; do
 	printf "\n%s\n" "Choose what this disk will be used for. Press t for timeshift system backups or press f for file system backups"
 
 	read -ep "Enter your selection: " answer
-	
+
 	case "$answer" in
 		t)
 		ls -l /dev/disk/by-uuid/ | grep "$setuuid" | awk '{print $9}' | tr -d /. > /home/"$SUDO_USER"/.uuidtimeshift
@@ -1126,7 +1126,7 @@ while [ 1 ]; do
 		f)
 		ls -l /dev/disk/by-uuid/ | grep "$setuuid" | awk '{print $9}' | tr -d /. > /home/"$SUDO_USER"/.uuidfiles
 		break
-		;;	
+		;;
 		*)
 		printf "\n%s\n" "Not a valid selection."
 		;;
@@ -1175,7 +1175,7 @@ esac
 
 # function for closing the drive after timeshift
 closetimeshift () {
-		
+
 printf "\n%s\n" ""
 
 lsblk
@@ -1252,14 +1252,14 @@ while [ 1 ]; do
 
 	read -ep "Enter your selection: " answer
 
-	case "$answer" in 
+	case "$answer" in
 		d)
 		read -ep "Enter the line number matching the backup you want to delete: " delete
 		tdelete="$(timeshift --list | grep -i -m 1 "^"$delete"" | awk '{print $3}')"
 		timeshift --delete --snapshot "$tdelete"
 		;;
 		q)
-		closetimeshift	
+		closetimeshift
 		;;
 		*)
 		printf "\n%s\n" "Not a valid selection."
@@ -1284,17 +1284,17 @@ lstdevname="$(ls /dev/disk/by-uuid -l | grep "$tuuid")"
 
 printf "\n%s\n" "Looking for "$tdrive"..."
 
-if [[ "$lstdevname" ]]; then 
-	
-	printf "\n%s\n" ""$tdrive" has been found. Starting..." 
-	tdrivecheck 
-	timeshift --list | less 
-	timedelete 
+if [[ "$lstdevname" ]]; then
+
+	printf "\n%s\n" ""$tdrive" has been found. Starting..."
+	tdrivecheck
+	timeshift --list | less
+	timedelete
 else
-	
-	printf "\n%s\n\n" "Cannot find "$tuuid". Check you are run as sudo su. Check that you have connected your drive. Exiting..."   
-	lsblk 
-	printf "\n%s" "" 
+
+	printf "\n%s\n\n" "Cannot find "$tuuid". Check you are run as sudo su. Check that you have connected your drive. Exiting..."
+	lsblk
+	printf "\n%s" ""
 	exit 1
 fi
 }
@@ -1316,11 +1316,11 @@ lstdevname="$(ls /dev/disk/by-uuid -l | grep "$tuuid")"
 printf "\n%s\n" "Looking for "$tdrive"..."
 
 if [[ "$lstdevname" ]]; then
-	printf "\n%s\n" ""$tdrive" has been found. Starting..." 
-	starttimeshift 
-	closetimeshift 
+	printf "\n%s\n" ""$tdrive" has been found. Starting..."
+	starttimeshift
+	closetimeshift
 else
-	printf "\n%s\n\n" "Cannot find "$tuuid". Check you are run as sudo su. Check that you have connected your drive. Exiting..."   
+	printf "\n%s\n\n" "Cannot find "$tuuid". Check you are run as sudo su. Check that you have connected your drive. Exiting..."
 	lsblk
 	printf "\n%s" ""
 	exit 1
@@ -1346,7 +1346,7 @@ if [[ "$lsbdevname" ]]; then
 
 while [ 1 ]; do
 
-	printf "\n"$warncolour"%s"$warncolourend"\n" "Stop! Have you run sudo su first? Have you saved your latest bookmarks? Is /dev/"$bdevname" correct? Are you running on A/C power? y/n" 
+	printf "\n"$warncolour"%s"$warncolourend"\n" "Stop! Have you run sudo su first? Have you saved your latest bookmarks? Is /dev/"$bdevname" correct? Are you running on A/C power? y/n"
 
 	read -ep "Enter your selection: " answer
 
@@ -1360,14 +1360,14 @@ while [ 1 ]; do
 			lsblk
 			exit 1
 		else
-			printf "\n\n%s\n\n" "dev/mapper/drive found. Continuing..." 
+			printf "\n\n%s\n\n" "dev/mapper/drive found. Continuing..."
 		fi
 
 		mount /dev/mapper/drive /mnt
 		rsync -av /home/"$SUDO_USER"/ /mnt --delete
 		sync
 		umount /mnt
-		cryptsetup close drive 
+		cryptsetup close drive
 		printf "\n%s\n" "Complete. Closing..."
 		lsblk
 		printf "\n%s\n" "Your storage should be correct. Finished."
@@ -1391,7 +1391,7 @@ else
 	printf "\n%s" ""
 
 	#sed -n 31p $SUDO_USER/backup.sh
-	
+
 	exit 1
 
 fi
@@ -1417,11 +1417,11 @@ systemprograms () {
 
 printf "\n%s\n" "Loading programs..."
 pacman -Qn > /tmp/allprograms.txt && pacman -Qm >> /tmp/allprograms.txt
-pick="$(cat /tmp/allprograms.txt | cut -d " " -f1 | fzf --layout=reverse --margin 3%)" 
+pick="$(cat /tmp/allprograms.txt | cut -d " " -f1 | fzf --layout=reverse --margin 3%)"
 
 if [[ "$pick" ]]; then
 	"$pick"
-else	
+else
 	printf "\n%s\n" "no selection.."
 fi
 
@@ -1444,7 +1444,7 @@ selection () {
 while [ 1 ]; do
 
 printf "\n%s" ""
-	
+
 	selectcheck
 
 	unset fuzselect
@@ -1503,7 +1503,7 @@ printf "\n%s" ""
 		fzfcmus
 		;;
 		"find a program from this list"|f)
-		fuzselect='true'	
+		fuzselect='true'
 		selection
 		break
 		;;
@@ -1522,9 +1522,9 @@ printf "\n%s" ""
 		if [[ $TERM  = "linux" ]]; then
 			lynx "$bookmarkpick"
 		elif [[ $TERM = "xterm-256color" ]]; then
-			devour firefox "$bookmarkpick" 
+			devour firefox "$bookmarkpick"
 		elif [[ $TERM = "foot" ]]; then
-			swayhide firefox "$bookmarkpick" 
+			swayhide firefox "$bookmarkpick"
 		fi
 		;;
 		"web browser"|w)
@@ -1582,13 +1582,13 @@ printf "\n%s" ""
 		yazi
 		;;
 		"search & play video"|v)
-		fzfvid	
+		fzfvid
 		;;
 		"search & view images"|im)
-		fzfimage	
+		fzfimage
 		;;
 		"search files to open in text editor"|edi)
-		fzfvim	
+		fzfvim
 		;;
 		"weather"we)
 		weather
@@ -1606,7 +1606,7 @@ printf "\n%s" ""
 		maintimeshift
 		;;
 		"stop! first run ttysh as sudo su!: delete timeshift backups from removable drive"|de)
-		maintdelete	
+		maintdelete
 		;;
 		"close i3 or sway and return to tty"|cl)
 		if [[ $TERM = "foot" ]]; then
@@ -1628,23 +1628,23 @@ printf "\n%s" ""
 		fi
 		;;
 		"screenshot tty 1"|sc1)
-		screenshotcheck 
+		screenshotcheck
 		sudo fbgrab -c 1 screenshot"$timestamp".png
 		;;
 		"screenshot tty 2"|sc2)
-		screenshotcheck 
+		screenshotcheck
 		sudo fbgrab -c 2 screenshot2"$timestamp".png
 		;;
 		"screenshot tty 3"|sc3)
-		screenshotcheck 
+		screenshotcheck
 		sudo fbgrab -c 3 screenshot"$timestamp".png
 		;;
 		"screenshot tty 4"|sc4)
-		screenshotcheck 
+		screenshotcheck
 		sudo fbgrab -c 4 screenshot"$timestamp".png
 		;;
 		"screenshot tty 5"|sc5)
-		screenshotcheck 
+		screenshotcheck
 		sudo fbgrab -c 5 screenshot"$timestamp".png
 		;;
 		"screenshot tty 6"|sc6)
@@ -1666,7 +1666,7 @@ printf "\n%s" ""
 		elif [[ $TERM = "foot" ]]; then
 			wf-recorder -r 30 -F "scale=1280:800" -f swayrecord"$(date +%S%M%H%d%m%Y)".mp4
 		fi
-		;;	
+		;;
 		"text editor"|ed)
 		vim
 		;;
@@ -1692,7 +1692,7 @@ printf "\n%s" ""
 		"screen horizontal split"|hor)
 		screen -c /home/"$USER"/ttysh/resources/.screenrc.hsplit
 		;;
-		"screen vertical split"|ver) 
+		"screen vertical split"|ver)
 		screen -c /home/"$USER"/ttysh/resources/.screenrc.vsplit
 		;;
 		"scrollback information for tty"|scro)
@@ -1748,9 +1748,9 @@ printf "\n%s" ""
 			printf "\n"
 
 			read -ep "Enter your selection [ 1 - 6 ]: " answer
-			
+
 			case "$answer" in
-				"1" | "2" | "3" | "4" | "5" | "6" )	
+				"1" | "2" | "3" | "4" | "5" | "6" )
 				if [[ $(tty | tr -d '[0-9]') = "/dev/pts/" ]]; then
 					sudo chvt "$answer"
 				else
@@ -1786,9 +1786,9 @@ printf "\n%s" ""
 				d)
 				nmcli device disconnect "$(nmcli connection show | awk '{print $4}' | sed '/DEVICE/d; /--/d' | fzf --prompt "Pick a device to disconnect: ")"
 				;;
-				u)	
+				u)
 				nmcli device connect "$(nmcli device show | grep "GENERAL.DEVICE" | awk '{print $2}' | fzf --prompt "Pick a device to start up: ")"
-				;;	
+				;;
 				r)
 				resdev="$(nmcli connection show | awk '{print $4}' | sed '/DEVICE/d; /--/d' | fzf --prompt "Pick a running device to restart: ")"
 				nmcli device disconnect "$resdev"
@@ -1819,12 +1819,12 @@ printf "\n%s" ""
 
 		read -ep "Enter your selection: " fpick
 
-			case "$fpick" in 
+			case "$fpick" in
 				y)
 				fanspeed
 				;;
 				n)
-				printf "\n%s\n" "Exiting..."	
+				printf "\n%s\n" "Exiting..."
 				;;
 				*)
 				;;
@@ -1834,7 +1834,7 @@ printf "\n%s" ""
 		printf "\n"$warncolour"%s"$warncolourend"\n" "Is your device running on A/C, incase of powerloss during updates? y/n or q to quit"
 
 		while [ 1 ]; do
-		
+
 			read -ep "Enter your selection: " upick
 
 			case "$upick" in
@@ -1919,18 +1919,30 @@ printf "\n%s" ""
 						yay -S --noconfirm "$i"
 					else
 						echo ""$i" already installed"
-					fi	
+					fi
 				done
 				printf "\n\n%s\n" "Updating TTYSH..."
 				cd /home/"$USER"/ttysh/
 				git pull
 				printf "\n\n%s\n" "Setting i3, sway, foot, bashrc, Xdefaults configs etc..."
+
+				[[ ! -d /home/"$USER"/.config/i3 ]] && mkdir -p /home/"$USER"/.config/i3
 				cat /home/"$USER"/ttysh/resources/i3config/config > /home/"$USER"/.config/i3/config
+				[[ ! -d /home/"$USER"/.config/sway ]] && mkdir -p /home/"$USER"/.config/sway
 				cat /home/"$USER"/ttysh/resources/swayconfig/config > /home/"$USER"/.config/sway/config
+				[[ ! -d /home/"$USER"/.config/foot ]] && mkdir -p /home/"$USER"/.config/foot
 				cat /home/"$USER"/ttysh/resources/footconfig/foot.ini > /home/"$USER"/.config/foot/foot.ini
+				[[ ! -d /home/"$USER"/.newsboat ]] && mkdir -p /home/"$USER"/.newsboat
+				cat /home/"$USER"/ttysh/resources/newsboatconfig/urls > /home/"$USER"/.newsboat/urls
+				cat /home/"$USER"/ttysh/resources/newboatconfig/config > /home/"$USER"/.newsboat/config
+				[[ ! -d /home/"$USER"/.config/vim ]] && mkdir -p /home/"$USER"/.config/vim
+				cat /home/"$USER"/ttysh/resources/vimconfig/.vimrc > /home/"$USER"/.config/vim/.vimrc
+				[[ ! -d /home/"$USER"/.config/mpv ]] && mkdir -p /home/"$USER"/.config/mpv
+				cat /home/"$USER"/ttysh/resources/mpvconfig/mpv.conf > /home/"$USER"/.config/mpv/mpv.conf
+				cat /home/"$USER"/ttysh/resources/mpvconfig/input.conf > /home/"$USER"/.config/mpv/input.conf
 				cat /home/"$USER"/ttysh/resources/bashrc/.bashrc > /home/"$USER"/.bashrc
 				cat /home/"$USER"/ttysh/resources/.Xdefaults > /home/"$USER"/.Xdefaults
-				cat /home/"$USER"/ttysh/resources/newsboatconfig/config > /home/"$USER"/.newsboat/config
+
 				printf "\n\n%s\n" "Setting X11 xorg.conf..."
 				cat /home/"$USER"/ttysh/resources/x11config/xorg.conf | sudo tee /etc/X11/xorg.conf >/dev/null
 				printf "\n\n%s\n" "Setting your person toggles..."
@@ -1984,7 +1996,7 @@ done
 
 #
 # PROGRAMME START
-# 
+#
 
 if [[ ! -f /home/"$USER"/.ttyshwizardrun ]] && [[ ! $USER = "root" ]]; then
 
@@ -2019,10 +2031,10 @@ while [ 1 ]; do
 		break
 		;;
 		"find a ttysh program")
-		fuzselect='true'	
+		fuzselect='true'
 		selection
 		break
-		;;	
+		;;
 		"run any program")
 		systemprograms
 		;;
