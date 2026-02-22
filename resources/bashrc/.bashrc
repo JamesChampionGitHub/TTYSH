@@ -20,11 +20,18 @@ set -o vi
 # TTYSH
 alias t='/home/"$USER"/ttysh/./ttysh.sh'
 
+alias ttysh='/home/"$USER"/ttysh/./ttysh.sh'
+
 # Quit pane
 alias q='exit'
 
 # Clear terminal
 alias c='clear'
+
+# Vim
+alias vim='nvim'
+
+alias vi='nvim'
 
 # Videos Directory
 alias v='cd /home/"$USER"/Videos/'
