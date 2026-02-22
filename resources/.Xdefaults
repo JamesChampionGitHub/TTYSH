@@ -16,7 +16,7 @@ Ctrl <Key> plus: larger-vt-font() \n\
 Ctrl <Key>M: maximize() \n\
 Ctrl <Key>R: restore() \n\
 Ctrl Shift <Key>C: copy-selection(CLIPBOARD) \n\
-Ctrl Shift <Key>V: insert-selection(CLIPBOARD) \n\
+Ctrl Shift <Key>P: insert-selection(CLIPBOARD) \n\
 Ctrl Alt <Key>S: secure()
 
 XTerm.vt100.metaSendsEscape: true

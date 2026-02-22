@@ -335,7 +335,6 @@ sudo pacman --needed --noconfirm -Syu \
 	lynx \
 	mpv \
 	screen \
-	gvim \
 	neovim \
 	less \
 	man \
@@ -1853,7 +1852,6 @@ printf "\n%s" ""
 					lynx \
 					mpv \
 					screen \
-					gvim \
 					neovim \
 					less \
 					man \

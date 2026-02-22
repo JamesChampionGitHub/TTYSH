@@ -1,7 +1,8 @@
 inoremap jj <esc>
-vnoremap <C-S-C> "+y
-map <C-S-P> "+p
-vnoremap <C-C> "*y :let @+=@*<CR>
+vnoremap <C-c> "+y
+map <C-p> "+p
+vnoremap <C-c> "*y :let @+=@*<CR>
+set clipboard=unnamedplus
 
 filetype plugin on
 syntax on
