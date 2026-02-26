@@ -6,6 +6,7 @@ set clipboard=unnamedplus
 
 filetype plugin on
 syntax on
+colorscheme	vim
 set formatoptions=1
 set lbr
 setlocal spell spelllang=en_gb
