@@ -12,7 +12,7 @@ alias ls='ls --color=auto'
 #
 
 # Set block cursor
-printf '033[?112c'
+printf '\033[?112c'
 
 set -o vi
 
