@@ -11,6 +11,9 @@ alias ls='ls --color=auto'
 #PS1="\033[37;1m$PS1"
 #
 
+# Set block cursor
+printf '033[?112c'
+
 set -o vi
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash

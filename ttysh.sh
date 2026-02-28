@@ -2018,6 +2018,8 @@ if [[ ! -f /home/"$USER"/.ttyshwizardrun ]] && [[ ! $USER = "root" ]]; then
 	esac
 fi
 
+[[ "$(screen -list | grep -i "dead" | grep -i "cmusdaemon")" ]] && screen -list | grep -i "dead" | grep -i "cmusdaemon" | cut -d "." -f1 | xargs -I {} screen -wipe {}
+
 [[ ! "$(screen -list | grep "cmusdaemon" | cut -d "." -f2 | cut -f1)" ]] && screen -dmS cmusdaemon cmus
 
 intro="$(printf "%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s" "select a ttysh program" "find a ttysh program" "run any program" "i3 window manager" "sway window manager" "toggle options" "config wizard" "help" "quit" | fzf --prompt "TTYSH " --layout=reverse --margin 20%)"
