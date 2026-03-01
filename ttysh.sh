@@ -1453,6 +1453,7 @@ printf "\n%s" ""
 		"music player"|m)
 		startupcmus
 		screen -r cmusdaemon
+		printf '\033[?112c'
 		;;
 		"next song"|ne)
 		startupcmus
