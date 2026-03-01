@@ -1986,6 +1986,7 @@ printf "\n%s" ""
 		;;
 		"quit"|q)
 		printf "\n%s" ""
+		printf '\033[?112c'
 		exit 0
 		;;
 		*)
@@ -2065,6 +2066,7 @@ while [ 1 ]; do
 		;;
 		"quit")
 		printf "\n%s" ""
+		printf '\033[?112c'
 		exit 0
 		;;
 	esac
