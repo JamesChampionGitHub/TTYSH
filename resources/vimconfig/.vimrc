@@ -12,5 +12,6 @@ setlocal lbr
 setlocal spell spelllang=en_gb
 setlocal spell!
 setlocal tabstop=4
+setlocal shiftwidth=4
 
 autocmd BufWritePre * %s/\s\+$//e
