@@ -7,8 +7,8 @@ set clipboard=unnamedplus
 filetype plugin on
 syntax on
 colorscheme	vim
-set formatoptions=1
-set lbr
+setlocal formatoptions=1
+setlocal lbr
 setlocal spell spelllang=en_gb
 setlocal spell!
 setlocal tabstop=4
