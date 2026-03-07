@@ -2041,6 +2041,8 @@ while [ 1 ]; do
 		;;
 		"run any program")
 		systemprograms
+		selection
+		break
 		;;
 		"i3 window manager")
 		startx
@@ -2054,6 +2056,8 @@ while [ 1 ]; do
 		;;
 		"help")
 		eofhelp
+		selection
+		break
 		;;
 		"toggle options")
 		ttyshtoggles
