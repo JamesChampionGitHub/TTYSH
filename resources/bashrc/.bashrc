@@ -25,6 +25,9 @@ alias t='/home/"$USER"/ttysh/./ttysh.sh'
 
 alias ttysh='/home/"$USER"/ttysh/./ttysh.sh'
 
+# History
+alias h='fzfcom="$(history | fzf | awk '{print $2}') && "$fzfcom"'
+
 # Quit pane
 alias q='exit'
 
