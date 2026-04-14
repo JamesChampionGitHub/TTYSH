@@ -32,7 +32,7 @@ exec "setxkbmap -layout gb"
 # Start applications
 
 # workspace 1
-exec --no-startup-id i3-msg 'workspace 1; exec xset b off; exec xterm -jf'
+exec --no-startup-id i3-msg 'workspace 1; exec xset b off; exec xterm -jf -b 10'
 #exec xterm -e /usr/local/bin/ttysh book
 #exec xterm -e mutt
 
@@ -62,7 +62,7 @@ floating_modifier $mod
 #tiling_drag modifier titlebar
 
 # start a terminal
-bindsym $mod+Return exec --no-startup-id xterm -jf #i3-sensible-terminal
+bindsym $mod+Return exec --no-startup-id xterm -jf -b 10 #i3-sensible-terminal
 
 # kill focused window
 bindsym $mod+Shift+q kill
