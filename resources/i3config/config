@@ -212,6 +212,13 @@ bindsym $mod+r mode "resize"
 
 client.background	#ffffff
 
+# class                 border  backgr. text    indic. child_border
+
+client.focused          #FFFFFF #FFFFFF #FFFFFF #FFFFFF #FFFFFF
+client.focused_inactive #FFFFFF #FFFFFF #FFFFFF #FFFFFF #FFFFFF
+client.unfocused        #FFFFFF #FFFFFF #FFFFFF #FFFFFF #FFFFFF
+client.urgent           #FFFFFF #FFFFFF #FFFFFF #FFFFFF #FFFFFF
+
 #Hide window title bar
 default_border pixel 2
 default_floating_border pixel 2
