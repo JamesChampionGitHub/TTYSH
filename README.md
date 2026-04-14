@@ -1,4 +1,4 @@
-# TTYSH 
+# TTYSH
 
 ## Running/Installation:
 
@@ -26,4 +26,4 @@ Follow the on-screen instruction to use as your daily driver in the TTY!
 
 Turn the Arch Linux Console and tty into a blazingly fast and minimal Linux desktop.
 
-TTYSH is a script that gives the TTY back to the regular user. Using automation and the Linux framebuffer, TTYSH turns your TTY into a full "desktop" with a graphical web browser, video playback, image viewing, just to name a few, and all of this is possible without a graphical environment.
+TTYSH is a script that makes the desktop tty focused. Using automation and the Linux framebuffer, TTYSH turns your tty into a full "desktop" without the need of a graphical environment, even if it still ships with the i3 and Sway window managers as options.
