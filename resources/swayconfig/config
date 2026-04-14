@@ -71,7 +71,7 @@ set $term foot
 #
 # Basics:
 #
-	
+
     # Start a terminal
     bindsym $mod+Return exec foot
 
@@ -251,3 +251,31 @@ exec swaymsg "workspace 1; exec $term"
 
 output <name> allow_tearing yes
 output * max_render_time off
+
+# Colours
+set $base00 #282828
+set $base01 #3c3836
+set $base02 #504945
+set $base03 #665c54
+set $base04 #d5c4a1
+set $base05 #ebdbb2
+set $base06 #fbf1c7
+set $base07 #ebdbb2
+set $base08 #cc241d
+set $base09 #d65d0e
+set $base0A #d79921
+set $base0B #98971a
+set $base0C #458588
+set $base0D #b16286
+set $base0E #689d6a
+set $base0F #a89984
+
+# Window Colours
+client.focused #ffffff #ffffff #ffffff #ffffff #ffffff
+#client.focused   $base0D  $base00  $base06  $base08  $base09
+client.focused_inactive  $base02  $base00  $base06  $base08  $base02
+client.unfocused   $base01  $base00  $base06  $base08  $base02
+client.urgent   $base07  $base00  $base08  $base0B  $base02
+client.placeholder       $base02  $base00  $base06  $base03  $base04
+client.background        $base00
+
