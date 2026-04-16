@@ -24,6 +24,6 @@ Follow the on-screen instruction to use as your daily driver in the TTY!
 
 ## What is TTYSH?
 
-Turn the Arch Linux Console and tty into a blazingly fast and minimal Linux desktop.
+Turn the Linux Console and tty into a blazingly fast and minimal Linux desktop.
 
-TTYSH is a script that makes the desktop tty focused. Using automation and the Linux framebuffer, TTYSH turns your tty into a full "desktop" without the need of a graphical environment, even if it still ships with the i3 and Sway window managers as options.
+TTYSH is a script that makes the desktop focused around the tty. Using automation and the Linux framebuffer, TTYSH turns your tty into a full "desktop" without the need of a graphical environment, even if it still ships with the i3 and Sway window managers as options.
