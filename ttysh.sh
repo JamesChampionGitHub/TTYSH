@@ -36,7 +36,7 @@ Note: (f) will run search on this list of programs for you to select.
 
 		select a (b)ookmark for web browsing/
 
-		(we)b search/
+		(web) search/
 
 		format firefox (book)marks/
 
@@ -1511,7 +1511,7 @@ printf "\n%s" ""
 		"run any program"|ru)
 		systemprograms
 		;;
-		"web search"|we)
+		"web search"|web)
 		websearch
 		;;
 		"format bookmarks"|book)
@@ -1591,7 +1591,7 @@ printf "\n%s" ""
 		"search files to open in text editor"|edi)
 		fzfvim
 		;;
-		"weather"we)
+		"weather"|we)
 		weather
 		;;
 		"search pdfs"|pdf)
