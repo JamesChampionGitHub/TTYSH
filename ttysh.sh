@@ -986,12 +986,12 @@ while [ 1 ]; do
 	case "$wanswer" in
 		y)
 		read -ep "Enter your city or town to see the weather forecast: " wwanswer
-		curl wttr.in/"$wwanswer"?T --output /home/"$USER"/ttysh/resources/.weatherdata
-		cat /home/"$USER"/ttysh/resources/.weatherdata
+		curl wttr.in/"$wwanswer"?T --output /home/"$USER"/.weatherdata
+		cat /home/"$USER"/.weatherdata
 		break
 		;;
 		n)
-		cat /home/"$USER"/ttysh/resources/.weatherdata
+		cat /home/"$USER"/.weatherdata
 		break
 		;;
 		*)
