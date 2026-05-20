@@ -31,6 +31,9 @@ alias q='exit'
 # Clear terminal
 alias c='clear'
 
+# History
+alias hispick="$(history | fzf | sed 's/^[^[:alpha:]]*//')" && $hispick
+
 # Vim
 alias vim='nvim'
 
