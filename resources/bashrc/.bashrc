@@ -32,7 +32,7 @@ alias q='exit'
 alias c='clear'
 
 # History
-alias h=hispick="$(history | fzf | sed 's/^[^[:alpha:]]*//')" && $hispick
+alias h='hispick="$(history | fzf | sed 's/^[^[:alpha:]]*//')" && $hispick'
 
 # Vim
 alias vim='nvim'
