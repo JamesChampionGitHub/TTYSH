@@ -31,6 +31,10 @@ alias q='exit'
 # Clear terminal
 alias c='clear'
 
+# Reset cursor
+
+alias h='/home/"$USER"/ttysh/resources/./resetcur.sh'
+
 # History
 alias h='hispick="$(history | fzf | sed 's/^[^[:alpha:]]*//')" && $hispick'
 
