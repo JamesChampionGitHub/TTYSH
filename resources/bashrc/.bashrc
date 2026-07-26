@@ -32,7 +32,7 @@ alias q='exit'
 alias c='clear'
 
 # Reset cursor
-alias b='/home/"$USER"/ttysh/resources/./resetcur.sh'
+alias b='/home/"$USER"/ttysh/resources/./.resetcur.sh'
 
 # History
 alias h='hispick="$(history | fzf | sed 's/^[^[:alpha:]]*//')" && $hispick'
