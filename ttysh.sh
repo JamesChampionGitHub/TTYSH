@@ -44,11 +44,17 @@ Note: (f) will run search on this list of programs for you to select.
 
 		start (i)3 window manager/
 
+		*NOTE: i3 window manager is running mostly default key bindings. You can view these keybindings in the i3 config file.
+
 		start (s)way window manager/
+
+		*NOTE: key bindings should match the i3 window manager above.
 
 		(cl)ose i3 or sway and return to tty/
 
 	Screen splits/
+
+		*NOTE: the screen split below are all running under GNU Screen.
 
 		screen (fou)r panel split/
 
@@ -75,6 +81,8 @@ Note: (f) will run search on this list of programs for you to select.
 	Music Player/
 
 		(m)usic player/
+
+		*NOTE: the music player is running under GNU Screen. It can run in the background with Ctrl-a+d.
 
 		(ne)xt song/
 
