@@ -14,5 +14,6 @@ setlocal spell!
 setlocal tabstop=4
 setlocal shiftwidth=4
 setlocal guicursor=""
+setlocal guicursor=a:blinkon0
 
 autocmd BufWritePre * %s/\s\+$//e
