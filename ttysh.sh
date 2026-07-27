@@ -44,7 +44,7 @@ Note: (f) will run search on this list of programs for you to select.
 
 		start (i)3 window manager/
 
-		*NOTE: i3 window manager is running mostly default key bindings. You can view these keybindings in the i3 config file.
+		*NOTE: i3 window manager key bindings can be viewed the i3 config file.
 
 		start (s)way window manager/
 
@@ -82,7 +82,7 @@ Note: (f) will run search on this list of programs for you to select.
 
 		(m)usic player/
 
-		*NOTE: the music player is running under GNU Screen. It can run in the background with Ctrl-a+d.
+		*NOTE: the music player can run in the background with Ctrl-a+d.
 
 		(ne)xt song/
 
