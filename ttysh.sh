@@ -376,6 +376,8 @@ sudo pacman --needed --noconfirm -Syu \
 	noto-fonts-emoji \
 	noto-fonts-cjk \
 	noto-fonts-exta \
+	ttf-dejavu \
+	ttf-liberation \
 	i3lock \
 	swaylock \
 	yazi \
@@ -1894,6 +1896,8 @@ printf "\n%s" ""
 					noto-fonts-emoji \
 					noto-fonts-cjk \
 					noto-fonts-extra \
+					ttf-dejavu \
+					ttf-liberation \
 					i3lock \
 					swaylock \
 					yazi \
