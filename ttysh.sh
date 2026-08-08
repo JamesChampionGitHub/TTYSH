@@ -68,6 +68,10 @@ Note: (f) will run search on this list of programs for you to select.
 
 		(mu)tt email configuation/
 
+	RSS Feeds/
+
+		(r)ss reader
+
 	Video/
 
 		video search on (yo)utube/
@@ -246,6 +250,7 @@ increase volume
 lower volume
 email
 mutt email configuation
+rss reader
 text editor
 spreadsheet
 find a program from this list
@@ -1575,7 +1580,7 @@ printf "\n%s" ""
         	sleep 1
 		done
 		;;
-		r)
+		"rss reader"|r)
 		cd /home/"$USER"/Videos
 		newsboat
 		cd /home/"$USER"/
