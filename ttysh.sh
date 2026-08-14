@@ -653,13 +653,16 @@ printf "\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n" "(i)nstall a package
 	sudo pacman -Sc
 	;;
 	m)
-	read -ep "(i)ntel or (a)md i/a?" mcode
+	read -ep "(i)ntel or (a)md i/a? " mcode
 	case "$mcode" in
 		a)
 		sudo pacman -Syu amd-ucode
 		;;
 		i)
 		sudo pacman -Syu intel-ucode
+		;;
+		q)
+		break
 		;;
 	esac
 	;;
