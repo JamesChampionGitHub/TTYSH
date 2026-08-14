@@ -607,7 +607,7 @@ while [ 1 ]; do
 	read -ep "name of package/program: " package
 	}
 
-printf "\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n" "(i)nstall a package/program" "(r)emove a package/program" "(l)ook up a package/program" "(in)stall an AUR package/program" "(re)move an AUR/package/program" "(lo)ok up an AUR package/program" "(li)ist packages/programs" "(lis)t AUR packages/programs" "(e)mpty package manager cache" "(q)uit"
+printf "\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n" "(i)nstall a package/program" "(r)emove a package/program" "(l)ook up a package/program" "(in)stall an AUR package/program" "(re)move an AUR/package/program" "(lo)ok up an AUR package/program" "(li)ist packages/programs" "(lis)t AUR packages/programs" "(e)mpty package manager cache" "install (m)icrocode for intel or amd" "(q)uit"
 
 	read -ep "choose your option : " option
 
@@ -652,6 +652,16 @@ printf "\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n" "(i)nstall a package/pro
 	e)
 	sudo pacman -Sc
 	;;
+	m)
+	read -ep "(i)ntel or (a)md i/a?" mcode
+	case "$mcode" in
+	a)
+	sudo pacman -Syu amd-ucode
+	;;
+	i)
+	sudo pacman -Syu intel-ucode
+	;;
+	esac
 	q)
 	break
 	;;
