@@ -687,9 +687,25 @@ read -ep "Enter your web search: " webpick
 if [[ $TERM = "linux" ]]; then
 	lynx search.brave.com/search?q="$webpick"
 elif [[ $TERM = "xterm-256color" ]]; then
+	read -ep "devour/swallow the window: y/n" dswin
+	case "$dswin" in
+		y)
 	devour firefox search.brave.com/search?q="$webpick"
+		;;
+		n)
+	firefox search.brave.com/search?q="$webpick"
+		;;
+	esac
 elif [[ $TERM = "foot" ]]; then
+	read -ep "devour/swallow the window: y/n" dswin
+	case "$dswin" in
+		y)
 	swayhide firefox search.brave.com/search?q="$webpick"
+		;;
+		n)
+	firefox search.brave.com/search?q="$webpick"
+		;;
+	esac
 fi
 }
 
@@ -1538,18 +1554,50 @@ printf "\n%s" ""
 		if [[ $TERM  = "linux" ]]; then
 			lynx "$bookmarkpick"
 		elif [[ $TERM = "xterm-256color" ]]; then
-			devour firefox "$bookmarkpick"
+			read -ep "devour/swallow the window: y/n" dswin
+			case "$dswin" in
+				y)
+				devour firefox search.brave.com/search?q="$webpick"
+				;;
+				n)
+				firefox search.brave.com/search?q="$webpick"
+				;;
+			esac
 		elif [[ $TERM = "foot" ]]; then
-			swayhide firefox "$bookmarkpick"
+			read -ep "devour/swallow the window: y/n" dswin
+			case "$dswin" in
+				y)
+				swayhide firefox search.brave.com/search?q="$webpick"
+				;;
+				n)
+				firefox search.brave.com/search?q="$webpick"
+				;;
+			esac
 		fi
 		;;
 		"web browser"|w)
 		if [[ $TERM = "linux" ]]; then
 			lynx
 		elif [[ $TERM = "xterm-256color" ]]; then
-			devour firefox
+			read -ep "devour/swallow the window: y/n" dswin
+			case "$dswin" in
+				y)
+				devour firefox search.brave.com/search?q="$webpick"
+				;;
+				n)
+				firefox search.brave.com/search?q="$webpick"
+				;;
+			esac
 		elif [[ $TERM = "foot" ]]; then
-			swayhide firefox
+			read -ep "devour/swallow the window: y/n" dswin
+			case "$dswin" in
+				y)
+				swayhide firefox search.brave.com/search?q="$webpick"
+				;;
+				n)
+				firefox search.brave.com/search?q="$webpick"
+				;;
+			esac
 		fi
 		;;
 		"ping jameschampion.xyz"|pin)
