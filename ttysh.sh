@@ -655,12 +655,12 @@ printf "\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n" "(i)nstall a package
 	m)
 	read -ep "(i)ntel or (a)md i/a?" mcode
 	case "$mcode" in
-	a)
-	sudo pacman -Syu amd-ucode
-	;;
-	i)
-	sudo pacman -Syu intel-ucode
-	;;
+		a)
+		sudo pacman -Syu amd-ucode
+		;;
+		i)
+		sudo pacman -Syu intel-ucode
+		;;
 	esac
 	q)
 	break
