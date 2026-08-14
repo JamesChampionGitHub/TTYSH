@@ -662,6 +662,7 @@ printf "\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n" "(i)nstall a package
 		sudo pacman -Syu intel-ucode
 		;;
 	esac
+	;;
 	q)
 	break
 	;;
