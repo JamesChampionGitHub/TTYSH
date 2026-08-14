@@ -687,7 +687,7 @@ read -ep "Enter your web search: " webpick
 if [[ $TERM = "linux" ]]; then
 	lynx search.brave.com/search?q="$webpick"
 elif [[ $TERM = "xterm-256color" ]]; then
-	read -ep "devour/swallow the window: y/n" dswin
+	read -ep "devour/swallow the window y/n: " dswin
 	case "$dswin" in
 		y)
 	devour firefox search.brave.com/search?q="$webpick"
@@ -697,7 +697,7 @@ elif [[ $TERM = "xterm-256color" ]]; then
 		;;
 	esac
 elif [[ $TERM = "foot" ]]; then
-	read -ep "devour/swallow the window: y/n" dswin
+	read -ep "devour/swallow the window y/n: " dswin
 	case "$dswin" in
 		y)
 	swayhide firefox search.brave.com/search?q="$webpick"
@@ -1554,7 +1554,7 @@ printf "\n%s" ""
 		if [[ $TERM  = "linux" ]]; then
 			lynx "$bookmarkpick"
 		elif [[ $TERM = "xterm-256color" ]]; then
-			read -ep "devour/swallow the window: y/n" dswin
+			read -ep "devour/swallow the window y/n: " dswin
 			case "$dswin" in
 				y)
 				devour firefox search.brave.com/search?q="$webpick"
@@ -1564,7 +1564,7 @@ printf "\n%s" ""
 				;;
 			esac
 		elif [[ $TERM = "foot" ]]; then
-			read -ep "devour/swallow the window: y/n" dswin
+			read -ep "devour/swallow the window y/n: " dswin
 			case "$dswin" in
 				y)
 				swayhide firefox search.brave.com/search?q="$webpick"
@@ -1579,7 +1579,7 @@ printf "\n%s" ""
 		if [[ $TERM = "linux" ]]; then
 			lynx
 		elif [[ $TERM = "xterm-256color" ]]; then
-			read -ep "devour/swallow the window: y/n" dswin
+			read -ep "devour/swallow the window y/n: " dswin
 			case "$dswin" in
 				y)
 				devour firefox search.brave.com/search?q="$webpick"
@@ -1589,7 +1589,7 @@ printf "\n%s" ""
 				;;
 			esac
 		elif [[ $TERM = "foot" ]]; then
-			read -ep "devour/swallow the window: y/n" dswin
+			read -ep "devour/swallow the window y/n: " dswin
 			case "$dswin" in
 				y)
 				swayhide firefox search.brave.com/search?q="$webpick"
