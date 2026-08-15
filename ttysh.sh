@@ -70,7 +70,7 @@ Note: (f) will run search on this list of programs for you to select.
 
 	RSS Feeds/
 
-		(r)ss reader
+		(r)ss reader/
 
 	Video/
 
@@ -80,7 +80,7 @@ Note: (f) will run search on this list of programs for you to select.
 
 	Images/
 
-		search & view (im)ages
+		search & view (im)ages/
 
 	Music Player/
 
@@ -158,7 +158,7 @@ Note: (f) will run search on this list of programs for you to select.
 
 		(sc)reenshot(1,2,3,4,5,6) tty/
 
-		(re)cord your desktop
+		(re)cord your desktop/
 
 	TTY/
 
@@ -174,7 +174,7 @@ Note: (f) will run search on this list of programs for you to select.
 
 		(u)pdate the system/
 
-		(ma)nage packages and programs
+		(ma)nage packages and programs/
 
 	System/Utilities/
 
@@ -653,7 +653,7 @@ printf "\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n" "(i)nstall a package
 	sudo pacman -Sc
 	;;
 	m)
-	read -ep "(i)ntel or (a)md i/a? " mcode
+	read -ep "(i)ntel or (a)md i/a? q to quit " mcode
 	case "$mcode" in
 		a)
 		sudo pacman -Syu amd-ucode
@@ -662,7 +662,6 @@ printf "\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n" "(i)nstall a package
 		sudo pacman -Syu intel-ucode
 		;;
 		q)
-		break
 		;;
 	esac
 	;;
