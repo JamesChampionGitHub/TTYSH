@@ -25,6 +25,9 @@ alias t='/home/"$USER"/ttysh/./ttysh.sh'
 
 alias ttysh='/home/"$USER"/ttysh/./ttysh.sh'
 
+# Lynx
+alias lynx='lynx -cfg=/home/"$USER"/.config/lynx/lynx.cfg'
+
 # Quit pane
 alias q='exit'
 

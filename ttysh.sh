@@ -44,17 +44,17 @@ Note: (f) will run search on this list of programs for you to select.
 
 		start (i)3 window manager/
 
-		*NOTE: i3 window manager key bindings can be viewed the i3 config file.
+		*NOTE: i3 window manager key bindings can be viewed the i3 config file
 
 		start (s)way window manager/
 
-		*NOTE: key bindings should match the i3 window manager above.
+		*NOTE: key bindings should match the i3 window manager above
 
 		(cl)ose i3 or sway and return to tty/
 
 	Screen splits/
 
-		*NOTE: the screen split below are all running under GNU Screen.
+		*NOTE: the screen split below are all running under GNU Screen
 
 		screen (fou)r panel split/
 
@@ -86,7 +86,7 @@ Note: (f) will run search on this list of programs for you to select.
 
 		(m)usic player/
 
-		*NOTE: the music player can run in the background with Ctrl-a+d.
+		*NOTE: the music player can run in the background with Ctrl-a+d
 
 		(ne)xt song/
 
@@ -140,7 +140,7 @@ Note: (f) will run search on this list of programs for you to select.
 
 		stop! first run ttysh as sudo su!: (di)sk formatting and setting up removable media/
 
-		*NOTE: RUN THE ABOVE ON REMOVABLE MEDIA BEFORE MAKING YOUR BACKUPS.
+		*NOTE: RUN THE ABOVE ON REMOVABLE MEDIA BEFORE MAKING YOUR BACKUPS
 
  		stop! first run ttysh as sudo su!: (ba)ckup /home/user/ to removable drive/
 
