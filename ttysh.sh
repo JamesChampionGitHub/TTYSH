@@ -1570,20 +1570,20 @@ printf "\n%s" ""
 			read -ep "devour/swallow the window y/n: " dswin
 			case "$dswin" in
 				y)
-				devour firefox search.brave.com/search?q="$webpick"
+				devour firefox "$bookmarkpick"
 				;;
 				n)
-				firefox search.brave.com/search?q="$webpick"
+				firefox "$bookmarkpick"
 				;;
 			esac
 		elif [[ $TERM = "foot" ]]; then
 			read -ep "devour/swallow the window y/n: " dswin
 			case "$dswin" in
 				y)
-				swayhide firefox search.brave.com/search?q="$webpick"
+				swayhide firefox "$bookmarkpick"
 				;;
 				n)
-				firefox search.brave.com/search?q="$webpick"
+				firefox "$bookmarkpick"
 				;;
 			esac
 		fi
