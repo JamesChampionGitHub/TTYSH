@@ -40,6 +40,8 @@ Note: (f) will run search on this list of programs for you to select.
 
 		format firefox (book)marks/
 
+		(reset) to default ttysh bookmarks/
+
 	Window Managers/
 
 		start (i)3 window manager/
@@ -229,6 +231,7 @@ web browser
 select a bookmark for web browsing
 web search
 format firefox bookmarks
+reset to default ttysh bookmarks
 start i3 window manager
 start sway window manager
 close i3 or sway and return to tty
@@ -1565,7 +1568,7 @@ printf "\n%s" ""
 		"format bookmarks"|book)
 		bookmarkformat
 		;;
-		"reset to default ttysh bookmarks"|rebook)
+		"reset to default ttysh bookmarks"|reset)
 		cat /home/"$USER"/ttysh/resources/bookmarks/.bookmarks_ttysh.txt > /home/"$USER"/.bookmarks_ttysh.txt
 		printf "\n%s\n" "your bookmarks have reset"
 		;;
