@@ -1565,6 +1565,10 @@ printf "\n%s" ""
 		"format bookmarks"|book)
 		bookmarkformat
 		;;
+		"reset to default ttysh bookmarks"|rebook)
+		cat /home/"$USER"/ttysh/resources/bookmarks/.bookmarks_ttysh.txt > /home/"$USER"/.bookmarks_ttysh.txt
+		printf "\n%s\n" "your bookmarks have reset"
+		;;
 		"select a bookmark for web browsing"|b)
 		[[ ! -f /home/"$USER"/.bookmarks_ttysh.txt ]] && cat /home/"$USER"/ttysh/resources/bookmarks/.bookmarks_ttysh.txt > /home/"$USER"/.bookmarks_ttysh.txt
 		bookmarkpick="$(cat /home/"$USER"/.bookmarks_ttysh.txt | fzf --prompt "Pick a bookmark: ")"
