@@ -452,6 +452,10 @@ cat /home/"$USER"/ttysh/resources/muttconfig/muttrc > /home/"$USER"/.config/mutt
 [[ ! -d /home/"$USER"/.config/nvim ]] && mkdir -p /home/"$USER"/.config/nvim
 cat /home/"$USER"/ttysh/resources/vimconfig/.vimrc > /home/"$USER"/.config/nvim/init.vim
 
+[[ ! -d /home/"$USER"/.config/lynx ]] && mkdir -p /home/"$USER"/.config/lynx
+cat /home/"$USER"/ttysh/resources/lynxconfig/lynx.cfg > /home/"$USER"/.config/lynx/lynx.cfg
+cat /home/"$USER"/ttysh/resources/lynxconfig/.lynxrc > /home/"$USER"/.config/lynx/.lynxrc
+
 [[ ! -d /home/"$USER"/.config/i3 ]] && mkdir -p /home/"$USER"/.config/i3
 cat /home/"$USER"/ttysh/resources/i3config/config > /home/"$USER"/.config/i3/config
 
@@ -2017,6 +2021,10 @@ printf "\n%s" ""
 				[[ ! -d /home/"$USER"/.config/nvim ]] && mkdir -p /home/"$USER"/.config/nvim
 				cat /home/"$USER"/ttysh/resources/vimconfig/.vimrc > /home/"$USER"/.config/nvim/init.vim
 				[[ ! -d /home/"$USER"/.config/mpv ]] && mkdir -p /home/"$USER"/.config/mpv
+				[[ ! -d /home/"$USER"/.config/lynx ]] && mkdir -p /home/"$USER"/.config/lynx
+				cat /home/"$USER"/ttysh/resources/lynxconfig/lynx.cfg > /home/"$USER"/.config/lynx/lynx.cfg
+				cat /home/"$USER"/ttysh/resources/lynxconfig/.lynxrc > /home/"$USER"/.config/lynx/.lynxrc
+
 				cat /home/"$USER"/ttysh/resources/mpvconfig/mpv.conf > /home/"$USER"/.config/mpv/mpv.conf
 				cat /home/"$USER"/ttysh/resources/mpvconfig/input.conf > /home/"$USER"/.config/mpv/input.conf
 				cat /home/"$USER"/ttysh/resources/bashrc/.bashrc > /home/"$USER"/.bashrc
