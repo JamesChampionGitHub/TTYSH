@@ -706,29 +706,33 @@ printf "\n%s\n" "Your /home/"$USER"/.bookmarks_ttysh.html is now formatted for t
 # search the internet
 websearch () {
 
-read -ep "Enter your web search: " webpick
+#read -ep "Enter your web search: " webpick
 
 if [[ $TERM = "linux" ]]; then
-	#lynx search.brave.com/search?q="$webpick"
-	lynx -cfg=/home/"$USER"/.config/lynx/lynx.cfg search.brave.com/search?q="$webpick"
+	#lynx -cfg=/home/"$USER"/.config/lynx/lynx.cfg search.brave.com/search?q="$webpick"
+	lynx -cfg=/home/"$USER"/.config/lynx/lynx.cfg https://duckduckgo.com/lite/
 elif [[ $TERM = "xterm-256color" ]]; then
 	read -ep "devour/swallow the window y/n: " dswin
 	case "$dswin" in
 		y)
-	devour firefox search.brave.com/search?q="$webpick"
+		read -ep "Enter your web search: " webpick
+		devour firefox search.brave.com/search?q="$webpick"
 		;;
 		n)
-	firefox search.brave.com/search?q="$webpick"
+		read -ep "Enter your web search: " webpick
+		firefox search.brave.com/search?q="$webpick"
 		;;
 	esac
 elif [[ $TERM = "foot" ]]; then
 	read -ep "devour/swallow the window y/n: " dswin
 	case "$dswin" in
 		y)
-	swayhide firefox search.brave.com/search?q="$webpick"
+		read -ep "Enter your web search: " webpick
+		swayhide firefox search.brave.com/search?q="$webpick"
 		;;
 		n)
-	firefox search.brave.com/search?q="$webpick"
+		read -ep "Enter your web search: " webpick
+		firefox search.brave.com/search?q="$webpick"
 		;;
 	esac
 fi
