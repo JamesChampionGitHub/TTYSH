@@ -349,6 +349,7 @@ sudo pacman --needed --noconfirm -Syu \
 	yt-dlp \
 	firefox \
 	lynx \
+	elinks \
 	mpv \
 	screen \
 	neovim \
@@ -1941,6 +1942,7 @@ printf "\n%s" ""
 					yt-dlp \
 					firefox \
 					lynx \
+					elinks \
 					mpv \
 					screen \
 					neovim \
