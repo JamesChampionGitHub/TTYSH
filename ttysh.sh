@@ -705,7 +705,8 @@ websearch () {
 read -ep "Enter your web search: " webpick
 
 if [[ $TERM = "linux" ]]; then
-	lynx search.brave.com/search?q="$webpick"
+	#lynx search.brave.com/search?q="$webpick"
+	lynx -cfg=/home/"$USER"/.config/lynx/lynx.cfg search.brave.com/search?q="$webpick"
 elif [[ $TERM = "xterm-256color" ]]; then
 	read -ep "devour/swallow the window y/n: " dswin
 	case "$dswin" in
@@ -1576,7 +1577,8 @@ printf "\n%s" ""
 		[[ ! -f /home/"$USER"/.bookmarks_ttysh.html ]] && cat /home/"$USER"/ttysh/resources/bookmarks/.bookmarks_ttysh.html > /home/"$USER"/.bookmarks_ttysh.html
 		bookmarkpick="$(cat /home/"$USER"/.bookmarks_ttysh.html | fzf --prompt "Pick a bookmark: ")"
 		if [[ $TERM  = "linux" ]]; then
-			lynx "$bookmarkpick"
+			#lynx "$bookmarkpick"
+			lynx -cfg=/home/"$USER"/.config/lynx/lynx.cfg "$bookmarkpick"
 		elif [[ $TERM = "xterm-256color" ]]; then
 			read -ep "devour/swallow the window y/n: " dswin
 			case "$dswin" in
@@ -1601,7 +1603,8 @@ printf "\n%s" ""
 		;;
 		"web browser"|w)
 		if [[ $TERM = "linux" ]]; then
-			lynx
+			#lynx
+			lynx -cfg=/home/"$USER"/.config/lynx/lynx.cfg
 		elif [[ $TERM = "xterm-256color" ]]; then
 			read -ep "devour/swallow the window y/n: " dswin
 			case "$dswin" in
