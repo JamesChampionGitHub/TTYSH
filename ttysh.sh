@@ -42,6 +42,8 @@ Note: (f) will run search on this list of programs for you to select.
 
 		(reset) to default ttysh bookmarks/
 
+		reset to default (lynx) bookmarks/
+
 	Window Managers/
 
 		start (i)3 window manager/
@@ -232,6 +234,7 @@ select a bookmark for web browsing
 web search
 format firefox bookmarks
 reset to default ttysh bookmarks
+reset to default lynx bookmarks
 start i3 window manager
 start sway window manager
 close i3 or sway and return to tty
@@ -474,6 +477,10 @@ cat /home/"$USER"/ttysh/resources/footconfig/foot.ini > /home/"$USER"/.config/fo
 
 [[ ! -d /home/"$USER"/.config/ttysh ]] && mkdir -p /home/"$USER"/.config/ttysh
 cat /home/"$USER"/ttysh/resources/ttyshconfig/config > /home/"$USER"/.config/ttysh/config
+
+cat /home/"$USER"/ttysh/resources/bookmarks/.bookmarks_ttysh.html > /home/"$USER"/.bookmarks_ttysh.html
+
+cat /home/"$USER"/ttysh/resources/lynx/.lynx_bookmarks.html > /home/"$USER"/.lynx_bookmarks.html
 
 printf "%s\n\n" "NOTES" > /home/"$USER"/.notes.txt
 
@@ -1579,6 +1586,10 @@ printf "\n%s" ""
 		;;
 		"reset to default ttysh bookmarks"|reset)
 		cat /home/"$USER"/ttysh/resources/bookmarks/.bookmarks_ttysh.html > /home/"$USER"/.bookmarks_ttysh.html
+		printf "\n%s\n" "your bookmarks have reset"
+		;;
+		"reset to default lynx bookmarks"|lynx)
+		cat /home/"$USER"/ttysh/resources/lynx/.lynx_bookmarks.html > /home/"$USER"/.lynx_bookmarks.html
 		printf "\n%s\n" "your bookmarks have reset"
 		;;
 		"select a bookmark for web browsing"|b)
