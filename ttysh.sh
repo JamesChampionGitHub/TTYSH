@@ -480,7 +480,7 @@ cat /home/"$USER"/ttysh/resources/ttyshconfig/config > /home/"$USER"/.config/tty
 
 cat /home/"$USER"/ttysh/resources/bookmarks/.bookmarks_ttysh.html > /home/"$USER"/.bookmarks_ttysh.html
 
-cat /home/"$USER"/ttysh/resources/lynx/.lynx_bookmarks.html > /home/"$USER"/.lynx_bookmarks.html
+cat /home/"$USER"/ttysh/resources/lynxconfig/.lynx_bookmarks.html > /home/"$USER"/.lynx_bookmarks.html
 
 printf "%s\n\n" "NOTES" > /home/"$USER"/.notes.txt
 
@@ -1586,11 +1586,11 @@ printf "\n%s" ""
 		;;
 		"reset to default ttysh bookmarks"|reset)
 		cat /home/"$USER"/ttysh/resources/bookmarks/.bookmarks_ttysh.html > /home/"$USER"/.bookmarks_ttysh.html
-		printf "\n%s\n" "your bookmarks have reset"
+		printf "\n%s\n" "your ttysh bookmarks have reset"
 		;;
 		"reset to default lynx bookmarks"|lynx)
-		cat /home/"$USER"/ttysh/resources/lynx/.lynx_bookmarks.html > /home/"$USER"/.lynx_bookmarks.html
-		printf "\n%s\n" "your bookmarks have reset"
+		cat /home/"$USER"/ttysh/resources/lynxconfig/.lynx_bookmarks.html > /home/"$USER"/.lynx_bookmarks.html
+		printf "\n%s\n" "your lynx bookmarks have reset"
 		;;
 		"select a bookmark for web browsing"|b)
 		[[ ! -f /home/"$USER"/.bookmarks_ttysh.html ]] && cat /home/"$USER"/ttysh/resources/bookmarks/.bookmarks_ttysh.html > /home/"$USER"/.bookmarks_ttysh.html
