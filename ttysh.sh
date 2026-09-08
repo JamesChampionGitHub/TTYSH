@@ -848,7 +848,7 @@ while [ 1 ]; do
 
 	case "$answer" in
 		s)
-		if [[ $TERM = "linux" ]]; then
+		if [[ $TERM = "linux" ]] || [[ $TERM = "screen.linux" ]]; then
 			mpv -vo=drm "$(find /home/"$USER"/ -type f | fzf -i --prompt "Pick the image you want to view: ")"
 		elif [[ $TERM = "xterm-256color" ]]; then
 			devour mpv "$(find /home/"$USER"/ -type f | fzf -i --prompt "Pick the image you want to view: ")"
