@@ -900,7 +900,7 @@ while [ 1 ]; do
 
 	case "$answer" in
 		s)
-		if [[ $TERM = "linux" ]]; then
+		if [[ $TERM = "linux" ]] || [[ $TERM = "screen.linux" ]]; then
 			sudo fbpdf "$(find /home/"$USER"/ -type f | fzf -i --prompt "Pick the pdf you want to view. ESC to exit: ")"
 		elif [[ $TERM = "xterm-256color" ]]; then
 			devour zathura "$(find /home/"$USER"/ -type f | fzf -i --prompt "Pick the pdf you want to view. ESC to exit: ")"
