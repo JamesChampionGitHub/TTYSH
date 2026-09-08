@@ -1621,7 +1621,7 @@ printf "\n%s" ""
 		fi
 		;;
 		"web browser"|w)
-		if [[ $TERM = "linux" ]]; then
+		if [[ $TERM = "linux" ]] || [[ $TERM = "screen.linux" ]]; then
 			#lynx
 			lynx -cfg=/home/"$USER"/.config/lynx/lynx.cfg
 		elif [[ $TERM = "xterm-256color" ]]; then
