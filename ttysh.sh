@@ -715,7 +715,7 @@ websearch () {
 
 #read -ep "Enter your web search: " webpick
 
-if [[ $TERM = "linux" ]]; then
+if [[ $TERM = "linux" ]] || [[ $TERM = "screen.linux" ]]; then
 	#lynx -cfg=/home/"$USER"/.config/lynx/lynx.cfg search.brave.com/search?q="$webpick"
 	lynx -cfg=/home/"$USER"/.config/lynx/lynx.cfg https://duckduckgo.com/lite/
 elif [[ $TERM = "xterm-256color" ]]; then
