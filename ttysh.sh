@@ -97,7 +97,7 @@ Note: (f) will run search on this list of programs for you to select.
 
 		(pr)evious song/
 
-		(p)ause song/
+		play or (p)ause a song/
 
 		(fo)rward song/
 
@@ -249,7 +249,7 @@ music search on youtube
 music player
 next song
 previous song
-pause song
+play or pause a song
 forward song
 status on music
 pick a song
@@ -1535,7 +1535,7 @@ printf "\n%s" ""
 		cmus-remote -Q
 		printf "\n%s\n\n" "The previous track is playing."
 		;;
-		"pause song"|p)
+		"play or pause a song"|p)
 		startupcmus
 		cmus-remote -u
 		cmus-remote -Q
