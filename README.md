@@ -1,6 +1,6 @@
 # TTYSH
 
-TTYSH is a beautifully minimal, blazingly fast, and a true Unix-like experience on modern Linux.
+TTYSH is a beautifully minimal, blazingly fast, and a true Unix-like desktop experience on modern Linux.
 
 ## Running/Installation:
 
@@ -26,6 +26,6 @@ Follow the on-screen instruction to use as your daily driver in the TTY!
 
 ## What is TTYSH?
 
-TTYSH is a beautifully minimal, blazingly fast, and a true Unix-like experience on modern Linux.
+TTYSH is a beautifully minimal, blazingly fast, and a true Unix-like desktop experience on modern Linux.
 
 TTYSH is a script that makes the desktop focused around the tty. Using automation and the Linux framebuffer, TTYSH turns your tty into a full "desktop" without the need of a graphical environment, but it still ships with the i3 and Sway window managers as options.
