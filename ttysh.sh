@@ -948,7 +948,7 @@ while [ 1 ]; do
 		yt-dlp -f 'bv+ba' "ytsearch1:""$video"""
 		;;
 		x)
-		if [[ $TERM = "linux" ]]; then
+		if [[ $TERM = "linux" ]] || [[ $TERM = "screen.linux" ]]; then
 			printf "\n%s\n\n" "run i3 or sway to use this feature"
 		elif [[ $TERM = "xterm-256color" ]]; then
 			url="$(xclip -o)"
@@ -959,7 +959,7 @@ while [ 1 ]; do
 		fi
 		;;
 		b)
-		if [[ $TERM = "linux" ]]; then
+		if [[ $TERM = "linux" ]] || [[ $TERM = "screen.linux" ]]; then
 			printf "\n%s\n\n" "run i3 or sway to use this feature"
 		elif [[ $TERM = "xterm-256color" ]]; then
 			url="$(xclip -o)"
@@ -1009,7 +1009,7 @@ while [ 1 ]; do
 		yt-dlp -f 'ba' -x --audio-format mp3 "ytsearch1:""$music"""
 		;;
 		m)
-		if [[ $TERM = "linux" ]]; then
+		if [[ $TERM = "linux" ]] || [[ $TERM = "screen.linux" ]]; then
 			printf "\n%s\n\n" "run i3 or sway to use this feature"
 		elif [[ $TERM = "xterm-256color" ]]; then
 			url="$(xclip -o)"
@@ -1595,7 +1595,7 @@ printf "\n%s" ""
 		"select a bookmark for web browsing"|b)
 		[[ ! -f /home/"$USER"/.bookmarks_ttysh.html ]] && cat /home/"$USER"/ttysh/resources/bookmarks/.bookmarks_ttysh.html > /home/"$USER"/.bookmarks_ttysh.html
 		bookmarkpick="$(cat /home/"$USER"/.bookmarks_ttysh.html | fzf --prompt "Pick a bookmark: ")"
-		if [[ $TERM  = "linux" ]]; then
+		if [[ $TERM  = "linux" ]] || [[ $TERM = "screen.linux" ]]; then
 			#lynx "$bookmarkpick"
 			lynx -cfg=/home/"$USER"/.config/lynx/lynx.cfg "$bookmarkpick"
 		elif [[ $TERM = "xterm-256color" ]]; then
