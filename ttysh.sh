@@ -1770,7 +1770,7 @@ printf "\n%s" ""
 			cd /home/"$USER"/Recordings/
 		fi
 
-		if [[ $TERM = "linux" ]] || [[ $TERM = "linux.screen" ]]; then
+		if [[ $TERM = "linux" ]] || [[ $TERM = "screen.linux" ]]; then
 			sudo ffmpeg -f fbdev -framerate 30 -i /dev/fb0 ttyrecord"$(date +%S%M%H%d%m%Y)".mp4
 		elif [[ $TERM = "xterm-256color" ]]; then
 			ffmpeg -video_size 1280x800 -framerate 30 -f x11grab -i :0 x11record"$(date +%S%M%H%d%m%Y)".mp4
