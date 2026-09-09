@@ -91,6 +91,7 @@ Note: (f) will run search on this list of programs for you to select.
 		(m)usic player/
 
 		*NOTE: the music player can run in the background with Ctrl-a+d
+			   running your own GNU screen and then running the music player might create unexpected behaviour
 
 		(ne)xt song/
 
