@@ -97,7 +97,7 @@ Note: (f) will run search on this list of programs for you to select.
 
 		(pr)evious song/
 
-		play or (p)ause a song/
+		(p)lay or pause a song/
 
 		(fo)rward song/
 
