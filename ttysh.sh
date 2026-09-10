@@ -29,6 +29,8 @@ Key: () denote shortcut keys, e.g. (n) means pressing the n key in the selector 
 
 Note: (f) will run search on this list of programs for you to select.
 
+Note: to see i3 and sway key bindings look for "i3 and sway keybindings help" in this listing.
+
 
 	Web Browsing/
 
@@ -221,6 +223,8 @@ Note: (f) will run search on this list of programs for you to select.
 
 		(h)elp/
 
+		i3 and sway (key)bindings help/
+
 		(q)uit/
 
 EOF
@@ -309,6 +313,7 @@ restart
 shutdown
 rerun ttysh
 help
+i3 and sway keybindings help
 quit
 EOF
 }
@@ -2142,7 +2147,7 @@ fi
 
 [[ ! "$(screen -list | grep "cmusdaemon" | cut -d "." -f2 | cut -f1)" ]] && screen -dmS cmusdaemon cmus
 
-intro="$(printf "%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s" "select a ttysh program" "find a ttysh program" "run any program" "i3 window manager" "sway window manager" "toggle options" "config wizard" "help" "quit" | fzf --prompt "TTYSH " --layout=reverse --margin 20%)"
+intro="$(printf "%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s" "select a ttysh program" "find a ttysh program" "run any program" "i3 window manager" "sway window manager" "toggle options" "config wizard" "help" "i3 and sway keybindings help" "quit" | fzf --prompt "TTYSH " --layout=reverse --margin 20%)"
 
 while [ 1 ]; do
 
@@ -2175,6 +2180,10 @@ while [ 1 ]; do
 		"help")
 		eofhelp
 		selection
+		break
+		;;
+		"i3 and sway keybindings help")
+		cat /home/"$USER"/ttysh/resources/i3config/config | grep -i "bindsym" | less
 		break
 		;;
 		"toggle options")
