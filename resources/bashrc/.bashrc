@@ -62,9 +62,9 @@ alias xp='xclip -selection clipboard -o'
 #alias clock='screen -c /home/"$USER"/.screenrc.clockworking'
 
 # Default Programs
-export SUDO_EDITOR="vim"
+export SUDO_EDITOR="nvim"
 
-export EDITOR="vim"
+export EDITOR="nvim"
 
 #xset b off
 
