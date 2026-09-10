@@ -2107,6 +2107,9 @@ printf "\n%s" ""
 		"help"|h)
 		eofhelp
 		;;
+		"i3 and sway keybindings help"|key)
+		cat /home/"$USER"/ttysh/resources/swayconfig/config | grep -i "bindsym" | less
+		;;
 		"quit"|q)
 		printf "\n%s" ""
 		printf '\033[?112c'
@@ -2147,7 +2150,7 @@ fi
 
 [[ ! "$(screen -list | grep "cmusdaemon" | cut -d "." -f2 | cut -f1)" ]] && screen -dmS cmusdaemon cmus
 
-intro="$(printf "%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s" "select a ttysh program" "find a ttysh program" "run any program" "i3 window manager" "sway window manager" "toggle options" "config wizard" "help" "i3 and sway keybindings help" "quit" | fzf --prompt "TTYSH " --layout=reverse --margin 20%)"
+intro="$(printf "%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s" "select a ttysh program" "find a ttysh program" "run any program" "i3 window manager" "sway window manager" "toggle options" "config wizard" "help" "quit" | fzf --prompt "TTYSH " --layout=reverse --margin 20%)"
 
 while [ 1 ]; do
 
@@ -2180,10 +2183,6 @@ while [ 1 ]; do
 		"help")
 		eofhelp
 		selection
-		break
-		;;
-		"i3 and sway keybindings help")
-		cat /home/"$USER"/ttysh/resources/i3config/config | grep -i "bindsym" | less
 		break
 		;;
 		"toggle options")
