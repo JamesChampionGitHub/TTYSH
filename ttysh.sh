@@ -481,6 +481,9 @@ cat /home/"$USER"/ttysh/resources/swayconfig/config > /home/"$USER"/.config/sway
 [[ ! -d /home/"$USER"/.config/foot ]] && mkdir -p /home/"$USER"/.config/foot
 cat /home/"$USER"/ttysh/resources/footconfig/foot.ini > /home/"$USER"/.config/foot/foot.ini
 
+[[ ! -d /home/"$USER"/.config/htop ]] && mkdir -p /home/"$USER"/.config/htop
+cat /home/"$USER"/ttysh/resources/htopconfig/htoprc > /home/"$USER"/.config/htop/htoprc
+
 [[ ! -d /home/"$USER"/.config/ttysh ]] && mkdir -p /home/"$USER"/.config/ttysh
 cat /home/"$USER"/ttysh/resources/ttyshconfig/config > /home/"$USER"/.config/ttysh/config
 
@@ -2056,12 +2059,14 @@ printf "\n%s" ""
 				cat /home/"$USER"/ttysh/resources/newsboatconfig/config > /home/"$USER"/.newsboat/config
 				[[ ! -d /home/"$USER"/.config/nvim ]] && mkdir -p /home/"$USER"/.config/nvim
 				cat /home/"$USER"/ttysh/resources/vimconfig/.vimrc > /home/"$USER"/.config/nvim/init.vim
-				[[ ! -d /home/"$USER"/.config/mpv ]] && mkdir -p /home/"$USER"/.config/mpv
 				[[ ! -d /home/"$USER"/.config/lynx ]] && mkdir -p /home/"$USER"/.config/lynx
 				cat /home/"$USER"/ttysh/resources/lynxconfig/lynx.cfg > /home/"$USER"/.config/lynx/lynx.cfg
 				cat /home/"$USER"/ttysh/resources/lynxconfig/.lynxrc > /home/"$USER"/.lynxrc
 				[[ ! -d /home/"$USER"/.config/elinks ]] && mkdir -p /home/"$USER"/.config/elinks
 				cat /home/"$USER"/ttysh/resources/elinksconfig/elinks.conf > /home/"$USER"/.config/elinks/elinks.conf
+				[[ ! -d /home/"$USER"/.config/htop ]] && mkdir -p /home/"$USER"/.config/htop
+				cat /home/"$USER"/ttysh/resources/htopconfig/htoprc > /home/"$USER"/.config/htop/htoprc
+				[[ ! -d /home/"$USER"/.config/mpv ]] && mkdir -p /home/"$USER"/.config/mpv
 				cat /home/"$USER"/ttysh/resources/mpvconfig/mpv.conf > /home/"$USER"/.config/mpv/mpv.conf
 				cat /home/"$USER"/ttysh/resources/mpvconfig/input.conf > /home/"$USER"/.config/mpv/input.conf
 				cat /home/"$USER"/ttysh/resources/bashrc/.bashrc > /home/"$USER"/.bashrc
