@@ -348,7 +348,7 @@ wizardttysh () {
 
 # first, update the system and install needed packages
 
-sudo pacman --noconfirm --needed -Syu \
+sudo pacman --needed --noconfirm -Syu \
 	base-devel \
 	curl \
 	xdo \
@@ -393,7 +393,7 @@ sudo pacman --noconfirm --needed -Syu \
 	noto-fonts \
 	noto-fonts-emoji \
 	noto-fonts-cjk \
-	noto-fonts-exta \
+	noto-fonts-extra \
 	ttf-dejavu \
 	ttf-liberation \
 	i3lock \
