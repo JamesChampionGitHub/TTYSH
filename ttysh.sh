@@ -373,6 +373,7 @@ sudo pacman --needed --noconfirm -Syu \
 	xterm \
 	xclip \
 	xorg-xmodmap \
+	xdg-utils \
 	sway \
 	foot \
 	wf-recorder \
@@ -1984,6 +1985,7 @@ printf "\n%s" ""
 					xterm \
 					xclip \
 					xorg-xmodmap \
+					xdg-utils \
 					sway \
 					foot \
 					wf-recorder \
