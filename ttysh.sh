@@ -1672,7 +1672,7 @@ printf "\n%s" ""
 		;;
 		"mutt email configuation"|mu)
 		#screen -c /home/"$USER"/ttysh/resources/.screenrc.mutt_conf
-		nvim /home/"$USER"/.config/muttrc
+		nvim /home/"$USER"/.config/mutt/muttrc
 		;;
 		"clock"|c)
 		screen -c /home/"$USER"/ttysh/resources/.screenrc.clockworking
