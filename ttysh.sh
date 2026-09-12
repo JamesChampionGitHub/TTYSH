@@ -374,6 +374,7 @@ sudo pacman --needed --noconfirm -Syu \
 	xclip \
 	xorg-xmodmap \
 	xdg-utils \
+	brightnessctl \
 	sway \
 	foot \
 	wf-recorder \
@@ -413,7 +414,9 @@ sudo pacman --needed --noconfirm -Syu \
 	ueberzugpp \
 	chafa \
 	calcurse \
-	terminus-font
+	terminus-font \
+	kdenlive \
+	gimp
 
 # enable and start network manager service
 
@@ -1986,6 +1989,7 @@ printf "\n%s" ""
 					xclip \
 					xorg-xmodmap \
 					xdg-utils \
+					brightnessctl \
 					sway \
 					foot \
 					wf-recorder \
@@ -2025,7 +2029,9 @@ printf "\n%s" ""
 					ueberzugpp \
 					chafa \
 					calcurse \
-					terminus-font
+					terminus-font \
+					kdenlive \
+					gimp
 
 				printf "\n\n%s\n" "Updating the Arch Linux AUR..."
 				yay -Sua
