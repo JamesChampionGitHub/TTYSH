@@ -1,0 +1,7 @@
+Place below:
+
+https://github.com/trimstray/the-book-of-secret-knowledge
+
+https://github.com/luong-komorebi/Awesome-Linux-Software
+
+https://wiki.archlinux.org/title/List_of_applications/Utilities
