@@ -467,6 +467,7 @@ cat /home/"$USER"/ttysh/resources/newsboatconfig/config > /home/"$USER"/.newsboa
 
 [[ ! -d /home/"$USER"/.config/mutt ]] && mkdir -p /home/"$USER"/.config/mutt
 cat /home/"$USER"/ttysh/resources/muttconfig/muttrc > /home/"$USER"/.config/mutt/muttrc
+cat /home/"$USER"/ttysh/resources/muttconfig/aliases > /home/"$USER"/.config/mutt/aliases
 
 [[ ! -d /home/"$USER"/.config/nvim ]] && mkdir -p /home/"$USER"/.config/nvim
 cat /home/"$USER"/ttysh/resources/vimconfig/.vimrc > /home/"$USER"/.config/nvim/init.vim
@@ -1671,7 +1672,6 @@ printf "\n%s" ""
 		nvim /home/"$USER"/.notes.txt
 		;;
 		"mutt email configuation"|mu)
-		#screen -c /home/"$USER"/ttysh/resources/.screenrc.mutt_conf
 		nvim /home/"$USER"/.config/mutt/muttrc
 		;;
 		"clock"|c)
