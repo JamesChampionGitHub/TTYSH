@@ -54,7 +54,7 @@ Note: to see i3 and sway key bindings look for "i3 and sway keybindings help" in
 
 		start (s)way window manager/
 
-		*NOTE: key bindings should match the i3 window manager above
+		*NOTE: sway key bindings should match the i3 window manager above
 
 		(cl)ose i3 or sway and return to tty/
 
