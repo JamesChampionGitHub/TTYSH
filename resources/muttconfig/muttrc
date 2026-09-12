@@ -1,9 +1,11 @@
+set alias_file = "/home/"$USER"/.config/mutt/aliases"
+source $alias_file
 set folder = "imaps://"
 set smtp_url = "smtp://"
 
 set from = ""
 set realname = ""
-set editor = "vim"
+set editor = "nvim"
 
 set spoolfile = "+INBOX"
 set record = "+Sent"
@@ -11,3 +13,14 @@ set trash = "+Trash"
 set postponed = "+Drafts"
 
 mailboxes =INBOX =Sent =Trash =Drafts =Junk
+
+set pgp_sign_as = ""
+
+set crypt_use_gpgme = yes
+
+# pipe-entry pipes the current entry to iconv. iconv converts text from one character encoding to another
+# See this for a description of Mutt functions: https://muttmua.gitlab.io/mutt/manual-dev.html#functions
+set my_mail=/tmp/mutt/mail.html
+macro attach V "<shell-escape>mkdir -p $(dirname $my_mail)<enter><pipe-entry>iconv -c --to-code=UTF8 > $my_mail<enter><shell-escape>firefox $my_mail<enter>" "Open attachment with firefox"
+
+bind index "^" imap-fetch-mail
