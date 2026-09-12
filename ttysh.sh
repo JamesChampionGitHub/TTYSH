@@ -2036,6 +2036,9 @@ printf "\n%s" ""
 					gimp \
 					reflector
 
+					sudo systemctl enable --now NetworkManager.service
+					sudo systemctl enable --now reflector.timer
+
 				printf "\n\n%s\n" "Updating the Arch Linux AUR..."
 				yay -Sua
 				installed=(
