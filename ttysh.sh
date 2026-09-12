@@ -416,11 +416,13 @@ sudo pacman --needed --noconfirm -Syu \
 	calcurse \
 	terminus-font \
 	kdenlive \
-	gimp
+	gimp \
+	reflector
 
 # enable and start network manager service
 
 sudo systemctl enable --now NetworkManager.service
+sudo systemctl enable --now reflector.timer
 
 # install yay package manager
 
@@ -2031,7 +2033,8 @@ printf "\n%s" ""
 					calcurse \
 					terminus-font \
 					kdenlive \
-					gimp
+					gimp \
+					reflector
 
 				printf "\n\n%s\n" "Updating the Arch Linux AUR..."
 				yay -Sua
