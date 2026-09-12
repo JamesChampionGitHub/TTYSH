@@ -3,7 +3,7 @@ split
 
 focus up
 
-screen -t vim /usr/bin/vim /home/"$USER"/.config/mutt/muttrc
+screen -t nvim /usr/bin/nvim /home/"$USER"/.config/mutt/muttrc
 
 focus down
 

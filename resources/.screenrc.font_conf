@@ -5,10 +5,10 @@ focus up
 
 chdir /usr/share/kbd/consolefonts
 
-screen -t vim /usr/bin/vim /usr/share/kbd/consolefonts
+screen -t nvim /usr/bin/nvim /usr/share/kbd/consolefonts
 
 focus down
 
-screen -t vim /usr/bin/vim /etc/vconsole.conf
+screen -t nvim /usr/bin/nvim /etc/vconsole.conf
 
 focus up

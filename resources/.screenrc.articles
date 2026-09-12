@@ -2,7 +2,7 @@ split
 
 focus up
 
-screen -t vim /usr/bin/vim /home/"$USER"/Downloads
+screen -t nvim /usr/bin/nvim /home/"$USER"/Downloads
 
 focus down
 
