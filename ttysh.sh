@@ -70,11 +70,15 @@ Note: to see i3 and sway key bindings look for "i3 and sway keybindings help" in
 
 	Email/
 
+		*NOTE: emails can be opened in firefox browser with the macro v and then V
+
 		(e)mail/
 
 		(mu)tt email configuation/
 
 	RSS Feeds/
+
+		*NOTE: rss reader: links can be opened with macro , then v for video, b for firefox browser, and y for youtube download
 
 		(r)ss reader/
 
@@ -204,6 +208,8 @@ Note: to see i3 and sway key bindings look for "i3 and sway keybindings help" in
 		computer (te)mperatures/
 
 		(fr)ee disk space/
+
+		*NOTE: clock: Ctrl+c to exit
 
 		(c)lock/
 
