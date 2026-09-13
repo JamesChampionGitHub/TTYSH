@@ -2096,7 +2096,7 @@ printf "\n%s" ""
 				cat /home/"$USER"/ttysh/resources/x11config/xorg.conf | sudo tee /etc/X11/xorg.conf >/dev/null
 				printf "\n\n%s\n" "Setting your person toggles..."
 				togglesupdate
-				printf "\n\n%s\n%s\n" "You should now exit TTYSH and reboot your system to complete any new updates." "*NOTE: if any new changes to TTYSH, some changes may not take effect until additional updates."
+				printf "\n\n%s\n%s\n" "You should now exit TTYSH and reboot your system to complete any new updates." "*NOTE: if any new changes to TTYSH, some changes may not take effect until you run your next update."
 				break
 				;;
 				n)
