@@ -1,6 +1,7 @@
 #!/bin/bash
 
-# TTYSH : A daily driver and "desktop/texttop" experience for the tty.
+# TTYSH
+# The Perfect Linux Desktop
 
 
 #
