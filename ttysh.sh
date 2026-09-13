@@ -378,6 +378,7 @@ sudo pacman --needed --noconfirm -Syu \
 	xterm \
 	xclip \
 	xorg-xmodmap \
+	xorg-xset \
 	xdg-utils \
 	brightnessctl \
 	sway \
@@ -1993,6 +1994,7 @@ printf "\n%s" ""
 					xterm \
 					xclip \
 					xorg-xmodmap \
+					xorg-xset \
 					xdg-utils \
 					brightnessctl \
 					sway \
