@@ -48,13 +48,12 @@ Note: to see i3 and sway key bindings look for "i3 and sway keybindings help" in
 
 	Window Managers/
 
+		*NOTE: i3 window manager key bindings can be viewed in the i3 config file
+		*NOTE: sway key bindings should match i3 window manager
+
 		start (i)3 window manager/
 
-		*NOTE: i3 window manager key bindings can be viewed the i3 config file
-
 		start (s)way window manager/
-
-		*NOTE: sway key bindings should match the i3 window manager above
 
 		(cl)ose i3 or sway and return to tty/
 
@@ -94,10 +93,10 @@ Note: to see i3 and sway key bindings look for "i3 and sway keybindings help" in
 
 	Music Player/
 
-		(m)usic player/
-
 		*NOTE: the music player can run in the background with Ctrl-a+d
-			   running your own GNU screen and then running the music player might create unexpected behaviour
+		*NOTE: running your own GNU screen and then running the music player might create unexpected behaviour
+
+		(m)usic player/
 
 		(ne)xt song/
 
@@ -149,9 +148,9 @@ Note: to see i3 and sway key bindings look for "i3 and sway keybindings help" in
 
 	Backup/
 
-		stop! first run ttysh as sudo su!: (di)sk formatting and setting up removable media/
+		*NOTE: RUN THE disk formatting ON REMOVABLE MEDIA BEFORE MAKING YOUR BACKUPS
 
-		*NOTE: RUN THE ABOVE ON REMOVABLE MEDIA BEFORE MAKING YOUR BACKUPS
+		stop! first run ttysh as sudo su!: (di)sk formatting and setting up removable media/
 
  		stop! first run ttysh as sudo su!: (ba)ckup /home/user/ to removable drive/
 
@@ -173,13 +172,13 @@ Note: to see i3 and sway key bindings look for "i3 and sway keybindings help" in
 
 	TTY/
 
+		*NOTE: cannot move vt in GNU screen. Use alt+number or alt+arrow key instead
+
 		(scro)llback information for tty/
 
 		change (v)t (1,2,3,4,5,6) tty/
 
 		choose ch(vt) tty/
-
-		*NOTE: cannot use this selection in screen split. Use alt+number or alt+arrow key instead
 
 	Manage Packages/Programs/
 
@@ -188,6 +187,8 @@ Note: to see i3 and sway key bindings look for "i3 and sway keybindings help" in
 		(ma)nage packages and programs/
 
 	System/Utilities/
+
+		*NOTE: clock: Ctrl+c to exit
 
 		(fon)t and text change in tty/
 
@@ -208,8 +209,6 @@ Note: to see i3 and sway key bindings look for "i3 and sway keybindings help" in
 		computer (te)mperatures/
 
 		(fr)ee disk space/
-
-		*NOTE: clock: Ctrl+c to exit
 
 		(c)lock/
 
@@ -2094,7 +2093,7 @@ printf "\n%s" ""
 				cat /home/"$USER"/ttysh/resources/x11config/xorg.conf | sudo tee /etc/X11/xorg.conf >/dev/null
 				printf "\n\n%s\n" "Setting your person toggles..."
 				togglesupdate
-				printf "\n\n%s\n" "You should now exit TTYSH and reboot your system to complete any new updates."
+				printf "\n\n%s\n%s\n" "You should now exit TTYSH and reboot your system to complete any new updates." "*NOTE: if any new changes to TTYSH, some changes may not take effect until additional updates."
 				break
 				;;
 				n)
