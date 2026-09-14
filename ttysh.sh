@@ -201,6 +201,8 @@ Note: to see i3 and sway key bindings look for "i3 and sway keybindings help" in
 
 		(pin)g jameschampion.xyz/
 
+		(mouse) settings/
+
 		(fan) control on thinkpads/
 
 		(u)pdate the system/
@@ -307,6 +309,7 @@ default audio levels
 network manager
 network manager devices
 ping jameschampion.xyz
+mouse settings
 fan control on thinkpads
 system monitor
 computer temperatures
@@ -1668,6 +1671,11 @@ printf "\n%s" ""
 		;;
 		"ping jameschampion.xyz"|pin)
 		ping -c 3 jameschampion.xyz
+		;;
+		"mouse settings"|mouse)
+		[[ ! -d /home/"$USER"/maccel ]] && cd /home/"$USER"; git clone https://github.com/Gnarus-G/maccel; cd maccel; makepkg -si
+		sudo modprobe
+		sudo maccel tui
 		;;
 		"calender"|cal)
 		calcurse
