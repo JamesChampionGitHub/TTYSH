@@ -1674,13 +1674,15 @@ printf "\n%s" ""
 		;;
 		"mouse settings"|mouse)
 		if [[ ! -d /home/"$USER"/maccel ]]; then
-			cd /home/"$USER"
-			git clone https://github.com/Gnarus-G/maccel
-			cd maccel
-			makepkg -si
+			#cd /home/"$USER"
+			#git clone https://github.com/Gnarus-G/maccel
+			#cd maccel
+			#makepkg -si
+			echo "maccel package does NOT exist"
 		else
-			sudo modprobe maccel
+			#sudo modprobe maccel
 			sudo maccel tui
+			#echo "maccel packages DOES exist"
 		fi
 		;;
 		"calender"|cal)
