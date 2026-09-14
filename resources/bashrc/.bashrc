@@ -68,6 +68,9 @@ export EDITOR="nvim"
 
 #xset b off
 
+# turn of tty audio bell
+setterm --blength=0
+
 #/usr/local/bin/ttysh
 
 [ $(tty | tr -d '[0-9]') = "/dev/tty" ] && setfont ter-218b
