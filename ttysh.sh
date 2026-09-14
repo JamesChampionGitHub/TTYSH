@@ -1674,7 +1674,7 @@ printf "\n%s" ""
 		;;
 		"mouse settings"|mouse)
 		[[ ! -d /home/"$USER"/maccel ]] && cd /home/"$USER"; git clone https://github.com/Gnarus-G/maccel; cd maccel; makepkg -si
-		sudo modprobe
+		sudo modprobe maccel
 		sudo maccel tui
 		;;
 		"calender"|cal)
