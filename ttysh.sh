@@ -190,6 +190,7 @@ Note: to see i3 and sway key bindings look for "i3 and sway keybindings help" in
 	System/Utilities/
 
 		*NOTE: clock: Ctrl+c to exit
+		*NOTE: mouse settings: post install might reset terminal settings and might require a restart
 
 		(fon)t and text change in tty/
 
@@ -360,6 +361,7 @@ wizardttysh () {
 sudo pacman --needed --noconfirm -Syu \
 	base-devel \
 	linux-headers \
+	dkms \
 	curl \
 	xdo \
 	bc \
@@ -1988,6 +1990,7 @@ printf "\n%s" ""
 				sudo pacman --needed -Syu \
 					base-devel \
 					linux-headers \
+					dkms \
 					curl \
 					xdo \
 					bc \
