@@ -1678,6 +1678,9 @@ printf "\n%s" ""
 			git clone https://github.com/Gnarus-G/maccel
 			cd maccel
 			makepkg -si
+			cd /home/"$USER"
+			sudo modprobe maccel
+			sudo maccel tui
 		else
 			sudo modprobe maccel
 			sudo maccel tui
