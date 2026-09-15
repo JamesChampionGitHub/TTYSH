@@ -1673,7 +1673,7 @@ printf "\n%s" ""
 		ping -c 3 jameschampion.xyz
 		;;
 		"mouse settings"|mouse)
-		if [[ ! -d /home/"$USER"/maccel ]]; then
+		if [[ ! -x /usr/bin/maccel ]]; then
 			cd /home/"$USER"
 			git clone https://github.com/Gnarus-G/maccel
 			cd maccel
