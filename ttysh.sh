@@ -190,6 +190,7 @@ Note: to see i3 and sway key bindings look for "i3 and sway keybindings help" in
 	System/Utilities/
 
 		*NOTE: clock: Ctrl+c to exit
+		*NOTE: mouse settings: first use will install the required mouse settings packages
 		*NOTE: mouse settings: post install might reset terminal settings and might require a restart
 
 		(fon)t and text change in tty/
@@ -506,6 +507,8 @@ cat /home/"$USER"/ttysh/resources/htopconfig/htoprc > /home/"$USER"/.config/htop
 
 [[ ! -d /home/"$USER"/.config/ttysh ]] && mkdir -p /home/"$USER"/.config/ttysh
 cat /home/"$USER"/ttysh/resources/ttyshconfig/config > /home/"$USER"/.config/ttysh/config
+
+cat /home/"$USER"/ttysh/resources/gnuscreenconfig/.screenrc > /home/"$USER"/.screenrc
 
 cat /home/"$USER"/ttysh/resources/bookmarks/.bookmarks_ttysh.html > /home/"$USER"/.bookmarks_ttysh.html
 
@@ -2107,6 +2110,7 @@ printf "\n%s" ""
 				cat /home/"$USER"/ttysh/resources/htopconfig/htoprc > /home/"$USER"/.config/htop/htoprc
 				[[ ! -d /home/"$USER"/.config/mpv ]] && mkdir -p /home/"$USER"/.config/mpv
 				cat /home/"$USER"/ttysh/resources/mpvconfig/mpv.conf > /home/"$USER"/.config/mpv/mpv.conf
+				cat /home/"$USER"/ttysh/resources/gnuscreenconfig/.screenrc > /home/"$USER"/.screenrc
 				cat /home/"$USER"/ttysh/resources/mpvconfig/input.conf > /home/"$USER"/.config/mpv/input.conf
 				cat /home/"$USER"/ttysh/resources/bashrc/.bashrc > /home/"$USER"/.bashrc
 				cat /home/"$USER"/ttysh/resources/.Xdefaults > /home/"$USER"/.Xdefaults
