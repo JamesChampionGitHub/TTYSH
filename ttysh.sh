@@ -1679,12 +1679,9 @@ printf "\n%s" ""
 			cd maccel
 			makepkg -si
 			cd /home/"$USER"
-			sudo modprobe maccel
-			sudo maccel tui
-		else
-			sudo modprobe maccel
-			sudo maccel tui
 		fi
+		sudo modprobe maccel
+		sudo maccel tui
 		;;
 		"calender"|cal)
 		calcurse
