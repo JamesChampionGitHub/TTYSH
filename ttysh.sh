@@ -359,6 +359,7 @@ wizardttysh () {
 
 sudo pacman --needed --noconfirm -Syu \
 	base-devel \
+	linux-headers \
 	curl \
 	xdo \
 	bc \
@@ -1986,6 +1987,7 @@ printf "\n%s" ""
 				printf "\n%s\n" "Updating Arch Linux..."
 				sudo pacman --needed -Syu \
 					base-devel \
+					linux-headers \
 					curl \
 					xdo \
 					bc \
