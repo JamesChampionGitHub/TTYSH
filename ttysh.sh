@@ -58,16 +58,6 @@ Note: to see i3 and sway key bindings look for "i3 and sway keybindings help" in
 
 		(cl)ose i3 or sway and return to tty/
 
-	Screen splits/
-
-		*NOTE: the screen split below are all running under GNU Screen
-
-		screen (fou)r panel split/
-
-		screen (hor)izontal split/
-
-		screen (ver)tical split/
-
 	Email/
 
 		*NOTE: emails can be opened in firefox browser with the macro v and then V
@@ -253,9 +243,6 @@ reset to default lynx bookmarks
 start i3 window manager
 start sway window manager
 close i3 or sway and return to tty
-screen four panel split
-screen horizontal split
-screen vertical split
 video search on youtube
 search & play video
 search & view images
@@ -1835,15 +1822,6 @@ printf "\n%s" ""
 		"free disk space"|fr)
 		printf "\n%s\n" ""
 		df -h
-		;;
-		"screen four panel split"|fou)
-		screen -c /home/"$USER"/ttysh/resources/.screenrc.four_split
-		;;
-		"screen horizontal split"|hor)
-		screen -c /home/"$USER"/ttysh/resources/.screenrc.hsplit
-		;;
-		"screen vertical split"|ver)
-		screen -c /home/"$USER"/ttysh/resources/.screenrc.vsplit
 		;;
 		"scrollback information for tty"|scro)
 		printf "\n\n%s\n\n%s\n\n%s\n\n%s\n\n%s\n\n%s\n\n" "How To Achieve Scrollback In A TTY" "Login to a TTY and run the following: " "bash | tee /tmp/scrollback" "Now login to a seperate TTY and run: " "less +F /tmp/scrollback" "Now switch back to your first TTY. When you want to scrollback then return to your second TTY and press CTRL+C to interrupt less from following your file. You can then scroll back through your output. When you have finished scrolling back through your history press SHIFT+F in less and it'll go back to following the /tmp/scrollback file"
