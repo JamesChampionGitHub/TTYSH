@@ -2101,7 +2101,7 @@ printf "\n%s" ""
 				break
 				;;
 				n)
-				printf "\n%s\n\n%s\n" "Run on A/C power and then run the update selection again" "Is your device running on A/C, incase of powerloss during updates? y/n or q to quit"
+printf "\n"$warncolour"%s\n\n%s"$warncolourend"\n" "Run on A/C power and then run the update selection again" "Is your device running on A/C, incase of powerloss during updates? y/n or q to quit"
 				;;
 				q)
 				break
