@@ -1838,6 +1838,7 @@ printf "\n%s" ""
 				;;
 				q)
 				break
+				;;
 				*)
 				printf "\n\n%s\n\n" "Not a valid selection."
 				;;
