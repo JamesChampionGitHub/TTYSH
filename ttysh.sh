@@ -199,6 +199,8 @@ Note: to see i3 and sway key bindings look for "i3 and sway keybindings help" in
 
 		(u)pdate the system/
 
+		update the (firm)ware/
+
 		(sy)tem monitor/
 
 		hard(ware) info/
@@ -292,6 +294,7 @@ change to tty 5
 change to tty 6
 choose tty
 update the system
+update the firmware
 manage packages and programs
 font and text change in tty
 set temporary font in tty
@@ -353,6 +356,7 @@ sudo pacman --needed --noconfirm -Syu \
 	base-devel \
 	linux-headers \
 	dkms \
+	fwupd \
 	curl \
 	xdo \
 	bc \
@@ -2002,6 +2006,7 @@ printf "\n%s" ""
 					base-devel \
 					linux-headers \
 					dkms \
+					fwupd \
 					curl \
 					xdo \
 					bc \
@@ -2139,6 +2144,34 @@ printf "\n"$warncolour"%s\n\n%s"$warncolourend"\n" "Run on A/C power and then ru
 				break
 				;;
 				*)
+				;;
+			esac
+		done
+		;;
+		"update the firmware"|firm)
+		printf "\n"$warncolour"%s\n%s\n%s"$warncolourend"\n" "Is your device running on A/C, incase of powerloss during updates?" "Are you sure you want to update your firmware?" "y/n or q to quit"
+
+		while [ 1 ]; do
+
+			read -ep "Enter your selection: " fwpick
+
+			case "$fwpick" in
+				y)
+				fwupdmgr get-devices
+				fwupdmgr refresh
+				fwupdmgr get-updates
+				fwupdmgr update
+				break
+				;;
+				n)
+				printf "\n"$warncolour"%s\n\n%s"$warncolourend"\n" "Run on A/C power and then run the update selection again, and being certain you want to update"
+				break
+				;;
+				q)
+				break
+				;;
+				*)
+				printf "\n\n%s\n\n" "Not a valid selection."
 				;;
 			esac
 		done
