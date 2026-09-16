@@ -201,6 +201,8 @@ Note: to see i3 and sway key bindings look for "i3 and sway keybindings help" in
 
 		(sy)tem monitor/
 
+		hard(ware) info/
+
 		computer (te)mperatures/
 
 		(fr)ee disk space/
@@ -301,6 +303,7 @@ ping jameschampion.xyz
 mouse settings
 fan control on thinkpads
 system monitor
+hardware info
 computer temperatures
 free disk space
 clock
@@ -388,6 +391,7 @@ sudo pacman --needed --noconfirm -Syu \
 	cryptsetup \
 	timeshift \
 	htop \
+	hwinfo \
 	fbgrab \
 	tldr \
 	go \
@@ -1816,6 +1820,30 @@ printf "\n%s" ""
 		"system monitor"|sy)
 		htop
 		;;
+		"hardware info"|ware)
+		while [ 1 ]; do
+
+			printf "\n%s\n" "Choose the (l)ong or (s)hort hardware information, or (q)uit."
+
+			read -ep "Enter your selection: " hpick
+
+			case "$hpick" in
+				l)
+				hwinfo | less
+				break
+				;;
+				s)
+				hwinfo --short | less
+				break
+				;;
+				q)
+				break
+				*)
+				printf "\n\n%s\n\n" "Not a valid selection."
+				;;
+			esac
+		done
+		;;
 		"computer temperatures"|te)
 		watch sensors
 		;;
@@ -2010,6 +2038,7 @@ printf "\n%s" ""
 					cryptsetup \
 					timeshift \
 					htop \
+					hwinfo \
 					fbgrab \
 					tldr \
 					go \
