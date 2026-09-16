@@ -1528,7 +1528,7 @@ selectcheck () {
 if [[ "$fuzselect" = true ]]; then
 	answer="$(eoffuz | fzf --layout=reverse --margin 3%)"
 else
-	read -ep "Enter your selection. h and enter if you need help: " answer
+	read -ep "Main Menu: enter your selection. h and enter if you need help: " answer
 fi
 }
 
