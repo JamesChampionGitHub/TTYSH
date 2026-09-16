@@ -358,6 +358,7 @@ sudo pacman --needed --noconfirm -Syu \
 	bc \
 	cmus \
 	alsa-utils \
+	wiremix
 	yt-dlp \
 	firefox \
 	lynx \
@@ -1581,7 +1582,7 @@ printf "\n%s" ""
 		printf "\n%s" ""; amixer sset Master playback 5%-
 		;;
 		"audio controls"|a)
-		alsamixer
+		wiremix
 		;;
 		"video search on youtube"|yo)
 		yt
@@ -2006,6 +2007,7 @@ printf "\n%s" ""
 					bc \
 					cmus \
 					alsa-utils \
+					wiremix \
 					yt-dlp \
 					firefox \
 					lynx \
