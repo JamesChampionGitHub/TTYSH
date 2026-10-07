@@ -2199,7 +2199,18 @@ printf "\n"$warncolour"%s\n\n%s"$warncolourend"\n" "Run on A/C power and then ru
 		eofhelp
 		;;
 		"i3 and sway keybindings help"|key)
-		cat /home/"$USER"/ttysh/resources/swayconfig/config | grep -i "bindsym" | less
+		read -ep "(i)3 or (s)way keybinding: " ispick
+
+		case "$ispick" in
+			i)
+			cat /home/"$USER"/ttysh/resources/i3config/config | grep -i "bindsym" | less
+			;;
+			s)
+			cat /home/"$USER"/ttysh/resources/swayconfig/config | grep -i "bindsym" | less
+			;;
+			*)
+			printf "\n\n%s\n\n" "Not a valid selection."
+		esac
 		;;
 		"quit"|q)
 		printf "\n%s" ""
