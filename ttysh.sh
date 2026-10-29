@@ -2,7 +2,6 @@
 
 # TTYSH
 # The Perfect Linux Desktop
-# Test text
 
 #
 # VARIABLES
