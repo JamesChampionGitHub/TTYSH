@@ -6,7 +6,6 @@
 #
 # VARIABLES
 #
-# this is just a youtube test
 
 # red warning colour
 warncolour='\033[31;1m'
