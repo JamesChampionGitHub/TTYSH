@@ -394,6 +394,7 @@ sudo pacman --needed --noconfirm -Syu \
 	zathura \
 	cryptsetup \
 	timeshift \
+	gnome-boxes \
 	htop \
 	hwinfo \
 	fbgrab \
@@ -2044,6 +2045,7 @@ printf "\n%s" ""
 					zathura \
 					cryptsetup \
 					timeshift \
+					gnome-boxes \
 					htop \
 					hwinfo \
 					fbgrab \
