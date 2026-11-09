@@ -1809,7 +1809,7 @@ printf "\n%s" ""
 		if [[ $TERM = "linux" ]] || [[ $TERM = "screen.linux" ]]; then
 			sudo ffmpeg -f fbdev -framerate 30 -i /dev/fb0 ttyrecord"$(date +%S%M%H%d%m%Y)".mp4
 		elif [[ $TERM = "xterm-256color" ]]; then
-			x11randr=$(xrandr | grep "primary" | cut " " -f4 | cut -d "+" -f1)
+			x11randr=$(xrandr | grep "primary" | cut -d " " -f4 | cut -d "+" -f1)
 			ffmpeg -video_size "$x11randr" -framerate 30 -f x11grab -i :0 x11record"$(date +%S%M%H%d%m%Y)".mp4
 		elif [[ $TERM = "foot" ]]; then
 			wlrandr=$(wlr-randr | grep "current" | cut -d " " -f5)
