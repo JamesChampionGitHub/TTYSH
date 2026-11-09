@@ -361,7 +361,7 @@ sudo pacman --needed --noconfirm -Syu \
 	bc \
 	cmus \
 	alsa-utils \
-	wiremix
+	wiremix \
 	yt-dlp \
 	firefox \
 	lynx \
