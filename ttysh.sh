@@ -386,6 +386,7 @@ sudo pacman --needed --noconfirm -Syu \
 	sway \
 	foot \
 	wf-recorder \
+	wlr-randr \
 	wl-clipboard \
 	grim \
 	scrot \
@@ -1810,7 +1811,8 @@ printf "\n%s" ""
 		elif [[ $TERM = "xterm-256color" ]]; then
 			ffmpeg -video_size "$(xrandr | grep "primary" | cut " " -f4 | cut -d "+" -f1)" -framerate 30 -f x11grab -i :0 x11record"$(date +%S%M%H%d%m%Y)".mp4
 		elif [[ $TERM = "foot" ]]; then
-			wf-recorder -r 30 -F "scale=1280:800" -f swayrecord"$(date +%S%M%H%d%m%Y)".mp4
+			wlrandr=$(wlr-randr | grep "current" | cut -d " " -f5
+			wf-recorder -r 30 -F "scale=$wrandr" -f swayrecord"$(date +%S%M%H%d%m%Y)".mp4
 		fi
 		;;
 		"text editor"|ed)
@@ -2037,6 +2039,7 @@ printf "\n%s" ""
 					sway \
 					foot \
 					wf-recorder \
+					wlr-randr \
 					wl-clipboard \
 					grim \
 					scrot \
