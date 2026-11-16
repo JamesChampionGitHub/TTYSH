@@ -1,10 +1,10 @@
 set alias_file = "/home/"$USER"/.config/mutt/aliases"
 source $alias_file
-set folder = "imaps://"
-set smtp_url = "smtp://"
+set folder = "imaps://bob@bobturner.xyz@mail.bobturner.xyz:993"
+set smtp_url = "smtp://bob@bobturner.xyz@mail.bobturner.xyz:587"
 
-set from = ""
-set realname = ""
+set from = "bob@bobtuner.xyz"
+set realname = "Bob Turner"
 set editor = "nvim"
 
 set spoolfile = "+INBOX"
