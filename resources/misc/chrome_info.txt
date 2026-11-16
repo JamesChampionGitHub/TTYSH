@@ -1,0 +1,33 @@
+# Chromium Based Browser Performance Settings
+
+1. Built-in Performance & Memory Settings
+
+Navigate to chrome://settings/performance and chrome://settings/system to configure Chrome's native resource managers:
+• Memory Saver (chrome://settings/performance):
+	• Turn this on and set it to Balanced or Maximum.
+	• It frees up memory from inactive tabs so your active tabs run faster and smoother.
+• Preload Pages (chrome://settings/performance):
+	• Set preloading to Extended preloading (or standard) so Chrome predicts and preloads pages you are likely to visit next.
+• Graphics Acceleration (chrome://settings/system):
+	• Turn on Use graphics acceleration when available. This offloads rendering and heavy graphics tasks from your CPU to your GPU.
+• Background Apps (chrome://settings/system):
+	• Turn off Continue running background apps when Google Chrome is closed to prevent hidden processes from draining RAM and CPU when you aren't using the browser.
+
+2. Experimental Flags (chrome://flags)
+
+Type chrome://flags into the address bar to unlock experimental performance features. Note: Experimental flags can occasionally cause instability.
+• Parallel Downloading: Search for parallel downloading and change it to Enabled. This splits large file downloads into smaller streams to download faster.
+• QUIC Protocol: Search for quic (Experimental QUIC protocol) and set it to Enabled to reduce connection latency on supported websites.
+• GPU Rasterization: Search for gpu rasterization and set it to Enabled to let your graphics card handle page drawing and animations.
+
+3. Tab & Process Management
+
+• Use the Built-in Task Manager: Press Shift + Esc (or go to the three dots menu > More tools > Task manager). Look for high CPU or memory-hogging tabs, extensions, or sub-processes and click End process.
+• Close Unused Tabs: Keep active tabs to a minimum, or group/pin tabs you need regularly.
+
+4. Extensions & Maintenance
+
+• Prune Extensions: Go to chrome://extensions and remove or disable any extensions you do not actively use. Even idle extensions consume background resources.
+• Clear Browsing Data: Periodically clear your cached images and files (Ctrl + Shift + Delete on Windows/Linux or Cmd + Shift + Delete on Mac) to prevent bloated cache files from slowing down loads.
+• Keep Chrome Updated: Check for updates via the top-right menu or by navigating to Help > About Google Chrome to ensure you have the latest performance patches.
+
