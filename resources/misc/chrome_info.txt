@@ -1,5 +1,8 @@
 # Chromium Based Browser Performance Settings
 
+#Sometimes there is no file browser for downloads for example on i3wm
+google-chrome --use-system-default-file-chooser
+
 1. Built-in Performance & Memory Settings
 
 Navigate to chrome://settings/performance and chrome://settings/system to configure Chrome's native resource managers:
