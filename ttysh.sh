@@ -428,6 +428,7 @@ sudo pacman --needed --noconfirm -Syu \
 	calcurse \
 	terminus-font \
 	kdenlive \
+	obs-studio \
 	gimp \
 	reflector
 
@@ -2083,6 +2084,7 @@ printf "\n%s" ""
 					calcurse \
 					terminus-font \
 					kdenlive \
+					obs-studio \
 					gimp \
 					reflector
 
