@@ -279,3 +279,5 @@ client.urgent   $base07  $base00  $base08  $base0B  $base02
 client.placeholder       $base02  $base00  $base06  $base03  $base04
 client.background        $base00
 
+exec systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
+exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway

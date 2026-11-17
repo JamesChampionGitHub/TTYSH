@@ -58,6 +58,9 @@ alias xc='xclip -selection clipboard' # tty: if in vim > visual > : > :w!xclip >
 alias xp='xclip -selection clipboard -o'
 #alias xpp='xclip -selection primary -o'
 
+# Wayland OBS Fix
+export XDG_CURRENT_DESKTOP=sway
+
 # a clock in GNUScreen
 #alias clock='screen -c /home/"$USER"/.screenrc.clockworking'
 
