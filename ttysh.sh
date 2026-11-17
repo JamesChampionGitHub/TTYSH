@@ -393,6 +393,7 @@ sudo pacman --needed --noconfirm -Syu \
 	xorg-xwayland \
 	mupdf \
 	zathura \
+	zathura-pdf-mupdf \
 	cryptsetup \
 	timeshift \
 	gnome-boxes \
@@ -2047,6 +2048,7 @@ printf "\n%s" ""
 					xorg-xwayland \
 					mupdf \
 					zathura \
+					zathura-pdf-mupdf \
 					cryptsetup \
 					timeshift \
 					gnome-boxes \
