@@ -60,6 +60,10 @@ alias xp='xclip -selection clipboard -o'
 
 # Wayland OBS Fix
 export XDG_CURRENT_DESKTOP=sway
+export XDG_SESSION_DESKTOP=sway
+export XDG_CURRENT_SESSION_TYPE=wayland
+export GDK_BACKEND="wayland,x11"
+export MOZ_ENABLE_WAYLAND=1
 
 # a clock in GNUScreen
 #alias clock='screen -c /home/"$USER"/.screenrc.clockworking'
