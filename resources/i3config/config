@@ -223,3 +223,7 @@ client.urgent           #FFFFFF #FFFFFF #FFFFFF #FFFFFF #FFFFFF
 default_border pixel 2
 default_floating_border pixel 2
 for_window [class="^.*"] border pixel 2
+
+#File Picker For Web Browser
+exec --no-startup-id /usr/lib/xdg-desktop-portal &
+exec --no-startup-id /usr/lib/xdg-desktop-portal-gtk &
